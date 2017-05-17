@@ -1,0 +1,52 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+  "globals": {
+      "__DEV__": true,
+      "window": true,
+      "document": true,
+      "describe": true,
+      "expect": true,
+      "it": true
+    },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "rules": {
+        # "quote-props": [1, "consistent-as-needed"],
+        # "no-cond-assign": [2, "except-parens"],
+        # "no-param-reassign": ["error", {"props": false}],
+        # "import/extensions": 0,
+        # "class-methods-use-this": 0,
+        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+        "react/prefer-stateless-function": ["warn"],
+        "react/prop-types": ["warn", {skipUndeclared: true}], #don't warn when no proptypes are declared (only when an incomplete array is declared)
+        #"react/forbid-prop-types": ["error", { "forbid": ['any', 'array'] }], # 'object'
+        "no-case-declarations": 0,
+        "global-require": 0,
+        "no-console": ["warn", { allow: ["disableYellowBox", "ignoredYellowBox", "tron"] }],
+        "no-unused-vars": ["warn"],
+        "prefer-const": ["warn"],
+        "no-use-before-define": [ "error", { "functions": false } ],
+        "max-len": [
+          "error",
+          100,
+          2,
+          {
+            "ignoreUrls": true,
+            "ignoreComments": true,
+            "ignoreRegExpLiterals": false,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true
+          }
+        ],
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "SAIS0N",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "pack": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "npm run adb && npm run build && npm run start:android && rndebugger-open && npm run shake",
+    "adb": "adb reverse tcp:8081 tcp:8081",
+    "build": "cd android && gradlew installDebug",
+    "start": "adb shell am start -n com.sais0n/.MainActivity",
+    "shake": "adb shell input keyevent KEYCODE_MENU",
+    "lint": "eslint ./",
+    "test": "jest",
+    "build:ios": "bundle install --binstubs ./examples/ios && bundle exec pod install --project-directory=./example/ios/",
+    "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
+    "clean": "rm -rf $TMPDIR/react-* && npm cache clean"
+  },
+  "dependencies": {
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "native-base": "~2.1.3",
+    "react": "^16.0.0-alpha.6",
+    "react-native": "~0.44.0",
+    "react-navigation": "~1.0.0-beta.9",
+    "react-redux": "~5.0.4",
+    "redux": "~3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-persist": "~4.8.0",
+    "redux-saga": "~0.15.3",
+    "uuid": "~3.0.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^20.0.0",
+    "babel-preset-react-native": "^1.9.1",
+    "jest": "^20.0.0",
+    "jest-cli": "^20.0.3",
+    "react-native-debugger-open": "^0.3.11",
+    "react-test-renderer": "^16.0.0-alpha.6",
+    "reactotron-react-native": "^1.10.0",
+    "reactotron-redux": "^1.10.0",
+    "reactotron-redux-saga": "^1.10.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
