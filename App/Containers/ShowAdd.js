@@ -32,7 +32,7 @@ export default class ShowAdd extends React.Component {
 
   handleSave = () => {
     if (this.state && this.state.showName && this.state.showName.trim() !== '') {
-      this.props.addShow(this.state.showName);
+      this.props.addShow(this.state.showName.trim());
       this.props.navigation.goBack();
       Keyboard.dismiss();
     }

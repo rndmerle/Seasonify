@@ -6,7 +6,6 @@ import { Container, Content, Form, Label, Item, Input, Icon } from 'native-base'
 import { friendActions } from '../Redux/FriendRedux';
 import HeaderModular from '../Components/HeaderModular';
 import DefaultMessage from '../Config/DefaultMessage';
-import { trimmed } from '../Services/Helpers';
 
 @connect(
   () => ({}),
@@ -27,10 +26,10 @@ export default class FriendDetails extends React.Component {
             action: params.handleEdit,
           },
           {
-            svisibleIf: params.isEditing,
+            visibleIf: params.isEditing,
             hideByDefault: true,
             icon: 'checkmark',
-            action: params.handleUpdate,
+            action: params.handleDone,
           },
           { icon: 'trash', action: params.handleDelete },
         ]}
@@ -39,15 +38,26 @@ export default class FriendDetails extends React.Component {
   }
 
   componentWillMount() {
+    // local model
+    this.setState({ friend: this.props.navigation.state.params.friend });
+
+    // actions and params for the navigation state
     this.props.navigation.setParams({
       isEditing: false,
       handleEdit: this.handleEdit,
-      handleUpdate: this.handleUpdate,
+      handleDone: this.handleDone,
       handleDelete: this.handleDelete,
     });
   }
 
   onChangeName = (name) => {
+    this.syncModel({ name });
+  };
+
+  syncModel = ({ name }, callback = () => {}) => {
+    this.setState({
+      friend: { ...this.state.friend, name: name.trim() },
+    }, callback);
     this.props.navigation.setParams({
       friend: { ...this.props.navigation.state.params.friend, name },
     });
@@ -59,14 +69,13 @@ export default class FriendDetails extends React.Component {
     });
   };
 
-  handleUpdate = () => {
-    const { friend } = this.props.navigation.state.params;
-    this.props.updateFriend(trimmed(friend));
+  handleDone = () => {
     Keyboard.dismiss();
+    this.props.updateFriend(this.state.friend);
     this.props.navigation.navigate('FriendList',
       { message: {
         ...DefaultMessage,
-        text: `${friend.name} has been edited`,
+        text: `${this.state.friend.name} has been edited`,
       } },
     );
   };

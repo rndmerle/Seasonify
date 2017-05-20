@@ -32,7 +32,7 @@ export default class FriendAdd extends React.Component {
 
   handleSave = () => {
     if (this.state && this.state.friendName && this.state.friendName.trim() !== '') {
-      this.props.addFriend(this.state.friendName);
+      this.props.addFriend(this.state.friendName.trim());
       this.props.navigation.goBack();
       Keyboard.dismiss();
     }

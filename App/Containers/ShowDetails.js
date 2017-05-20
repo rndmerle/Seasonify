@@ -6,7 +6,6 @@ import { Container, Content, Form, Label, Item, Input, Icon } from 'native-base'
 import { showActions } from '../Redux/ShowRedux';
 import HeaderModular from '../Components/HeaderModular';
 import DefaultMessage from '../Config/DefaultMessage';
-import { trimmed } from '../Services/Helpers';
 
 @connect(
   () => ({}),
@@ -30,7 +29,7 @@ export default class ShowDetails extends React.Component {
             visibleIf: params.isEditing,
             hideByDefault: true,
             icon: 'checkmark',
-            action: params.handleUpdate,
+            action: params.handleDone,
           },
           { icon: 'trash', action: params.handleDelete },
         ]}
@@ -39,15 +38,26 @@ export default class ShowDetails extends React.Component {
   }
 
   componentWillMount() {
+    // local model
+    this.setState({ show: this.props.navigation.state.params.show });
+
+    // actions and params for the navigation state
     this.props.navigation.setParams({
       isEditing: false,
       handleEdit: this.handleEdit,
-      handleUpdate: this.handleUpdate,
+      handleDone: this.handleDone,
       handleDelete: this.handleDelete,
     });
   }
 
   onChangeName = (name) => {
+    this.syncModel({ name });
+  };
+
+  syncModel = ({ name }, callback = () => {}) => {
+    this.setState({
+      show: { ...this.state.show, name: name.trim() },
+    }, callback);
     this.props.navigation.setParams({
       show: { ...this.props.navigation.state.params.show, name },
     });
@@ -59,14 +69,13 @@ export default class ShowDetails extends React.Component {
     });
   };
 
-  handleUpdate = () => {
-    const { show } = this.props.navigation.state.params;
-    this.props.updateShow(trimmed(show));
+  handleDone = () => {
     Keyboard.dismiss();
+    this.props.updateShow(this.state.show);
     this.props.navigation.navigate('ShowList',
       { message: {
         ...DefaultMessage,
-        text: `${show.name} has been edited`,
+        text: `${this.state.show.name} has been edited`,
       } },
     );
   };
