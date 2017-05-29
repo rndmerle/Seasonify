@@ -12,7 +12,12 @@ export const showActions = {
 };
 
 Ident.newid();
-export const INITIAL_STATE = { [Ident.id()]: { id: Ident.id(), name: 'Breaking Bad' } };
+export const INITIAL_STATE = {
+  [Ident.id()]: {
+    id: Ident.id(),
+    name: 'The Walking Dead',
+  },
+};
 
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
