@@ -6,18 +6,23 @@ import { Container, Content, Form, Label, Input, Item } from 'native-base';
 import { friendActions } from '../Redux/FriendRedux';
 import HeaderModular from '../Components/HeaderModular';
 
-@connect(
-  () => ({}),
-  friendActions,
-)
-export default class FriendAdd extends React.Component {
+const mapStateToProps = null; // state => ({});
 
+const mapActionsToProps = {
+  addFriend: friendActions.addFriend,
+};
+
+export class FriendAdd extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    header: <HeaderModular
-      title="New friend"
-      cancelButton={{ icon: 'close', action: navigation.goBack }}
-      actionButtons={[{ text: 'ADD', action: navigation.state.params.handleSave }]}
-    />,
+    header: (
+      <HeaderModular
+        title="New friend"
+        cancelButton={{ icon: 'close', action: navigation.goBack }}
+        actionButtons={[
+          { text: 'ADD', action: navigation.state.params.handleSave },
+        ]}
+      />
+    ),
   });
 
   componentWillMount() {
@@ -26,12 +31,16 @@ export default class FriendAdd extends React.Component {
     });
   }
 
-  onChangeName = (name) => {
+  onChangeName = name => {
     this.setState({ friendName: name });
   };
 
   handleSave = () => {
-    if (this.state && this.state.friendName && this.state.friendName.trim() !== '') {
+    if (
+      this.state &&
+      this.state.friendName &&
+      this.state.friendName.trim() !== ''
+    ) {
       this.props.addFriend(this.state.friendName.trim());
       this.props.navigation.goBack();
       Keyboard.dismiss();
@@ -45,7 +54,11 @@ export default class FriendAdd extends React.Component {
           <Form>
             <Item floatingLabel>
               <Label>Friend&rsquo;s name</Label>
-              <Input onChangeText={this.onChangeName} autoFocus autoCapitalize="words" />
+              <Input
+                onChangeText={this.onChangeName}
+                autoFocus
+                autoCapitalize="words"
+              />
             </Item>
           </Form>
         </Content>
@@ -53,3 +66,5 @@ export default class FriendAdd extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapActionsToProps)(FriendAdd);

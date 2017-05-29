@@ -29,6 +29,7 @@
         "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
         "react/prefer-stateless-function": ["warn"],
         "react/prop-types": ["warn", {skipUndeclared: true}], #don't warn when no proptypes are declared (only when an incomplete array is declared)
+        "arrow-parens": ["error", "as-needed", { "requireForBlockBody": false }],
         #"react/forbid-prop-types": ["error", { "forbid": ['any', 'array'] }], # 'object'
         "no-case-declarations": 0,
         "global-require": 0,

@@ -12,7 +12,7 @@ import {
   Text,
 } from 'native-base';
 
-const HeaderModular = ({ title, cancelButton, actionButtons }) => {
+const HeaderModular = ({ title, cancelButton, actionButtons = [] }) => {
   const cancelAction = () => {
     cancelButton.action();
     Keyboard.dismiss();
@@ -28,13 +28,16 @@ const HeaderModular = ({ title, cancelButton, actionButtons }) => {
         <Title>{title}</Title>
       </Body>
       <Right>
-        {actionButtons.map((button, index) => (
-          (button.visibleIf || (typeof button.visibleIf === 'undefined' && !button.hideByDefault))
-          && <Button key={index} transparent onPress={button.action}>
+        {actionButtons.map(
+          (button, index) =>
+            (button.visibleIf ||
+              (typeof button.visibleIf === 'undefined' &&
+                !button.hideByDefault)) &&
+            <Button key={index} transparent onPress={button.action}>
               {button.text && <Text>{button.text}</Text>}
               {button.icon && <Icon name={button.icon} />}
-            </Button>
-        ))}
+            </Button>,
+        )}
       </Right>
     </Header>
   );

@@ -7,11 +7,13 @@ import HeaderRoot from '../Components/HeaderRoot';
 import ShowItem from '../Components/ShowItem';
 import SingleFAB from '../Components/SingleFAB';
 
-@connect(
-  state => ({ shows: showSelectors.getShows(state) }),
-  showActions,
-)
-export default class ShowList extends React.Component {
+const mapStateToProps = state => ({
+  shows: showSelectors.getShows(state),
+});
+
+const mapActionsToProps = {};
+
+export class ShowList extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: <HeaderRoot title="TV Shows" navigation={navigation} />,
   });
@@ -26,7 +28,7 @@ export default class ShowList extends React.Component {
 
   onFAB = () => {
     this.props.navigation.navigate('ShowAdd', {});
-  }
+  };
 
   render() {
     const { navigation, shows } = this.props;
@@ -36,8 +38,12 @@ export default class ShowList extends React.Component {
         <Content>
           <List>
             {Object.keys(shows).map(id => (
-              <ShowItem key={id} show={shows[id]} navigate={navigation.navigate} />),
-            )}
+              <ShowItem
+                key={id}
+                show={shows[id]}
+                navigate={navigation.navigate}
+              />
+            ))}
           </List>
         </Content>
         <SingleFAB onPress={this.onFAB} />
@@ -45,3 +51,5 @@ export default class ShowList extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapActionsToProps)(ShowList);
