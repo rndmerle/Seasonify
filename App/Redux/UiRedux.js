@@ -1,5 +1,5 @@
 /* ========== TYPES ========== */
-export const uiTypes = {
+export const types = {
   MESSAGE: 'UI/MESSAGE',
   SUGGESTIONS_REQUEST: 'UI/SUGGESTIONS_REQUEST',
   SUGGESTIONS_SUCCESS: 'UI/SUGGESTIONS_SUCCESS',
@@ -9,19 +9,19 @@ export const uiTypes = {
 /* ========== ACTIONS ========== */
 export const uiActions = {
   toastMessage: (type, text) => ({
-    type: uiTypes.MESSAGE,
+    type: types.MESSAGE,
     payload: { type, text },
   }),
   suggestionsRequest: text => ({
-    type: uiTypes.SUGGESTIONS_REQUEST,
+    type: types.SUGGESTIONS_REQUEST,
     payload: { text },
   }),
   suggestionsSuccess: suggestions => ({
-    type: uiTypes.SUGGESTIONS_SUCCESS,
+    type: types.SUGGESTIONS_SUCCESS,
     payload: { suggestions },
   }),
   suggestionsFail: message => ({
-    type: uiTypes.SUGGESTIONS_SUCCESS,
+    type: types.SUGGESTIONS_SUCCESS,
     payload: { message },
   }),
 };
@@ -34,10 +34,10 @@ export const INITIAL_STATE = {
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case uiTypes.MESSAGE:
+    case types.MESSAGE:
       return { ...state, message: { type: payload.type, text: payload.text } };
 
-    case uiTypes.SUGGESTIONS_SUCCESS:
+    case types.SUGGESTIONS_SUCCESS:
       return { ...state, suggestions: payload.suggestions };
 
     default:

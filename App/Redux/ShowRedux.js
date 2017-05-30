@@ -1,7 +1,7 @@
 import Ident from '../Services/Ident';
 
 /* ========== TYPES ========== */
-export const showTypes = {
+export const types = {
   ADD: 'SHOW/ADD',
   REMOVE: 'SHOW/REMOVE',
   UPDATE: 'SHOW/UPDATE',
@@ -10,11 +10,11 @@ export const showTypes = {
 /* ========== ACTIONS ========== */
 export const showActions = {
   addShow: (allocine, name, year, posterURL, seasonCount) => ({
-    type: showTypes.ADD,
+    type: types.ADD,
     payload: { allocine, name, year, posterURL, seasonCount },
   }),
-  removeShow: id => ({ type: showTypes.REMOVE, payload: { id } }),
-  updateShow: friend => ({ type: showTypes.UPDATE, payload: friend }),
+  removeShow: id => ({ type: types.REMOVE, payload: { id } }),
+  updateShow: friend => ({ type: types.UPDATE, payload: friend }),
 };
 
 Ident.newid();
@@ -33,15 +33,15 @@ export const INITIAL_STATE = {
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case showTypes.ADD:
+    case types.ADD:
       Ident.newid();
       return { ...state, [Ident.id()]: { id: Ident.id(), ...payload } };
 
-    case showTypes.REMOVE:
+    case types.REMOVE:
       const { [payload.id]: deleted, ...newState } = state;
       return newState;
 
-    case showTypes.UPDATE:
+    case types.UPDATE:
       return { ...state, [payload.id]: payload };
 
     default:

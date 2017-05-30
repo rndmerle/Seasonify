@@ -4,7 +4,7 @@ import DebugConfig from '../Config/DebugConfig';
 
 /* ------------- Types ------------- */
 
-import { uiTypes } from '../Redux/UiRedux';
+import { types as uiTypes } from '../Redux/UiRedux';
 
 /* ------------- Sagas ------------- */
 

@@ -4,6 +4,7 @@ import { Keyboard } from 'react-native';
 import { Container, Content } from 'native-base';
 
 import { showActions } from '../Redux/ShowRedux';
+import { uiActions } from '../Redux/UiRedux';
 import { successMessage, warningMessage } from '../Config/DefaultMessages';
 import HeaderModular from '../Components/HeaderModular';
 import ShowSheet from '../Components/ShowSheet';
@@ -13,6 +14,7 @@ const mapStateToProps = null; // state => ({});
 const mapActionsToProps = {
   removeShow: showActions.removeShow,
   updateShow: showActions.updateShow,
+  toastMessage: uiActions.toastMessage,
 };
 
 export class ShowDetails extends React.Component {
@@ -80,12 +82,20 @@ export class ShowDetails extends React.Component {
   handleDone = () => {
     Keyboard.dismiss();
     this.props.updateShow(this.state.show);
-    this.props.navigation.navigate('ShowList', {
+    this.props.navigation.navigate(
+      'ShowList',
+      {
+        /*
       message: {
         ...successMessage,
         text: `${this.state.show.name} has been edited`,
+      },*/
       },
-    });
+    );
+    this.props.toastMessage(
+      'success',
+      `${this.state.show.name} has been edited`,
+    );
   };
 
   handleDelete = () => {
