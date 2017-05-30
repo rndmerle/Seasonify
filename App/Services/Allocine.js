@@ -87,8 +87,14 @@ export default class Allocine {
   };
 }
 
-export const Fixtures = {
-  searchShow: () => ({
-    data: require('../Fixtures/tvshowsSearch.json'),
-  }),
+export const ApiFixtures = {
+  searchShows: query => {
+    if (query.trim() === '') {
+      return { error: null, data: [] };
+    }
+    return {
+      error: null,
+      data: require('../Fixtures/tvshowsSearch.json'),
+    };
+  },
 };
