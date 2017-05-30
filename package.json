@@ -9,6 +9,7 @@
     "build": "cd android && gradlew installDebug",
     "start": "adb shell am start -n com.sais0n/.MainActivity",
     "shake": "adb shell input keyevent KEYCODE_MENU",
+    "date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
     "lint": "eslint ./",
     "test": "jest",
     "build:ios": "bundle install --binstubs ./examples/ios && bundle exec pod install --project-directory=./example/ios/",

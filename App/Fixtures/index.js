@@ -1,5 +1,5 @@
 export default {
   searchShow: query => ({
-    data: require('./tvshowSearch.json'),
+    data: require('./tvshowsSearch.json'),
   }),
 };

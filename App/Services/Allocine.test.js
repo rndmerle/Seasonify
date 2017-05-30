@@ -1,8 +1,18 @@
 import Allocine from './Allocine';
 
-test('TVshow search on Allocine API', async () => {
+test('Search a show with multiple result', async () => {
   const api = new Allocine();
-  const response = await api.searchShow('Walking Dead');
-  // console.log(response.data.feed.tvseries);
-  expect(response.data.feed.tvseries.length).toBeGreaterThan(0);
+  const response = await api.searchShows('Walking Dead');
+
+  expect(response.error).toBeNull();
+  expect(response.data).toBeTruthy();
+  expect(response.data.length).toBeGreaterThan(0);
+});
+
+test('Search an unknown show', async () => {
+  const api = new Allocine();
+  const response = await api.searchShows('Azertyuiop');
+
+  expect(response.error).toBeNull();
+  expect(response.data).toEqual([]);
 });

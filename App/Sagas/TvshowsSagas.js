@@ -1,6 +1,11 @@
-import { put } from 'redux-saga/effects';
-import ShowActions from '../Redux/ShowRedux';
+import { call, put } from 'redux-saga/effects';
+import { uiActions } from '../Redux/UiRedux';
 
-export function* searchTvshows(action) {
-  yield put(ShowActions.suggestFailure());
+export function* searchTvshows(api, { payload }) {
+  const response = yield call(api.searchShows, payload.text);
+  if (response.error) {
+    yield put(uiActions.suggestionsFail(response.error));
+  } else {
+    yield put(uiActions.suggestionsSuccess(response.data));
+  }
 }

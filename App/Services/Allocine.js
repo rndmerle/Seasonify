@@ -64,8 +64,31 @@ export default class Allocine {
 
   api = (method, options) => {
     const path = this.buildPath(method, options);
-    return axios.get(this.config.apiHostName + path);
+    axios
+      .get(this.config.apiHostName + path)
+      .then(result => ({ error: null, data: result.data }))
+      .catch(error => ({ error: error.message, data: null }));
   };
 
-  searchShow = query => this.api('search', { q: query });
+  searchShows = query => {
+    if (query.trim() === '') {
+      return { error: null, data: [] };
+    }
+    const path = this.buildPath('search', { q: query });
+    return axios
+      .get(this.config.apiHostName + path)
+      .then(result => ({
+        error: null,
+        data: result.data.feed && result.data.feed.tvseries
+          ? result.data.feed.tvseries
+          : [],
+      }))
+      .catch(error => ({ error: error.message, data: null }));
+  };
 }
+
+export const Fixtures = {
+  searchShow: () => ({
+    data: require('../Fixtures/tvshowsSearch.json'),
+  }),
+};

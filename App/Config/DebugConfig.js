@@ -1,7 +1,13 @@
 export default {
   useFixtures: false,
   yellowBox: __DEV__,
-  ignoredYellowBox: ['Warning: BackAndroid', 'Setting a timer for'],
+  ignoredYellowBox: [
+    'Warning: BackAndroid',
+    'Setting a timer for',
+    'Debugger and device times',
+    'Unable to symbolicate stack trace',
+    '[...effects]',
+  ],
   reduxLogging: __DEV__,
   navigationLogging: false,
   useReduxDevtoolsExtension: __DEV__,

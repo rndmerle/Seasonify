@@ -13,15 +13,18 @@ import {
 } from 'native-base';
 
 import { showActions } from '../Redux/ShowRedux';
+import { uiActions, uiSelectors } from '../Redux/UiRedux';
 import HeaderModular from '../Components/HeaderModular';
 import SuggestionItem from '../Components/SuggestionItem';
 import { errorMessage } from '../Config/DefaultMessages';
-import Allocine from '../Services/Allocine';
 
-const mapStateToProps = null; // state => ({});
+const mapStateToProps = state => ({
+  suggestions: uiSelectors.getSuggestions(state),
+});
 
 const mapActionsToProps = {
   addShow: showActions.addShow,
+  suggestionsRequest: uiActions.suggestionsRequest,
 };
 
 export class ShowAdd extends React.Component {
@@ -35,7 +38,7 @@ export class ShowAdd extends React.Component {
   });
 
   componentWillMount() {
-    this.setState({ suggestions: [] });
+    this.props.suggestionsRequest('');
   }
 
   onChangeName = name => {
@@ -44,18 +47,7 @@ export class ShowAdd extends React.Component {
 
   onSearchName = event => {
     const typedName = event.nativeEvent.text;
-    const api = new Allocine();
-    api
-      .searchShow(typedName)
-      .then(result => {
-        this.setState({ suggestions: result.data.feed.tvseries });
-      })
-      .catch(error => {
-        Toast.show({
-          ...errorMessage,
-          text: `No tvshow suggestion from online database: ${error.message}`,
-        });
-      });
+    this.props.suggestionsRequest(typedName);
   };
 
   onPressSuggestion = suggestionKey => {
@@ -65,7 +57,7 @@ export class ShowAdd extends React.Component {
       yearStart,
       poster: { href: posterURL },
       seasonCount,
-    } = this.state.suggestions[suggestionKey];
+    } = this.props.suggestions[suggestionKey];
 
     this.props.addShow(
       code,
@@ -84,8 +76,8 @@ export class ShowAdd extends React.Component {
       <Container>
         <Content>
           <Form>
-            <Item floatingLabel>
-              <Label>Show&rsquo;s name</Label>
+            <Item fixedLabel>
+              <Label>Show&rsquo;s name:</Label>
               <Input
                 onChangeText={this.onChangeName}
                 onEndEditing={this.onSearchName}
@@ -94,10 +86,10 @@ export class ShowAdd extends React.Component {
               />
             </Item>
           </Form>
-          {this.state.suggestions &&
+          {this.props.suggestions &&
             <List>
-              {Object.keys(this.state.suggestions).map(key => {
-                const suggestion = this.state.suggestions[key];
+              {Object.keys(this.props.suggestions).map(key => {
+                const suggestion = this.props.suggestions[key];
                 return (
                   <SuggestionItem
                     key={key}

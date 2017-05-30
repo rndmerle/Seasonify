@@ -1,0 +1,48 @@
+[
+  {
+    code: 7330,
+    originalTitle: 'The Walking Dead',
+    castingShort: {
+      creators: 'Robert Kirkman',
+      actors: 'Andrew Lincoln, Norman Reedus, Jeffrey Dean Morgan, Steven Yeun, Chandler Riggs',
+    },
+    yearStart: 2010,
+    seasonCount: 8,
+    statistics: { pressRating: 4.42857, userRating: 4.51301 },
+    poster: {
+      path: '/medias/nmedia/18/78/35/82/20303823.jpg',
+      href: 'http://fr.web.img5.acsta.net/medias/nmedia/18/78/35/82/20303823.jpg',
+    },
+  },
+  {
+    code: 808,
+    originalTitle: 'Afterlife',
+    castingShort: {
+      creators: 'Stephen Volk',
+      actors: 'Lesley Sharp, Andrew Lincoln, Anna Wilson-Jones, Kate Duchene',
+    },
+    yearStart: 2005,
+    yearEnd: 2006,
+    seasonCount: 2,
+    statistics: { userRating: 3.43324 },
+    poster: {
+      path: '/medias/nmedia/18/90/09/68/20080851.jpg',
+      href: 'http://fr.web.img1.acsta.net/medias/nmedia/18/90/09/68/20080851.jpg',
+    },
+  },
+  {
+    code: 16958,
+    originalTitle: 'Fear The Walking Dead',
+    castingShort: {
+      creators: 'Dave Erickson, Robert Kirkman',
+      actors: 'Kim Dickens, Cliff Curtis, Frank Dillane, Alycia Debnam-Carey, Rubén Blades',
+    },
+    yearStart: 2015,
+    seasonCount: 4,
+    statistics: { pressRating: 3.85, userRating: 3.78805 },
+    poster: {
+      path: '/pictures/17/04/05/11/36/557721.jpg',
+      href: 'http://fr.web.img5.acsta.net/pictures/17/04/05/11/36/557721.jpg',
+    },
+  },
+];

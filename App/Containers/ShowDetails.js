@@ -13,7 +13,6 @@ import {
   Text,
   Grid,
   Col,
-  Thumbnail,
 } from 'native-base';
 
 import { showActions } from '../Redux/ShowRedux';
