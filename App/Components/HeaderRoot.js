@@ -3,6 +3,7 @@ import { Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
 
 const HeaderRoot = ({ title, navigation }) => {
   const openDrawer = () => {
+    console.log(navigation);
     navigation.navigate('DrawerOpen');
   };
   return (

@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "pack": "node node_modules/react-native/local-cli/cli.js start",
-    "android": "npm run adb && npm run build && npm run start && rndebugger-open",
+    "android": "npm run adb && npm run build && npm start debugger && npm run start",
     "adb": "adb reverse tcp:8081 tcp:8081",
     "build": "cd android && gradlew installDebug",
     "start": "adb shell am start -n com.sais0n/.MainActivity",
+    "debugger": "rndebugger-open",
     "shake": "adb shell input keyevent KEYCODE_MENU",
     "date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
     "lint": "eslint ./",
@@ -26,10 +27,11 @@
     "react-navigation": "~1.0.0-beta.9",
     "react-redux": "~5.0.4",
     "redux": "~3.6.0",
+    "redux-devtools-extension": "^2.13.2",
     "redux-persist": "~4.8.0",
     "redux-saga": "~0.15.3",
-    "uuid": "~3.0.1",
-    "redux-devtools-extension": "^2.13.2"
+    "throttle-debounce": "^1.0.1",
+    "uuid": "~3.0.1"
   },
   "devDependencies": {
     "babel-jest": "^20.0.0",

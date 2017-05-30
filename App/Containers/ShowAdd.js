@@ -11,6 +11,7 @@ import {
   List,
   Toast,
 } from 'native-base';
+import debounce from 'throttle-debounce/debounce';
 
 import { showActions } from '../Redux/ShowRedux';
 import { uiActions, uiSelectors } from '../Redux/UiRedux';
@@ -37,17 +38,13 @@ export class ShowAdd extends React.Component {
     ),
   });
 
-  componentWillMount() {
-    this.props.suggestionsRequest('');
-  }
+  onChangeName = debounce(500, name => {
+    this.props.suggestionsRequest(name);
+  });
 
-  onChangeName = name => {
-    this.setState({ showName: name });
-  };
-
-  onSearchName = event => {
-    const typedName = event.nativeEvent.text;
-    this.props.suggestionsRequest(typedName);
+  onEndName = event => {
+    const name = event.nativeEvent.text;
+    this.props.suggestionsRequest(name);
   };
 
   onPressSuggestion = suggestionKey => {
@@ -80,7 +77,7 @@ export class ShowAdd extends React.Component {
               <Label>Show&rsquo;s name:</Label>
               <Input
                 onChangeText={this.onChangeName}
-                onEndEditing={this.onSearchName}
+                onEndEditing={this.onEndName}
                 autoFocus
                 autoCapitalize="words"
               />
