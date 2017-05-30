@@ -1,8 +1,8 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { autoRehydrate } from 'redux-persist';
-// import createSagaMiddleware from 'redux-saga'
-// import rootSaga from '../Sagas/';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from '../Sagas/';
 //
 import Config from '../Config/DebugConfig';
 import PersistConfig from '../Config/PersistConfig';
@@ -23,12 +23,14 @@ export default () => {
   const enhancers = [];
 
   /* ------------- Saga Middleware ------------- */
-  // const sagaMonitor = __DEV__ ? console.tron.createSagaMonitor() : null
-  // const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
-  // middleware.push(sagaMiddleware)
+  const sagaMonitor = Config.useReactotron
+    ? console.tron.createSagaMonitor()
+    : null;
+  const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+  middleware.push(sagaMiddleware);
 
   // Assemble Middleware
-  // enhancers.push(applyMiddleware(...middleware))
+  enhancers.push(applyMiddleware(...middleware));
 
   // AutoRehydrate
   if (PersistConfig.active) {
@@ -41,13 +43,20 @@ export default () => {
   }
 
   // Reactotron if enabled
-  const createAppropriateStore = Config.useReactotron ? console.tron.createStore : createStore;
+  const createAppropriateStore = Config.useReactotron
+    ? console.tron.createStore
+    : createStore;
 
   // redux-devtools-extension if enabled
-  const appropriateCompose = Config.useReduxDevtoolsExtension ? composeWithDevTools : compose;
+  const appropriateCompose = Config.useReduxDevtoolsExtension
+    ? composeWithDevTools
+    : compose;
 
   // Creating store
-  const store = createAppropriateStore(rootReducer, appropriateCompose(...enhancers));
+  const store = createAppropriateStore(
+    rootReducer,
+    appropriateCompose(...enhancers),
+  );
 
   // react-native-debugger again to handle the other added enhancers
   if (Config.useReduxNativeDevTools && global.reduxNativeDevTools) {
@@ -60,7 +69,7 @@ export default () => {
   }
 
   // Kick off root Saga
-  // sagaMiddleware.run(rootSaga)
+  sagaMiddleware.run(rootSaga);
 
   return store;
 };

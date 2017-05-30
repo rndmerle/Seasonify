@@ -9,18 +9,14 @@ import {
   Input,
   Item,
   List,
-  ListItem,
-  Text,
   Toast,
-  Right,
-  Icon,
 } from 'native-base';
 
 import { showActions } from '../Redux/ShowRedux';
 import HeaderModular from '../Components/HeaderModular';
 import SuggestionItem from '../Components/SuggestionItem';
 import { errorMessage } from '../Config/DefaultMessages';
-import { searchShow } from '../Services/Allocine';
+import Allocine from '../Services/Allocine';
 
 const mapStateToProps = null; // state => ({});
 
@@ -48,8 +44,9 @@ export class ShowAdd extends React.Component {
 
   onSearchName = event => {
     const typedName = event.nativeEvent.text;
-
-    searchShow(typedName)
+    const api = new Allocine();
+    api
+      .searchShow(typedName)
       .then(result => {
         this.setState({ suggestions: result.data.feed.tvseries });
       })
@@ -106,7 +103,9 @@ export class ShowAdd extends React.Component {
                     key={key}
                     suggestionKey={key}
                     onPress={this.onPressSuggestion}
-                    posterURL={suggestion.poster.href}
+                    posterURL={
+                      suggestion.poster ? suggestion.poster.href : null
+                    }
                     title={suggestion.originalTitle}
                     subtitle={suggestion.yearStart}
                   />

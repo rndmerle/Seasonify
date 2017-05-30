@@ -1,6 +1,5 @@
 export default {
-  useFixtures: true,
-  // ezLogin: false,
+  useFixtures: false,
   yellowBox: __DEV__,
   ignoredYellowBox: ['Warning: BackAndroid', 'Setting a timer for'],
   reduxLogging: __DEV__,

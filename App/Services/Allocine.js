@@ -62,10 +62,10 @@ export default class Allocine {
     return `${Url}?${paramsString}&sed=${sed}&sig=${encodedSig}`;
   };
 
-  apiShow = (method, options) => {
+  api = (method, options) => {
     const path = this.buildPath(method, options);
     return axios.get(this.config.apiHostName + path);
   };
 
-  searchShow = query => this.apiShow('search', { q: query });
+  searchShow = query => this.api('search', { q: query });
 }

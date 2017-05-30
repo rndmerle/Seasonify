@@ -7,6 +7,7 @@ import {
   Thumbnail,
   Text,
   Icon,
+  Button,
 } from 'native-base';
 
 const SuggestionItem = ({
@@ -22,7 +23,9 @@ const SuggestionItem = ({
   return (
     <ListItem onPress={onPressSuggestion} avatar>
       <Left>
-        <Thumbnail square source={{ uri: posterURL }} />
+        {posterURL && <Thumbnail square source={{ uri: posterURL }} />}
+        {!posterURL &&
+          <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
       <Body>
         <Text>{title}</Text>
