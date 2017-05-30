@@ -1,23 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, Image } from 'react-native';
-import {
-  Container,
-  Content,
-  Form,
-  Item,
-  Input,
-  Icon,
-  List,
-  ListItem,
-  Text,
-  Grid,
-  Col,
-} from 'native-base';
+import { Keyboard } from 'react-native';
+import { Container, Content } from 'native-base';
 
 import { showActions } from '../Redux/ShowRedux';
-import HeaderModular from '../Components/HeaderModular';
 import { successMessage, warningMessage } from '../Config/DefaultMessages';
+import HeaderModular from '../Components/HeaderModular';
+import ShowSheet from '../Components/ShowSheet';
 
 const mapStateToProps = null; // state => ({});
 
@@ -116,43 +105,11 @@ export class ShowDetails extends React.Component {
     return (
       <Container>
         <Content>
-          <Grid>
-            <Col size={38}>
-              <Image
-                resizeMode="contain"
-                resizeMethod="scale"
-                style={{
-                  flex: 1,
-                  height: undefined,
-                  width: undefined,
-                }}
-                // style={{ width: 120, height: null }}
-                source={{ uri: params.show.posterURL }}
-              />
-            </Col>
-            <Col size={62}>
-              <Form>
-                <Item regular>
-                  {params.isEditing && <Icon name="create" />}
-                  <Input
-                    disabled={!params.isEditing}
-                    placeHolder="Name"
-                    value={params.show.name}
-                    onChangeText={this.onChangeName}
-                    autoCapitalize="words"
-                  />
-                </Item>
-              </Form>
-              <List>
-                <ListItem>
-                  <Text note>{params.show.year}</Text>
-                </ListItem>
-                <ListItem>
-                  <Text note>{params.show.seasonCount} seasons (VO)</Text>
-                </ListItem>
-              </List>
-            </Col>
-          </Grid>
+          <ShowSheet
+            show={params.show}
+            isEditing={params.isEditing}
+            onChangeName={this.onChangeName}
+          />
         </Content>
       </Container>
     );

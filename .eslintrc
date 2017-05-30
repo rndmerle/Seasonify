@@ -40,9 +40,10 @@
         "no-use-before-define": [ "error", { "functions": false } ],
         "max-len": [
           "error",
-          100,
+          90,
           2,
           {
+            "ignorePattern": "^import.*",
             "ignoreUrls": true,
             "ignoreComments": true,
             "ignoreRegExpLiterals": false,
