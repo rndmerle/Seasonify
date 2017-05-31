@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, List, Toast } from 'native-base';
+import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 
 import { showActions, showSelectors } from '../Redux/ShowRedux';
@@ -17,14 +17,6 @@ export class ShowList extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: <HeaderRoot title="TV Shows" navigation={navigation} />,
   });
-
-  componentDidMount() {
-    const { state } = this.props.navigation;
-
-    if (state.params && state.params.message) {
-      Toast.show(state.params.message);
-    }
-  }
 
   onFAB = () => {
     this.props.navigation.navigate('ShowAdd', {});

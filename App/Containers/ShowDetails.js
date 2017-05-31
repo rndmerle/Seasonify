@@ -5,7 +5,6 @@ import { Container, Content } from 'native-base';
 
 import { showActions } from '../Redux/ShowRedux';
 import { uiActions } from '../Redux/UiRedux';
-import { successMessage, warningMessage } from '../Config/DefaultMessages';
 import HeaderModular from '../Components/HeaderModular';
 import ShowSheet from '../Components/ShowSheet';
 
@@ -82,16 +81,7 @@ export class ShowDetails extends React.Component {
   handleDone = () => {
     Keyboard.dismiss();
     this.props.updateShow(this.state.show);
-    this.props.navigation.navigate(
-      'ShowList',
-      {
-        /*
-      message: {
-        ...successMessage,
-        text: `${this.state.show.name} has been edited`,
-      },*/
-      },
-    );
+    this.props.navigation.navigate('ShowList', {});
     this.props.toastMessage(
       'success',
       `${this.state.show.name} has been edited`,
@@ -101,12 +91,8 @@ export class ShowDetails extends React.Component {
   handleDelete = () => {
     const { show } = this.props.navigation.state.params;
     this.props.removeShow(show.id);
-    this.props.navigation.navigate('ShowList', {
-      message: {
-        ...warningMessage,
-        text: `${show.name} has been deleted`,
-      },
-    });
+    this.props.navigation.navigate('ShowList', {});
+    this.props.toastMessage('warning', `${show.name} has been deleted`);
   };
 
   render() {

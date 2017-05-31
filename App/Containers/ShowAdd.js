@@ -9,7 +9,6 @@ import {
   Input,
   Item,
   List,
-  Toast,
 } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
@@ -17,7 +16,6 @@ import { showActions } from '../Redux/ShowRedux';
 import { uiActions, uiSelectors } from '../Redux/UiRedux';
 import HeaderModular from '../Components/HeaderModular';
 import SuggestionItem from '../Components/SuggestionItem';
-import { errorMessage } from '../Config/DefaultMessages';
 
 const mapStateToProps = state => ({
   suggestions: uiSelectors.getSuggestions(state),

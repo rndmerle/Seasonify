@@ -2,7 +2,6 @@ export const types = {
   STARTUP: 'STARTUP',
 };
 
-// actions
-export default {
+export const startupActions = {
   startup: () => ({ type: types.STARTUP }),
 };

@@ -1,6 +1,7 @@
 /* ========== TYPES ========== */
 export const types = {
-  MESSAGE: 'UI/MESSAGE',
+  MESSAGE_TOAST: 'UI/MESSAGE_TOAST',
+  MESSAGE_HIDE: 'UI/MESSAGE_HIDE',
   SUGGESTIONS_REQUEST: 'UI/SUGGESTIONS_REQUEST',
   SUGGESTIONS_SUCCESS: 'UI/SUGGESTIONS_SUCCESS',
   SUGGESTIONS_FAIL: 'UI/SUGGESTIONS_FAIL',
@@ -9,8 +10,11 @@ export const types = {
 /* ========== ACTIONS ========== */
 export const uiActions = {
   toastMessage: (type, text) => ({
-    type: types.MESSAGE,
+    type: types.MESSAGE_TOAST,
     payload: { type, text },
+  }),
+  hideMessage: () => ({
+    type: types.MESSAGE_HIDE,
   }),
   suggestionsRequest: text => ({
     type: types.SUGGESTIONS_REQUEST,
@@ -20,25 +24,30 @@ export const uiActions = {
     type: types.SUGGESTIONS_SUCCESS,
     payload: { suggestions },
   }),
-  suggestionsFail: message => ({
-    type: types.SUGGESTIONS_SUCCESS,
-    payload: { message },
+  suggestionsFail: () => ({
+    type: types.SUGGESTIONS_FAIL,
   }),
 };
 
 export const INITIAL_STATE = {
-  message: { type: 'success', text: '' },
+  message: null,
   suggestions: [],
 };
 
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case types.MESSAGE:
+    case types.MESSAGE_TOAST:
       return { ...state, message: { type: payload.type, text: payload.text } };
+
+    case types.MESSAGE_HIDE:
+      return { ...state, message: null };
 
     case types.SUGGESTIONS_SUCCESS:
       return { ...state, suggestions: payload.suggestions };
+
+    case types.SUGGESTIONS_FAIL:
+      return { ...state, suggestions: [] };
 
     default:
       return state;

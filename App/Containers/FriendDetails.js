@@ -12,14 +12,15 @@ import {
 } from 'native-base';
 
 import { friendActions } from '../Redux/FriendRedux';
+import { uiActions } from '../Redux/UiRedux';
 import HeaderModular from '../Components/HeaderModular';
-import { successMessage, warningMessage } from '../Config/DefaultMessages';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
   removeFriend: friendActions.removeFriend,
   updateFriend: friendActions.updateFriend,
+  toastMessage: uiActions.toastMessage,
 };
 
 export class FriendDetails extends React.Component {
@@ -87,23 +88,18 @@ export class FriendDetails extends React.Component {
   handleDone = () => {
     Keyboard.dismiss();
     this.props.updateFriend(this.state.friend);
-    this.props.navigation.navigate('FriendList', {
-      message: {
-        ...successMessage,
-        text: `${this.state.friend.name} has been edited`,
-      },
-    });
+    this.props.navigation.navigate('FriendList', {});
+    this.props.toastMessage(
+      'success',
+      `${this.state.friend.name} has been edited`,
+    );
   };
 
   handleDelete = () => {
     const { friend } = this.props.navigation.state.params;
     this.props.removeFriend(friend.id);
-    this.props.navigation.navigate('FriendList', {
-      message: {
-        ...warningMessage,
-        text: `${friend.name} has been deleted`,
-      },
-    });
+    this.props.navigation.navigate('FriendList', {});
+    this.props.toastMessage('warning', `${friend.name} has been deleted`);
   };
 
   render() {
