@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 
-import { friendActions, friendSelectors } from '../Redux/FriendRedux';
+import { friendActions, friendSelectors } from '../Redux/friendRedux';
 import HeaderRoot from '../Components/HeaderRoot';
 import FriendItem from '../Components/FriendItem';
 import SingleFAB from '../Components/SingleFAB';

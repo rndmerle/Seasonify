@@ -6,7 +6,7 @@ import navigationLogging from '../Services/Logging';
 import PersistConfig from '../Config/PersistConfig';
 import DrawerNavigation from '../Navigation/DrawerNavigation';
 import ToastMessage from './ToastMessage';
-import { startupActions } from '../Redux/StartupRedux';
+import { startupActions } from '../Redux/startupRedux';
 
 const mapStateToProps = state => ({
   message: state.ui.message,

@@ -8,9 +8,9 @@ import Config from '../Config/DebugConfig';
 import PersistConfig from '../Config/PersistConfig';
 import RehydrationServices from '../Services/RehydrationServices';
 
-import ui from './UiRedux';
-import friends from './FriendRedux';
-import shows from './ShowRedux';
+import ui from './uiRedux';
+import friends from './friendRedux';
+import shows from './showRedux';
 
 export default () => {
   /* ------------- Assemble The Reducers ------------- */

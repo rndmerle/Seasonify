@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import { Container, Content } from 'native-base';
 
-import { showActions } from '../Redux/ShowRedux';
-import { uiActions } from '../Redux/UiRedux';
+import { showActions } from '../Redux/showRedux';
+import { uiActions } from '../Redux/uiRedux';
 import HeaderModular from '../Components/HeaderModular';
 import ShowSheet from '../Components/ShowSheet';
 

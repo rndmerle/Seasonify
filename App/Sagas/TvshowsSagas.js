@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { uiActions } from '../Redux/UiRedux';
+import { uiActions } from '../Redux/uiRedux';
 
 export function* searchTvshows(api, { payload }) {
   const response = yield call(api.searchShows, payload.text);

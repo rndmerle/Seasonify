@@ -12,8 +12,8 @@ import {
 } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
-import { showActions } from '../Redux/ShowRedux';
-import { uiActions, uiSelectors } from '../Redux/UiRedux';
+import { showActions } from '../Redux/showRedux';
+import { uiActions, uiSelectors } from '../Redux/uiRedux';
 import HeaderModular from '../Components/HeaderModular';
 import SuggestionItem from '../Components/SuggestionItem';
 

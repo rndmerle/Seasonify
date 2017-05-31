@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'native-base';
 
-import { uiSelectors, uiActions } from '../Redux/UiRedux';
+import { uiSelectors, uiActions } from '../Redux/uiRedux';
 import Messages from '../Config/Messages';
 
 const mapStateToProps = state => ({

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Input, Item } from 'native-base';
 
-import { friendActions } from '../Redux/FriendRedux';
+import { friendActions } from '../Redux/friendRedux';
 import HeaderModular from '../Components/HeaderModular';
 
 const mapStateToProps = null; // state => ({});
