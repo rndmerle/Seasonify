@@ -13,7 +13,7 @@ const mapActionsToProps = {
   hideMessage: uiActions.hideMessage,
 };
 
-export class ToastMessage extends React.Component {
+export class _ToastMessage extends React.Component {
   componentWillReceiveProps({ message, hideMessage }) {
     if (message) {
       const messageConfig = Messages[message.type];
@@ -32,4 +32,4 @@ export class ToastMessage extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ToastMessage);
+export default connect(mapStateToProps, mapActionsToProps)(_ToastMessage);

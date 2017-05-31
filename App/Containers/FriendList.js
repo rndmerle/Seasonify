@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export class FriendList extends React.Component {
+export class _FriendList extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: <HeaderRoot title="Friends" navigation={navigation} />,
   });
@@ -46,4 +46,4 @@ export class FriendList extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(FriendList);
+export default connect(mapStateToProps, mapActionsToProps)(_FriendList);

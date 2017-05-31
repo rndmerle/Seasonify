@@ -9,6 +9,7 @@ import PersistConfig from '../Config/PersistConfig';
 import RehydrationServices from '../Services/RehydrationServices';
 
 import ui from './uiRedux';
+import edit from './editRedux';
 import friends from './friendRedux';
 import shows from './showRedux';
 
@@ -16,6 +17,7 @@ export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
     ui,
+    edit,
     friends,
     shows,
   });

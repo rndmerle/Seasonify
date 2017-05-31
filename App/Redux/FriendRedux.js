@@ -31,7 +31,7 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
       return newState;
 
     case types.UPDATE:
-      return { ...state, [payload.id]: payload };
+      return { ...state, [payload.id]: { ...state[payload.id], ...payload } };
 
     default:
       return state;

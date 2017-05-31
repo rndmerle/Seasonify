@@ -14,7 +14,7 @@ export const showActions = {
     payload: { allocine, name, year, posterURL, seasonCount },
   }),
   removeShow: id => ({ type: types.REMOVE, payload: { id } }),
-  updateShow: friend => ({ type: types.UPDATE, payload: friend }),
+  updateShow: show => ({ type: types.UPDATE, payload: show }),
 };
 
 Ident.newid();
@@ -42,7 +42,7 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
       return newState;
 
     case types.UPDATE:
-      return { ...state, [payload.id]: payload };
+      return { ...state, [payload.id]: { ...state[payload.id], ...payload } };
 
     default:
       return state;

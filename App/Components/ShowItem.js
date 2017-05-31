@@ -1,15 +1,16 @@
 import React from 'react';
 import { ListItem, Text } from 'native-base';
 
-const ShowItem = ({ show, navigate }) => {
+const ShowItem = ({ showId, showName, navigate }) => {
   const onPressShow = () => {
     navigate('ShowDetails', {
-      show,
+      showId,
+      showName,
     });
   };
   return (
     <ListItem onPress={onPressShow}>
-      <Text>{show.name}</Text>
+      <Text>{showName}</Text>
     </ListItem>
   );
 };

@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export class ShowList extends React.Component {
+export class _ShowList extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: <HeaderRoot title="TV Shows" navigation={navigation} />,
   });
@@ -32,7 +32,8 @@ export class ShowList extends React.Component {
             {Object.keys(shows).map(id => (
               <ShowItem
                 key={id}
-                show={shows[id]}
+                showId={id}
+                showName={shows[id].name}
                 navigate={navigation.navigate}
               />
             ))}
@@ -44,4 +45,4 @@ export class ShowList extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ShowList);
+export default connect(mapStateToProps, mapActionsToProps)(_ShowList);

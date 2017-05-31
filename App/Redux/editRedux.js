@@ -13,12 +13,15 @@ export const editActions = {
   endEdit: () => ({
     type: types.EDIT_END,
   }),
-  updateEdit: object => ({ type: types.EDIT_UPDATE, payload: { object } }),
+  updateEdit: editedObject => ({
+    type: types.EDIT_UPDATE,
+    payload: { editedObject },
+  }),
 };
 
 export const INITIAL_STATE = {
   isEditing: false,
-  object: null,
+  editedObject: {},
 };
 
 /* ========== REDUCER ========== */
@@ -28,10 +31,13 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
       return { ...state, isEditing: true };
 
     case types.EDIT_END:
-      return { ...state, isEditing: false };
+      return { ...state, editedObject: {}, isEditing: false };
 
     case types.EDIT_UPDATE:
-      return { ...state, object: payload.object };
+      return {
+        ...state,
+        editedObject: { ...state.editedObject, ...payload.editedObject },
+      };
 
     default:
       return state;
@@ -41,6 +47,6 @@ export default reducer;
 
 /* ========== SELECTORS ========== */
 export const editSelectors = {
-  isEditing: state => state.isEditing,
-  getObject: state => state.object,
+  isEditing: state => state.edit.isEditing,
+  editedObject: state => state.edit.editedObject,
 };

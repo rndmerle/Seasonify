@@ -26,7 +26,7 @@ const mapActionsToProps = {
   suggestionsRequest: uiActions.suggestionsRequest,
 };
 
-export class ShowAdd extends React.Component {
+export class _ShowAdd extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <HeaderModular
@@ -105,4 +105,4 @@ export class ShowAdd extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ShowAdd);
+export default connect(mapStateToProps, mapActionsToProps)(_ShowAdd);
