@@ -26,8 +26,8 @@ export class _Root extends React.Component {
   render() {
     return (
       <Container /* style={styles.applicationView} */>
-        <DrawerNavigation onNavigationStateChange={navigationLogging} />
         <ToastMessage />
+        <DrawerNavigation onNavigationStateChange={navigationLogging} />
       </Container>
     );
   }

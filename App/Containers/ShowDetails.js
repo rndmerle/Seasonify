@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content } from 'native-base';
 
-import { showActions, showSelectors } from '../Redux/showRedux';
-import { uiActions } from '../Redux/uiRedux';
+import { showSelectors } from '../Redux/showRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
 import ShowDetailsHeader from './ShowDetailsHeader';
 import ShowSheet from '../Components/ShowSheet';
@@ -15,11 +14,6 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  removeShow: showActions.removeShow,
-  updateShow: showActions.updateShow,
-  toastMessage: uiActions.toastMessage,
-  startEdit: editActions.startEdit,
-  endEdit: editActions.endEdit,
   updateEdit: editActions.updateEdit,
 };
 
@@ -29,7 +23,7 @@ export class _ShowDetails extends React.Component {
       <ShowDetailsHeader
         showName={navigation.state.params.showName}
         showId={navigation.state.params.showId}
-        goBack={navigation.goBack}
+        navigate={navigation.navigate}
       />
     ),
   });

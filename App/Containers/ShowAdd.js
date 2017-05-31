@@ -42,7 +42,6 @@ export class _ShowAdd extends React.Component {
 
   onEndName = event => {
     const name = event.nativeEvent.text;
-    this.props.suggestionsRequest(name);
   };
 
   onPressSuggestion = suggestionKey => {

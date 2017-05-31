@@ -22,8 +22,8 @@ const mapActionsToProps = {
 };
 
 export class _ShowDetailsHeader extends React.Component {
-  handleCancel = () => {
-    this.props.goBack();
+  handleExit = () => {
+    this.props.navigate('ShowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
     if (this.props.isEditing) {
       this.props.endEdit();
@@ -35,19 +35,19 @@ export class _ShowDetailsHeader extends React.Component {
   };
 
   handleDone = () => {
-    Keyboard.dismiss();
-    this.props.updateShow(this.props.editedObject);
-    this.props.endEdit();
-    this.props.goBack();
-    this.props.toastMessage(
-      'success',
-      `${this.props.editedObject.name} has been edited`,
-    );
+    this.handleExit();
+    if (this.props.editedObject.id) {
+      this.props.updateShow(this.props.editedObject);
+      this.props.toastMessage(
+        'success',
+        `${this.props.editedObject.name} has been edited`,
+      );
+    }
   };
 
   handleDelete = () => {
+    this.handleExit();
     this.props.removeShow(this.props.showId);
-    this.handleCancel();
     this.props.toastMessage(
       'warning',
       `${this.props.showName} has been deleted`,
@@ -59,7 +59,7 @@ export class _ShowDetailsHeader extends React.Component {
     return (
       <HeaderModular
         title={showName}
-        cancelButton={{ icon: 'arrow-back', action: this.handleCancel }}
+        cancelButton={{ icon: 'arrow-back', action: this.handleExit }}
         actionButtons={[
           {
             visibleIf: !this.props.isEditing,

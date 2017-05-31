@@ -18,11 +18,9 @@ export class _ToastMessage extends React.Component {
     if (message) {
       const messageConfig = Messages[message.type];
 
-      const hideTimeout = setTimeout(() => {
+      this.hideTimeout = setTimeout(() => {
         hideMessage();
-        clearTimeout(hideTimeout);
       }, messageConfig.duration);
-
       Toast.show({ ...messageConfig, text: message.text });
     }
   }
