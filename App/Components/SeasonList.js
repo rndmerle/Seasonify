@@ -12,9 +12,10 @@ const SeasonList = ({ seasons }) => {
                 <Badge info>
                   <Text>{`Season ${id}`}</Text>
                 </Badge>
-                <Text
-                  note
-                >{`${seasons[id].episodes} ep. in ${seasons[id].year}`}</Text>
+                <Text note>
+                  {seasons[id].episodes && `${seasons[id].episodes} ep. `}
+                  {seasons[id].year && `in ${seasons[id].year}`}
+                </Text>
               </Col>
               <Col size={62}>
                 {/* <Text>Renaud, Sylvain, Papa&Maman</Text> */}

@@ -18,65 +18,67 @@ const mapActionsToProps = {
   toastMessage: uiActions.toastMessage,
   startEdit: editActions.startEdit,
   endEdit: editActions.endEdit,
-  updateEdit: editActions.updateEdit,
 };
 
-export class _ShowDetailsHeader extends React.Component {
-  handleExit = () => {
-    this.props.navigate('ShowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
+function ShowDetailsHeader({
+  navigate,
+  showName,
+  showId,
+  isEditing,
+  editedObject,
+  removeShow,
+  updateShow,
+  toastMessage,
+  startEdit,
+  endEdit,
+}) {
+  const handleExit = () => {
+    navigate('ShowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
-    if (this.props.isEditing) {
-      this.props.endEdit();
+    if (isEditing) {
+      endEdit();
     }
   };
 
-  handleEdit = () => {
-    this.props.startEdit();
+  const handleEdit = () => {
+    startEdit();
   };
 
-  handleDone = () => {
-    this.handleExit();
-    if (this.props.editedObject.id) {
-      this.props.updateShow(this.props.editedObject);
-      this.props.toastMessage(
-        'success',
-        `${this.props.editedObject.name} has been edited`,
-      );
+  const handleDone = () => {
+    Keyboard.dismiss();
+    if (editedObject.id) {
+      updateShow(editedObject);
+      toastMessage('success', `${editedObject.name} has been edited`);
     }
+    endEdit();
   };
 
-  handleDelete = () => {
-    this.handleExit();
-    this.props.removeShow(this.props.showId);
-    this.props.toastMessage(
-      'warning',
-      `${this.props.showName} has been deleted`,
-    );
+  const handleDelete = () => {
+    handleExit();
+    removeShow(showId);
+    toastMessage('warning', `${showName} has been deleted`);
   };
 
-  render() {
-    const { showName } = this.props;
-    return (
-      <HeaderModular
-        title={showName}
-        cancelButton={{ icon: 'arrow-back', action: this.handleExit }}
-        actionButtons={[
-          {
-            visibleIf: !this.props.isEditing,
-            icon: 'create',
-            action: this.handleEdit,
-          },
-          {
-            visibleIf: this.props.isEditing,
-            hideByDefault: true,
-            icon: 'checkmark',
-            action: this.handleDone,
-          },
-          { icon: 'trash', action: this.handleDelete },
-        ]}
-      />
-    );
-  }
+  return (
+    <HeaderModular
+      title={showName}
+      cancelButton={{ icon: 'arrow-back', action: handleExit }}
+      actionButtons={[
+        {
+          visibleIf: !isEditing,
+          icon: 'create',
+          action: handleEdit,
+        },
+        {
+          visibleIf: isEditing,
+          hideByDefault: true,
+          icon: 'checkmark',
+          action: handleDone,
+        },
+        { icon: 'trash', action: handleDelete },
+      ]}
+    />
+  );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(_ShowDetailsHeader);
+export default connect(mapStateToProps, mapActionsToProps)(ShowDetailsHeader);

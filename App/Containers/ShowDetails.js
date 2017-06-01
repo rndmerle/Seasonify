@@ -21,66 +21,66 @@ const mapActionsToProps = {
   seasonsRefresh: showActions.seasonsRefresh,
 };
 
-export class _ShowDetails extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: (
-      <ShowDetailsHeader
-        showName={navigation.state.params.showName}
-        showId={navigation.state.params.showId}
-        navigate={navigation.navigate}
-      />
-    ),
-  });
+function ShowDetails({
+  navigation,
+  getShows,
+  isEditing,
+  editedObject,
+  updateEdit,
+  seasonsRefresh,
+}) {
+  const { showId, showAllocine } = navigation.state.params;
+  const show = getShows[showId];
 
-  componentWillMount() {
-    this.setState({
-      showId: this.props.navigation.state.params.showId,
-      showAllocine: this.props.navigation.state.params.showAllocine,
-    });
-  }
-
-  onChangeName = name => {
-    this.props.updateEdit({ id: this.state.showId, name });
+  const onChangeName = name => {
+    updateEdit({ id: showId, name });
   };
 
-  onFAB = () => {
-    this.props.seasonsRefresh(this.state.showId, this.state.showAllocine);
+  const onFAB = () => {
+    seasonsRefresh(showId, showAllocine);
   };
 
-  render() {
-    const show = this.props.getShows[this.state.showId];
-    if (show) {
-      return (
-        <Container>
-          <Content>
-            <Grid>
-              <Col size={38}>
-                <Poster url={show.poster} />
-              </Col>
-              <Col size={62}>
-                <ShowSheet
-                  name={show.name}
-                  frenchName={show.frenchName}
-                  year={show.year}
-                  seasonCount={show.seasonCount}
-                  edit={this.props.editedObject}
-                  isEditing={this.props.isEditing}
-                  onChangeName={this.onChangeName}
-                />
-              </Col>
-            </Grid>
-            <SeasonList
-              showId={show.id}
-              showAllocine={show.allocine}
-              seasons={show.seasons}
-            />
-          </Content>
-          <SingleFAB icon="refresh" onPress={this.onFAB} />
-        </Container>
-      );
-    }
-    return null;
+  if (show) {
+    return (
+      <Container>
+        <Content>
+          <Grid>
+            <Col size={38}>
+              <Poster url={show.poster} />
+            </Col>
+            <Col size={62}>
+              <ShowSheet
+                name={show.name}
+                frenchName={show.frenchName}
+                year={show.year}
+                seasonCount={show.seasonCount}
+                edit={editedObject}
+                isEditing={isEditing}
+                onChangeName={onChangeName}
+              />
+            </Col>
+          </Grid>
+          <SeasonList
+            showId={show.id}
+            showAllocine={show.allocine}
+            seasons={show.seasons}
+          />
+        </Content>
+        <SingleFAB icon="refresh" onPress={onFAB} />
+      </Container>
+    );
   }
+  return null;
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(_ShowDetails);
+ShowDetails.navigationOptions = ({ navigation }) => ({
+  header: (
+    <ShowDetailsHeader
+      showName={navigation.state.params.showName}
+      showId={navigation.state.params.showId}
+      navigate={navigation.navigate}
+    />
+  ),
+});
+
+export default connect(mapStateToProps, mapActionsToProps)(ShowDetails);

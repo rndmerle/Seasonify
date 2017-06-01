@@ -15,35 +15,30 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export class _FriendList extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: <HeaderRoot title="Friends" navigation={navigation} />,
-  });
-
-  onFAB = () => {
-    this.props.navigation.navigate('FriendAdd', {});
+function FriendList({ navigation, friends }) {
+  const onFAB = () => {
+    navigation.navigate('FriendAdd', {});
   };
-
-  render() {
-    const { navigation, friends } = this.props;
-
-    return (
-      <Container>
-        <Content>
-          <List>
-            {Object.keys(friends).map(id => (
-              <FriendItem
-                key={id}
-                friend={friends[id]}
-                navigate={navigation.navigate}
-              />
-            ))}
-          </List>
-        </Content>
-        <SingleFAB onPress={this.onFAB} />
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <Content>
+        <List>
+          {Object.keys(friends).map(id => (
+            <FriendItem
+              key={id}
+              friend={friends[id]}
+              navigate={navigation.navigate}
+            />
+          ))}
+        </List>
+      </Content>
+      <SingleFAB icon="add" onPress={onFAB} />
+    </Container>
+  );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(_FriendList);
+FriendList.navigationOptions = ({ navigation }) => ({
+  header: <HeaderRoot title="Friends" navigation={navigation} />,
+});
+
+export default connect(mapStateToProps, mapActionsToProps)(FriendList);

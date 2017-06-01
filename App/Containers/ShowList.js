@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 
-import { showActions, showSelectors } from '../Redux/showRedux';
+import { showSelectors } from '../Redux/showRedux';
 import HeaderRoot from '../Components/HeaderRoot';
 import ShowItem from '../Components/ShowItem';
 import SingleFAB from '../Components/SingleFAB';
@@ -13,37 +13,33 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export class _ShowList extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: <HeaderRoot title="TV Shows" navigation={navigation} />,
-  });
-
-  onFAB = () => {
-    this.props.navigation.navigate('ShowAdd', {});
+function ShowList({ navigation, shows }) {
+  const onFAB = () => {
+    navigation.navigate('ShowAdd', {});
   };
 
-  render() {
-    const { navigation, shows } = this.props;
-
-    return (
-      <Container>
-        <Content>
-          <List>
-            {Object.keys(shows).map(id => (
-              <ShowItem
-                key={id}
-                showId={id}
-                showAllocine={shows[id].allocine}
-                showName={shows[id].name}
-                navigate={navigation.navigate}
-              />
-            ))}
-          </List>
-        </Content>
-        <SingleFAB icon="add" onPress={this.onFAB} />
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <Content>
+        <List>
+          {Object.keys(shows).map(id => (
+            <ShowItem
+              key={id}
+              showId={id}
+              showAllocine={shows[id].allocine}
+              showName={shows[id].name}
+              navigate={navigation.navigate}
+            />
+          ))}
+        </List>
+      </Content>
+      <SingleFAB icon="add" onPress={onFAB} />
+    </Container>
+  );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(_ShowList);
+ShowList.navigationOptions = ({ navigation }) => ({
+  header: <HeaderRoot title="TV Shows" navigation={navigation} />,
+});
+
+export default connect(mapStateToProps, mapActionsToProps)(ShowList);

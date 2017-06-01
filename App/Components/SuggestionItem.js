@@ -32,7 +32,7 @@ const SuggestionItem = ({
         <Text note>{subtitle}</Text>
       </Body>
       <Right>
-        <Icon name="arrow-forward" />
+        <Icon name="add-circle" />
       </Right>
     </ListItem>
   );

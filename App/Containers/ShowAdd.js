@@ -26,64 +26,60 @@ const mapActionsToProps = {
   suggestionsRequest: uiActions.suggestionsRequest,
 };
 
-export class _ShowAdd extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    header: (
-      <HeaderModular
-        title="New TV show"
-        cancelButton={{ icon: 'close', action: navigation.goBack }}
-      />
-    ),
+function ShowAdd({ navigation, suggestions, addShow, suggestionsRequest }) {
+  const onChangeName = debounce(500, name => {
+    suggestionsRequest(name);
   });
 
-  onChangeName = debounce(500, name => {
-    this.props.suggestionsRequest(name);
-  });
-
-  onEndName = event => {
+  const onEndName = event => {
     const name = event.nativeEvent.text;
   };
 
-  onPressSuggestion = suggestionKey => {
-    this.props.addShow(this.props.suggestions[suggestionKey]);
-    this.props.navigation.goBack();
+  const onPressSuggestion = suggestionKey => {
+    addShow(suggestions[suggestionKey]);
+    navigation.goBack();
     Keyboard.dismiss();
   };
 
-  render() {
-    return (
-      <Container>
-        <Content>
-          <Form>
-            <Item fixedLabel>
-              <Label>Show&rsquo;s name:</Label>
-              <Input
-                onChangeText={this.onChangeName}
-                onEndEditing={this.onEndName}
-                autoFocus
-                autoCapitalize="words"
+  return (
+    <Container>
+      <Content>
+        <Form>
+          <Item fixedLabel>
+            <Label>Show&rsquo;s name:</Label>
+            <Input
+              onChangeText={onChangeName}
+              onEndEditing={onEndName}
+              autoFocus
+              autoCapitalize="words"
+            />
+          </Item>
+        </Form>
+        {suggestions &&
+          <List>
+            {suggestions.map((suggestion, key) => (
+              <SuggestionItem
+                key={suggestion.allocine}
+                suggestionKey={key}
+                onPress={onPressSuggestion}
+                poster={suggestion.poster}
+                title={suggestion.name}
+                subtitle={suggestion.year}
               />
-            </Item>
-          </Form>
-          {this.props.suggestions &&
-            <List>
-              {this.props.suggestions.map((suggestion, key) => {
-                return (
-                  <SuggestionItem
-                    key={suggestion.allocine}
-                    suggestionKey={key}
-                    onPress={this.onPressSuggestion}
-                    poster={suggestion.poster}
-                    title={suggestion.name}
-                    subtitle={suggestion.year}
-                  />
-                );
-              })}
-            </List>}
-        </Content>
-      </Container>
-    );
-  }
+            ))}
+          </List>}
+      </Content>
+    </Container>
+  );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(_ShowAdd);
+ShowAdd.navigationOptions = ({ navigation }) => ({
+  header: (
+    <HeaderModular
+      title="New TV show"
+      cancelButton={{ icon: 'close', action: navigation.goBack }}
+    />
+  ),
+});
+
+export default connect(mapStateToProps, mapActionsToProps)(ShowAdd);
