@@ -42,7 +42,7 @@ function TvshowAdd({
 
   const onPressSuggestion = suggestionKey => {
     addTvshowWithSeasons(suggestions[suggestionKey]);
-    navigation.goBack();
+    navigation.navigate('TvshowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
   };
 

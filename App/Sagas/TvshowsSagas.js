@@ -18,6 +18,7 @@ export function* addTvshowWithSeasons(api, { payload }) {
   Ident.newid();
   const tvshow = { ...payload, id: Ident.id() };
   yield put(tvshowActions.addTvshow(tvshow));
+  yield put(uiActions.toastMessage('success', `${tvshow.name} added`));
   yield put(tvshowActions.seasonsRefresh(tvshow.id, tvshow.allocine));
 }
 

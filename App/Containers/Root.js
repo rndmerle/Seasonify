@@ -8,9 +8,7 @@ import DrawerNavigation from '../Navigation/DrawerNavigation';
 import ToastMessage from './ToastMessage';
 import { startupActions } from '../Redux/startupRedux';
 
-const mapStateToProps = state => ({
-  message: state.ui.message,
-});
+const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
   startup: startupActions.startup,
