@@ -25,7 +25,7 @@ class Root extends React.Component {
 
   render() {
     return (
-      <Container /* style={styles.applicationView} */>
+      <Container>
         <ToastMessage />
         <DrawerNavigation onNavigationStateChange={navigationLogging} />
       </Container>

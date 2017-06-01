@@ -1,5 +1,8 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { List, ListItem, Text, Grid, Col, Badge } from 'native-base';
+
+import { AtomicStyles } from '../Themes';
 
 const SeasonList = ({ seasons }) => {
   return (
@@ -8,7 +11,7 @@ const SeasonList = ({ seasons }) => {
         Object.keys(seasons).reverse().map(id => (
           <ListItem key={id}>
             <Grid>
-              <Col size={38}>
+              <Col size={38} style={AtomicStyles.noFlex}>
                 <Badge info>
                   <Text>{`Season ${id}`}</Text>
                 </Badge>

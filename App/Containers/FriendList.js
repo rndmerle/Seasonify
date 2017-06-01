@@ -7,8 +7,6 @@ import HeaderRoot from '../Components/HeaderRoot';
 import FriendItem from '../Components/FriendItem';
 import SingleFAB from '../Components/SingleFAB';
 
-// import styles from './Styles/FriendList.style';
-
 const mapStateToProps = state => ({
   friends: friendSelectors.getFriends(state),
 });
