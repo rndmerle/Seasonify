@@ -1,15 +1,15 @@
 import React from 'react';
 import { Fab, Icon } from 'native-base';
 
-const SingleFAB = ({ onPress }) => (
+const SingleFAB = ({ icon, onPress }) => (
   <Fab
-      // containerStyle={{ marginRight: 10 }}
+    // containerStyle={{ marginRight: 10 }}
     style={{ backgroundColor: '#5067FF' }}
     position="bottomRight"
     onPress={onPress}
   >
-    <Icon name="add" />
+    <Icon name={icon} />
   </Fab>
-  );
+);
 
 export default SingleFAB;

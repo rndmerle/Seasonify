@@ -87,10 +87,20 @@ export default class Allocine {
     const path = this.buildPath('tvseries', { code });
     return axios
       .get(this.config.apiHostName + path)
-      .then(result => ({
-        error: null,
-        data: result.data.tvseries.season,
-      }))
+      .then(result => {
+        if (!result.data.tvseries) {
+          return { error: "API didn't found TV show", data: null };
+        } else if (
+          !result.data.tvseries.season ||
+          result.data.tvseries.season === []
+        ) {
+          return { error: 'No seasons for this TV show', data: null };
+        }
+        return {
+          error: null,
+          data: result.data.tvseries.season,
+        };
+      })
       .catch(error => ({ error: error.message, data: null }));
   };
 }

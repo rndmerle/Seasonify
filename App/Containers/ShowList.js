@@ -33,13 +33,14 @@ export class _ShowList extends React.Component {
               <ShowItem
                 key={id}
                 showId={id}
+                showAllocine={shows[id].allocine}
                 showName={shows[id].name}
                 navigate={navigation.navigate}
               />
             ))}
           </List>
         </Content>
-        <SingleFAB onPress={this.onFAB} />
+        <SingleFAB icon="add" onPress={this.onFAB} />
       </Container>
     );
   }

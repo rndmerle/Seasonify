@@ -6,9 +6,9 @@ const Poster = ({ url }) => (
     source={{ uri: url }}
     resizeMode="contain"
     resizeMethod="scale"
-    indicator
-    indicatorColor="#919191"
-    indicatorSize="large"
+    // indicator
+    // indicatorColor="#919191"
+    // indicatorSize="large"
   />
 );
 

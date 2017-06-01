@@ -1,10 +1,7 @@
 import React from 'react';
-import { Icon, List, ListItem, Text, Button, Grid, Col } from 'native-base';
+import { List, ListItem, Text, Grid, Col, Badge } from 'native-base';
 
-const SeasonList = ({ showId, showAllocine, seasons, seasonsRefresh }) => {
-  const onSeasonsRefresh = () => {
-    seasonsRefresh(showId, showAllocine);
-  };
+const SeasonList = ({ seasons }) => {
   return (
     <List>
       {seasons &&
@@ -12,7 +9,9 @@ const SeasonList = ({ showId, showAllocine, seasons, seasonsRefresh }) => {
           <ListItem key={id}>
             <Grid>
               <Col size={38}>
-                <Text>{`Season ${id}`}</Text>
+                <Badge info>
+                  <Text>{`Season ${id}`}</Text>
+                </Badge>
                 <Text
                   note
                 >{`${seasons[id].episodes} ep. in ${seasons[id].year}`}</Text>
@@ -23,10 +22,6 @@ const SeasonList = ({ showId, showAllocine, seasons, seasonsRefresh }) => {
             </Grid>
           </ListItem>
         ))}
-      <Button full onPress={onSeasonsRefresh}>
-        <Icon name="refresh" />
-        <Text>New seasons?</Text>
-      </Button>
     </List>
   );
 };

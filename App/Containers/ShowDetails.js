@@ -5,6 +5,7 @@ import { Container, Content, Grid, Col } from 'native-base';
 import { showActions, showSelectors } from '../Redux/showRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
 import ShowDetailsHeader from './ShowDetailsHeader';
+import SingleFAB from '../Components/SingleFAB';
 import Poster from '../Components/Poster';
 import ShowSheet from '../Components/ShowSheet';
 import SeasonList from '../Components/SeasonList';
@@ -32,11 +33,18 @@ export class _ShowDetails extends React.Component {
   });
 
   componentWillMount() {
-    this.setState({ showId: this.props.navigation.state.params.showId });
+    this.setState({
+      showId: this.props.navigation.state.params.showId,
+      showAllocine: this.props.navigation.state.params.showAllocine,
+    });
   }
 
   onChangeName = name => {
     this.props.updateEdit({ id: this.state.showId, name });
+  };
+
+  onFAB = () => {
+    this.props.seasonsRefresh(this.state.showId, this.state.showAllocine);
   };
 
   render() {
@@ -65,9 +73,9 @@ export class _ShowDetails extends React.Component {
               showId={show.id}
               showAllocine={show.allocine}
               seasons={show.seasons}
-              seasonsRefresh={this.props.seasonsRefresh}
             />
           </Content>
+          <SingleFAB icon="refresh" onPress={this.onFAB} />
         </Container>
       );
     }

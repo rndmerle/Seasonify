@@ -16,7 +16,7 @@ export function* updateSeasons(api, { payload }) {
   const response = yield call(api.getSeasons, payload.allocine);
   if (response.error) {
     yield put(showActions.seasonsFail());
-    yield put(showActions.toastMessage('error', response.error));
+    yield put(uiActions.toastMessage('error', response.error));
   } else {
     yield put(showActions.seasonsSuccess(payload.id, response.data));
   }
