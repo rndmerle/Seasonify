@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, Content, Grid, Col } from 'native-base';
+import { Container, Content, Grid, Col, Spinner } from 'native-base';
 
 import { Metrics } from '../Themes';
+import styles from './styles/TvshowDetails.style';
 import { tvshowActions, tvshowSelectors } from '../Redux/tvshowRedux';
+import { uiSelectors } from '../Redux/uiRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
 import SingleFAB from '../Components/SingleFAB';
@@ -15,6 +17,7 @@ const mapStateToProps = state => ({
   getTvshows: tvshowSelectors.getTvshows(state),
   isEditing: editSelectors.isEditing(state),
   editedObject: editSelectors.editedObject(state),
+  isSpinning: uiSelectors.isSpinning(state),
 });
 
 const mapActionsToProps = {
@@ -29,6 +32,7 @@ function TvshowDetails({
   editedObject,
   updateEdit,
   seasonsRefresh,
+  isSpinning,
 }) {
   const { tvshowId, tvshowAllocine } = navigation.state.params;
   const tvshow = getTvshows[tvshowId];
@@ -68,6 +72,8 @@ function TvshowDetails({
           />
         </Content>
         <SingleFAB icon="refresh" onPress={onFAB} />
+        {isSpinning &&
+          <Spinner style={styles.seasonSpinner} color="lightblue" />}
       </Container>
     );
   }

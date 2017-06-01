@@ -1,9 +1,5 @@
-import { StyleSheet } from 'react-native';
-
-const AtomicStyles = StyleSheet.create({
+export default {
   noFlex: {
     flex: 0,
   },
-});
-
-export default AtomicStyles;
+};

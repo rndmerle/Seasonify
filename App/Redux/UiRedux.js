@@ -7,6 +7,8 @@ export const types = {
   SUGGESTIONS_REQUEST: 'UI/SUGGESTIONS_REQUEST',
   SUGGESTIONS_SUCCESS: 'UI/SUGGESTIONS_SUCCESS',
   SUGGESTIONS_FAIL: 'UI/SUGGESTIONS_FAIL',
+  SPINNER_SHOW: 'UI/SPINNER_SHOW',
+  SPINNER_HIDE: 'UI/SPINNER_HIDE',
 };
 
 /* ========== ACTIONS ========== */
@@ -29,9 +31,16 @@ export const uiActions = {
   suggestionsFail: () => ({
     type: types.SUGGESTIONS_FAIL,
   }),
+  spinnerShow: () => ({
+    type: types.SPINNER_SHOW,
+  }),
+  spinnerHide: () => ({
+    type: types.SPINNER_HIDE,
+  }),
 };
 
 export const INITIAL_STATE = {
+  spinner: false,
   message: null,
   suggestions: [],
 };
@@ -52,6 +61,12 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
     case types.SUGGESTIONS_FAIL:
       return { ...state, suggestions: [] };
 
+    case types.SPINNER_SHOW:
+      return { ...state, spinner: true };
+
+    case types.SPINNER_HIDE:
+      return { ...state, spinner: false };
+
     default:
       return state;
   }
@@ -62,4 +77,5 @@ export default reducer;
 export const uiSelectors = {
   getMessage: state => state.ui.message,
   getSuggestions: state => state.ui.suggestions,
+  isSpinning: state => state.ui.spinner,
 };
