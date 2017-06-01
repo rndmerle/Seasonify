@@ -1,0 +1,41 @@
+[
+  {
+    "code": 2664,
+    "seasonNumber": 3,
+    "episodeCount": 12,
+    "productionStatus": { "code": 122006, "$": "Production achevée" },
+    "yearStart": 2006,
+    "yearEnd": 2006,
+    "statistics": {
+      "userRating": 3.4333334,
+      "userReviewCount": 2,
+      "userRatingCount": 15,
+    },
+  },
+  {
+    "code": 711,
+    "seasonNumber": 2,
+    "episodeCount": 12,
+    "productionStatus": { "code": 122006, "$": "Production achevée" },
+    "yearStart": 2005,
+    "yearEnd": 2005,
+    "statistics": {
+      "userRating": 3.41666675,
+      "userReviewCount": 2,
+      "userRatingCount": 15,
+    },
+  },
+  {
+    "code": 565,
+    "seasonNumber": 1,
+    "episodeCount": 12,
+    "productionStatus": { "code": 122006, "$": "Production achevée" },
+    "yearStart": 2004,
+    "yearEnd": 2004,
+    "statistics": {
+      "userRating": 3.621212,
+      "userReviewCount": 5,
+      "userRatingCount": 25,
+    },
+  },
+];

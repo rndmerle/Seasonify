@@ -117,4 +117,9 @@ export const ApiFixtures = {
       data: require('../Fixtures/tvshowsSearch.json'),
     };
   },
+
+  getSeasons: () => ({
+    error: null,
+    data: require('../Fixtures/seasonsRequest.json'),
+  }),
 };

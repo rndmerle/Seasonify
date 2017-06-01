@@ -1,45 +1,69 @@
 [
   {
-    "code": 7330,
-    "originalTitle": "The Walking Dead",
+    "code": 8090,
+    "originalTitle": "Happy Endings",
     "castingShort": {
-      "creators": "Robert Kirkman",
-      "actors": "Andrew Lincoln, Norman Reedus, Jeffrey Dean Morgan, Steven Yeun, Chandler Riggs"
+      "creators": "David Caspe",
+      "actors": "Elisha Cuthbert, Zachary Knighton, Damon Wayans Jr., Adam Pally, Casey Wilson",
+    },
+    "yearStart": 2011,
+    "yearEnd": 2013,
+    "seasonCount": 3,
+    "statistics": { "userRating": 3.84065 },
+    "poster": {
+      "path": "/medias/nmedia/18/78/21/06/20278341.jpg",
+      "href": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg",
+    },
+  },
+  {
+    "code": 720,
+    "originalTitle": "Happy Days",
+    "title": "Happy Days - Les jours heureux",
+    "castingShort": {
+      "creators": "Garry Marshall",
+      "actors": "Tom Bosley, Marion Ross, Anson Williams, Henry Winkler, Ted McGinley",
+    },
+    "yearStart": 1974,
+    "yearEnd": 1984,
+    "seasonCount": 11,
+    "statistics": { "userRating": 2.52646 },
+    "poster": {
+      "path": "/medias/nmedia/18/36/37/63/18478173.jpg",
+      "href": "http://fr.web.img6.acsta.net/medias/nmedia/18/36/37/63/18478173.jpg",
+    },
+  },
+  {
+    "code": 4876,
+    "originalTitle": "Happy Town",
+    "castingShort": {
+      "creators": "Josh Appelbaum, André Nemec, Scott Rosenberg",
+      "actors": "Geoff Stults, Amy Acker, Jay Paulson, Lauren German, Robert Wisdom",
     },
     "yearStart": 2010,
-    "seasonCount": 8,
+    "yearEnd": 2010,
+    "seasonCount": 1,
+    "statistics": { "userRating": 3.31619 },
     "poster": {
-      "path": "/medias/nmedia/18/78/35/82/20303823.jpg",
-      "href": "http://fr.web.img5.acsta.net/medias/nmedia/18/78/35/82/20303823.jpg"
-    }
+      "path": "/medias/nmedia/18/73/99/08/19237328.jpg",
+      "href": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg",
+    },
   },
   {
-    "code": 808,
-    "originalTitle": "Afterlife",
-    "castingShort": {
-      "creators": "Stephen Volk",
-      "actors": "Lesley Sharp, Andrew Lincoln, Anna Wilson-Jones, Kate Duchene"
-    },
-    "yearStart": 2005,
-    "yearEnd": 2006,
-    "seasonCount": 2,
+    "code": 7391,
+    "originalTitle": "Happy Tree Friends",
+    "yearStart": 2000,
+    "seasonCount": 1,
+    "statistics": { "userRating": 3.79115 },
     "poster": {
-      "path": "/medias/nmedia/18/90/09/68/20080851.jpg",
-      "href": "http://fr.web.img1.acsta.net/medias/nmedia/18/90/09/68/20080851.jpg"
-    }
+      "path": "/medias/nmedia/18/72/22/91/19157134.jpg",
+      "href": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg",
+    },
   },
   {
-    "code": 16958,
-    "originalTitle": "Fear The Walking Dead",
-    "castingShort": {
-      "creators": "Dave Erickson, Robert Kirkman",
-      "actors": "Kim Dickens, Cliff Curtis, Frank Dillane, Alycia Debnam-Carey, Rubén Blades"
-    },
-    "yearStart": 2015,
-    "seasonCount": 4,
-    "poster": {
-      "path": "/pictures/17/04/05/11/36/557721.jpg",
-      "href": "http://fr.web.img5.acsta.net/pictures/17/04/05/11/36/557721.jpg"
-    }
-  }
-]
+    "code": 6417,
+    "originalTitle": "Happy Lucky Bikkuriman",
+    "yearStart": 2006,
+    "yearEnd": 2007,
+    "seasonCount": 1,
+  },
+];
