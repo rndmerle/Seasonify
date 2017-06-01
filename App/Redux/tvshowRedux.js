@@ -1,3 +1,4 @@
+import seasonNormalizer from '../Normalizers/seasonNormalizer';
 import Ident from '../Services/Ident';
 
 /* ========== TYPES ========== */
@@ -66,24 +67,6 @@ export const INITIAL_STATE = {
   },
 };
 
-/* ========== Normalizing ========== */
-
-const normalizeSeasons = seasons =>
-  seasons.reduce((obj, season) => {
-    if (season.seasonNumber === 0) {
-      return obj;
-    }
-    return {
-      ...obj,
-      [season.seasonNumber]: {
-        id: season.seasonNumber,
-        year: season.yearEnd,
-        episodes: season.episodeCount,
-        allocine: season.code,
-      },
-    };
-  }, {});
-
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
@@ -101,7 +84,7 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
       return { ...state, [payload.id]: { ...state[payload.id], ...payload } };
 
     case types.SEASONS_SUCCESS:
-      const newSeasons = normalizeSeasons(payload.seasons);
+      const newSeasons = seasonNormalizer(payload.seasons);
       return {
         ...state,
         [payload.id]: {
