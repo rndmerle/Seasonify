@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Grid, Col } from 'native-base';
 
+import { Metrics } from '../Themes';
 import { tvshowActions, tvshowSelectors } from '../Redux/tvshowRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
@@ -45,10 +46,10 @@ function TvshowDetails({
       <Container>
         <Content>
           <Grid>
-            <Col size={38}>
+            <Col size={Metrics.columnLeft}>
               <Poster url={tvshow.poster} />
             </Col>
-            <Col size={62}>
+            <Col size={Metrics.columnRight}>
               <TvshowSheet
                 name={tvshow.name}
                 frenchName={tvshow.frenchName}
