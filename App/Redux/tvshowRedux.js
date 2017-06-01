@@ -3,6 +3,7 @@ import Ident from '../Services/Ident';
 /* ========== TYPES ========== */
 export const types = {
   ADD: 'SHOW/ADD',
+  ADD_WITH_SEASONS: 'SHOW/ADD_WITH_SEASONS',
   REMOVE: 'SHOW/REMOVE',
   UPDATE: 'SHOW/UPDATE',
   SEASONS_REFRESH: 'SHOW/SEASON_REFRESH',
@@ -11,13 +12,17 @@ export const types = {
 };
 
 /* ========== ACTIONS ========== */
-export const showActions = {
-  addShow: show => ({
-    type: types.ADD,
-    payload: show,
+export const tvshowActions = {
+  addTvshowWithSeasons: tvshow => ({
+    type: types.ADD_WITH_SEASONS,
+    payload: tvshow,
   }),
-  removeShow: id => ({ type: types.REMOVE, payload: { id } }),
-  updateShow: show => ({ type: types.UPDATE, payload: show }),
+  addTvshow: tvshow => ({
+    type: types.ADD,
+    payload: tvshow,
+  }),
+  removeTvshow: id => ({ type: types.REMOVE, payload: { id } }),
+  updateTvshow: tvshow => ({ type: types.UPDATE, payload: tvshow }),
   seasonsRefresh: (id, allocine) => ({
     type: types.SEASONS_REFRESH,
     payload: { id, allocine },
@@ -36,9 +41,28 @@ export const INITIAL_STATE = {
     allocine: 213,
     name: 'Deadwood',
     frenchName: null,
-    year: '2004',
+    year: 2004,
     poster: 'http://fr.web.img5.acsta.net/medias/nmedia/18/82/49/12/19623049.jpg',
-    seasons: {},
+    seasons: {
+      1: {
+        id: 1,
+        allocine: 565,
+        year: 2004,
+        episodes: 12,
+      },
+      2: {
+        id: 2,
+        allocine: 711,
+        year: 2005,
+        episodes: 12,
+      },
+      3: {
+        id: 3,
+        allocine: 2664,
+        year: 2006,
+        episodes: 12,
+      },
+    },
   },
 };
 
@@ -64,10 +88,9 @@ const normalizeSeasons = seasons =>
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case types.ADD:
-      Ident.newid();
       return {
         ...state,
-        [Ident.id()]: { id: Ident.id(), seasons: {}, ...payload },
+        [payload.id]: { seasons: {}, ...payload },
       };
 
     case types.REMOVE:
@@ -94,6 +117,6 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
 export default reducer;
 
 /* ========== SELECTORS ========== */
-export const showSelectors = {
-  getShows: state => state.shows,
+export const tvshowSelectors = {
+  getTvshows: state => state.tvshows,
 };

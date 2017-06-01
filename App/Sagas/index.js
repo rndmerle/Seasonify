@@ -1,15 +1,19 @@
-import { takeLatest } from 'redux-saga/effects';
+import { take, takeLatest } from 'redux-saga/effects';
 import Allocine, { ApiFixtures } from '../Services/Allocine';
 import DebugConfig from '../Config/DebugConfig';
 
 /* ------------- Types ------------- */
 
 import { types as uiTypes } from '../Redux/uiRedux';
-import { types as showTypes } from '../Redux/showRedux';
+import { types as tvshowTypes } from '../Redux/tvshowRedux';
 
 /* ------------- Sagas ------------- */
 
-import { searchTvshows, updateSeasons } from './TvshowsSagas';
+import {
+  searchTvshows,
+  addTvshowWithSeasons,
+  updateSeasons,
+} from './tvshowsSagas';
 
 /* ------------- API/Fixtures ------------- */
 
@@ -19,5 +23,6 @@ const api = DebugConfig.useFixtures ? ApiFixtures : new Allocine();
 
 export default function* root() {
   yield [takeLatest(uiTypes.SUGGESTIONS_REQUEST, searchTvshows, api)];
-  yield [takeLatest(showTypes.SEASONS_REFRESH, updateSeasons, api)];
+  yield [takeLatest(tvshowTypes.ADD_WITH_SEASONS, addTvshowWithSeasons, api)];
+  yield [takeLatest(tvshowTypes.SEASONS_REFRESH, updateSeasons, api)];
 }

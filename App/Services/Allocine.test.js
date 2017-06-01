@@ -1,16 +1,16 @@
 import Allocine from './Allocine';
 
-test('Search a show with multiple result', async () => {
+test('Search a tvshow with multiple result', async () => {
   const api = new Allocine();
-  const response = await api.searchShows('Walking');
+  const response = await api.searchTvshows('Walking');
   expect(response.error).toBeNull();
   expect(response.data).toBeTruthy();
   expect(response.data.length).toBeGreaterThan(0);
 });
 
-test('Search an unknown show', async () => {
+test('Search an unknown tvshow', async () => {
   const api = new Allocine();
-  const response = await api.searchShows('Azertyuiop');
+  const response = await api.searchTvshows('Azertyuiop');
 
   expect(response.error).toBeNull();
   expect(response.data).toEqual([]);

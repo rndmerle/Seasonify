@@ -11,7 +11,7 @@ import RehydrationServices from '../Services/RehydrationServices';
 import ui from './uiRedux';
 import edit from './editRedux';
 import friends from './friendRedux';
-import shows from './showRedux';
+import tvshows from './tvshowRedux';
 
 export default () => {
   /* ------------- Assemble The Reducers ------------- */
@@ -19,7 +19,7 @@ export default () => {
     ui,
     edit,
     friends,
-    shows,
+    tvshows,
   });
 
   /* ------------- Redux Configuration ------------- */

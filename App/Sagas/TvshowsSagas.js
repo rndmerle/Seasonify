@@ -1,9 +1,11 @@
 import { call, put } from 'redux-saga/effects';
+
+import Ident from '../Services/Ident';
 import { uiActions } from '../Redux/uiRedux';
-import { showActions } from '../Redux/showRedux';
+import { tvshowActions } from '../Redux/tvshowRedux';
 
 export function* searchTvshows(api, { payload }) {
-  const response = yield call(api.searchShows, payload.text);
+  const response = yield call(api.searchTvshows, payload.text);
   if (response.error) {
     yield put(uiActions.suggestionsFail());
     yield put(uiActions.toastMessage('error', response.error));
@@ -12,12 +14,19 @@ export function* searchTvshows(api, { payload }) {
   }
 }
 
+export function* addTvshowWithSeasons(api, { payload }) {
+  Ident.newid();
+  const tvshow = { ...payload, id: Ident.id() };
+  yield put(tvshowActions.addTvshow(tvshow));
+  yield put(tvshowActions.seasonsRefresh(tvshow.id, tvshow.allocine));
+}
+
 export function* updateSeasons(api, { payload }) {
   const response = yield call(api.getSeasons, payload.allocine);
   if (response.error) {
-    yield put(showActions.seasonsFail());
+    yield put(tvshowActions.seasonsFail());
     yield put(uiActions.toastMessage('error', response.error));
   } else {
-    yield put(showActions.seasonsSuccess(payload.id, response.data));
+    yield put(tvshowActions.seasonsSuccess(payload.id, response.data));
   }
 }

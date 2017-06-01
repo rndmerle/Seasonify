@@ -12,7 +12,7 @@ import {
 } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
-import { showActions } from '../Redux/showRedux';
+import { tvshowActions } from '../Redux/tvshowRedux';
 import { uiActions, uiSelectors } from '../Redux/uiRedux';
 import HeaderModular from '../Components/HeaderModular';
 import SuggestionItem from '../Components/SuggestionItem';
@@ -22,11 +22,16 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  addShow: showActions.addShow,
+  addTvshowWithSeasons: tvshowActions.addTvshowWithSeasons,
   suggestionsRequest: uiActions.suggestionsRequest,
 };
 
-function ShowAdd({ navigation, suggestions, addShow, suggestionsRequest }) {
+function TvshowAdd({
+  navigation,
+  suggestions,
+  addTvshowWithSeasons,
+  suggestionsRequest,
+}) {
   const onChangeName = debounce(500, name => {
     suggestionsRequest(name);
   });
@@ -36,7 +41,7 @@ function ShowAdd({ navigation, suggestions, addShow, suggestionsRequest }) {
   };
 
   const onPressSuggestion = suggestionKey => {
-    addShow(suggestions[suggestionKey]);
+    addTvshowWithSeasons(suggestions[suggestionKey]);
     navigation.goBack();
     Keyboard.dismiss();
   };
@@ -46,7 +51,7 @@ function ShowAdd({ navigation, suggestions, addShow, suggestionsRequest }) {
       <Content>
         <Form>
           <Item fixedLabel>
-            <Label>Show&rsquo;s name:</Label>
+            <Label>Tvshow&rsquo;s name:</Label>
             <Input
               onChangeText={onChangeName}
               onEndEditing={onEndName}
@@ -73,13 +78,13 @@ function ShowAdd({ navigation, suggestions, addShow, suggestionsRequest }) {
   );
 }
 
-ShowAdd.navigationOptions = ({ navigation }) => ({
+TvshowAdd.navigationOptions = ({ navigation }) => ({
   header: (
     <HeaderModular
-      title="New TV show"
+      title="New TV tvshow"
       cancelButton={{ icon: 'close', action: navigation.goBack }}
     />
   ),
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(ShowAdd);
+export default connect(mapStateToProps, mapActionsToProps)(TvshowAdd);

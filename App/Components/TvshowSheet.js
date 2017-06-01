@@ -10,7 +10,7 @@ import {
   Text,
 } from 'native-base';
 
-const ShowSheet = ({
+const TvshowSheet = ({
   name,
   year,
   frenchName,
@@ -45,4 +45,4 @@ const ShowSheet = ({
   );
 };
 
-export default ShowSheet;
+export default TvshowSheet;

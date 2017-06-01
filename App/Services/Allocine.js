@@ -67,7 +67,7 @@ export default class Allocine {
       .catch(error => ({ error: error.message, data: null }));
   };
 
-  searchShows = query => {
+  searchTvshows = query => {
     if (query.trim() === '') {
       return { error: null, data: [] };
     }
@@ -89,12 +89,12 @@ export default class Allocine {
       .get(this.config.apiHostName + path)
       .then(result => {
         if (!result.data.tvseries) {
-          return { error: "API didn't found TV show", data: null };
+          return { error: "API didn't found TV tvshow", data: null };
         } else if (
           !result.data.tvseries.season ||
           result.data.tvseries.season === []
         ) {
-          return { error: 'No seasons for this TV show', data: null };
+          return { error: 'No seasons for this TV tvshow', data: null };
         }
         return {
           error: null,
@@ -108,7 +108,7 @@ export default class Allocine {
 /* ========== FIXTURES ========== */
 
 export const ApiFixtures = {
-  searchShows: query => {
+  searchTvshows: query => {
     if (query.trim() === '') {
       return { error: null, data: [] };
     }

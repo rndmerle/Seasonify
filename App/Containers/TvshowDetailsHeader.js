@@ -2,7 +2,7 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import { showActions } from '../Redux/showRedux';
+import { tvshowActions } from '../Redux/tvshowRedux';
 import { uiActions } from '../Redux/uiRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
 import HeaderModular from '../Components/HeaderModular';
@@ -13,27 +13,27 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  removeShow: showActions.removeShow,
-  updateShow: showActions.updateShow,
+  removeTvshow: tvshowActions.removeTvshow,
+  updateTvshow: tvshowActions.updateTvshow,
   toastMessage: uiActions.toastMessage,
   startEdit: editActions.startEdit,
   endEdit: editActions.endEdit,
 };
 
-function ShowDetailsHeader({
+function TvshowDetailsHeader({
   navigate,
-  showName,
-  showId,
+  tvshowName,
+  tvshowId,
   isEditing,
   editedObject,
-  removeShow,
-  updateShow,
+  removeTvshow,
+  updateTvshow,
   toastMessage,
   startEdit,
   endEdit,
 }) {
   const handleExit = () => {
-    navigate('ShowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
+    navigate('TvshowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
     if (isEditing) {
       endEdit();
@@ -47,7 +47,7 @@ function ShowDetailsHeader({
   const handleDone = () => {
     Keyboard.dismiss();
     if (editedObject.id) {
-      updateShow(editedObject);
+      updateTvshow(editedObject);
       toastMessage('success', `${editedObject.name} has been edited`);
     }
     endEdit();
@@ -55,13 +55,13 @@ function ShowDetailsHeader({
 
   const handleDelete = () => {
     handleExit();
-    removeShow(showId);
-    toastMessage('warning', `${showName} has been deleted`);
+    removeTvshow(tvshowId);
+    toastMessage('warning', `${tvshowName} has been deleted`);
   };
 
   return (
     <HeaderModular
-      title={showName}
+      title={tvshowName}
       cancelButton={{ icon: 'arrow-back', action: handleExit }}
       actionButtons={[
         {
@@ -81,4 +81,4 @@ function ShowDetailsHeader({
   );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ShowDetailsHeader);
+export default connect(mapStateToProps, mapActionsToProps)(TvshowDetailsHeader);

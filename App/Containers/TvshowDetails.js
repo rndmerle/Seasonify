@@ -2,58 +2,58 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Grid, Col } from 'native-base';
 
-import { showActions, showSelectors } from '../Redux/showRedux';
+import { tvshowActions, tvshowSelectors } from '../Redux/tvshowRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
-import ShowDetailsHeader from './ShowDetailsHeader';
+import TvshowDetailsHeader from './TvshowDetailsHeader';
 import SingleFAB from '../Components/SingleFAB';
 import Poster from '../Components/Poster';
-import ShowSheet from '../Components/ShowSheet';
+import TvshowSheet from '../Components/TvshowSheet';
 import SeasonList from '../Components/SeasonList';
 
 const mapStateToProps = state => ({
-  getShows: showSelectors.getShows(state),
+  getTvshows: tvshowSelectors.getTvshows(state),
   isEditing: editSelectors.isEditing(state),
   editedObject: editSelectors.editedObject(state),
 });
 
 const mapActionsToProps = {
   updateEdit: editActions.updateEdit,
-  seasonsRefresh: showActions.seasonsRefresh,
+  seasonsRefresh: tvshowActions.seasonsRefresh,
 };
 
-function ShowDetails({
+function TvshowDetails({
   navigation,
-  getShows,
+  getTvshows,
   isEditing,
   editedObject,
   updateEdit,
   seasonsRefresh,
 }) {
-  const { showId, showAllocine } = navigation.state.params;
-  const show = getShows[showId];
+  const { tvshowId, tvshowAllocine } = navigation.state.params;
+  const tvshow = getTvshows[tvshowId];
 
   const onChangeName = name => {
-    updateEdit({ id: showId, name });
+    updateEdit({ id: tvshowId, name });
   };
 
   const onFAB = () => {
-    seasonsRefresh(showId, showAllocine);
+    seasonsRefresh(tvshowId, tvshowAllocine);
   };
 
-  if (show) {
+  if (tvshow) {
     return (
       <Container>
         <Content>
           <Grid>
             <Col size={38}>
-              <Poster url={show.poster} />
+              <Poster url={tvshow.poster} />
             </Col>
             <Col size={62}>
-              <ShowSheet
-                name={show.name}
-                frenchName={show.frenchName}
-                year={show.year}
-                seasonCount={show.seasonCount}
+              <TvshowSheet
+                name={tvshow.name}
+                frenchName={tvshow.frenchName}
+                year={tvshow.year}
+                seasonCount={tvshow.seasonCount}
                 edit={editedObject}
                 isEditing={isEditing}
                 onChangeName={onChangeName}
@@ -61,26 +61,26 @@ function ShowDetails({
             </Col>
           </Grid>
           <SeasonList
-            showId={show.id}
-            showAllocine={show.allocine}
-            seasons={show.seasons}
+            tvshowId={tvshow.id}
+            tvshowAllocine={tvshow.allocine}
+            seasons={tvshow.seasons}
           />
         </Content>
         <SingleFAB icon="refresh" onPress={onFAB} />
       </Container>
     );
   }
-  return null;
+  return <Container />;
 }
 
-ShowDetails.navigationOptions = ({ navigation }) => ({
+TvshowDetails.navigationOptions = ({ navigation }) => ({
   header: (
-    <ShowDetailsHeader
-      showName={navigation.state.params.showName}
-      showId={navigation.state.params.showId}
+    <TvshowDetailsHeader
+      tvshowName={navigation.state.params.tvshowName}
+      tvshowId={navigation.state.params.tvshowId}
       navigate={navigation.navigate}
     />
   ),
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(ShowDetails);
+export default connect(mapStateToProps, mapActionsToProps)(TvshowDetails);

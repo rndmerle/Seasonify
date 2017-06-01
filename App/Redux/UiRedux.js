@@ -38,7 +38,7 @@ export const INITIAL_STATE = {
 
 const normalizeSuggestion = suggestions =>
   suggestions.reduce(
-    (array, suggestion, id) =>
+    (array, suggestion) =>
       array.concat({
         allocine: suggestion.code,
         name: suggestion.originalTitle,

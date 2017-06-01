@@ -42,6 +42,9 @@
         ],
         # Switching from error to warn
         "indent": ["warn"],
+        "no-trailing-spaces": ["warn"],
+        "no-multiple-empty-lines": ["warn"],
+        "padded-blocks": ["warn"],
         "arrow-body-style": ["warn"],
         "no-unused-vars": ["warn"],
         "react/prefer-stateless-function": ["warn"],
