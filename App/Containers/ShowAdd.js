@@ -45,22 +45,7 @@ export class _ShowAdd extends React.Component {
   };
 
   onPressSuggestion = suggestionKey => {
-    const {
-      code,
-      originalTitle,
-      yearStart,
-      poster: { href: posterURL },
-      seasonCount,
-    } = this.props.suggestions[suggestionKey];
-
-    this.props.addShow(
-      code,
-      originalTitle,
-      String(yearStart),
-      posterURL,
-      String(seasonCount),
-    );
-
+    this.props.addShow(this.props.suggestions[suggestionKey]);
     this.props.navigation.goBack();
     Keyboard.dismiss();
   };
@@ -82,18 +67,15 @@ export class _ShowAdd extends React.Component {
           </Form>
           {this.props.suggestions &&
             <List>
-              {Object.keys(this.props.suggestions).map(key => {
-                const suggestion = this.props.suggestions[key];
+              {this.props.suggestions.map((suggestion, key) => {
                 return (
                   <SuggestionItem
-                    key={key}
+                    key={suggestion.allocine}
                     suggestionKey={key}
                     onPress={this.onPressSuggestion}
-                    posterURL={
-                      suggestion.poster ? suggestion.poster.href : null
-                    }
-                    title={suggestion.originalTitle}
-                    subtitle={suggestion.yearStart}
+                    poster={suggestion.poster}
+                    title={suggestion.name}
+                    subtitle={suggestion.year}
                   />
                 );
               })}

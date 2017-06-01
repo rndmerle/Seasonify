@@ -17,12 +17,9 @@ export default class Allocine {
       format: 'json',
       partner: this.config.apiPartner,
     },
-    tvserieslist: { filter: 'top', order: 'viewcount' },
-    tvseries: { profile: 'large' },
-    tvseriesbroadcastlist: { profile: 'large' },
-    season: { profile: 'large' },
-    seasonlist: { profile: 'small' },
     search: { filter: 'tvseries', count: 5 },
+    tvseries: { profile: 'large' },
+    season: { profile: 'medium' },
   };
 
   sha1 = null;
@@ -85,7 +82,20 @@ export default class Allocine {
       }))
       .catch(error => ({ error: error.message, data: null }));
   };
+
+  getSeasons = code => {
+    const path = this.buildPath('tvseries', { code });
+    return axios
+      .get(this.config.apiHostName + path)
+      .then(result => ({
+        error: null,
+        data: result.data.tvseries.season,
+      }))
+      .catch(error => ({ error: error.message, data: null }));
+  };
 }
+
+/* ========== FIXTURES ========== */
 
 export const ApiFixtures = {
   searchShows: query => {

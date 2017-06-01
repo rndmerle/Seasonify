@@ -1,18 +1,14 @@
 import React from 'react';
-import { Image } from 'react-native';
+import FitImage from 'react-native-fit-image';
 
-const Poster = ({ url, adaptative = true }) => (
-  <Image
+const Poster = ({ url }) => (
+  <FitImage
+    source={{ uri: url }}
     resizeMode="contain"
     resizeMethod="scale"
-    style={
-      adaptative && {
-        flex: 1,
-        height: undefined,
-        width: undefined,
-      }
-    }
-    source={{ uri: url }}
+    indicator
+    indicatorColor="#919191"
+    indicatorSize="large"
   />
 );
 

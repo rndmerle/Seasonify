@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Content,
   Form,
   Item,
   Input,
@@ -7,46 +8,41 @@ import {
   List,
   ListItem,
   Text,
-  Grid,
-  Col,
 } from 'native-base';
 
-import Poster from '../Components/Poster';
-
-const ShowSheet = ({ show, isEditing, edit, onChangeName }) => {
-  if (show) {
-    return (
-      <Grid>
-        <Col size={38}>
-          <Poster url={show.posterURL} />
-        </Col>
-        <Col size={62}>
-          <Form>
-            <Item regular>
-              {isEditing && <Icon name="create" />}
-              <Input
-                disabled={!isEditing}
-                placeHolder="Name"
-                value={'name' in edit ? edit.name : show.name}
-                onChangeText={onChangeName}
-                autoCapitalize="words"
-              />
-            </Item>
-          </Form>
-          <List>
-            <ListItem>
-              <Text note>{show.year}</Text>
-            </ListItem>
-            <ListItem>
-              <Text note>{show.seasonCount} seasons (VO)</Text>
-            </ListItem>
-          </List>
-        </Col>
-      </Grid>
-    );
-  }
-
-  return null;
+const ShowSheet = ({
+  name,
+  year,
+  frenchName,
+  isEditing,
+  edit,
+  onChangeName,
+}) => {
+  return (
+    <Content>
+      <Form>
+        <Item regular>
+          {isEditing && <Icon name="create" />}
+          <Input
+            disabled={!isEditing}
+            placeHolder="Name"
+            value={'name' in edit ? edit.name : name}
+            onChangeText={onChangeName}
+            autoCapitalize="words"
+          />
+        </Item>
+      </Form>
+      <List>
+        {frenchName &&
+          <ListItem>
+            <Text note>{frenchName}</Text>
+          </ListItem>}
+        <ListItem>
+          <Text note>{year}</Text>
+        </ListItem>
+      </List>
+    </Content>
+  );
 };
 
 export default ShowSheet;

@@ -13,7 +13,7 @@ import {
 const SuggestionItem = ({
   suggestionKey,
   onPress,
-  posterURL,
+  poster,
   title,
   subtitle,
 }) => {
@@ -23,8 +23,8 @@ const SuggestionItem = ({
   return (
     <ListItem onPress={onPressSuggestion} avatar>
       <Left>
-        {posterURL && <Thumbnail square source={{ uri: posterURL }} />}
-        {!posterURL &&
+        {poster && <Thumbnail square source={{ uri: poster }} />}
+        {!poster &&
           <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
       <Body>

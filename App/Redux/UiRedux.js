@@ -34,6 +34,21 @@ export const INITIAL_STATE = {
   suggestions: [],
 };
 
+/* ========== Normalizing ========== */
+
+const normalizeSuggestion = suggestions =>
+  suggestions.reduce(
+    (array, suggestion, id) =>
+      array.concat({
+        allocine: suggestion.code,
+        name: suggestion.originalTitle,
+        frenchName: 'title' in suggestion ? suggestion.title : null,
+        poster: 'poster' in suggestion ? suggestion.poster.href : null,
+        year: suggestion.yearStart,
+      }),
+    [],
+  );
+
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
@@ -44,7 +59,8 @@ const reducer = (state = INITIAL_STATE, { type, payload }) => {
       return { ...state, message: null };
 
     case types.SUGGESTIONS_SUCCESS:
-      return { ...state, suggestions: payload.suggestions };
+      const suggestions = normalizeSuggestion(payload.suggestions);
+      return { ...state, suggestions };
 
     case types.SUGGESTIONS_FAIL:
       return { ...state, suggestions: [] };
