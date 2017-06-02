@@ -2,14 +2,15 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import { tvshowActions } from '../Redux/tvshowRedux';
 import { uiActions } from '../Redux/uiRedux';
+import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
 import { editActions, editSelectors } from '../Redux/editRedux';
 import HeaderModular from '../Components/HeaderModular';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   isEditing: editSelectors.isEditing(state),
   editedObject: editSelectors.editedObject(state),
+  getTvshow: tvshowSelectors.getTvshow(state, ownProps.tvshowId),
 });
 
 const mapActionsToProps = {
@@ -22,16 +23,18 @@ const mapActionsToProps = {
 
 function TvshowDetailsHeader({
   navigate,
-  tvshowName,
   tvshowId,
   isEditing,
   editedObject,
+  getTvshow,
   removeTvshow,
   updateTvshow,
   toastMessage,
   startEdit,
   endEdit,
 }) {
+  const tvshow = getTvshow;
+
   const handleExit = () => {
     navigate('TvshowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
@@ -55,13 +58,13 @@ function TvshowDetailsHeader({
 
   const handleDelete = () => {
     handleExit();
-    removeTvshow(tvshowId);
-    toastMessage('warning', `${tvshowName} has been deleted`);
+    removeTvshow(tvshow.id);
+    toastMessage('warning', `${tvshow.name} has been deleted`);
   };
 
   return (
     <HeaderModular
-      title={tvshowName}
+      title={tvshow.name}
       cancelButton={{ icon: 'arrow-back', action: handleExit }}
       actionButtons={[
         {

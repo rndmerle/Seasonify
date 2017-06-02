@@ -82,7 +82,6 @@ function TvshowDetails({
 TvshowDetails.navigationOptions = ({ navigation }) => ({
   header: (
     <TvshowDetailsHeader
-      tvshowName={navigation.state.params.tvshowName}
       tvshowId={navigation.state.params.tvshowId}
       navigate={navigation.navigate}
     />
