@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import Config from '../Config/DebugConfig';
+import Config from 'app/Config/DebugConfig';
 
 export default function navigationLogging(prevState, currentState, action) {
   if (Config.navigationLogging) {

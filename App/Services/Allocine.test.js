@@ -19,7 +19,6 @@ test('Search an unknown tvshow', async () => {
 test('Grab seasons list', async () => {
   const api = new Allocine();
   const response = await api.getSeasons(213);
-  console.log(response.data);
   expect(response.error).toBeNull();
   expect(response.data).toBeTruthy();
   expect(response.data.length).toBe(3);

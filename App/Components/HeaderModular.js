@@ -17,6 +17,25 @@ const HeaderModular = ({ title, cancelButton, actionButtons = [] }) => {
     cancelButton.action();
     Keyboard.dismiss();
   };
+  const renderButton = () => {
+    return actionButtons.map((button, index) => {
+      if (
+        button.visibleIf ||
+        (typeof button.visibleIf === 'undefined' && !button.hideByDefault)
+      ) {
+        console.log(button);
+        return (
+          <Button key={index} transparent onPress={button.action}>
+            {button.icon
+              ? <Icon name={button.icon} />
+              : <Text>{button.text}</Text>}
+          </Button>
+        );
+      }
+      return null;
+    });
+  };
+
   return (
     <Header>
       <Left>
@@ -28,16 +47,7 @@ const HeaderModular = ({ title, cancelButton, actionButtons = [] }) => {
         <Title>{title}</Title>
       </Body>
       <Right>
-        {actionButtons.map(
-          (button, index) =>
-            (button.visibleIf ||
-              (typeof button.visibleIf === 'undefined' &&
-                !button.hideByDefault)) &&
-            <Button key={index} transparent onPress={button.action}>
-              {button.text && <Text>{button.text}</Text>}
-              {button.icon && <Icon name={button.icon} />}
-            </Button>,
-        )}
+        {renderButton()}
       </Right>
     </Header>
   );

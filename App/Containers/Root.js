@@ -2,11 +2,11 @@ import React from 'react';
 import { Container } from 'native-base';
 import { connect } from 'react-redux';
 
-import navigationLogging from '../Services/Logging';
-import PersistConfig from '../Config/PersistConfig';
-import DrawerNavigation from '../Navigation/DrawerNavigation';
+import navigationLogging from 'app/Services/Logging';
+import PersistConfig from 'app/Config/PersistConfig';
+import DrawerNavigation from 'app/Navigation/DrawerNavigation';
+import { startupActions } from 'app/Redux/startupRedux';
 import ToastMessage from './ToastMessage';
-import { startupActions } from '../Redux/startupRedux';
 
 const mapStateToProps = null; // state => ({});
 

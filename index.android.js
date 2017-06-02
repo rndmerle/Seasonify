@@ -1,9 +1,9 @@
 /**
  * @flow
  */
- import { AppRegistry } from 'react-native';
+import { AppRegistry } from 'react-native';
 
- import './App/Config/ReactotronConfig';
- import App from './App/Containers/App';
+import './app/Config/ReactotronConfig';
+import App from './app/Containers/App';
 
- AppRegistry.registerComponent('SAIS0N', () => App);
+AppRegistry.registerComponent('SAIS0N', () => App);

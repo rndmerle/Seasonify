@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Grid, Col } from 'native-base';
 
-import { Metrics } from '../Themes';
-import { tvshowActions, tvshowSelectors } from '../Redux/tvshowRedux';
-import { editActions, editSelectors } from '../Redux/editRedux';
+import { Metrics } from 'app/Themes';
+import { tvshowActions, tvshowSelectors } from 'app/Redux/tvshowRedux';
+import { editActions, editSelectors } from 'app/Redux/editRedux';
+import SingleFAB from 'app/Components/SingleFAB';
+import Poster from 'app/Components/Poster';
+import TvshowSheet from 'app/Components/TvshowSheet';
+import SeasonList from 'app/Components/SeasonList';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
-import SingleFAB from '../Components/SingleFAB';
 import Loading from './Loading';
-import Poster from '../Components/Poster';
-import TvshowSheet from '../Components/TvshowSheet';
-import SeasonList from '../Components/SeasonList';
 
 const mapStateToProps = (state, ownProps) => ({
   getTvshow: tvshowSelectors.getTvshow(

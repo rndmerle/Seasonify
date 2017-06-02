@@ -2,10 +2,10 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import { uiActions } from '../Redux/uiRedux';
-import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
-import { editActions, editSelectors } from '../Redux/editRedux';
-import HeaderModular from '../Components/HeaderModular';
+import { uiActions } from 'app/Redux/uiRedux';
+import { tvshowSelectors, tvshowActions } from 'app/Redux/tvshowRedux';
+import { editActions, editSelectors } from 'app/Redux/editRedux';
+import HeaderModular from 'app/Components/HeaderModular';
 
 const mapStateToProps = (state, ownProps) => ({
   isEditing: editSelectors.isEditing(state),

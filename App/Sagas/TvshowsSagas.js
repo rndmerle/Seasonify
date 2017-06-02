@@ -1,8 +1,8 @@
 import { call, put, select } from 'redux-saga/effects';
 
-import Ident from '../Services/Ident';
-import { uiActions } from '../Redux/uiRedux';
-import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
+import Ident from 'app/Services/Ident';
+import { uiActions } from 'app/Redux/uiRedux';
+import { tvshowSelectors, tvshowActions } from 'app/Redux/tvshowRedux';
 
 export function* searchTvshows(api, { payload }) {
   const response = yield call(api.searchTvshows, payload.text);

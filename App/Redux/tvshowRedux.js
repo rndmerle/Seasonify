@@ -1,4 +1,4 @@
-import seasonNormalizer from '../Normalizers/seasonNormalizer';
+import seasonNormalizer from 'app/Normalizers/seasonNormalizer';
 
 /* ========== TYPES ========== */
 export const types = {
@@ -35,7 +35,7 @@ export const tvshowActions = {
 };
 
 export const INITIAL_STATE = __DEV__
-  ? require('../Fixtures/tvshowState.json')
+  ? require('app/Fixtures/tvshowState.json')
   : {};
 
 /* ========== REDUCER ========== */

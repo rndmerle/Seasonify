@@ -5,6 +5,9 @@
     "jsx-a11y",
     "import"
   ],
+  settings: {
+    import/resolver: reactnative
+    },
   "env": {
       "browser": true,
       "node": true,
@@ -17,7 +20,8 @@
       "document": true,
       "describe": true,
       "expect": true,
-      "it": true
+      "it": true,
+      "shallow": true
     },
   "extends": ["plugin:react/recommended", "airbnb"],
   "rules": {
@@ -49,11 +53,13 @@
         "no-unused-vars": ["warn"],
         "react/prefer-stateless-function": ["warn"],
         "prefer-const": ["warn"],
+        "semi": ["warn"],
         "space-before-function-paren": ["warn"],
         # Deactivating
         "no-case-declarations": 0,
         "global-require": 0,
         "import/prefer-default-export": 0,
         "no-mixed-operators": 0,
+        "import/no-extraneous-dependencies": 0,
   }
 }

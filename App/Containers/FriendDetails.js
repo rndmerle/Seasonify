@@ -11,9 +11,9 @@ import {
   Icon,
 } from 'native-base';
 
-import { friendActions } from '../Redux/friendRedux';
-import { uiActions } from '../Redux/uiRedux';
-import HeaderModular from '../Components/HeaderModular';
+import { friendActions } from 'app/Redux/friendRedux';
+import { uiActions } from 'app/Redux/uiRedux';
+import HeaderModular from 'app/Components/HeaderModular';
 
 const mapStateToProps = null; // state => ({});
 

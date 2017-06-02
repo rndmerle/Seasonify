@@ -1,4 +1,4 @@
-import tvshowNormalizer from '../Normalizers/tvshowNormalizer';
+import tvshowNormalizer from 'app/Normalizers/tvshowNormalizer';
 
 /* ========== TYPES ========== */
 export const types = {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Icon } from 'native-base';
 import { StackNavigator } from 'react-navigation';
 
-import FriendList from '../Containers/FriendList';
-import FriendAdd from '../Containers/FriendAdd';
-import FriendDetails from '../Containers/FriendDetails';
+import FriendList from 'app/Containers/FriendList';
+import FriendAdd from 'app/Containers/FriendAdd';
+import FriendDetails from 'app/Containers/FriendDetails';
 
 const FriendNavigation = StackNavigator(
   {
@@ -24,7 +24,7 @@ const FriendNavigation = StackNavigator(
     headerMode: 'float',
     navigationOptions: {
       drawerLabel: 'Friends',
-      drawerIcon: () => (<Icon name="contacts" />),
+      drawerIcon: () => <Icon name="contacts" />,
     },
   },
 );

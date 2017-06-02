@@ -12,10 +12,10 @@ import {
 } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
-import { tvshowActions } from '../Redux/tvshowRedux';
-import { uiActions, uiSelectors } from '../Redux/uiRedux';
-import HeaderModular from '../Components/HeaderModular';
-import SuggestionItem from '../Components/SuggestionItem';
+import { tvshowActions } from 'app/Redux/tvshowRedux';
+import { uiActions, uiSelectors } from 'app/Redux/uiRedux';
+import HeaderModular from 'app/Components/HeaderModular';
+import SuggestionItem from 'app/Components/SuggestionItem';
 
 const mapStateToProps = state => ({
   suggestions: uiSelectors.getSuggestions(state),

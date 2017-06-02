@@ -2,10 +2,10 @@ import React from 'react';
 import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 
-import { tvshowSelectors } from '../Redux/tvshowRedux';
-import HeaderRoot from '../Components/HeaderRoot';
-import TvshowItem from '../Components/TvshowItem';
-import SingleFAB from '../Components/SingleFAB';
+import { tvshowSelectors } from 'app/Redux/tvshowRedux';
+import HeaderRoot from 'app/Components/HeaderRoot';
+import TvshowItem from 'app/Components/TvshowItem';
+import SingleFAB from 'app/Components/SingleFAB';
 
 const mapStateToProps = state => ({
   tvshows: tvshowSelectors.getTvshows(state),
