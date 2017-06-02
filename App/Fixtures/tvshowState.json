@@ -1,0 +1,30 @@
+{
+  "37a543ee-1ef2-4a03-b2d3-91ede4418089": {
+    "id": "37a543ee-1ef2-4a03-b2d3-91ede4418089",
+    "allocine": 213,
+    "name": "Deadwood",
+    "frenchName": null,
+    "year": 2004,
+    "poster": "http://fr.web.img5.acsta.net/medias/nmedia/18/82/49/12/19623049.jpg",
+    "seasons": {
+      "1": {
+        "id": 1,
+        "allocine": 565,
+        "year": 2004,
+        "episodes": 12,
+      },
+      "2": {
+        "id": 2,
+        "allocine": 711,
+        "year": 2005,
+        "episodes": 12,
+      },
+      "3": {
+        "id": 3,
+        "allocine": 2664,
+        "year": 2006,
+        "episodes": 12,
+      },
+    },
+  },
+}

@@ -1,5 +1,4 @@
 import seasonNormalizer from '../Normalizers/seasonNormalizer';
-import Ident from '../Services/Ident';
 
 /* ========== TYPES ========== */
 export const types = {
@@ -35,37 +34,9 @@ export const tvshowActions = {
   seasonsFail: () => ({ type: types.SEASONS_FAIL }),
 };
 
-Ident.newid();
-export const INITIAL_STATE = {
-  [Ident.id()]: {
-    id: Ident.id(),
-    allocine: 213,
-    name: 'Deadwood',
-    frenchName: null,
-    year: 2004,
-    poster: 'http://fr.web.img5.acsta.net/medias/nmedia/18/82/49/12/19623049.jpg',
-    seasons: {
-      1: {
-        id: 1,
-        allocine: 565,
-        year: 2004,
-        episodes: 12,
-      },
-      2: {
-        id: 2,
-        allocine: 711,
-        year: 2005,
-        episodes: 12,
-      },
-      3: {
-        id: 3,
-        allocine: 2664,
-        year: 2006,
-        episodes: 12,
-      },
-    },
-  },
-};
+export const INITIAL_STATE = __DEV__
+  ? require('../Fixtures/tvshowState.json')
+  : {};
 
 /* ========== REDUCER ========== */
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
