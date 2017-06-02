@@ -23,9 +23,9 @@ export const tvshowActions = {
   }),
   removeTvshow: id => ({ type: types.REMOVE, payload: { id } }),
   updateTvshow: tvshow => ({ type: types.UPDATE, payload: tvshow }),
-  seasonsRefresh: (id, allocine, count) => ({
+  seasonsRefresh: (id, silent = false) => ({
     type: types.SEASONS_REFRESH,
-    payload: { id, allocine, count },
+    payload: { id, silent },
   }),
   seasonsSuccess: (id, seasons) => ({
     type: types.SEASONS_SUCCESS,

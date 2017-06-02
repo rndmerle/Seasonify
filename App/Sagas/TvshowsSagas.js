@@ -1,8 +1,8 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 
 import Ident from '../Services/Ident';
 import { uiActions } from '../Redux/uiRedux';
-import { tvshowActions } from '../Redux/tvshowRedux';
+import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
 
 export function* searchTvshows(api, { payload }) {
   const response = yield call(api.searchTvshows, payload.text);
@@ -19,25 +19,28 @@ export function* addTvshowWithSeasons(api, { payload }) {
   const tvshow = { ...payload, id: Ident.id() };
   yield put(tvshowActions.addTvshow(tvshow));
   yield put(uiActions.toastMessage('success', `${tvshow.name} added`));
-  yield put(tvshowActions.seasonsRefresh(tvshow.id, tvshow.allocine));
+  yield put(tvshowActions.seasonsRefresh(tvshow.id, true));
 }
 
 export function* updateSeasons(api, { payload }) {
-  yield put(uiActions.spinnerShow());
-  const response = yield call(api.getSeasons, payload.allocine);
-
+  if (!payload.silent) yield put(uiActions.spinnerShow());
+  const tvshows = yield select(tvshowSelectors.getTvshows);
+  const tvshow = tvshows[payload.id];
+  const response = yield call(api.getSeasons, tvshow.allocine);
   if (response.error) {
     yield put(tvshowActions.seasonsFail());
     yield put(uiActions.toastMessage('error', response.error));
   } else {
-    yield call(
-      informIfNewSeason,
-      payload.count,
-      Object.keys(response.data).length,
-    );
-    yield put(tvshowActions.seasonsSuccess(payload.id, response.data));
+    if (!payload.silent) {
+      yield call(
+        informIfNewSeason,
+        Object.keys(tvshow.seasons).length,
+        Object.keys(response.data).length,
+      );
+    }
+    yield put(tvshowActions.seasonsSuccess(tvshow.id, response.data));
   }
-  yield put(uiActions.spinnerHide());
+  if (!payload.silent) yield put(uiActions.spinnerHide());
 }
 
 function* informIfNewSeason(countBefore, countAfter) {

@@ -39,11 +39,7 @@ function TvshowDetails({
   };
 
   const onFAB = () => {
-    seasonsRefresh(
-      tvshow.id,
-      tvshow.allocine,
-      Object.keys(tvshow.seasons).length,
-    );
+    seasonsRefresh(tvshow.id);
   };
 
   if (tvshow) {
