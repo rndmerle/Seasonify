@@ -73,4 +73,5 @@ export default reducer;
 /* ========== SELECTORS ========== */
 export const tvshowSelectors = {
   getTvshows: state => state.tvshows,
+  getTvshow: (state, id) => state.tvshows[id],
 };

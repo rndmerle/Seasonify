@@ -24,8 +24,7 @@ export function* addTvshowWithSeasons(api, { payload }) {
 
 export function* updateSeasons(api, { payload }) {
   if (!payload.silent) yield put(uiActions.spinnerShow());
-  const tvshows = yield select(tvshowSelectors.getTvshows);
-  const tvshow = tvshows[payload.id];
+  const tvshow = yield select(tvshowSelectors.getTvshow, payload.id);
   const response = yield call(api.getSeasons, tvshow.allocine);
   if (response.error) {
     yield put(tvshowActions.seasonsFail());

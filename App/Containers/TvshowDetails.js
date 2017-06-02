@@ -12,8 +12,11 @@ import Poster from '../Components/Poster';
 import TvshowSheet from '../Components/TvshowSheet';
 import SeasonList from '../Components/SeasonList';
 
-const mapStateToProps = state => ({
-  getTvshows: tvshowSelectors.getTvshows(state),
+const mapStateToProps = (state, ownProps) => ({
+  getTvshow: tvshowSelectors.getTvshow(
+    state,
+    ownProps.navigation.state.params.tvshowId,
+  ),
   isEditing: editSelectors.isEditing(state),
   editedObject: editSelectors.editedObject(state),
 });
@@ -25,14 +28,14 @@ const mapActionsToProps = {
 
 function TvshowDetails({
   navigation,
-  getTvshows,
+  getTvshow,
   isEditing,
   editedObject,
   updateEdit,
   seasonsRefresh,
 }) {
   const { tvshowId } = navigation.state.params;
-  const tvshow = getTvshows[tvshowId];
+  const tvshow = getTvshow;
 
   const onChangeName = name => {
     updateEdit({ id: tvshowId, name });
