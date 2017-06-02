@@ -25,11 +25,31 @@ export function* addTvshowWithSeasons(api, { payload }) {
 export function* updateSeasons(api, { payload }) {
   yield put(uiActions.spinnerShow());
   const response = yield call(api.getSeasons, payload.allocine);
+
   if (response.error) {
     yield put(tvshowActions.seasonsFail());
     yield put(uiActions.toastMessage('error', response.error));
   } else {
+    yield call(
+      informIfNewSeason,
+      payload.count,
+      Object.keys(response.data).length,
+    );
     yield put(tvshowActions.seasonsSuccess(payload.id, response.data));
   }
   yield put(uiActions.spinnerHide());
+}
+
+function* informIfNewSeason(countBefore, countAfter) {
+  const nbNewSeasons = countAfter - countBefore;
+  if (nbNewSeasons > 0) {
+    yield put(
+      uiActions.toastMessage(
+        'success',
+        `${nbNewSeasons} new season${nbNewSeasons > 1 ? 's' : ''}!`,
+      ),
+    );
+  } else {
+    yield put(uiActions.toastMessage('neutral', 'No new season :('));
+  }
 }

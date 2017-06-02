@@ -34,7 +34,7 @@ function TvshowDetails({
   seasonsRefresh,
   isSpinning,
 }) {
-  const { tvshowId, tvshowAllocine } = navigation.state.params;
+  const { tvshowId } = navigation.state.params;
   const tvshow = getTvshows[tvshowId];
 
   const onChangeName = name => {
@@ -42,7 +42,11 @@ function TvshowDetails({
   };
 
   const onFAB = () => {
-    seasonsRefresh(tvshowId, tvshowAllocine);
+    seasonsRefresh(
+      tvshow.id,
+      tvshow.allocine,
+      Object.keys(tvshow.seasons).length,
+    );
   };
 
   if (tvshow) {

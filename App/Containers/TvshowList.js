@@ -26,7 +26,6 @@ function TvshowList({ navigation, tvshows }) {
             <TvshowItem
               key={id}
               tvshowId={id}
-              tvshowAllocine={tvshows[id].allocine}
               tvshowName={tvshows[id].name}
               navigate={navigation.navigate}
             />

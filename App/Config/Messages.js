@@ -1,25 +1,31 @@
+const defaults = {
+  text: '',
+  position: 'bottom',
+  buttonText: 'OK',
+};
+const baseDuration = 3000;
+
 export default {
   success: {
-    text: '',
+    ...defaults,
     type: 'success',
-    position: 'bottom',
-    buttonText: 'OK',
-    duration: 3000,
+    duration: baseDuration,
+  },
+
+  neutral: {
+    ...defaults,
+    duration: baseDuration,
   },
 
   warning: {
-    text: '',
+    ...defaults,
     type: 'warning',
-    position: 'bottom',
-    buttonText: 'OK',
-    duration: 5000,
+    duration: baseDuration * 2,
   },
 
   error: {
-    text: '',
+    ...defaults,
     type: 'danger',
-    position: 'bottom',
-    buttonText: 'OK',
-    duration: 10000,
+    duration: baseDuration * 3,
   },
 };

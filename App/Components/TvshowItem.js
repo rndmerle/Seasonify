@@ -1,12 +1,11 @@
 import React from 'react';
 import { ListItem, Text } from 'native-base';
 
-const TvshowItem = ({ tvshowId, tvshowName, tvshowAllocine, navigate }) => {
+const TvshowItem = ({ tvshowId, tvshowName, navigate }) => {
   const onPressTvshow = () => {
     navigate('TvshowDetails', {
       tvshowId,
       tvshowName,
-      tvshowAllocine,
     });
   };
   return (
