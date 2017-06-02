@@ -38,7 +38,7 @@ function TvshowList({ navigation, tvshows }) {
 }
 
 TvshowList.navigationOptions = ({ navigation }) => ({
-  header: <HeaderRoot title="TV Tvshows" navigation={navigation} />,
+  header: <HeaderRoot title="TV Shows" navigation={navigation} />,
 });
 
 export default connect(mapStateToProps, mapActionsToProps)(TvshowList);

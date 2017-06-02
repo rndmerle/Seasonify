@@ -89,12 +89,12 @@ export default class Allocine {
       .get(this.config.apiHostName + path)
       .then(result => {
         if (!result.data.tvseries) {
-          return { error: "API didn't found TV tvshow", data: null };
+          return { error: "API didn't found the TV show", data: null };
         } else if (
           !result.data.tvseries.season ||
           result.data.tvseries.season === []
         ) {
-          return { error: 'No seasons for this TV tvshow', data: null };
+          return { error: 'No seasons for this TV show', data: null };
         }
         return {
           error: null,

@@ -23,8 +23,8 @@ const TvshowNavigation = StackNavigator(
     mode: 'card',
     headerMode: 'float',
     navigationOptions: {
-      drawerLabel: 'TV Tvshows',
-      drawerIcon: ({ tintColor }) => (<Icon name="star" />),
+      drawerLabel: 'TV Shows',
+      drawerIcon: ({ tintColor }) => <Icon name="star" />,
     },
   },
 );

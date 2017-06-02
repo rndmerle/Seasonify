@@ -81,7 +81,7 @@ function TvshowAdd({
 TvshowAdd.navigationOptions = ({ navigation }) => ({
   header: (
     <HeaderModular
-      title="New TV tvshow"
+      title="New TV Show"
       cancelButton={{ icon: 'close', action: navigation.goBack }}
     />
   ),
