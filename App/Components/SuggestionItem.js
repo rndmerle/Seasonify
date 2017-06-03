@@ -10,13 +10,13 @@ import {
   Button,
 } from 'native-base';
 
-const SuggestionItem = ({
+export default function SuggestionItem({
   suggestionKey,
   onPress,
   poster,
   title,
   subtitle,
-}) => {
+}) {
   const onPressSuggestion = () => {
     onPress(suggestionKey);
   };
@@ -36,6 +36,4 @@ const SuggestionItem = ({
       </Right>
     </ListItem>
   );
-};
-
-export default SuggestionItem;
+}

@@ -14,7 +14,7 @@ const mapActionsToProps = {
   startup: startupActions.startup,
 };
 
-class Root extends React.Component {
+export class Root extends React.Component {
   componentDidMount() {
     if (!PersistConfig.active) {
       this.props.startup();
@@ -31,4 +31,5 @@ class Root extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(Root);
+const Connected = connect(mapStateToProps, mapActionsToProps)(Root);
+export default Connected;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListItem, Text } from 'native-base';
 
-const FriendItem = ({ friend, navigate }) => {
+export default function FriendItem({ friend, navigate }) {
   const onPressFriend = () => {
     navigate('FriendDetails', {
       friend,
@@ -12,6 +12,4 @@ const FriendItem = ({ friend, navigate }) => {
       <Text>{friend.name}</Text>
     </ListItem>
   );
-};
-
-export default FriendItem;
+}

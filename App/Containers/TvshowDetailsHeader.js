@@ -21,7 +21,7 @@ const mapActionsToProps = {
   endEdit: editActions.endEdit,
 };
 
-function TvshowDetailsHeader({
+export function TvshowDetailsHeader({
   navigate,
   tvshowId,
   isEditing,
@@ -84,4 +84,7 @@ function TvshowDetailsHeader({
   );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowDetailsHeader);
+const Connected = connect(mapStateToProps, mapActionsToProps)(
+  TvshowDetailsHeader,
+);
+export default Connected;

@@ -26,7 +26,7 @@ const mapActionsToProps = {
   seasonsRefresh: tvshowActions.seasonsRefresh,
 };
 
-function TvshowDetails({
+export function TvshowDetails({
   navigation,
   getTvshow,
   isEditing,
@@ -88,4 +88,5 @@ TvshowDetails.navigationOptions = ({ navigation }) => ({
   ),
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowDetails);
+const Connected = connect(mapStateToProps, mapActionsToProps)(TvshowDetails);
+export default Connected;

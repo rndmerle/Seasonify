@@ -11,34 +11,20 @@
         "id": 1,
         "allocine": 565,
         "year": 2004,
-        "episodes": 12,
+        "episodes": 12
       },
       "2": {
         "id": 2,
         "allocine": 711,
         "year": 2005,
         "episodes": 12,
-      },
-    },
-    "seasonsCOMMENTED": {
-      "1": {
-        "id": 1,
-        "allocine": 565,
-        "year": 2004,
-        "episodes": 12,
-      },
-      "2": {
-        "id": 2,
-        "allocine": 711,
-        "year": 2005,
-        "episodes": 12,
-      },
-      "3": {
-        "id": 3,
-        "allocine": 2664,
-        "year": 2006,
-        "episodes": 12,
-      },
-    },
-  },
+          "3": {
+            "id": 3,
+            "allocine": 2664,
+            "year": 2006,
+            "episodes": 12
+          }
+      }
+    }
+  }
 }

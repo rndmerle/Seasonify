@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-function FriendList({ navigation, friends }) {
+export function FriendList({ navigation, friends }) {
   const onFAB = () => {
     navigation.navigate('FriendAdd', {});
   };
@@ -39,4 +39,5 @@ FriendList.navigationOptions = ({ navigation }) => ({
   header: <HeaderRoot title="Friends" navigation={navigation} />,
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(FriendList);
+const Connected = connect(mapStateToProps, mapActionsToProps)(FriendList);
+export default Connected;

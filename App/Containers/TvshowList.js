@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-function TvshowList({ navigation, tvshows }) {
+export function TvshowList({ navigation, tvshows }) {
   const onFAB = () => {
     navigation.navigate('TvshowAdd', {});
   };
@@ -41,4 +41,5 @@ TvshowList.navigationOptions = ({ navigation }) => ({
   header: <HeaderRoot title="TV Shows" navigation={navigation} />,
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowList);
+const Connected = connect(mapStateToProps, mapActionsToProps)(TvshowList);
+export default Connected;

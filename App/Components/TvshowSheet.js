@@ -10,14 +10,14 @@ import {
   Text,
 } from 'native-base';
 
-const TvshowSheet = ({
+export default function TvshowSheet({
   name,
   year,
   frenchName,
   isEditing,
   edit,
   onChangeName,
-}) => {
+}) {
   return (
     <Content>
       <Form>
@@ -43,6 +43,4 @@ const TvshowSheet = ({
       </List>
     </Content>
   );
-};
-
-export default TvshowSheet;
+}

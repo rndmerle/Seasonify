@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
 
-const HeaderRoot = ({ title, navigation }) => {
+export default function HeaderRoot({ title, navigation }) {
   const openDrawer = () => {
     navigation.navigate('DrawerOpen');
   };
@@ -18,6 +18,4 @@ const HeaderRoot = ({ title, navigation }) => {
       <Right />
     </Header>
   );
-};
-
-export default HeaderRoot;
+}

@@ -12,7 +12,7 @@ const mapActionsToProps = {
   addFriend: friendActions.addFriend,
 };
 
-class FriendAdd extends React.Component {
+export class FriendAdd extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <HeaderModular
@@ -67,4 +67,5 @@ class FriendAdd extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(FriendAdd);
+const Connected = connect(mapStateToProps, mapActionsToProps)(FriendAdd);
+export default Connected;

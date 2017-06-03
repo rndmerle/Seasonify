@@ -8,7 +8,7 @@ $ react-native link native-base
 # Launching (dev) :
 $ npm start
 Launch the app ( or  `$ npm run android` if not installed)
-Esc-Esc or Ctrl-M -> Start Remote JS Debugging
+Dev menu (ctrl+M or ctrl+F2 or alt+Esc then Esc) -> Start Remote JS Debugging
 
 
 # TODO :

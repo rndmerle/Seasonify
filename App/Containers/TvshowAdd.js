@@ -26,7 +26,7 @@ const mapActionsToProps = {
   suggestionsRequest: uiActions.suggestionsRequest,
 };
 
-function TvshowAdd({
+export function TvshowAdd({
   navigation,
   suggestions,
   addTvshowWithSeasons,
@@ -87,4 +87,5 @@ TvshowAdd.navigationOptions = ({ navigation }) => ({
   ),
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowAdd);
+const Connected = connect(mapStateToProps, mapActionsToProps)(TvshowAdd);
+export default Connected;

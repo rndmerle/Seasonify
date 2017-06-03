@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering with a tvshow name should match snapshot 1`] = `
+<Styled(ListItem)
+  onPress={[Function]}
+>
+  <Styled(Text)>
+    Deadwood
+  </Styled(Text)>
+</Styled(ListItem)>
+`;

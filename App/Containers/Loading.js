@@ -11,11 +11,12 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-function TvshowDetails({ isSpinning, color }) {
+export function Loading({ isSpinning, color }) {
   if (isSpinning) {
     return <Spinner style={styles.nextToFAB} color={color} />;
   }
   return null;
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowDetails);
+const Connected = connect(mapStateToProps, mapActionsToProps)(Loading);
+export default Connected;

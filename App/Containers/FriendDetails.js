@@ -23,7 +23,7 @@ const mapActionsToProps = {
   toastMessage: uiActions.toastMessage,
 };
 
-class FriendDetails extends React.Component {
+export class FriendDetails extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
@@ -126,4 +126,5 @@ class FriendDetails extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(FriendDetails);
+const Connected = connect(mapStateToProps, mapActionsToProps)(FriendDetails);
+export default Connected;
