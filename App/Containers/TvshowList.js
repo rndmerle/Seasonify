@@ -15,7 +15,7 @@ const mapActionsToProps = {};
 
 export function TvshowList({ navigation, tvshows }) {
   const onFAB = () => {
-    navigation.navigate('TvshowAdd', {});
+    navigation.navigate('TvshowAdd');
   };
 
   return (

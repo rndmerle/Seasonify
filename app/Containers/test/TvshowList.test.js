@@ -1,15 +1,17 @@
 import React from 'react';
 import { TvshowList } from 'app/Containers/TvshowList';
 
-function setup(props = {}) {
-  const defaultProps = {
+function setup(specificProps = {}) {
+  const props = {
     tvshows: {},
     navigation: { navigate: jest.fn() },
+    ...specificProps,
   };
-  const component = shallow(<TvshowList {...defaultProps} {...props} />);
-
+  const component = shallow(<TvshowList {...props} />);
   return {
     component,
+    props,
+    actions: {},
   };
 }
 
@@ -23,6 +25,14 @@ describe('rendering', () => {
         },
       });
       expect(component.find('TvshowItem')).toHaveLength(2);
+    });
+  });
+
+  describe('when clicking on FAB', () => {
+    it('should navigate', () => {
+      const { component, props } = setup();
+      component.find('SingleFAB').simulate('press');
+      expect(props.navigation.navigate).toBeCalledWith('TvshowAdd');
     });
   });
 });
