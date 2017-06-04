@@ -18,5 +18,4 @@ export function Loading({ isSpinning, color }) {
   return null;
 }
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(Loading);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(Loading);

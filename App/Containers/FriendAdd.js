@@ -67,5 +67,4 @@ export class FriendAdd extends React.Component {
   }
 }
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(FriendAdd);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(FriendAdd);

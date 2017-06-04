@@ -39,5 +39,4 @@ FriendList.navigationOptions = ({ navigation }) => ({
   header: <HeaderRoot title="Friends" navigation={navigation} />,
 });
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(FriendList);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(FriendList);

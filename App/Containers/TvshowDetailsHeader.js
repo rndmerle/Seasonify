@@ -84,7 +84,4 @@ export function TvshowDetailsHeader({
   );
 }
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(
-  TvshowDetailsHeader,
-);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(TvshowDetailsHeader);

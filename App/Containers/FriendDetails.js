@@ -126,5 +126,4 @@ export class FriendDetails extends React.Component {
   }
 }
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(FriendDetails);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(FriendDetails);

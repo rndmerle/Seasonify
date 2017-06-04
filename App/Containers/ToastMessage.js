@@ -30,5 +30,4 @@ export class ToastMessage extends React.Component {
   }
 }
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(ToastMessage);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(ToastMessage);

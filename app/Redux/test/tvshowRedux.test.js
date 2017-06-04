@@ -1,5 +1,9 @@
 import deepFreeze from 'deep-freeze';
-import reducer, { uiActions as actions, INITIAL_STATE } from '../uiRedux';
+import reducer, {
+  tvshowActions as actions,
+  tvshowSelectors as selectors,
+  INITIAL_STATE,
+} from '../tvshowRedux';
 
 deepFreeze(INITIAL_STATE);
 
@@ -15,13 +19,15 @@ describe('reducer', () => {
   it('provides initial state', () => {
     testReducer({}, INITIAL_STATE);
   });
+});
 
-  it('handles MESSAGE_TOAST action', () => {
-    testReducer(actions.toastMessage('success', 'Message'), {
-      message: {
-        type: 'success',
-        text: 'Message',
-      },
-    });
+describe('selectors', () => {
+  it('getTvshows', () => {
+    expect(
+      selectors.getTvshow(
+        { tvshows: { a: { name: 'A' }, b: { name: 'B' } } },
+        'b',
+      ),
+    ).toEqual({ name: 'B' });
   });
 });

@@ -87,5 +87,4 @@ TvshowAdd.navigationOptions = ({ navigation }) => ({
   ),
 });
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(TvshowAdd);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(TvshowAdd);

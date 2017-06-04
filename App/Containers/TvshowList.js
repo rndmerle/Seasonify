@@ -1,11 +1,11 @@
-import React from 'react';
 import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
+import React from 'react';
 
-import { tvshowSelectors } from 'app/Redux/tvshowRedux';
-import HeaderRoot from 'app/Components/HeaderRoot';
-import TvshowItem from 'app/Components/TvshowItem';
-import SingleFAB from 'app/Components/SingleFAB';
+import { tvshowSelectors } from '../Redux/tvshowRedux';
+import HeaderRoot from '../Components/HeaderRoot';
+import SingleFAB from '../Components/SingleFAB';
+import TvshowItem from '../Components/TvshowItem';
 
 const mapStateToProps = state => ({
   tvshows: tvshowSelectors.getTvshows(state),
@@ -41,5 +41,4 @@ TvshowList.navigationOptions = ({ navigation }) => ({
   header: <HeaderRoot title="TV Shows" navigation={navigation} />,
 });
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(TvshowList);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(TvshowList);

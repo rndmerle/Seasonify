@@ -31,5 +31,4 @@ export class Root extends React.Component {
   }
 }
 
-const Connected = connect(mapStateToProps, mapActionsToProps)(Root);
-export default Connected;
+export default connect(mapStateToProps, mapActionsToProps)(Root);
