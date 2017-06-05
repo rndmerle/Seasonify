@@ -6,7 +6,10 @@
     "import"
   ],
   settings: {
-    import/resolver: reactnative
+    import/resolver: "reactnative",
+    flowtype: {
+      onlyFilesWithFlowAnnotation: true,
+      },
     },
   "env": {
       "browser": true,
