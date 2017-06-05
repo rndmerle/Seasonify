@@ -87,7 +87,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.sais0n"
+        applicationId "com.seasonify"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

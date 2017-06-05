@@ -1,10 +1,10 @@
 {
-  "name": "SAIS0N",
+  "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "adb reverse tcp:8081 tcp:8081 && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
-    "android": "cd android && gradlew installDebug && adb shell am start -n com.sais0n/.MainActivity",
+    "android": "cd android && gradlew installDebug && adb shell am start -n com.seasonify/.MainActivity",
     "date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
     "lint": "eslint ./",
     "test": "SET NODE_ENV=testing && jest",

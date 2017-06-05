@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "SAIS0N.app"
-               BlueprintName = "SAIS0N"
-               ReferencedContainer = "container:SAIS0N.xcodeproj">
+               BuildableName = "Seasonify.app"
+               BlueprintName = "Seasonify"
+               ReferencedContainer = "container:Seasonify.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SAIS0NTests.xctest"
-               BlueprintName = "SAIS0NTests"
-               ReferencedContainer = "container:SAIS0N.xcodeproj">
+               BuildableName = "SeasonifyTests.xctest"
+               BlueprintName = "SeasonifyTests"
+               ReferencedContainer = "container:Seasonify.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SAIS0NTests.xctest"
-               BlueprintName = "SAIS0NTests"
-               ReferencedContainer = "container:SAIS0N.xcodeproj">
+               BuildableName = "SeasonifyTests.xctest"
+               BlueprintName = "SeasonifyTests"
+               ReferencedContainer = "container:Seasonify.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SAIS0N.app"
-            BlueprintName = "SAIS0N"
-            ReferencedContainer = "container:SAIS0N.xcodeproj">
+            BuildableName = "Seasonify.app"
+            BlueprintName = "Seasonify"
+            ReferencedContainer = "container:Seasonify.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SAIS0N.app"
-            BlueprintName = "SAIS0N"
-            ReferencedContainer = "container:SAIS0N.xcodeproj">
+            BuildableName = "Seasonify.app"
+            BlueprintName = "Seasonify"
+            ReferencedContainer = "container:Seasonify.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SAIS0N.app"
-            BlueprintName = "SAIS0N"
-            ReferencedContainer = "container:SAIS0N.xcodeproj">
+            BuildableName = "Seasonify.app"
+            BlueprintName = "Seasonify"
+            ReferencedContainer = "container:Seasonify.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
