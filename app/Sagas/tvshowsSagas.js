@@ -1,6 +1,6 @@
 import { call, put, select } from 'redux-saga/effects';
 
-import Ident from '../Services/Ident';
+import Ident from '../Libs/Ident';
 import { uiActions } from '../Redux/uiRedux';
 import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
 
