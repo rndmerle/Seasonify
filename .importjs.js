@@ -18,4 +18,11 @@ module.exports = {
   },
   importDevDependencies: ({ pathToCurrentFile }) =>
     testFilePattern.test(pathToCurrentFile),
+  moduleNameFormatter({ moduleName, pathToCurrentFile }) {
+    // if (/-test/.test(pathToCurrentFile)) {
+    //   return `mocks/${moduleName}`;
+    // }
+    return moduleName.replace(/\\/g, '/'); // back-slashes to slashes (remove the rule after importjs update)
+    // return moduleName;
+  },
 };

@@ -1,7 +1,7 @@
 import tvshowNormalizer from '../Normalizers/tvshowNormalizer';
 
-/* ========== TYPES ========== */
 export const types = {
+  /* ========== TYPES ========== */
   MESSAGE_TOAST: 'UI/MESSAGE_TOAST',
   MESSAGE_HIDE: 'UI/MESSAGE_HIDE',
   SUGGESTIONS_REQUEST: 'UI/SUGGESTIONS_REQUEST',

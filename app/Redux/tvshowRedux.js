@@ -1,7 +1,7 @@
 import seasonNormalizer from '../Normalizers/seasonNormalizer';
 
-/* ========== TYPES ========== */
 export const types = {
+  /* ========== TYPES ========== */
   ADD: 'SHOW/ADD',
   ADD_WITH_SEASONS: 'SHOW/ADD_WITH_SEASONS',
   REMOVE: 'SHOW/REMOVE',

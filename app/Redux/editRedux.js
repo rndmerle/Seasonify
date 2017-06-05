@@ -1,5 +1,5 @@
-/* ========== TYPES ========== */
 export const types = {
+  /* ========== TYPES ========== */
   EDIT_START: 'EDIT/START',
   EDIT_END: 'EDIT/END',
   EDIT_UPDATE: 'EDIT/UPDATE',

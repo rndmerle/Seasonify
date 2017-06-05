@@ -1,7 +1,7 @@
 import Ident from '../Services/Ident';
 
-/* ========== TYPES ========== */
 export const types = {
+  /* ========== TYPES ========== */
   ADD: 'FRIEND/ADD',
   REMOVE: 'FRIEND/REMOVE',
   UPDATE: 'FRIEND/UPDATE',
