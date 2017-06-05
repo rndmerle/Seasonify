@@ -1,4 +1,4 @@
-package com.sais0n;
+package com.seasonify;
 
 import android.app.Application;
 

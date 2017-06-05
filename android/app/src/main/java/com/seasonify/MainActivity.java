@@ -1,4 +1,4 @@
-package com.sais0n;
+package com.seasonify;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "SAIS0N";
+        return "Seasonify";
     }
 }
