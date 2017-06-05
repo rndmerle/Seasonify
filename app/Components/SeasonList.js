@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, ListItem, Text, Grid, Col, Badge } from 'native-base';
 
-import { Metrics, AtomicStyles } from 'app/Themes';
+import { Metrics, AtomicStyles } from '../Themes';
 
 export default function SeasonList({ seasons }) {
   return (

@@ -1,4 +1,4 @@
-import Ident from 'app/Services/Ident';
+import Ident from '../Services/Ident';
 
 /* ========== TYPES ========== */
 export const types = {

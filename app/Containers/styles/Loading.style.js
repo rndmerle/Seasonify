@@ -1,4 +1,4 @@
-import { Metrics } from 'app/Themes';
+import { Metrics } from '../../Themes';
 
 export default {
   nextToFAB: {

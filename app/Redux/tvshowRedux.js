@@ -1,4 +1,4 @@
-import seasonNormalizer from 'app/Normalizers/seasonNormalizer';
+import seasonNormalizer from '../Normalizers/seasonNormalizer';
 
 /* ========== TYPES ========== */
 export const types = {
@@ -35,7 +35,7 @@ export const tvshowActions = {
 };
 
 export const INITIAL_STATE = __DEV__
-  ? require('app/Fixtures/tvshowState.json') // No comma-dangle in json or Jest is angry
+  ? require('../Fixtures/tvshowState.json') // No comma-dangle in json or Jest is angry
   : {};
 
 /* ========== REDUCER ========== */

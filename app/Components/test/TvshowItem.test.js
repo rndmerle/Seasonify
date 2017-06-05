@@ -1,5 +1,5 @@
 import React from 'react';
-import TvshowItem from 'app/Components/TvshowItem';
+import TvshowItem from '../TvshowItem';
 
 function setup(specificProps = {}) {
   const props = {

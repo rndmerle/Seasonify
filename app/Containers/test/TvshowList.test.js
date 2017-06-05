@@ -1,5 +1,5 @@
 import React from 'react';
-import { TvshowList } from 'app/Containers/TvshowList';
+import { TvshowList } from '../TvshowList';
 
 function setup(specificProps = {}) {
   const props = {

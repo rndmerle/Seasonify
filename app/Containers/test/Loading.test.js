@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loading } from 'app/Containers/Loading';
+import { Loading } from '../Loading';
 
 function setup(specificProps = {}) {
   const props = {

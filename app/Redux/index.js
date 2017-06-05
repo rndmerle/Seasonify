@@ -3,10 +3,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { autoRehydrate } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
-import rootSaga from 'app/Sagas/';
-import Config from 'app/Config/DebugConfig';
-import PersistConfig from 'app/Config/PersistConfig';
-import RehydrationServices from 'app/Services/RehydrationServices';
+import rootSaga from '../Sagas/';
+import Config from '../Config/DebugConfig';
+import PersistConfig from '../Config/PersistConfig';
+import RehydrationServices from '../Services/RehydrationServices';
 
 import ui from './uiRedux';
 import edit from './editRedux';

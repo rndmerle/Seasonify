@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Config from 'app/Config';
-import createStore from 'app/Redux';
+import Config from '../Config';
+import createStore from '../Redux';
 import Root from './Root';
 
 Config();
