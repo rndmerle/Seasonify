@@ -1,11 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering with a tvshow name should match snapshot 1`] = `
+exports[`Rendering should match, with a tvshowName 1`] = `
 <Styled(ListItem)
   onPress={[Function]}
 >
   <Styled(Text)>
     Deadwood
   </Styled(Text)>
+</Styled(ListItem)>
+`;
+
+exports[`Rendering should match, with an empty tvshowName 1`] = `
+<Styled(ListItem)
+  onPress={[Function]}
+>
+  <Styled(Text) />
 </Styled(ListItem)>
 `;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should match 1`] = `
+<Styled(Fab)
+  onPress={[Function]}
+  position="bottomRight"
+  style={
+    Object {
+      "backgroundColor": "#5067FF",
+    }
+  }
+>
+  <Styled(Icon)
+    name="ok"
+  />
+</Styled(Fab)>
+`;
