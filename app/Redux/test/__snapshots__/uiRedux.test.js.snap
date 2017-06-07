@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducer provides initial state 1`] = `
+Object {
+  "message": null,
+  "spinner": false,
+  "suggestions": Array [],
+}
+`;

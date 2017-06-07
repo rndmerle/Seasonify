@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should render 1`] = `
+<Styled(ListItem)
+  avatar={true}
+  onPress={[Function]}
+>
+  <Styled(Left)>
+    <Styled(Thumbnail)
+      source={
+        Object {
+          "uri": "http://url//poster.jpg",
+        }
+      }
+      square={true}
+    />
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(Text)>
+      Deadwood
+    </Styled(Text)>
+    <Styled(Text)
+      note={true}
+    >
+      2004
+    </Styled(Text)>
+  </Styled(Body)>
+  <Styled(Right)>
+    <Styled(Icon)
+      name="add-circle"
+    />
+  </Styled(Right)>
+</Styled(ListItem)>
+`;
+
+exports[`Rendering should render, when no poster 1`] = `
+<Styled(ListItem)
+  avatar={true}
+  onPress={[Function]}
+>
+  <Styled(Left)>
+    <Styled(Button)
+      style={
+        Object {
+          "width": 57,
+        }
+      }
+      transparent={true}
+    />
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(Text)>
+      Deadwood
+    </Styled(Text)>
+    <Styled(Text)
+      note={true}
+    >
+      2004
+    </Styled(Text)>
+  </Styled(Body)>
+  <Styled(Right)>
+    <Styled(Icon)
+      name="add-circle"
+    />
+  </Styled(Right)>
+</Styled(ListItem)>
+`;

@@ -4,7 +4,7 @@ function tvshowNormalizer(tvshows) {
       array.concat({
         allocine: suggestion.code,
         name: suggestion.originalTitle,
-        frenchName: 'title' in suggestion ? suggestion.title : null,
+        localizedName: 'title' in suggestion ? suggestion.title : null,
         poster: 'poster' in suggestion ? suggestion.poster.href : null,
         year: suggestion.yearStart,
       }),

@@ -56,7 +56,7 @@ export function TvshowDetails({
             <Col size={Metrics.columnRight}>
               <TvshowSheet
                 name={tvshow.name}
-                frenchName={tvshow.frenchName}
+                localizedName={tvshow.localizedName}
                 year={tvshow.year}
                 seasonCount={tvshow.seasonCount}
                 edit={editedObject}

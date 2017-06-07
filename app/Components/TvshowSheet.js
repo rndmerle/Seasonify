@@ -13,7 +13,7 @@ import {
 export default function TvshowSheet({
   name,
   year,
-  frenchName,
+  localizedName,
   isEditing,
   edit,
   onChangeName,
@@ -33,9 +33,9 @@ export default function TvshowSheet({
         </Item>
       </Form>
       <List>
-        {frenchName &&
+        {localizedName &&
           <ListItem>
-            <Text note>{frenchName}</Text>
+            <Text note>{localizedName}</Text>
           </ListItem>}
         <ListItem>
           <Text note>{year}</Text>

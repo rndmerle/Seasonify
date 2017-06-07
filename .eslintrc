@@ -54,6 +54,8 @@
         "padded-blocks": ["warn"],
         "arrow-body-style": ["warn"],
         "no-unused-vars": ["warn"],
+        "key-spacing": ["warn"],
+        "object-curly-spacing": ["warn"],
         "react/prefer-stateless-function": ["warn"],
         "prefer-const": ["warn"],
         "semi": ["warn"],

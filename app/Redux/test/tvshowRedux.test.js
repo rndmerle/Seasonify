@@ -1,33 +1,35 @@
-import deepFreeze from 'deep-freeze';
+import { testReducer } from '../../Libs/Testing';
 import reducer, {
   tvshowActions as actions,
   tvshowSelectors as selectors,
   INITIAL_STATE,
 } from '../tvshowRedux';
 
-deepFreeze(INITIAL_STATE);
-
-const testReducer = (action, finalState) => {
-  deepFreeze(finalState);
-  expect(reducer(INITIAL_STATE, action)).toEqual({
-    ...INITIAL_STATE,
-    ...finalState,
-  });
-};
-
-describe('reducer', () => {
+describe('Reducer', () => {
   it('provides initial state', () => {
-    testReducer({}, INITIAL_STATE);
+    testReducer(reducer, {}, INITIAL_STATE);
+    expect(reducer(undefined, {})).toMatchSnapshot();
+  });
+
+  it('handles addTvshow action', () => {
+    testReducer(
+      reducer,
+      [
+        actions.addTvshow({ id: 'abc-123', name: 'Deadwood' }),
+        actions.addTvshow({ id: 'xyz-789', name: 'Breaking Bad' }),
+      ],
+      {
+        'abc-123': { id: 'abc-123', name: 'Deadwood', seasons: {} },
+        'xyz-789': { id: 'xyz-789', name: 'Breaking Bad', seasons: {} },
+      },
+    );
   });
 });
 
-describe('selectors', () => {
+describe('Selectors', () => {
   it('getTvshows', () => {
     expect(
-      selectors.getTvshow(
-        { tvshows: { a: { name: 'A' }, b: { name: 'B' } } },
-        'b',
-      ),
+      selectors.getTvshow({ tvshows: { a: { name: 'A' }, b: { name: 'B' } } }, 'b'),
     ).toEqual({ name: 'B' });
   });
 });

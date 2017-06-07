@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleFab from '../SingleFAB';
+import SingleFAB from '../SingleFAB';
 
 function setup(specificProps = {}) {
   const props = {
@@ -7,7 +7,7 @@ function setup(specificProps = {}) {
     onPress: jest.fn(),
     ...specificProps,
   };
-  const component = shallow(<SingleFab {...props} />);
+  const component = shallow(<SingleFAB {...props} />);
   return {
     component,
     props,

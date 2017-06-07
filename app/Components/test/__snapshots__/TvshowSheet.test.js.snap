@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should match 1`] = `
+<Styled(Content)>
+  <Styled(Form)>
+    <Styled(Item)
+      regular={true}
+    >
+      <Styled(Input)
+        autoCapitalize="words"
+        disabled={true}
+        onChangeText={[Function]}
+        placeHolder="Name"
+        value="Turn : Washington's Spies"
+      />
+    </Styled(Item)>
+  </Styled(Form)>
+  <Styled(List)>
+    <Styled(ListItem)>
+      <Styled(Text)
+        note={true}
+      >
+        2014
+      </Styled(Text)>
+    </Styled(ListItem)>
+  </Styled(List)>
+</Styled(Content)>
+`;
+
+exports[`Rendering should match, when form is edited 1`] = `
+<Styled(Content)>
+  <Styled(Form)>
+    <Styled(Item)
+      regular={true}
+    >
+      <Styled(Icon)
+        name="create"
+      />
+      <Styled(Input)
+        autoCapitalize="words"
+        disabled={false}
+        onChangeText={[Function]}
+        placeHolder="Name"
+        value="TURN"
+      />
+    </Styled(Item)>
+  </Styled(Form)>
+  <Styled(List)>
+    <Styled(ListItem)>
+      <Styled(Text)
+        note={true}
+      >
+        2014
+      </Styled(Text)>
+    </Styled(ListItem)>
+  </Styled(List)>
+</Styled(Content)>
+`;
+
+exports[`Rendering should match, when in editing mode 1`] = `
+<Styled(Content)>
+  <Styled(Form)>
+    <Styled(Item)
+      regular={true}
+    >
+      <Styled(Icon)
+        name="create"
+      />
+      <Styled(Input)
+        autoCapitalize="words"
+        disabled={false}
+        onChangeText={[Function]}
+        placeHolder="Name"
+        value="Turn : Washington's Spies"
+      />
+    </Styled(Item)>
+  </Styled(Form)>
+  <Styled(List)>
+    <Styled(ListItem)>
+      <Styled(Text)
+        note={true}
+      >
+        2014
+      </Styled(Text)>
+    </Styled(ListItem)>
+  </Styled(List)>
+</Styled(Content)>
+`;
+
+exports[`Rendering should match, when localized name is present 1`] = `
+<Styled(Content)>
+  <Styled(Form)>
+    <Styled(Item)
+      regular={true}
+    >
+      <Styled(Input)
+        autoCapitalize="words"
+        disabled={true}
+        onChangeText={[Function]}
+        placeHolder="Name"
+        value="Turn : Washington's Spies"
+      />
+    </Styled(Item)>
+  </Styled(Form)>
+  <Styled(List)>
+    <Styled(ListItem)>
+      <Styled(Text)
+        note={true}
+      >
+        Turn
+      </Styled(Text)>
+    </Styled(ListItem)>
+    <Styled(ListItem)>
+      <Styled(Text)
+        note={true}
+      >
+        2014
+      </Styled(Text)>
+    </Styled(ListItem)>
+  </Styled(List)>
+</Styled(Content)>
+`;
