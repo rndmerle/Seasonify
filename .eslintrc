@@ -62,6 +62,7 @@
         "space-before-function-paren": ["warn"],
         "import/no-named-as-default": ["warn"],
         # Deactivating
+        "no-underscore-dangle": 0,
         "no-case-declarations": 0,
         "global-require": 0,
         "import/prefer-default-export": 0,

@@ -32,7 +32,7 @@ export function* updateSeasons(api, { payload }) {
   } else {
     if (!payload.silent) {
       yield call(
-        informIfNewSeason,
+        _informIfNewSeason,
         Object.keys(tvshow.seasons).length,
         Object.keys(response.data).length,
       );
@@ -42,7 +42,7 @@ export function* updateSeasons(api, { payload }) {
   if (!payload.silent) yield put(uiActions.spinnerHide());
 }
 
-function* informIfNewSeason(countBefore, countAfter) {
+function* _informIfNewSeason(countBefore, countAfter) {
   const nbNewSeasons = countAfter - countBefore;
   if (nbNewSeasons > 0) {
     yield put(
