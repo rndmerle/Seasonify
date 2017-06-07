@@ -17,13 +17,13 @@
         "id": 2,
         "allocine": 711,
         "year": 2005,
-        "episodes": 12,
-          "3": {
-            "id": 3,
-            "allocine": 2664,
-            "year": 2006,
-            "episodes": 12
-          }
+        "episodes": 12
+      },
+      "3": {
+        "id": 3,
+        "allocine": 2664,
+        "year": 2006,
+        "episodes": 12
       }
     }
   }

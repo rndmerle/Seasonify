@@ -53,6 +53,7 @@
     "reactotron-react-native": "^1.10.0",
     "reactotron-redux": "^1.10.0",
     "reactotron-redux-saga": "^1.10.0",
+    "redux-saga-test-plan": "^3.1.0",
     "why-did-you-update": "0.0.8"
   },
   "jest": {

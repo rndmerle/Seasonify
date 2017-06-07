@@ -16,16 +16,16 @@ Object {
         "year": 2004,
       },
       "2": Object {
-        "3": Object {
-          "allocine": 2664,
-          "episodes": 12,
-          "id": 3,
-          "year": 2006,
-        },
         "allocine": 711,
         "episodes": 12,
         "id": 2,
         "year": 2005,
+      },
+      "3": Object {
+        "allocine": 2664,
+        "episodes": 12,
+        "id": 3,
+        "year": 2006,
       },
     },
     "year": 2004,

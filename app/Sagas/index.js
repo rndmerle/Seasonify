@@ -1,5 +1,6 @@
 import { takeLatest } from 'redux-saga/effects';
-import Allocine, { ApiFixtures } from '../Services/Allocine';
+import * as Allocine from '../Services/Allocine';
+import apiFixtures from '../Services/apiFixtures';
 import DebugConfig from '../Config/DebugConfig';
 
 /* ------------- Types ------------- */
@@ -13,7 +14,7 @@ import { searchTvshows, addTvshowWithSeasons, updateSeasons } from './tvshowsSag
 
 /* ------------- API/Fixtures ------------- */
 
-const api = DebugConfig.useFixtures ? ApiFixtures : new Allocine();
+const api = DebugConfig.useFixtures ? apiFixtures : Allocine;
 
 /* ------------- Connect Types To Sagas ------------- */
 

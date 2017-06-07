@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Allocine API should get a tvshow with multiple result, from a known name 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "castingShort": Object {
+        "actors": "Elisha Cuthbert, Zachary Knighton, Damon Wayans Jr., Adam Pally, Casey Wilson",
+        "creators": "David Caspe",
+      },
+      "code": 8090,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=8090.html",
+          "rel": "aco:web",
+        },
+      ],
+      "originalTitle": "Happy Endings",
+      "poster": Object {
+        "href": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg",
+        "path": "/medias/nmedia/18/78/21/06/20278341.jpg",
+      },
+      "seasonCount": 3,
+      "statistics": Object {
+        "userRating": 3.84065,
+      },
+      "yearEnd": 2013,
+      "yearStart": 2011,
+    },
+    Object {
+      "castingShort": Object {
+        "actors": "Tom Bosley, Marion Ross, Anson Williams, Henry Winkler, Ted McGinley",
+        "creators": "Garry Marshall",
+      },
+      "code": 720,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=720.html",
+          "rel": "aco:web",
+        },
+      ],
+      "originalTitle": "Happy Days",
+      "poster": Object {
+        "href": "http://fr.web.img6.acsta.net/medias/nmedia/18/36/37/63/18478173.jpg",
+        "path": "/medias/nmedia/18/36/37/63/18478173.jpg",
+      },
+      "seasonCount": 11,
+      "statistics": Object {
+        "userRating": 2.52646,
+      },
+      "title": "Happy Days - Les jours heureux",
+      "yearEnd": 1984,
+      "yearStart": 1974,
+    },
+    Object {
+      "castingShort": Object {
+        "actors": "Geoff Stults, Amy Acker, Jay Paulson, Lauren German, Robert Wisdom",
+        "creators": "Josh Appelbaum, André Nemec, Scott Rosenberg",
+      },
+      "code": 4876,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=4876.html",
+          "rel": "aco:web",
+        },
+      ],
+      "originalTitle": "Happy Town",
+      "poster": Object {
+        "href": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg",
+        "path": "/medias/nmedia/18/73/99/08/19237328.jpg",
+      },
+      "seasonCount": 1,
+      "statistics": Object {
+        "userRating": 3.31619,
+      },
+      "yearEnd": 2010,
+      "yearStart": 2010,
+    },
+    Object {
+      "code": 7391,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=7391.html",
+          "rel": "aco:web",
+        },
+      ],
+      "originalTitle": "Happy Tree Friends",
+      "poster": Object {
+        "href": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg",
+        "path": "/medias/nmedia/18/72/22/91/19157134.jpg",
+      },
+      "seasonCount": 1,
+      "statistics": Object {
+        "userRating": 3.79115,
+      },
+      "yearStart": 2000,
+    },
+    Object {
+      "code": 6417,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=6417.html",
+          "rel": "aco:web",
+        },
+      ],
+      "originalTitle": "Happy Lucky Bikkuriman",
+      "seasonCount": 1,
+      "yearEnd": 2007,
+      "yearStart": 2006,
+    },
+  ],
+  "error": null,
+}
+`;
+
+exports[`Allocine API should get nothing from an an unknown tvshow 1`] = `
+Object {
+  "data": Array [],
+  "error": null,
+}
+`;
+
+exports[`Allocine API should grab a seasons list from a valid tvshow code 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "code": 2664,
+      "episodeCount": 12,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie-213/saison-2664/",
+          "rel": "aco:web",
+        },
+      ],
+      "productionStatus": Object {
+        "$": "Production achevée",
+        "code": 122006,
+      },
+      "seasonNumber": 3,
+      "statistics": Object {
+        "userRating": 3.4333334,
+        "userRatingCount": 15,
+        "userReviewCount": 2,
+      },
+      "trailerEmbed": "<div id='ACEmbed'><iframe src='http://www.allocine.fr/_video/iblogvision.aspx?cmedia=18851020&amp;isApp=true' style='width:480px; height:270px' frameborder='0' allowfullscreen='true'></iframe></div>",
+      "yearEnd": 2006,
+      "yearStart": 2006,
+    },
+    Object {
+      "code": 711,
+      "episodeCount": 12,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie-213/saison-711/",
+          "rel": "aco:web",
+        },
+      ],
+      "productionStatus": Object {
+        "$": "Production achevée",
+        "code": 122006,
+      },
+      "seasonNumber": 2,
+      "statistics": Object {
+        "userRating": 3.41666675,
+        "userRatingCount": 15,
+        "userReviewCount": 2,
+      },
+      "yearEnd": 2005,
+      "yearStart": 2005,
+    },
+    Object {
+      "code": 565,
+      "episodeCount": 12,
+      "link": Array [
+        Object {
+          "href": "http://www.allocine.fr/series/ficheserie-213/saison-565/",
+          "rel": "aco:web",
+        },
+      ],
+      "productionStatus": Object {
+        "$": "Production achevée",
+        "code": 122006,
+      },
+      "seasonNumber": 1,
+      "statistics": Object {
+        "userRating": 3.621212,
+        "userRatingCount": 25,
+        "userReviewCount": 5,
+      },
+      "yearEnd": 2004,
+      "yearStart": 2004,
+    },
+  ],
+  "error": null,
+}
+`;

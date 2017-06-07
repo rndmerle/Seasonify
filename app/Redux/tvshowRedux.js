@@ -35,7 +35,7 @@ export const tvshowActions = {
 };
 
 export const INITIAL_STATE = __DEV__
-  ? require('../Fixtures/tvshowState.json') // No comma-dangle in json or Jest is angry
+  ? require('../Fixtures/tvshowDeadwood.json') // No comma-dangle in json or Jest is angry
   : {};
 
 /* ========== REDUCER ========== */
