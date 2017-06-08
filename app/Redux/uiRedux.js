@@ -3,7 +3,7 @@ import tvshowNormalizer from '../Normalizers/tvshowNormalizer';
 
 /* ========== ACTIONS ========== */
 
-const { Types, Creators } = createActions({
+const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   messageToast: ['level', 'text'],
   messageHide: null,
@@ -13,7 +13,6 @@ const { Types, Creators } = createActions({
   spinnerShow: null,
   spinnerHide: null,
 });
-export const types = Types;
 
 /* ========== REDUCERS ========== */
 
@@ -60,4 +59,4 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors };
+export default { actions: Creators, selectors, types };

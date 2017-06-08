@@ -1,12 +1,11 @@
 import { createReducer, createActions } from 'reduxsauce';
 
-const { Types, Creators } = createActions({
+const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   editStart: null,
   editEnd: null,
   editUpdate: ['editedObject'],
 });
-export const types = Types;
 
 /* ========== REDUCERS ========== */
 export const editStart = state => ({ ...state, isEditing: true });
@@ -38,4 +37,4 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors };
+export default { actions: Creators, selectors, types };

@@ -12,7 +12,7 @@ import AppConfig from '../Config/AppConfig';
 import DebugConfig from '../Config/DebugConfig';
 import PersistConfig from '../Config/PersistConfig';
 import RehydrationServices from '../Services/RehydrationServices';
-import rootSaga from '../Sagas/';
+import rootSaga from '../Sagas/rootSaga';
 
 export default () => {
   // listen for the RESET action

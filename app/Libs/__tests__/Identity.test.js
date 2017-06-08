@@ -1,4 +1,4 @@
-import Ident from './Ident';
+import Identity from '../Identity';
 
 // test('generate a new ID and check if lastId is the same (dynamic calls)', () => {
 //   const ids = new Ids();
@@ -6,5 +6,5 @@ import Ident from './Ident';
 // });
 
 test('generate a new ID and check if lastId is the same (static calls)', () => {
-  expect(Ident.newid()).toEqual(Ident.id());
+  expect(Identity.newid()).toEqual(Identity.id());
 });

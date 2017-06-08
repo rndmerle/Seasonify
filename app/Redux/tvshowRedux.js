@@ -3,17 +3,16 @@ import seasonNormalizer from '../Normalizers/seasonNormalizer';
 
 /* ========== ACTIONS ========== */
 
-const { Types, Creators } = createActions({
+const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   tvshowAddWithSeasons: ['tvshow'],
   tvshowAdd: ['tvshow'],
   tvshowRemove: ['id'],
   tvshowUpdate: ['tvshow'],
-  seasonsRefresh: ['id', 'silent'], // XXX silent = false
+  seasonsRefresh: ['id', 'silent'],
   seasonsSuccess: ['id', 'seasons'],
   seasonsFail: null,
 });
-export const types = Types;
 
 /* ========== REDUCERS ========== */
 
@@ -63,4 +62,4 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors };
+export default { actions: Creators, selectors, types };

@@ -1,4 +1,4 @@
-import { trimmed, collecToArray } from './Helpers';
+import { trimmed, collecToArray } from '../Helpers';
 
 test('trim a single string', () => {
   expect(trimmed(' Text  ')).toEqual('Text');
@@ -23,9 +23,6 @@ test('transform a collection to an array', () => {
     123: { description: 'abc' },
     456: { description: 'xyz' },
   };
-  const expected = [
-    { id: '123', description: 'abc' },
-    { id: '456', description: 'xyz' },
-  ];
+  const expected = [{ id: '123', description: 'abc' }, { id: '456', description: 'xyz' }];
   expect(collecToArray(input)).toEqual(expected);
 });

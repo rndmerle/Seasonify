@@ -5,7 +5,7 @@ import { Container, Content, Form, Label, Input, Item } from 'native-base';
 
 import friendRedux from '../Redux/friendRedux';
 import HeaderModular from '../Components/HeaderModular';
-import Ident from '../Libs/Ident';
+import Identity from '../Libs/Identity';
 
 const mapStateToProps = null; // state => ({});
 
@@ -36,7 +36,7 @@ export class FriendAdd extends React.Component {
 
   handleSave = () => {
     if (this.state && this.state.friendName && this.state.friendName.trim() !== '') {
-      this.props.friendAdd(Ident.newid(), this.state.friendName.trim());
+      this.props.friendAdd(Identity.newid(), this.state.friendName.trim());
       this.props.navigation.goBack();
       Keyboard.dismiss();
     }
