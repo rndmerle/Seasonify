@@ -2,24 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'native-base';
 
-import { uiSelectors, uiActions } from '../Redux/uiRedux';
+import ui from '../Redux/uiRedux';
 import Messages from '../Config/Messages';
 
 const mapStateToProps = state => ({
-  message: uiSelectors.getMessage(state),
+  message: ui.selectors.getMessage(state),
 });
 
 const mapActionsToProps = {
-  hideMessage: uiActions.hideMessage,
+  messageHide: ui.actions.messageHide,
 };
 
 export class ToastMessage extends React.Component {
-  componentWillReceiveProps({ message, hideMessage }) {
+  componentWillReceiveProps({ message, messageHide }) {
     if (message) {
-      const messageConfig = Messages[message.type];
+      const messageConfig = Messages[message.level];
 
       this.hideTimeout = setTimeout(() => {
-        hideMessage();
+        messageHide();
       }, messageConfig.duration);
       Toast.show({ ...messageConfig, text: message.text });
     }

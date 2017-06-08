@@ -1,26 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
-import {
-  Container,
-  Content,
-  Form,
-  Label,
-  Item,
-  Input,
-  Icon,
-} from 'native-base';
+import { Container, Content, Form, Label, Item, Input, Icon } from 'native-base';
 
-import { friendActions } from '../Redux/friendRedux';
-import { uiActions } from '../Redux/uiRedux';
+import friendRedux from '../Redux/friendRedux';
+import ui from '../Redux/uiRedux';
 import HeaderModular from '../Components/HeaderModular';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
-  removeFriend: friendActions.removeFriend,
-  updateFriend: friendActions.updateFriend,
-  toastMessage: uiActions.toastMessage,
+  friendRemove: friendRedux.actions.friendRemove,
+  friendUpdate: friendRedux.actions.friendUpdate,
+  messageToast: ui.actions.messageToast,
 };
 
 export class FriendDetails extends React.Component {
@@ -87,19 +79,16 @@ export class FriendDetails extends React.Component {
 
   handleDone = () => {
     Keyboard.dismiss();
-    this.props.updateFriend(this.state.friend);
+    this.props.friendUpdate(this.state.friend);
     this.props.navigation.navigate('FriendList', {});
-    this.props.toastMessage(
-      'success',
-      `${this.state.friend.name} has been edited`,
-    );
+    this.props.messageToast('success', `${this.state.friend.name} has been edited`);
   };
 
   handleDelete = () => {
     const { friend } = this.props.navigation.state.params;
-    this.props.removeFriend(friend.id);
+    this.props.friendRemove(friend.id);
     this.props.navigation.navigate('FriendList', {});
-    this.props.toastMessage('warning', `${friend.name} has been deleted`);
+    this.props.messageToast('warning', `${friend.name} has been deleted`);
   };
 
   render() {

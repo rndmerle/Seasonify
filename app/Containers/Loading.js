@@ -2,11 +2,11 @@ import { Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { uiSelectors } from '../Redux/uiRedux';
+import ui from '../Redux/uiRedux';
 import styles from './styles/Loading.style';
 
 const mapStateToProps = state => ({
-  isSpinning: uiSelectors.isSpinning(state),
+  isSpinning: ui.selectors.isSpinning(state),
 });
 
 const mapActionsToProps = {};

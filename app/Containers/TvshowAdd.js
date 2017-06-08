@@ -1,35 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
-import {
-  Container,
-  Content,
-  Form,
-  Label,
-  Input,
-  Item,
-  List,
-} from 'native-base';
+import { Container, Content, Form, Label, Input, Item, List } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
-import { tvshowActions } from '../Redux/tvshowRedux';
-import { uiActions, uiSelectors } from '../Redux/uiRedux';
+import tv from '../Redux/tvshowRedux';
+import ui from '../Redux/uiRedux';
 import HeaderModular from '../Components/HeaderModular';
 import SuggestionItem from '../Components/SuggestionItem';
 
 const mapStateToProps = state => ({
-  suggestions: uiSelectors.getSuggestions(state),
+  suggestions: ui.selectors.getSuggestions(state),
 });
 
 const mapActionsToProps = {
-  addTvshowWithSeasons: tvshowActions.addTvshowWithSeasons,
-  suggestionsRequest: uiActions.suggestionsRequest,
+  tvshowAddWithSeasons: tv.actions.tvshowAddWithSeasons,
+  suggestionsRequest: ui.actions.suggestionsRequest,
 };
 
 export function TvshowAdd({
   navigation,
   suggestions,
-  addTvshowWithSeasons,
+  tvshowAddWithSeasons,
   suggestionsRequest,
 }) {
   const onChangeName = debounce(500, name => {
@@ -41,7 +33,7 @@ export function TvshowAdd({
   };
 
   const onPressSuggestion = suggestionKey => {
-    addTvshowWithSeasons(suggestions[suggestionKey]);
+    tvshowAddWithSeasons(suggestions[suggestionKey]);
     navigation.navigate('TvshowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
   };
@@ -62,16 +54,16 @@ export function TvshowAdd({
         </Form>
         {suggestions &&
           <List>
-            {suggestions.map((suggestion, key) => (
-              <SuggestionItem
+            {suggestions.map((suggestion, key) =>
+              (<SuggestionItem
                 key={suggestion.allocine}
                 suggestionKey={key}
                 onPress={onPressSuggestion}
                 poster={suggestion.poster}
                 title={suggestion.name}
                 subtitle={suggestion.year}
-              />
-            ))}
+              />),
+            )}
           </List>}
       </Content>
     </Container>

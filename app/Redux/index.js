@@ -1,25 +1,29 @@
+import { autoRehydrate } from 'redux-persist';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { autoRehydrate } from 'redux-persist';
+import { resettableReducer } from 'reduxsauce';
 import createSagaMiddleware from 'redux-saga';
 
-import rootSaga from '../Sagas/';
-import Config from '../Config/DebugConfig';
+import { reducer as editReducer } from './editRedux';
+import { reducer as friendReducer } from './friendRedux';
+import { reducer as tvshowReducer } from './tvshowRedux';
+import { reducer as uiReducer } from './uiRedux';
+import AppConfig from '../Config/AppConfig';
+import DebugConfig from '../Config/DebugConfig';
 import PersistConfig from '../Config/PersistConfig';
 import RehydrationServices from '../Services/RehydrationServices';
-
-import ui from './uiRedux';
-import edit from './editRedux';
-import friends from './friendRedux';
-import tvshows from './tvshowRedux';
+import rootSaga from '../Sagas/';
 
 export default () => {
+  // listen for the RESET action
+  const resettable = resettableReducer(AppConfig.resetAction);
+
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
-    ui,
-    edit,
-    friends,
-    tvshows,
+    ui: resettable(uiReducer),
+    edit: editReducer,
+    friends: friendReducer,
+    tvshows: tvshowReducer,
   });
 
   /* ------------- Redux Configuration ------------- */
@@ -27,9 +31,7 @@ export default () => {
   const enhancers = [];
 
   /* ------------- Saga Middleware ------------- */
-  const sagaMonitor = Config.useReactotron
-    ? console.tron.createSagaMonitor()
-    : null;
+  const sagaMonitor = DebugConfig.useReactotron ? console.tron.createSagaMonitor() : null;
   const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
   middleware.push(sagaMiddleware);
 
@@ -42,28 +44,25 @@ export default () => {
   }
 
   // jhen0409/react-native-debugger
-  if (Config.useReduxNativeDevTools && global.reduxNativeDevTools) {
-    enhancers.push(global.reduxNativeDevTools(/*options*/));
+  if (DebugConfig.useReduxNativeDevTools && global.reduxNativeDevTools) {
+    enhancers.push(global.reduxNativeDevTools(/* options*/));
   }
 
   // Reactotron if enabled
-  const createAppropriateStore = Config.useReactotron
+  const createAppropriateStore = DebugConfig.useReactotron
     ? console.tron.createStore
     : createStore;
 
   // redux-devtools-extension if enabled
-  const appropriateCompose = Config.useReduxDevtoolsExtension
+  const appropriateCompose = DebugConfig.useReduxDevtoolsExtension
     ? composeWithDevTools
     : compose;
 
   // Creating store
-  const store = createAppropriateStore(
-    rootReducer,
-    appropriateCompose(...enhancers),
-  );
+  const store = createAppropriateStore(rootReducer, appropriateCompose(...enhancers));
 
   // react-native-debugger again to handle the other added enhancers
-  if (Config.useReduxNativeDevTools && global.reduxNativeDevTools) {
+  if (DebugConfig.useReduxNativeDevTools && global.reduxNativeDevTools) {
     global.reduxNativeDevTools.updateStore(store);
   }
 

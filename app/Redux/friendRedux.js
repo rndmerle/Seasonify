@@ -1,45 +1,46 @@
+import { createReducer, createActions } from 'reduxsauce';
 import Ident from '../Libs/Ident';
 
-export const types = {
-  /* ========== TYPES ========== */
-  ADD: 'FRIEND/ADD',
-  REMOVE: 'FRIEND/REMOVE',
-  UPDATE: 'FRIEND/UPDATE',
+const { Types, Creators } = createActions({
+  // a parameter named 'type' is forbidden
+  friendAdd: ['id', 'name'],
+  friendRemove: ['id'],
+  friendUpdate: ['friend'],
+});
+export const types = Types;
+
+/* ========== REDUCERS ========== */
+
+export const friendAdd = (state, { id, name }) => ({
+  ...state,
+  [id]: { id, name },
+});
+
+export const friendRemove = (state, { id }) => {
+  const { [id]: deleted, ...newState } = state;
+  return newState;
 };
 
-/* ========== ACTIONS ========== */
-export const friendActions = {
-  addFriend: name => ({ type: types.ADD, payload: { name } }),
-  removeFriend: id => ({ type: types.REMOVE, payload: { id } }),
-  updateFriend: friend => ({ type: types.UPDATE, payload: friend }),
-};
+export const friendUpdate = (state, { friend }) => ({
+  ...state,
+  [friend.id]: { ...state[friend.id], ...friend },
+});
 
-Ident.newid();
-export const INITIAL_STATE = {
-  [Ident.id()]: { id: Ident.id(), name: 'Myself' },
-};
+export const INITIAL_STATE = __DEV__
+  ? require('../Fixtures/myself.json') // No comma-dangle in json or Jest is angry
+  : {};
 
-/* ========== REDUCER ========== */
-const reducer = (state = INITIAL_STATE, { type, payload }) => {
-  switch (type) {
-    case types.ADD:
-      Ident.newid();
-      return { ...state, [Ident.id()]: { id: Ident.id(), ...payload } };
-
-    case types.REMOVE:
-      const { [payload.id]: deleted, ...newState } = state;
-      return newState;
-
-    case types.UPDATE:
-      return { ...state, [payload.id]: { ...state[payload.id], ...payload } };
-
-    default:
-      return state;
-  }
-};
-export default reducer;
+export const reducer = createReducer(INITIAL_STATE, {
+  [types.FRIEND_ADD]: friendAdd,
+  [types.FRIEND_REMOVE]: friendRemove,
+  [types.FRIEND_UPDATE]: friendUpdate,
+});
 
 /* ========== SELECTORS ========== */
-export const friendSelectors = {
+const selectors = {
   getFriends: state => state.friends,
 };
+
+/* ========== EXPORTS ========== */
+
+export default { actions: Creators, selectors };

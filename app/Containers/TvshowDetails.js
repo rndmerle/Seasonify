@@ -1,29 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
 import { Container, Content, Grid, Col } from 'native-base';
+import { connect } from 'react-redux';
+import React from 'react';
 
 import { Metrics } from '../Themes';
-import { tvshowActions, tvshowSelectors } from '../Redux/tvshowRedux';
-import { editActions, editSelectors } from '../Redux/editRedux';
-import SingleFAB from '../Components/SingleFAB';
-import Poster from '../Components/Poster';
-import TvshowSheet from '../Components/TvshowSheet';
-import SeasonList from '../Components/SeasonList';
-import TvshowDetailsHeader from './TvshowDetailsHeader';
 import Loading from './Loading';
+import Poster from '../Components/Poster';
+import SeasonList from '../Components/SeasonList';
+import SingleFAB from '../Components/SingleFAB';
+import TvshowDetailsHeader from './TvshowDetailsHeader';
+import TvshowSheet from '../Components/TvshowSheet';
+import editRedux from '../Redux/editRedux';
+import tv from '../Redux/tvshowRedux';
 
 const mapStateToProps = (state, ownProps) => ({
-  getTvshow: tvshowSelectors.getTvshow(
-    state,
-    ownProps.navigation.state.params.tvshowId,
-  ),
-  isEditing: editSelectors.isEditing(state),
-  editedObject: editSelectors.editedObject(state),
+  getTvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
+  isEditing: editRedux.selectors.isEditing(state),
+  editedObject: editRedux.selectors.editedObject(state),
 });
 
 const mapActionsToProps = {
-  updateEdit: editActions.updateEdit,
-  seasonsRefresh: tvshowActions.seasonsRefresh,
+  editUpdate: editRedux.actions.editUpdate,
+  seasonsRefresh: tv.actions.seasonsRefresh,
 };
 
 export function TvshowDetails({
@@ -31,14 +28,14 @@ export function TvshowDetails({
   getTvshow,
   isEditing,
   editedObject,
-  updateEdit,
+  editUpdate,
   seasonsRefresh,
 }) {
   const { tvshowId } = navigation.state.params;
   const tvshow = getTvshow;
 
   const onChangeName = name => {
-    updateEdit({ id: tvshowId, name });
+    editUpdate({ id: tvshowId, name });
   };
 
   const onFAB = () => {

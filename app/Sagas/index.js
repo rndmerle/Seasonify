@@ -10,7 +10,7 @@ import { types as tvshowTypes } from '../Redux/tvshowRedux';
 
 /* ------------- Sagas ------------- */
 
-import { searchTvshows, addTvshowWithSeasons, updateSeasons } from './tvshowsSagas';
+import { searchTvshows, tvshowAddWithSeasons, updateSeasons } from './tvshowsSagas';
 
 /* ------------- API/Fixtures ------------- */
 
@@ -21,7 +21,7 @@ const api = DebugConfig.useFixtures ? apiFixtures : Allocine;
 export default function* root() {
   yield [
     takeLatest(uiTypes.SUGGESTIONS_REQUEST, searchTvshows, api),
-    takeLatest(tvshowTypes.ADD_WITH_SEASONS, addTvshowWithSeasons, api),
+    takeLatest(tvshowTypes.TVSHOW_ADD_WITH_SEASONS, tvshowAddWithSeasons, api),
     takeLatest(tvshowTypes.SEASONS_REFRESH, updateSeasons, api),
   ];
 }

@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Input, Item } from 'native-base';
 
-import { friendActions } from '../Redux/friendRedux';
+import friendRedux from '../Redux/friendRedux';
 import HeaderModular from '../Components/HeaderModular';
+import Ident from '../Libs/Ident';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
-  addFriend: friendActions.addFriend,
+  friendAdd: friendRedux.actions.friendAdd,
 };
 
 export class FriendAdd extends React.Component {
@@ -18,9 +19,7 @@ export class FriendAdd extends React.Component {
       <HeaderModular
         title="New friend"
         cancelButton={{ icon: 'close', action: navigation.goBack }}
-        actionButtons={[
-          { text: 'ADD', action: navigation.state.params.handleSave },
-        ]}
+        actionButtons={[{ text: 'ADD', action: navigation.state.params.handleSave }]}
       />
     ),
   });
@@ -36,12 +35,8 @@ export class FriendAdd extends React.Component {
   };
 
   handleSave = () => {
-    if (
-      this.state &&
-      this.state.friendName &&
-      this.state.friendName.trim() !== ''
-    ) {
-      this.props.addFriend(this.state.friendName.trim());
+    if (this.state && this.state.friendName && this.state.friendName.trim() !== '') {
+      this.props.friendAdd(Ident.newid(), this.state.friendName.trim());
       this.props.navigation.goBack();
       Keyboard.dismiss();
     }
@@ -54,11 +49,7 @@ export class FriendAdd extends React.Component {
           <Form>
             <Item floatingLabel>
               <Label>Friend&rsquo;s name</Label>
-              <Input
-                onChangeText={this.onChangeName}
-                autoFocus
-                autoCapitalize="words"
-              />
+              <Input onChangeText={this.onChangeName} autoFocus autoCapitalize="words" />
             </Item>
           </Form>
         </Content>

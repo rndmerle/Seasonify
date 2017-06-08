@@ -1,5 +1,5 @@
 import { testReducer } from '../../Libs/Testing';
-import reducer, { uiActions as actions, INITIAL_STATE } from '../uiRedux';
+import ui, { reducer, INITIAL_STATE } from '../uiRedux';
 
 describe('Reducer', () => {
   it('provides initial state', () => {
@@ -7,16 +7,16 @@ describe('Reducer', () => {
     expect(reducer(undefined, {})).toMatchSnapshot();
   });
 
-  it('handles toastMessage action', () => {
+  it('handles messageToast action', () => {
     testReducer(
       reducer,
       [
-        actions.toastMessage('success', 'Message'),
-        actions.toastMessage('error', 'Other message'),
+        ui.actions.messageToast('success', 'Message'),
+        ui.actions.messageToast('error', 'Other message'),
       ],
       {
         message: {
-          type: 'error',
+          level: 'error',
           text: 'Other message',
         },
       },

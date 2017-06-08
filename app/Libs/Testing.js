@@ -4,8 +4,8 @@ import deepFreeze from 'deep-freeze';
 testReducer(
   reducer,
   [
-    actions.toastMessage('success', 'Message'),
-    actions.toastMessage('error', 'Other message'),
+    actions.messageToast('success', 'Message'),
+    actions.messageToast('error', 'Other message'),
   ],
   {
     message: {

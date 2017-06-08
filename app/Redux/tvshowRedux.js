@@ -1,77 +1,66 @@
+import { createReducer, createActions } from 'reduxsauce';
 import seasonNormalizer from '../Normalizers/seasonNormalizer';
 
-export const types = {
-  /* ========== TYPES ========== */
-  ADD: 'SHOW/ADD',
-  ADD_WITH_SEASONS: 'SHOW/ADD_WITH_SEASONS',
-  REMOVE: 'SHOW/REMOVE',
-  UPDATE: 'SHOW/UPDATE',
-  SEASONS_REFRESH: 'SHOW/SEASON_REFRESH',
-  SEASONS_SUCCESS: 'SHOW/SEASON_SUCCESS',
-  SEASONS_FAIL: 'SHOW/SEASON_FAIL',
+/* ========== ACTIONS ========== */
+
+const { Types, Creators } = createActions({
+  // a parameter named 'type' is forbidden
+  tvshowAddWithSeasons: ['tvshow'],
+  tvshowAdd: ['tvshow'],
+  tvshowRemove: ['id'],
+  tvshowUpdate: ['tvshow'],
+  seasonsRefresh: ['id', 'silent'], // XXX silent = false
+  seasonsSuccess: ['id', 'seasons'],
+  seasonsFail: null,
+});
+export const types = Types;
+
+/* ========== REDUCERS ========== */
+
+export const tvshowAdd = (state, { tvshow }) => ({
+  ...state,
+  [tvshow.id]: { seasons: {}, ...tvshow },
+});
+
+export const tvshowRemove = (state, { id }) => {
+  const { [id]: deleted, ...newState } = state;
+  return newState;
 };
 
-/* ========== ACTIONS ========== */
-export const tvshowActions = {
-  addTvshowWithSeasons: tvshow => ({
-    type: types.ADD_WITH_SEASONS,
-    payload: tvshow,
-  }),
-  addTvshow: tvshow => ({
-    type: types.ADD,
-    payload: tvshow,
-  }),
-  removeTvshow: id => ({ type: types.REMOVE, payload: { id } }),
-  updateTvshow: tvshow => ({ type: types.UPDATE, payload: tvshow }),
-  seasonsRefresh: (id, silent = false) => ({
-    type: types.SEASONS_REFRESH,
-    payload: { id, silent },
-  }),
-  seasonsSuccess: (id, seasons) => ({
-    type: types.SEASONS_SUCCESS,
-    payload: { id, seasons },
-  }),
-  seasonsFail: () => ({ type: types.SEASONS_FAIL }),
+export const tvshowUpdate = (state, { tvshow }) => ({
+  ...state,
+  [tvshow.id]: { ...state[tvshow.id], ...tvshow },
+});
+
+export const seasonsSuccess = (state, { id, seasons }) => {
+  const newSeasons = seasonNormalizer(seasons);
+  return {
+    ...state,
+    [id]: {
+      ...state[id],
+      seasons: { ...state[id].seasons, ...newSeasons },
+    },
+  };
 };
 
 export const INITIAL_STATE = __DEV__
   ? require('../Fixtures/tvshowDeadwood.json') // No comma-dangle in json or Jest is angry
   : {};
 
-/* ========== REDUCER ========== */
-const reducer = (state = INITIAL_STATE, { type, payload }) => {
-  switch (type) {
-    case types.ADD:
-      return {
-        ...state,
-        [payload.id]: { seasons: {}, ...payload },
-      };
-
-    case types.REMOVE:
-      const { [payload.id]: deleted, ...newState } = state;
-      return newState;
-
-    case types.UPDATE:
-      return { ...state, [payload.id]: { ...state[payload.id], ...payload } };
-
-    case types.SEASONS_SUCCESS:
-      const newSeasons = seasonNormalizer(payload.seasons);
-      return {
-        ...state,
-        [payload.id]: {
-          ...state[payload.id],
-          seasons: { ...state[payload.id].seasons, ...newSeasons },
-        },
-      };
-
-    default:
-      return state;
-  }
-};
-export default reducer;
+export const reducer = createReducer(INITIAL_STATE, {
+  [types.TVSHOW_ADD]: tvshowAdd,
+  [types.TVSHOW_REMOVE]: tvshowRemove,
+  [types.TVSHOW_UPDATE]: tvshowUpdate,
+  [types.SEASONS_SUCCESS]: seasonsSuccess,
+});
 
 /* ========== SELECTORS ========== */
-export const tvshowSelectors = {
+
+const selectors = {
   getTvshows: state => state.tvshows,
   getTvshow: (state, id) => state.tvshows[id],
 };
+
+/* ========== EXPORTS ========== */
+
+export default { actions: Creators, selectors };

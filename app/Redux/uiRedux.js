@@ -1,43 +1,39 @@
+import { createReducer, createActions } from 'reduxsauce';
 import tvshowNormalizer from '../Normalizers/tvshowNormalizer';
 
-export const types = {
-  /* ========== TYPES ========== */
-  MESSAGE_TOAST: 'UI/MESSAGE_TOAST',
-  MESSAGE_HIDE: 'UI/MESSAGE_HIDE',
-  SUGGESTIONS_REQUEST: 'UI/SUGGESTIONS_REQUEST',
-  SUGGESTIONS_SUCCESS: 'UI/SUGGESTIONS_SUCCESS',
-  SUGGESTIONS_FAIL: 'UI/SUGGESTIONS_FAIL',
-  SPINNER_SHOW: 'UI/SPINNER_SHOW',
-  SPINNER_HIDE: 'UI/SPINNER_HIDE',
-};
-
 /* ========== ACTIONS ========== */
-export const uiActions = {
-  toastMessage: (type, text) => ({
-    type: types.MESSAGE_TOAST,
-    payload: { type, text },
-  }),
-  hideMessage: () => ({
-    type: types.MESSAGE_HIDE,
-  }),
-  suggestionsRequest: text => ({
-    type: types.SUGGESTIONS_REQUEST,
-    payload: { text },
-  }),
-  suggestionsSuccess: suggestions => ({
-    type: types.SUGGESTIONS_SUCCESS,
-    payload: { suggestions },
-  }),
-  suggestionsFail: () => ({
-    type: types.SUGGESTIONS_FAIL,
-  }),
-  spinnerShow: () => ({
-    type: types.SPINNER_SHOW,
-  }),
-  spinnerHide: () => ({
-    type: types.SPINNER_HIDE,
-  }),
-};
+
+const { Types, Creators } = createActions({
+  // a parameter named 'type' is forbidden
+  messageToast: ['level', 'text'],
+  messageHide: null,
+  suggestionsRequest: ['text'],
+  suggestionsSuccess: ['suggestions'],
+  suggestionsFail: null,
+  spinnerShow: null,
+  spinnerHide: null,
+});
+export const types = Types;
+
+/* ========== REDUCERS ========== */
+
+export const messageToast = (state, { level, text }) => ({
+  ...state,
+  message: { level, text },
+});
+
+export const messageHide = state => ({ ...state, message: null });
+
+export const suggestionsSuccess = (state, { suggestions }) => ({
+  ...state,
+  suggestions: tvshowNormalizer(suggestions),
+});
+
+export const suggestionsFail = state => ({ ...state, suggestions: [] });
+
+export const spinnerShow = state => ({ ...state, spinner: true });
+
+export const spinnerHide = state => ({ ...state, spinner: false });
 
 export const INITIAL_STATE = {
   spinner: false,
@@ -45,37 +41,23 @@ export const INITIAL_STATE = {
   suggestions: [],
 };
 
-/* ========== REDUCER ========== */
-const reducer = (state = INITIAL_STATE, { type, payload }) => {
-  switch (type) {
-    case types.MESSAGE_TOAST:
-      return { ...state, message: { type: payload.type, text: payload.text } };
-
-    case types.MESSAGE_HIDE:
-      return { ...state, message: null };
-
-    case types.SUGGESTIONS_SUCCESS:
-      const suggestions = tvshowNormalizer(payload.suggestions);
-      return { ...state, suggestions };
-
-    case types.SUGGESTIONS_FAIL:
-      return { ...state, suggestions: [] };
-
-    case types.SPINNER_SHOW:
-      return { ...state, spinner: true };
-
-    case types.SPINNER_HIDE:
-      return { ...state, spinner: false };
-
-    default:
-      return state;
-  }
-};
-export default reducer;
+export const reducer = createReducer(INITIAL_STATE, {
+  [types.MESSAGE_TOAST]: messageToast,
+  [types.MESSAGE_HIDE]: messageHide,
+  [types.SUGGESTIONS_SUCCESS]: suggestionsSuccess,
+  [types.SUGGESTIONS_FAIL]: suggestionsFail,
+  [types.SPINNER_SHOW]: spinnerShow,
+  [types.SPINNER_HIDE]: spinnerHide,
+});
 
 /* ========== SELECTORS ========== */
-export const uiSelectors = {
+
+const selectors = {
   getMessage: state => state.ui.message,
   getSuggestions: state => state.ui.suggestions,
   isSpinning: state => state.ui.spinner,
 };
+
+/* ========== EXPORTS ========== */
+
+export default { actions: Creators, selectors };

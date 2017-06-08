@@ -2,23 +2,23 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import { uiActions } from '../Redux/uiRedux';
-import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
-import { editActions, editSelectors } from '../Redux/editRedux';
+import ui from '../Redux/uiRedux';
+import tv from '../Redux/tvshowRedux';
+import editRedux from '../Redux/editRedux';
 import HeaderModular from '../Components/HeaderModular';
 
 const mapStateToProps = (state, ownProps) => ({
-  isEditing: editSelectors.isEditing(state),
-  editedObject: editSelectors.editedObject(state),
-  getTvshow: tvshowSelectors.getTvshow(state, ownProps.tvshowId),
+  isEditing: editRedux.selectors.isEditing(state),
+  editedObject: editRedux.selectors.editedObject(state),
+  getTvshow: tv.selectors.getTvshow(state, ownProps.tvshowId),
 });
 
 const mapActionsToProps = {
-  removeTvshow: tvshowActions.removeTvshow,
-  updateTvshow: tvshowActions.updateTvshow,
-  toastMessage: uiActions.toastMessage,
-  startEdit: editActions.startEdit,
-  endEdit: editActions.endEdit,
+  tvshowRemove: tv.actions.tvshowRemove,
+  tvshowUpdate: tv.actions.tvshowUpdate,
+  messageToast: ui.actions.messageToast,
+  editStart: editRedux.actions.editStart,
+  editEnd: editRedux.actions.editEnd,
 };
 
 export function TvshowDetailsHeader({
@@ -27,11 +27,11 @@ export function TvshowDetailsHeader({
   isEditing,
   editedObject,
   getTvshow,
-  removeTvshow,
-  updateTvshow,
-  toastMessage,
-  startEdit,
-  endEdit,
+  tvshowRemove,
+  tvshowUpdate,
+  messageToast,
+  editStart,
+  editEnd,
 }) {
   const tvshow = getTvshow;
 
@@ -39,27 +39,27 @@ export function TvshowDetailsHeader({
     navigate('TvshowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
     if (isEditing) {
-      endEdit();
+      editEnd();
     }
   };
 
   const handleEdit = () => {
-    startEdit();
+    editStart();
   };
 
   const handleDone = () => {
     Keyboard.dismiss();
     if (editedObject.id) {
-      updateTvshow(editedObject);
-      toastMessage('success', `${editedObject.name} has been edited`);
+      tvshowUpdate(editedObject);
+      messageToast('success', `${editedObject.name} has been edited`);
     }
-    endEdit();
+    editEnd();
   };
 
   const handleDelete = () => {
     handleExit();
-    removeTvshow(tvshow.id);
-    toastMessage('warning', `${tvshow.name} has been deleted`);
+    tvshowRemove(tvshow.id);
+    messageToast('warning', `${tvshow.name} has been deleted`);
   };
 
   return (

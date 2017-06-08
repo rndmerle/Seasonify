@@ -1,14 +1,14 @@
-import React from 'react';
 import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
+import React from 'react';
 
-import { friendActions, friendSelectors } from '../Redux/friendRedux';
-import HeaderRoot from '../Components/HeaderRoot';
 import FriendItem from '../Components/FriendItem';
+import HeaderRoot from '../Components/HeaderRoot';
 import SingleFAB from '../Components/SingleFAB';
+import friendRedux from '../Redux/friendRedux';
 
 const mapStateToProps = state => ({
-  friends: friendSelectors.getFriends(state),
+  friends: friendRedux.selectors.getFriends(state),
 });
 
 const mapActionsToProps = {};
@@ -21,13 +21,9 @@ export function FriendList({ navigation, friends }) {
     <Container>
       <Content>
         <List>
-          {Object.keys(friends).map(id => (
-            <FriendItem
-              key={id}
-              friend={friends[id]}
-              navigate={navigation.navigate}
-            />
-          ))}
+          {Object.keys(friends).map(id =>
+            <FriendItem key={id} friend={friends[id]} navigate={navigation.navigate} />,
+          )}
         </List>
       </Content>
       <SingleFAB icon="add" onPress={onFAB} />

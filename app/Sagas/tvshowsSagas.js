@@ -1,57 +1,57 @@
 import { call, put, select } from 'redux-saga/effects';
 
 import Ident from '../Libs/Ident';
-import { uiActions } from '../Redux/uiRedux';
-import { tvshowSelectors, tvshowActions } from '../Redux/tvshowRedux';
+import ui from '../Redux/uiRedux';
+import tv from '../Redux/tvshowRedux';
 
-export function* searchTvshows(api, { payload }) {
-  const response = yield call(api.searchTvshows, payload.text);
+export function* searchTvshows(api, { text }) {
+  const response = yield call(api.searchTvshows, text);
   if (response.error) {
-    yield put(uiActions.suggestionsFail());
-    yield put(uiActions.toastMessage('error', response.error));
+    yield put(ui.actions.suggestionsFail());
+    yield put(ui.actions.messageToast('error', response.error));
   } else {
-    yield put(uiActions.suggestionsSuccess(response.data));
+    yield put(ui.actions.suggestionsSuccess(response.data));
   }
 }
 
-export function* addTvshowWithSeasons(api, { payload }) {
+export function* tvshowAddWithSeasons(api, { tvshow }) {
   Ident.newid();
-  const tvshow = { ...payload, id: Ident.id() };
-  yield put(tvshowActions.addTvshow(tvshow));
-  yield put(uiActions.toastMessage('success', `${tvshow.name} added`));
-  yield put(tvshowActions.seasonsRefresh(tvshow.id, true));
+  const newTvshow = { ...tvshow, id: Ident.id() };
+  yield put(tv.actions.tvshowAdd(newTvshow));
+  yield put(ui.actions.messageToast('success', `${newTvshow.name} added`));
+  yield put(tv.actions.seasonsRefresh(newTvshow.id, true));
 }
 
-export function* updateSeasons(api, { payload }) {
-  if (!payload.silent) yield put(uiActions.spinnerShow());
-  const tvshow = yield select(tvshowSelectors.getTvshow, payload.id);
+export function* updateSeasons(api, { id, silent }) {
+  if (!silent) yield put(ui.actions.spinnerShow());
+  const tvshow = yield select(tv.selectors.getTvshow, id);
   const response = yield call(api.getSeasons, tvshow.allocine);
   if (response.error) {
-    yield put(tvshowActions.seasonsFail());
-    yield put(uiActions.toastMessage('error', response.error));
+    yield put(tv.actions.seasonsFail());
+    yield put(ui.actions.messageToast('error', response.error));
   } else {
-    if (!payload.silent) {
+    if (!silent) {
       yield call(
         _informIfNewSeason,
         Object.keys(tvshow.seasons).length,
         Object.keys(response.data).length,
       );
     }
-    yield put(tvshowActions.seasonsSuccess(tvshow.id, response.data));
+    yield put(tv.actions.seasonsSuccess(tvshow.id, response.data));
   }
-  if (!payload.silent) yield put(uiActions.spinnerHide());
+  if (!silent) yield put(ui.actions.spinnerHide());
 }
 
 function* _informIfNewSeason(countBefore, countAfter) {
   const nbNewSeasons = countAfter - countBefore;
   if (nbNewSeasons > 0) {
     yield put(
-      uiActions.toastMessage(
+      ui.actions.messageToast(
         'success',
         `${nbNewSeasons} new season${nbNewSeasons > 1 ? 's' : ''}!`,
       ),
     );
   } else {
-    yield put(uiActions.toastMessage('neutral', 'No new season :('));
+    yield put(ui.actions.messageToast('neutral', 'No new season :('));
   }
 }

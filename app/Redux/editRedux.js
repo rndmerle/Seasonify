@@ -1,52 +1,41 @@
-export const types = {
-  /* ========== TYPES ========== */
-  EDIT_START: 'EDIT/START',
-  EDIT_END: 'EDIT/END',
-  EDIT_UPDATE: 'EDIT/UPDATE',
-};
+import { createReducer, createActions } from 'reduxsauce';
 
-/* ========== ACTIONS ========== */
-export const editActions = {
-  startEdit: () => ({
-    type: types.EDIT_START,
-  }),
-  endEdit: () => ({
-    type: types.EDIT_END,
-  }),
-  updateEdit: editedObject => ({
-    type: types.EDIT_UPDATE,
-    payload: { editedObject },
-  }),
-};
+const { Types, Creators } = createActions({
+  // a parameter named 'type' is forbidden
+  editStart: null,
+  editEnd: null,
+  editUpdate: ['editedObject'],
+});
+export const types = Types;
+
+/* ========== REDUCERS ========== */
+export const editStart = state => ({ ...state, isEditing: true });
+
+export const editEnd = state => ({ ...state, editedObject: {}, isEditing: false });
+
+export const editUpdate = (state, { editedObject }) => ({
+  ...state,
+  editedObject: { ...state.editedObject, ...editedObject },
+});
 
 export const INITIAL_STATE = {
   isEditing: false,
   editedObject: {},
 };
 
-/* ========== REDUCER ========== */
-const reducer = (state = INITIAL_STATE, { type, payload }) => {
-  switch (type) {
-    case types.EDIT_START:
-      return { ...state, isEditing: true };
-
-    case types.EDIT_END:
-      return { ...state, editedObject: {}, isEditing: false };
-
-    case types.EDIT_UPDATE:
-      return {
-        ...state,
-        editedObject: { ...state.editedObject, ...payload.editedObject },
-      };
-
-    default:
-      return state;
-  }
-};
-export default reducer;
+export const reducer = createReducer(INITIAL_STATE, {
+  [types.EDIT_START]: editStart,
+  [types.EDIT_END]: editEnd,
+  [types.EDIT_UPDATE]: editUpdate,
+});
 
 /* ========== SELECTORS ========== */
-export const editSelectors = {
+
+const selectors = {
   isEditing: state => state.edit.isEditing,
   editedObject: state => state.edit.editedObject,
 };
+
+/* ========== EXPORTS ========== */
+
+export default { actions: Creators, selectors };
