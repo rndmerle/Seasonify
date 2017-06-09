@@ -11,7 +11,7 @@ import { reducer as uiReducer } from './uiRedux';
 import AppConfig from '../Config/AppConfig';
 import DebugConfig from '../Config/DebugConfig';
 import PersistConfig from '../Config/PersistConfig';
-import RehydrationServices from '../Services/RehydrationServices';
+import Rehydration from '../Services/Rehydration';
 import rootSaga from '../Sagas/rootSaga';
 
 export default () => {
@@ -68,7 +68,7 @@ export default () => {
 
   // Configure persistStore and check reducer version number
   if (PersistConfig.active) {
-    RehydrationServices.updateReducers(store);
+    Rehydration.updateReducers(store);
   }
 
   // Kick off root Saga

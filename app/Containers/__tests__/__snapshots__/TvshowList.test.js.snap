@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering should show 2 series 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(List)>
+      <TvshowItem
+        navigate={[Function]}
+        tvshowId="abc"
+        tvshowName="tvshow1"
+      />
+      <TvshowItem
+        navigate={[Function]}
+        tvshowId="qsd"
+        tvshowName="tvshow2"
+      />
+    </Styled(List)>
+  </Styled(Content)>
+  <SingleFAB
+    icon="add"
+    onPress={[Function]}
+  />
+</Styled(Container)>
+`;

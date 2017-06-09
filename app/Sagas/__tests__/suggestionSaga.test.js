@@ -2,7 +2,7 @@ import { call } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
-import * as api from '../../Services/Allocine';
+import api from '../../Services/Allocine';
 import rootSaga from '../../Sagas/rootSaga';
 import ui from '../../Redux/uiRedux';
 

@@ -6,6 +6,10 @@
       "creators": "David Caspe",
       "actors": "Elisha Cuthbert, Zachary Knighton, Damon Wayans Jr., Adam Pally, Casey Wilson"
     },
+    "link": [{
+      "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=8090.html",
+      "rel": "aco:web"
+    }],
     "yearStart": 2011,
     "yearEnd": 2013,
     "seasonCount": 3,
@@ -23,6 +27,10 @@
       "creators": "Garry Marshall",
       "actors": "Tom Bosley, Marion Ross, Anson Williams, Henry Winkler, Ted McGinley"
     },
+    "link": [{
+      "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=720.html",
+      "rel": "aco:web"
+    }],
     "yearStart": 1974,
     "yearEnd": 1984,
     "seasonCount": 11,
@@ -39,6 +47,10 @@
       "creators": "Josh Appelbaum, André Nemec, Scott Rosenberg",
       "actors": "Geoff Stults, Amy Acker, Jay Paulson, Lauren German, Robert Wisdom"
     },
+    "link": [{
+      "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=4876.html",
+      "rel": "aco:web"
+    }],
     "yearStart": 2010,
     "yearEnd": 2010,
     "seasonCount": 1,
@@ -54,6 +66,10 @@
     "yearStart": 2000,
     "seasonCount": 1,
     "statistics": { "userRating": 3.79115 },
+    "link": [{
+      "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=7391.html",
+      "rel": "aco:web"
+    }],
     "poster": {
       "path": "/medias/nmedia/18/72/22/91/19157134.jpg",
       "href": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg"
@@ -62,7 +78,10 @@
   {
     "code": 6417,
     "originalTitle": "Happy Lucky Bikkuriman",
-    "yearStart": 2006,
+    "yearStart": 2006,"link": [{
+      "href": "http://www.allocine.fr/series/ficheserie_gen_cserie=6417.html",
+      "rel": "aco:web"
+    }],
     "yearEnd": 2007,
     "seasonCount": 1
   }

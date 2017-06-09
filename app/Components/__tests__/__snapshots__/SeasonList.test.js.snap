@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should render 1`] = `
+<Styled(List)>
+  <Styled(ListItem)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+        style={
+          Object {
+            "flex": 0,
+          }
+        }
+      >
+        <Styled(Badge)
+          info={true}
+        >
+          <Styled(Text)>
+            Season xyz890
+          </Styled(Text)>
+        </Styled(Badge)>
+        <Styled(Text)
+          note={true}
+        >
+          13 ep. 
+          in 2015
+        </Styled(Text)>
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+      />
+    </GridNB>
+  </Styled(ListItem)>
+  <Styled(ListItem)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+        style={
+          Object {
+            "flex": 0,
+          }
+        }
+      >
+        <Styled(Badge)
+          info={true}
+        >
+          <Styled(Text)>
+            Season abc123
+          </Styled(Text)>
+        </Styled(Badge)>
+        <Styled(Text)
+          note={true}
+        >
+          13 ep. 
+          in 2014
+        </Styled(Text)>
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+      />
+    </GridNB>
+  </Styled(ListItem)>
+</Styled(List)>
+`;

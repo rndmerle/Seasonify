@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should render 1`] = `
+<Image
+  resizeMethod="scale"
+  resizeMode="contain"
+  source={
+    Object {
+      "uri": "http://somewhere.net/poster.jpg",
+    }
+  }
+/>
+`;

@@ -53,6 +53,8 @@
         "no-trailing-spaces": ["warn"],
         "no-multiple-empty-lines": ["warn"],
         "padded-blocks": ["warn"],
+        "array-bracket-spacing": ["warn"],
+        "no-multi-spaces": ["warn"],
         "arrow-body-style": ["warn"],
         "no-unused-vars": ["warn"],
         "key-spacing": ["warn"],

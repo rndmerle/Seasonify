@@ -113,13 +113,6 @@ Object {
 }
 `;
 
-exports[`Allocine API should get nothing from an an unknown tvshow 1`] = `
-Object {
-  "data": Array [],
-  "error": null,
-}
-`;
-
 exports[`Allocine API should grab a seasons list from a valid tvshow code 1`] = `
 Object {
   "data": Array [

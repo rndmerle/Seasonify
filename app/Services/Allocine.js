@@ -2,41 +2,8 @@
 import jshashes from 'jshashes';
 import axios from 'axios';
 
-/* ========== API CALLS ========== */
-
-export const searchTvshows = query => {
-  if (query.trim() === '') {
-    return { error: null, data: [] };
-  }
-  return api
-    .get('search', { q: query })
-    .then(result => ({
-      error: null,
-      data: result.data.feed && result.data.feed.tvseries ? result.data.feed.tvseries : [],
-    }))
-    .catch(error => ({ error: error.message, data: null }));
-};
-
-export const getSeasons = code =>
-  api
-    .get('tvseries', { code })
-    .then(result => {
-      if (!result.data.tvseries) {
-        return { error: "API didn't found the TV show", data: null };
-      } else if (!result.data.tvseries.season || result.data.tvseries.season === []) {
-        return { error: 'No seasons for this TV show', data: null };
-      }
-      return {
-        error: null,
-        data: result.data.tvseries.season,
-      };
-    })
-    .catch(error => ({ error: error.message, data: null }));
-
-/* ========== API ========== */
-
 // DOC : https://wiki.gromez.fr/dev/api/allocine_v3
-export default class Allocine {
+export class Allocine {
   config = {
     apiHostName: 'http://api.allocine.fr',
     apiBasePath: '/rest/v3/',
@@ -96,3 +63,38 @@ export default class Allocine {
 }
 
 const api = new Allocine();
+
+/* ========== API CALLS ========== */
+
+export default {
+  searchTvshows: query => {
+    if (query.trim() === '') {
+      return { error: null, data: [] };
+    }
+    return api
+      .get('search', { q: query })
+      .then(result => ({
+        error: null,
+        data: result.data.feed && result.data.feed.tvseries ? result.data.feed.tvseries : [],
+      }))
+      .catch(error => ({ error: error.message, data: null }));
+  },
+
+  getSeasons: code =>
+    api
+      .get('tvseries', { code })
+      .then(result => {
+        if (!result.data.tvseries) {
+          return { error: "API didn't found the TV show", data: null };
+        }
+        // } else if (!result.data.tvseries.season || result.data.tvseries.season === []) {
+        // return { error: 'No seasons for this TV show', data: null };
+        return {
+          error: null,
+          data: result.data.tvseries.season,
+        };
+      })
+      .catch(error => ({ error: error.message, data: null })),
+
+  class: api,
+};

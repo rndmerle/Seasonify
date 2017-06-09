@@ -1,5 +1,5 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import * as apiAllocine from '../Services/Allocine';
+import apiAllocine from '../Services/Allocine';
 import apiFixtures from '../Services/apiFixtures';
 import DebugConfig from '../Config/DebugConfig';
 

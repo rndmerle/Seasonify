@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should render all visible action buttons 1`] = `
+<Styled(Header)>
+  <Styled(Left)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    >
+      <Styled(Icon)
+        name="icon"
+      />
+    </Styled(Button)>
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(Title)>
+      Some title
+    </Styled(Title)>
+  </Styled(Body)>
+  <Styled(Right)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    >
+      <Styled(Icon)
+        name="icon1"
+      />
+    </Styled(Button)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    >
+      <Styled(Icon)
+        name="icon3"
+      />
+    </Styled(Button)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    >
+      <Styled(Icon)
+        name="icon4"
+      />
+    </Styled(Button)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    >
+      <Styled(Text)>
+        text1
+      </Styled(Text)>
+    </Styled(Button)>
+  </Styled(Right)>
+</Styled(Header)>
+`;
+
+exports[`Rendering should render with a basic cancel button 1`] = `
+<Styled(Header)>
+  <Styled(Left)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    >
+      <Styled(Icon)
+        name="icon"
+      />
+    </Styled(Button)>
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(Title)>
+      Some title
+    </Styled(Title)>
+  </Styled(Body)>
+  <Styled(Right) />
+</Styled(Header)>
+`;

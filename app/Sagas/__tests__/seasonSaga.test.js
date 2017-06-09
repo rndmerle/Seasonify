@@ -3,17 +3,17 @@ import { call, select } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
-import Identity from '../../Libs/Identity';
-import * as api from '../../Services/Allocine';
+import api from '../../Services/Allocine';
 import rootSaga from '../../Sagas/rootSaga';
 import tv from '../../Redux/tvshowRedux';
 import ui from '../../Redux/uiRedux';
 
 describe('seasonRefresh saga', () => {
   it("fetch the tvshow's seasons", () => {
-    const id = Identity.forceId('xxx123');
-    const tvshow = { id, name: 'Tvshow', allocine: 555, seasons: {} };
-    const stateForSelect = { tvshows: { [id]: tvshow } };
+    const id = 'xxx123';
+    const stateForSelect = {
+      tvshows: { [id]: { id, name: 'Tvshow', allocine: 555, seasons: {} } },
+    };
     const fakeSeasons = [{ seasonNumber: 1 }];
     const fakeSeasonsResult = {
       error: null,
@@ -21,11 +21,38 @@ describe('seasonRefresh saga', () => {
     };
     return expectSaga(rootSaga)
       .put(ui.actions.spinnerHide())
-      .put(tv.actions.seasonsSuccess(tvshow.id, fakeSeasons))
+      .put(tv.actions.seasonsSuccess(id, fakeSeasons))
       .put(ui.actions.spinnerShow())
       .withState(stateForSelect)
       .provide([[call(api.getSeasons, 555), fakeSeasonsResult]])
-      .dispatch(tv.actions.seasonsRefresh(tvshow.id, false))
+      .dispatch(tv.actions.seasonsRefresh(id, false))
+      .silentRun();
+  });
+
+  it("fetch the tvshow's seasons", () => {
+    const id = 'xxx123';
+    const stateForSelect = {
+      tvshows: {
+        [id]: {
+          id,
+          name: 'Tvshow',
+          allocine: 555,
+          seasons: {
+            1: { id: 1 },
+          },
+        },
+      },
+    };
+    const fakeSeasons = [{ seasonNumber: 1 }];
+    const fakeSeasonsResult = {
+      error: null,
+      data: fakeSeasons,
+    };
+    return expectSaga(rootSaga)
+      .put(ui.actions.messageToast('neutral', 'No new season :('))
+      .withState(stateForSelect)
+      .provide([[matchers.call.fn(api.getSeasons), fakeSeasonsResult]])
+      .dispatch(tv.actions.seasonsRefresh(id, false))
       .silentRun();
   });
 

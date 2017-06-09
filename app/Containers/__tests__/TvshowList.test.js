@@ -16,16 +16,15 @@ function setup(specificProps = {}) {
 }
 
 describe('rendering', () => {
-  describe('with 2 tvshows list', () => {
-    it('should show 2 series', () => {
-      const { component } = setup({
-        tvshows: {
-          abc: { id: 'abc', name: 'tvshow1' },
-          qsd: { id: 'qsd', name: 'tvshow2' },
-        },
-      });
-      expect(component.find('TvshowItem')).toHaveLength(2);
+  it('should show 2 series', () => {
+    const { component } = setup({
+      tvshows: {
+        abc: { id: 'abc', name: 'tvshow1' },
+        qsd: { id: 'qsd', name: 'tvshow2' },
+      },
     });
+    expect(component.find('TvshowItem')).toHaveLength(2);
+    expect(component).toMatchSnapshot();
   });
 
   describe('when clicking on FAB', () => {

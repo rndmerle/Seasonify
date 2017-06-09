@@ -4,6 +4,10 @@ test('trim a single string', () => {
   expect(trimmed(' Text  ')).toEqual('Text');
 });
 
+test('do not trim an int', () => {
+  expect(trimmed(123)).toEqual(123);
+});
+
 test('trim an object', () => {
   expect(trimmed({ id: 123, name: ' Name  ' })).toEqual({ id: 123, name: 'Name' });
 });

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should render 1`] = `
+<Styled(ListItem)
+  onPress={[Function]}
+>
+  <Styled(Text)>
+    Someone
+  </Styled(Text)>
+</Styled(ListItem)>
+`;

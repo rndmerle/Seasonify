@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import navigationLogging from '../Services/Logging';
 import PersistConfig from '../Config/PersistConfig';
 import DrawerNavigation from '../Navigation/DrawerNavigation';
-import startup from '../Redux/startupRedux';
+import ui from '../Redux/uiRedux';
 import ToastMessage from './ToastMessage';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
-  startup: startup.actions.startup,
+  startup: ui.actions.startup,
 };
 
 export class Root extends React.Component {

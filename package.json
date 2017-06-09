@@ -66,7 +66,10 @@
       "app/**/*.{js,jsx}",
       "!app/Config/**",
       "!app/Navigation/**",
-      "!app/Themes/**"
+      "!app/Themes/**",
+      "!app/**/index.js",
+      "!app/Services/Logging.js",
+      "!app/Services/Rehydration.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

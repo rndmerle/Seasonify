@@ -4,7 +4,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
 import Identity from '../../Libs/Identity';
-import * as api from '../../Services/Allocine';
+import api from '../../Services/Allocine';
 import rootSaga from '../../Sagas/rootSaga';
 import tv from '../../Redux/tvshowRedux';
 import ui from '../../Redux/uiRedux';

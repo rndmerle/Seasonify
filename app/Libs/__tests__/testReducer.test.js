@@ -9,7 +9,7 @@ function someAction(value) {
   };
 }
 
-function reducer(state = { counter: 0, other: false }, action) {
+function reducerWithObject(state = { counter: 0, other: false }, action) {
   switch (action.type) {
     case ACTION:
       return { ...state, counter: action.value };
@@ -18,9 +18,9 @@ function reducer(state = { counter: 0, other: false }, action) {
   }
 }
 
-test('testReducer can handles a simple fake reducer', () => {
+test('testReducer can handles a reducer with an object as state', () => {
   testReducer(
-    reducer,
+    reducerWithObject,
     {
       counter: 1,
     },
@@ -29,4 +29,30 @@ test('testReducer can handles a simple fake reducer', () => {
       counter: 2,
     },
   );
+});
+
+function reducerWithArray(state = [1], action) {
+  switch (action.type) {
+    case ACTION:
+      return [...state, action.value];
+    default:
+      return state;
+  }
+}
+
+test('testReducer can handles a reducer with an array as state', () => {
+  testReducer(reducerWithArray, [2], [someAction(3)], [2, 3]);
+});
+
+function reducerWithInt(state = 1, action) {
+  switch (action.type) {
+    case ACTION:
+      return action.value;
+    default:
+      return state;
+  }
+}
+
+test('testReducer can handles a reducer with an integer as state', () => {
+  testReducer(reducerWithInt, 2, [someAction(3)], 3);
 });

@@ -5,6 +5,7 @@ import tvshowsNormalizer from '../Normalizers/tvshowsNormalizer';
 
 const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
+  startup: null,
   messageToast: ['level', 'text'],
   messageHide: null,
   suggestionsRequest: ['text'],
