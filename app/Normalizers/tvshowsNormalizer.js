@@ -1,4 +1,4 @@
-function tvshowNormalizer(tvshows) {
+function tvshowsNormalizer(tvshows) {
   return tvshows.reduce(
     (array, suggestion) =>
       array.concat({
@@ -12,4 +12,4 @@ function tvshowNormalizer(tvshows) {
   );
 }
 
-export default tvshowNormalizer;
+export default tvshowsNormalizer;

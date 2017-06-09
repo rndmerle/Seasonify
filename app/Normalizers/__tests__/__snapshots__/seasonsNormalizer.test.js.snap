@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`seasonsNormalizer output should match snapshot (included a boggus "0" season) 1`] = `
+Object {
+  "1": Object {
+    "allocine": 565,
+    "episodes": 12,
+    "id": 1,
+    "year": 2004,
+  },
+  "2": Object {
+    "allocine": 711,
+    "episodes": 12,
+    "id": 2,
+    "year": 2005,
+  },
+  "3": Object {
+    "allocine": 2664,
+    "episodes": 12,
+    "id": 3,
+    "year": 2006,
+  },
+}
+`;

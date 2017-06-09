@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tvshowsNormalizer output should match snapshot 1`] = `
+Array [
+  Object {
+    "allocine": 8090,
+    "localizedName": null,
+    "name": "Happy Endings",
+    "poster": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg",
+    "year": 2011,
+  },
+  Object {
+    "allocine": 720,
+    "localizedName": "Happy Days - Les jours heureux",
+    "name": "Happy Days",
+    "poster": "http://fr.web.img6.acsta.net/medias/nmedia/18/36/37/63/18478173.jpg",
+    "year": 1974,
+  },
+  Object {
+    "allocine": 4876,
+    "localizedName": null,
+    "name": "Happy Town",
+    "poster": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg",
+    "year": 2010,
+  },
+  Object {
+    "allocine": 7391,
+    "localizedName": null,
+    "name": "Happy Tree Friends",
+    "poster": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg",
+    "year": 2000,
+  },
+  Object {
+    "allocine": 6417,
+    "localizedName": null,
+    "name": "Happy Lucky Bikkuriman",
+    "poster": null,
+    "year": 2006,
+  },
+]
+`;

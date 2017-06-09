@@ -25,9 +25,7 @@ export const friendUpdate = (state, { friend }) => ({
   [friend.id]: { ...state[friend.id], ...friend },
 });
 
-export const INITIAL_STATE = __DEV__
-  ? require('../Fixtures/myself.json') // No comma-dangle in json or Jest is angry
-  : {};
+export const INITIAL_STATE = {};
 
 export const reducer = createReducer(INITIAL_STATE, {
   [types.FRIEND_ADD]: friendAdd,

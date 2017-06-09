@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce';
-import tvshowNormalizer from '../Normalizers/tvshowNormalizer';
+import tvshowsNormalizer from '../Normalizers/tvshowsNormalizer';
 
 /* ========== ACTIONS ========== */
 
@@ -25,7 +25,7 @@ export const messageHide = state => ({ ...state, message: null });
 
 export const suggestionsSuccess = (state, { suggestions }) => ({
   ...state,
-  suggestions: tvshowNormalizer(suggestions),
+  suggestions: tvshowsNormalizer(suggestions),
 });
 
 export const suggestionsFail = state => ({ ...state, suggestions: [] });

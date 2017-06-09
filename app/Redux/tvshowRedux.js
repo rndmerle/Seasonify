@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce';
-import seasonNormalizer from '../Normalizers/seasonNormalizer';
+import seasonsNormalizer from '../Normalizers/seasonsNormalizer';
 
 /* ========== ACTIONS ========== */
 
@@ -32,7 +32,7 @@ export const tvshowUpdate = (state, { tvshow }) => ({
 });
 
 export const seasonsSuccess = (state, { id, seasons }) => {
-  const newSeasons = seasonNormalizer(seasons);
+  const newSeasons = seasonsNormalizer(seasons);
   return {
     ...state,
     [id]: {
@@ -42,9 +42,7 @@ export const seasonsSuccess = (state, { id, seasons }) => {
   };
 };
 
-export const INITIAL_STATE = __DEV__
-  ? require('../Fixtures/tvshowDeadwood.json') // No comma-dangle in json or Jest is angry
-  : {};
+export const INITIAL_STATE = {};
 
 export const reducer = createReducer(INITIAL_STATE, {
   [types.TVSHOW_ADD]: tvshowAdd,

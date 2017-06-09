@@ -9,8 +9,8 @@
     "statistics": {
       "userRating": 3.4333334,
       "userReviewCount": 2,
-      "userRatingCount": 15,
-    },
+      "userRatingCount": 15
+    }
   },
   {
     "code": 711,
@@ -22,8 +22,8 @@
     "statistics": {
       "userRating": 3.41666675,
       "userReviewCount": 2,
-      "userRatingCount": 15,
-    },
+      "userRatingCount": 15
+    }
   },
   {
     "code": 565,
@@ -35,7 +35,7 @@
     "statistics": {
       "userRating": 3.621212,
       "userReviewCount": 5,
-      "userRatingCount": 25,
-    },
-  },
-];
+      "userRatingCount": 25
+    }
+  }
+]

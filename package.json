@@ -62,8 +62,11 @@
     "setupFiles": [
       "./jest.setup.js"
     ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
+    "collectCoverageFrom" : [
+      "app/**/*.{js,jsx}",
+      "!app/Config/**",
+      "!app/Navigation/**",
+      "!app/Themes/**"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

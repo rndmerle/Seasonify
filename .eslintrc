@@ -49,6 +49,7 @@
         ],
         # Switching from error to warn
         "indent": ["warn"],
+        "quotes": ["warn"],
         "no-trailing-spaces": ["warn"],
         "no-multiple-empty-lines": ["warn"],
         "padded-blocks": ["warn"],

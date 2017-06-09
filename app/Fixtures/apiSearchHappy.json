@@ -4,7 +4,7 @@
     "originalTitle": "Happy Endings",
     "castingShort": {
       "creators": "David Caspe",
-      "actors": "Elisha Cuthbert, Zachary Knighton, Damon Wayans Jr., Adam Pally, Casey Wilson",
+      "actors": "Elisha Cuthbert, Zachary Knighton, Damon Wayans Jr., Adam Pally, Casey Wilson"
     },
     "yearStart": 2011,
     "yearEnd": 2013,
@@ -12,8 +12,8 @@
     "statistics": { "userRating": 3.84065 },
     "poster": {
       "path": "/medias/nmedia/18/78/21/06/20278341.jpg",
-      "href": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg",
-    },
+      "href": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg"
+    }
   },
   {
     "code": 720,
@@ -21,7 +21,7 @@
     "title": "Happy Days - Les jours heureux",
     "castingShort": {
       "creators": "Garry Marshall",
-      "actors": "Tom Bosley, Marion Ross, Anson Williams, Henry Winkler, Ted McGinley",
+      "actors": "Tom Bosley, Marion Ross, Anson Williams, Henry Winkler, Ted McGinley"
     },
     "yearStart": 1974,
     "yearEnd": 1984,
@@ -29,15 +29,15 @@
     "statistics": { "userRating": 2.52646 },
     "poster": {
       "path": "/medias/nmedia/18/36/37/63/18478173.jpg",
-      "href": "http://fr.web.img6.acsta.net/medias/nmedia/18/36/37/63/18478173.jpg",
-    },
+      "href": "http://fr.web.img6.acsta.net/medias/nmedia/18/36/37/63/18478173.jpg"
+    }
   },
   {
     "code": 4876,
     "originalTitle": "Happy Town",
     "castingShort": {
       "creators": "Josh Appelbaum, André Nemec, Scott Rosenberg",
-      "actors": "Geoff Stults, Amy Acker, Jay Paulson, Lauren German, Robert Wisdom",
+      "actors": "Geoff Stults, Amy Acker, Jay Paulson, Lauren German, Robert Wisdom"
     },
     "yearStart": 2010,
     "yearEnd": 2010,
@@ -45,8 +45,8 @@
     "statistics": { "userRating": 3.31619 },
     "poster": {
       "path": "/medias/nmedia/18/73/99/08/19237328.jpg",
-      "href": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg",
-    },
+      "href": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg"
+    }
   },
   {
     "code": 7391,
@@ -56,14 +56,14 @@
     "statistics": { "userRating": 3.79115 },
     "poster": {
       "path": "/medias/nmedia/18/72/22/91/19157134.jpg",
-      "href": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg",
-    },
+      "href": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg"
+    }
   },
   {
     "code": 6417,
     "originalTitle": "Happy Lucky Bikkuriman",
     "yearStart": 2006,
     "yearEnd": 2007,
-    "seasonCount": 1,
-  },
-];
+    "seasonCount": 1
+  }
+]
