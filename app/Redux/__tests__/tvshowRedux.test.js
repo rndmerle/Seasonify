@@ -57,9 +57,28 @@ describe('Reducer', () => {
       {
         xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: {} },
       },
-      [tv.actions.seasonsSuccess('xxx123', [{ seasonNumber: '1' }])],
+      [tv.actions.seasonsSuccess('xxx123', [{ seasonNumber: 1 }])],
       {
-        xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: { 1: { id: '1' } } },
+        xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: { 1: { id: 1 } } },
+      },
+    );
+  });
+
+  it('handles seasonRemove action', () => {
+    testReducer(
+      reducer,
+      {
+        xxx123: {
+          name: 'Tvshow 1',
+          seasons: {
+            1: { id: 1 },
+            2: { id: 2 },
+          },
+        },
+      },
+      [tv.actions.seasonRemove('Tvshow 1', 2)],
+      {
+        xxx123: { name: 'Tvshow 1', seasons: { 1: { id: 1 } } },
       },
     );
   });

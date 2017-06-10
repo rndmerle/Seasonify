@@ -50,9 +50,11 @@
         # Switching from error to warn
         "indent": ["warn"],
         "quotes": ["warn"],
+        "comma-dangle": ["warn"],
         "no-trailing-spaces": ["warn"],
         "no-multiple-empty-lines": ["warn"],
         "padded-blocks": ["warn"],
+        "object-property-newline": ["warn"],
         "array-bracket-spacing": ["warn"],
         "no-multi-spaces": ["warn"],
         "arrow-body-style": ["warn"],

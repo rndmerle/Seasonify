@@ -5,7 +5,7 @@ function normalizeSeasons(seasons) {
     }
     return {
       ...obj,
-      [season.seasonNumber]: {
+      [parseInt(season.seasonNumber, 10)]: {
         id: season.seasonNumber,
         year: season.yearEnd,
         episodes: season.episodeCount,

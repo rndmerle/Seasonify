@@ -12,6 +12,7 @@ const { Types: types, Creators } = createActions({
   seasonsRefresh: ['id', 'silent'],
   seasonsSuccess: ['id', 'seasons'],
   seasonsFail: null,
+  seasonRemove: ['name', 'season'],
 });
 
 /* ========== REDUCERS ========== */
@@ -42,6 +43,19 @@ export const seasonsSuccess = (state, { id, seasons }) => {
   };
 };
 
+export const seasonRemove = (state, { name, season }) => {
+  const tvshows = Object.keys(state).filter(key => state[key].name === name);
+  const id = tvshows[0];
+  const { [`${season}`]: deleted, ...restSeasons } = state[id].seasons;
+  return {
+    ...state,
+    [id]: {
+      ...state[id],
+      seasons: restSeasons,
+    },
+  };
+};
+
 export const INITIAL_STATE = {};
 
 export const reducer = createReducer(INITIAL_STATE, {
@@ -49,6 +63,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [types.TVSHOW_REMOVE]: tvshowRemove,
   [types.TVSHOW_UPDATE]: tvshowUpdate,
   [types.SEASONS_SUCCESS]: seasonsSuccess,
+  [types.SEASON_REMOVE]: seasonRemove,
 });
 
 /* ========== SELECTORS ========== */
