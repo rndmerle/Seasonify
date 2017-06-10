@@ -24,6 +24,14 @@ export class Allocine {
 
   sha1 = null;
 
+  static removeDynamicData(field, data) {
+    return data.map(tvshow => {
+      const { [field]: deleted, ...newTvShowContent } = tvshow;
+
+      return { ...newTvShowContent };
+    });
+  }
+
   constructor() {
     this.sha1 = new jshashes.SHA1();
   }
@@ -75,7 +83,9 @@ export default {
       .get('search', { q: query })
       .then(result => ({
         error: null,
-        data: result.data.feed && result.data.feed.tvseries ? result.data.feed.tvseries : [],
+        data: result.data.feed && result.data.feed.tvseries
+          ? Allocine.removeDynamicData('statistics', result.data.feed.tvseries)
+          : [],
       }))
       .catch(error => ({ error: error.message, data: null }));
   },
@@ -87,11 +97,10 @@ export default {
         if (!result.data.tvseries) {
           return { error: "API didn't found the TV show", data: null };
         }
-        // } else if (!result.data.tvseries.season || result.data.tvseries.season === []) {
-        // return { error: 'No seasons for this TV show', data: null };
+        const data = Allocine.removeDynamicData('statistics', result.data.tvseries.season);
         return {
           error: null,
-          data: result.data.tvseries.season,
+          data,
         };
       })
       .catch(error => ({ error: error.message, data: null })),

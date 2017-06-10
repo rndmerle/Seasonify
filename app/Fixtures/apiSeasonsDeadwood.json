@@ -10,12 +10,7 @@
       "href": "http://www.allocine.fr/series/ficheserie-213/saison-2664/",
       "rel": "aco:web"
     }],
-    "trailerEmbed": "<div id='ACEmbed'><iframe src='http://www.allocine.fr/_video/iblogvision.aspx?cmedia=18851020&amp;isApp=true' style='width:480px; height:270px' frameborder='0' allowfullscreen='true'></iframe></div>",
-    "statistics": {
-      "userRating": 3.4333334,
-      "userReviewCount": 2,
-      "userRatingCount": 15
-    }
+    "trailerEmbed": "<div id='ACEmbed'><iframe src='http://www.allocine.fr/_video/iblogvision.aspx?cmedia=18851020&amp;isApp=true' style='width:480px; height:270px' frameborder='0' allowfullscreen='true'></iframe></div>"
   },
   {
     "code": 711,
@@ -27,12 +22,7 @@
     "link": [{
       "href": "http://www.allocine.fr/series/ficheserie-213/saison-711/",
       "rel": "aco:web"
-    }],
-    "statistics": {
-      "userRating": 3.41666675,
-      "userReviewCount": 2,
-      "userRatingCount": 15
-    }
+    }]
   },
   {
     "code": 565,
@@ -44,11 +34,6 @@
       "rel": "aco:web"
     }],
     "yearStart": 2004,
-    "yearEnd": 2004,
-    "statistics": {
-      "userRating": 3.621212,
-      "userReviewCount": 5,
-      "userRatingCount": 25
-    }
+    "yearEnd": 2004
   }
 ]

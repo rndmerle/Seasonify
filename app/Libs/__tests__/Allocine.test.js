@@ -1,4 +1,4 @@
-import api from '../Allocine';
+import api, { Allocine } from '../Allocine';
 
 describe('Allocine API', () => {
   it('should get a tvshow with multiple result, from a known name', async () => {
@@ -21,6 +21,31 @@ describe('Allocine API', () => {
     const response = await api.getSeasons(99999);
     expect(response.error).toBeTruthy();
     expect(response.data).toBeFalsy();
+  });
+
+  it("should remove 'statistics' dynamic data", () => {
+    const data = [
+      {
+        code: 2664,
+        statistics: {
+          userRating: 3.4333334,
+          userReviewCount: 2,
+          userRatingCount: 15,
+        },
+      },
+      {
+        code: 711,
+        statistics: {
+          userRating: 3.41666675,
+          userReviewCount: 2,
+          userRatingCount: 15,
+        },
+      },
+    ];
+
+    const expected = [{ code: 2664 }, { code: 711 }];
+
+    expect(Allocine.removeDynamicData('statistics', data)).toEqual(expected);
   });
 });
 

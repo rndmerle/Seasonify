@@ -21,9 +21,6 @@ Object {
         "path": "/medias/nmedia/18/78/21/06/20278341.jpg",
       },
       "seasonCount": 3,
-      "statistics": Object {
-        "userRating": 3.84065,
-      },
       "yearEnd": 2013,
       "yearStart": 2011,
     },
@@ -45,9 +42,6 @@ Object {
         "path": "/medias/nmedia/18/36/37/63/18478173.jpg",
       },
       "seasonCount": 11,
-      "statistics": Object {
-        "userRating": 2.52646,
-      },
       "title": "Happy Days - Les jours heureux",
       "yearEnd": 1984,
       "yearStart": 1974,
@@ -70,9 +64,6 @@ Object {
         "path": "/medias/nmedia/18/73/99/08/19237328.jpg",
       },
       "seasonCount": 1,
-      "statistics": Object {
-        "userRating": 3.31619,
-      },
       "yearEnd": 2010,
       "yearStart": 2010,
     },
@@ -90,9 +81,6 @@ Object {
         "path": "/medias/nmedia/18/72/22/91/19157134.jpg",
       },
       "seasonCount": 1,
-      "statistics": Object {
-        "userRating": 3.79115,
-      },
       "yearStart": 2000,
     },
     Object {
@@ -130,11 +118,6 @@ Object {
         "code": 122006,
       },
       "seasonNumber": 3,
-      "statistics": Object {
-        "userRating": 3.4333334,
-        "userRatingCount": 15,
-        "userReviewCount": 2,
-      },
       "trailerEmbed": "<div id='ACEmbed'><iframe src='http://www.allocine.fr/_video/iblogvision.aspx?cmedia=18851020&amp;isApp=true' style='width:480px; height:270px' frameborder='0' allowfullscreen='true'></iframe></div>",
       "yearEnd": 2006,
       "yearStart": 2006,
@@ -153,11 +136,6 @@ Object {
         "code": 122006,
       },
       "seasonNumber": 2,
-      "statistics": Object {
-        "userRating": 3.41666675,
-        "userRatingCount": 15,
-        "userReviewCount": 2,
-      },
       "yearEnd": 2005,
       "yearStart": 2005,
     },
@@ -175,11 +153,6 @@ Object {
         "code": 122006,
       },
       "seasonNumber": 1,
-      "statistics": Object {
-        "userRating": 3.621212,
-        "userRatingCount": 25,
-        "userReviewCount": 5,
-      },
       "yearEnd": 2004,
       "yearStart": 2004,
     },
