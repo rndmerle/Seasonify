@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce';
-import tvshowsNormalizer from '../Normalizers/tvshowsNormalizer';
+import tvshowsNormalizer from 'Normalizers/tvshowsNormalizer';
 
 /* ========== ACTIONS ========== */
 

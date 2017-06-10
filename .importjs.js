@@ -1,9 +1,12 @@
+// Note : reload Atom after editing something
+//
 const testFilePattern = /\/test/;
+const appPrefixPattern = /^app\//;
+const antiSlashesPattern = /\\/g;
 
 module.exports = {
   aliases: {
     styles: './styles/{filename}.style',
-    toto: './toto',
   },
   environments: ({ pathToCurrentFile }) => {
     if (testFilePattern.test(pathToCurrentFile)) {
@@ -11,18 +14,24 @@ module.exports = {
     }
     return ['node'];
   },
-  useRelativePaths: true,
+  useRelativePaths: false,
   declarationKeyword: 'import',
   namedExports: {
-    // 'react-redux': ['connect'],
+    'redux-saga/effects': ['call', 'put', 'select', 'fork', 'all', 'take', 'takeLatest'],
+    'redux-saga-test-plan': ['expectSaga'],
+    reduxsauce: ['createReducer', 'createActions'],
+    'react-redux': ['connect'],
   },
-  importDevDependencies: ({ pathToCurrentFile }) =>
-    testFilePattern.test(pathToCurrentFile),
+  importDevDependencies: ({ pathToCurrentFile }) => testFilePattern.test(pathToCurrentFile),
   moduleNameFormatter({ moduleName, pathToCurrentFile }) {
+    newModuleName = moduleName;
     // if (/-test/.test(pathToCurrentFile)) {
-    //   return `mocks/${moduleName}`;
+    //   moduleName `mocks/${moduleName}`;
     // }
-    return moduleName.replace(/\\/g, '/'); // back-slashes to slashes (remove the rule after importjs update)
-    // return moduleName;
+    // back-slashes to slashes (remove the rule after importjs update)
+    newModuleName = newModuleName.replace(antiSlashesPattern, '/');
+    // remove app when absolute importing
+    newModuleName = newModuleName.replace(appPrefixPattern, '');
+    return newModuleName;
   },
 };

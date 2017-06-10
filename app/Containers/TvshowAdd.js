@@ -4,10 +4,10 @@ import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Input, Item, List } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
-import tv from '../Redux/tvshowRedux';
-import ui from '../Redux/uiRedux';
-import HeaderModular from '../Components/HeaderModular';
-import SuggestionItem from '../Components/SuggestionItem';
+import tv from 'State/tvshowState';
+import ui from 'State/uiState';
+import HeaderModular from 'Components/HeaderModular';
+import SuggestionItem from 'Components/SuggestionItem';
 
 const mapStateToProps = state => ({
   suggestions: ui.selectors.getSuggestions(state),

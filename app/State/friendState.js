@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce';
-import Identity from '../Libs/Identity';
+import Identity from 'Libs/Identity';
 
 const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden

@@ -2,13 +2,13 @@ import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import tv from '../Redux/tvshowRedux';
-import HeaderRoot from '../Components/HeaderRoot';
-import SingleFAB from '../Components/SingleFAB';
-import TvshowItem from '../Components/TvshowItem';
+import HeaderRoot from 'Components/HeaderRoot';
+import SingleFAB from 'Components/SingleFAB';
+import TvshowItem from 'Components/TvshowItem';
+import tvshowState from 'State/tvshowState';
 
 const mapStateToProps = state => ({
-  tvshows: tv.selectors.getTvshows(state),
+  tvshows: tvshowState.selectors.getTvshows(state),
 });
 
 const mapActionsToProps = {};

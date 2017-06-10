@@ -6,7 +6,11 @@
     "import"
   ],
   settings: {
-    import/resolver: "reactnative",
+    import/resolver: {
+      "reactnative" : {
+        "moduleDirectory": ["node_modules", "app"]
+      }
+    },
     flowtype: {
       onlyFilesWithFlowAnnotation: true,
       },
@@ -59,14 +63,15 @@
         "no-multi-spaces": ["warn"],
         "arrow-body-style": ["warn"],
         "no-unused-vars": ["warn"],
+        "import/first": ["warn"],
         "key-spacing": ["warn"],
         "object-curly-spacing": ["warn"],
         "react/prefer-stateless-function": ["warn"],
         "prefer-const": ["warn"],
         "semi": ["warn"],
         "space-before-function-paren": ["warn"],
-        "import/no-named-as-default": ["warn"],
         # Deactivating
+        "import/no-named-as-default": 0,
         "no-underscore-dangle": 0,
         "no-case-declarations": 0,
         "global-require": 0,

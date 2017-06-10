@@ -4,15 +4,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { resettableReducer } from 'reduxsauce';
 import createSagaMiddleware from 'redux-saga';
 
-import { reducer as editReducer } from './editRedux';
-import { reducer as friendReducer } from './friendRedux';
-import { reducer as tvshowReducer } from './tvshowRedux';
-import { reducer as uiReducer } from './uiRedux';
-import AppConfig from '../Config/AppConfig';
-import DebugConfig from '../Config/DebugConfig';
-import PersistConfig from '../Config/PersistConfig';
-import Rehydration from '../Services/Rehydration';
-import rootSaga from '../Sagas/rootSaga';
+import AppConfig from 'Config/AppConfig';
+import DebugConfig from 'Config/DebugConfig';
+import PersistConfig from 'Config/PersistConfig';
+import Rehydration from 'Libs/Rehydration';
+import rootSaga from 'Sagas/rootSaga';
+import { reducer as editReducer } from './editState';
+import { reducer as friendReducer } from './friendState';
+import { reducer as tvshowReducer } from './tvshowState';
+import { reducer as uiReducer } from './uiState';
 
 export default () => {
   // listen for the RESET action

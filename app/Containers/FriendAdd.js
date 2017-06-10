@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Input, Item } from 'native-base';
 
-import friendRedux from '../Redux/friendRedux';
-import HeaderModular from '../Components/HeaderModular';
-import Identity from '../Libs/Identity';
+import friendState from 'State/friendState';
+import HeaderModular from 'Components/HeaderModular';
+import Identity from 'Libs/Identity';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
-  friendAdd: friendRedux.actions.friendAdd,
+  friendAdd: friendState.actions.friendAdd,
 };
 
 export class FriendAdd extends React.Component {

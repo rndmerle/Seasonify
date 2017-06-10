@@ -2,20 +2,22 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
+  "moduleRoots": ["app/"],
   "scripts": {
-    "start": "adb reverse tcp:8081 tcp:8081 && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
-    "android": "cd android && gradlew installDebug && adb shell am start -n com.seasonify/.MainActivity",
-    "date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
-    "lint": "eslint ./",
+    "lint": "eslint ./app",
     "test": "SET NODE_ENV=development && jest",
     "watch": "SET NODE_ENV=development && jest --watch",
     "coverage": "SET NODE_ENV=development && jest --coverage",
+    "start": "adb reverse tcp:8081 tcp:8081 && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
+    "android": "cd android && gradlew installDebug && adb shell am start -n com.seasonify/.MainActivity",
+    "date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
     "build:ios": "bundle install --binstubs ./examples/ios && bundle exec pod install --project-directory=./example/ios/",
     "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
     "axios": "~0.16.1",
+    "babel-plugin-module-resolver": "^2.7.1",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "jshashes": "^1.0.6",
     "native-base": "^2.1.3",
@@ -62,14 +64,15 @@
     "setupFiles": [
       "./jest.setup.js"
     ],
-    "collectCoverageFrom" : [
+    "modulePaths": ["<rootDir>/app/"],
+    "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/Config/**",
       "!app/Navigation/**",
       "!app/Themes/**",
       "!app/**/index.js",
-      "!app/Services/Logging.js",
-      "!app/Services/Rehydration.js"
+      "!app/Libs/Logging.js",
+      "!app/Libs/Rehydration.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

@@ -2,13 +2,13 @@ import { Container, Content, List } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import FriendItem from '../Components/FriendItem';
-import HeaderRoot from '../Components/HeaderRoot';
-import SingleFAB from '../Components/SingleFAB';
-import friendRedux from '../Redux/friendRedux';
+import FriendItem from 'Components/FriendItem';
+import HeaderRoot from 'Components/HeaderRoot';
+import SingleFAB from 'Components/SingleFAB';
+import friendState from 'State/friendState';
 
 const mapStateToProps = state => ({
-  friends: friendRedux.selectors.getFriends(state),
+  friends: friendState.selectors.getFriends(state),
 });
 
 const mapActionsToProps = {};

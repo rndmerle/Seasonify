@@ -2,14 +2,14 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
-import ui from '../Redux/uiRedux';
-import tv from '../Redux/tvshowRedux';
-import editRedux from '../Redux/editRedux';
-import HeaderModular from '../Components/HeaderModular';
+import ui from 'State/uiState';
+import tv from 'State/tvshowState';
+import editState from 'State/editState';
+import HeaderModular from 'Components/HeaderModular';
 
 const mapStateToProps = (state, ownProps) => ({
-  isEditing: editRedux.selectors.isEditing(state),
-  editedObject: editRedux.selectors.editedObject(state),
+  isEditing: editState.selectors.isEditing(state),
+  editedObject: editState.selectors.editedObject(state),
   getTvshow: tv.selectors.getTvshow(state, ownProps.tvshowId),
 });
 
@@ -17,13 +17,13 @@ const mapActionsToProps = {
   tvshowRemove: tv.actions.tvshowRemove,
   tvshowUpdate: tv.actions.tvshowUpdate,
   messageToast: ui.actions.messageToast,
-  editStart: editRedux.actions.editStart,
-  editEnd: editRedux.actions.editEnd,
+  editStart: editState.actions.editStart,
+  editEnd: editState.actions.editEnd,
 };
 
 export function TvshowDetailsHeader({
   navigate,
-  tvshowId,
+  tvshowId, // eslint-disable-line no-unused-vars
   isEditing,
   editedObject,
   getTvshow,

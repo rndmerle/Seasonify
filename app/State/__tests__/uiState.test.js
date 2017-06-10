@@ -1,5 +1,5 @@
-import testReducer from '../../Libs/testReducer';
-import ui, { reducer, INITIAL_STATE } from '../uiRedux';
+import testReducer from 'Libs/testReducer';
+import ui, { reducer, INITIAL_STATE } from '../uiState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

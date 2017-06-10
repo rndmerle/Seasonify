@@ -1,5 +1,5 @@
-import testReducer from '../../Libs/testReducer';
-import friend, { reducer, INITIAL_STATE } from '../friendRedux';
+import testReducer from 'Libs/testReducer';
+import friend, { reducer, INITIAL_STATE } from '../friendState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

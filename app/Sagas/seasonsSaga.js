@@ -1,7 +1,7 @@
 import { call, put, select } from 'redux-saga/effects';
 
-import ui from '../Redux/uiRedux';
-import tv from '../Redux/tvshowRedux';
+import ui from 'State/uiState';
+import tv from 'State/tvshowState';
 
 export function* seasonsRefresh(api, { id, silent = false }) {
   if (!silent) yield put(ui.actions.spinnerShow());

@@ -5,12 +5,12 @@ export default {
     }
     return {
       error: null,
-      data: require('../Fixtures/apiSearchHappy.json'),
+      data: require('Fixtures/apiSearchHappy.json'),
     };
   },
 
   getSeasons: () => ({
     error: null,
-    data: require('../Fixtures/apiSeasonsDeadwood.json'),
+    data: require('Fixtures/apiSeasonsDeadwood.json'),
   }),
 };

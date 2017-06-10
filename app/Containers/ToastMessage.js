@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'native-base';
 
-import ui from '../Redux/uiRedux';
-import Messages from '../Config/Messages';
+import ui from 'State/uiState';
+import Messages from 'Config/Messages';
 
 const mapStateToProps = state => ({
   message: ui.selectors.getMessage(state),

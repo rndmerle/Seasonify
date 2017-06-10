@@ -1,5 +1,5 @@
-import testReducer from '../../Libs/testReducer';
-import tv, { reducer, INITIAL_STATE } from '../tvshowRedux';
+import testReducer from 'Libs/testReducer';
+import tv, { reducer, INITIAL_STATE } from '../tvshowState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

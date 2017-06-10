@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Item, Input, Icon } from 'native-base';
 
-import friendRedux from '../Redux/friendRedux';
-import ui from '../Redux/uiRedux';
-import HeaderModular from '../Components/HeaderModular';
+import friendState from 'State/friendState';
+import ui from 'State/uiState';
+import HeaderModular from 'Components/HeaderModular';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
-  friendRemove: friendRedux.actions.friendRemove,
-  friendUpdate: friendRedux.actions.friendUpdate,
+  friendRemove: friendState.actions.friendRemove,
+  friendUpdate: friendState.actions.friendUpdate,
   messageToast: ui.actions.messageToast,
 };
 

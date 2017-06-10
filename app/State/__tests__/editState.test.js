@@ -1,5 +1,5 @@
-import edit, { reducer, INITIAL_STATE } from '../editRedux';
-import testReducer from '../../Libs/testReducer';
+import testReducer from 'Libs/testReducer';
+import edit, { reducer, INITIAL_STATE } from '../editState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

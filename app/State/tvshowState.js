@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce';
-import seasonsNormalizer from '../Normalizers/seasonsNormalizer';
+import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 
 /* ========== ACTIONS ========== */
 

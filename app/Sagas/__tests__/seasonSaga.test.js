@@ -3,10 +3,10 @@ import { call, select } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
-import api from '../../Services/Allocine';
-import rootSaga from '../../Sagas/rootSaga';
-import tv from '../../Redux/tvshowRedux';
-import ui from '../../Redux/uiRedux';
+import api from 'Libs/Allocine';
+import rootSaga from 'Sagas/rootSaga';
+import tv from 'State/tvshowState';
+import ui from 'State/uiState';
 
 describe('seasonRefresh saga', () => {
   it("fetch the tvshow's seasons", () => {

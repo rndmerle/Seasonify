@@ -1,6 +1,6 @@
 import { call, put, select } from 'redux-saga/effects';
 
-import ui from '../Redux/uiRedux';
+import ui from 'State/uiState';
 
 export function* suggestionsRequest(api, { text }) {
   const response = yield call(api.searchTvshows, text);

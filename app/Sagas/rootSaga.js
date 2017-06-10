@@ -1,12 +1,12 @@
 import { all, takeLatest } from 'redux-saga/effects';
-import apiAllocine from '../Services/Allocine';
-import apiFixtures from '../Services/apiFixtures';
-import DebugConfig from '../Config/DebugConfig';
+import apiAllocine from 'Libs/Allocine';
+import apiFixtures from 'Libs/apiFixtures';
+import DebugConfig from 'Config/DebugConfig';
 
 /* ------------- Types ------------- */
 
-import ui from '../Redux/uiRedux';
-import tv from '../Redux/tvshowRedux';
+import ui from 'State/uiState';
+import tv from 'State/tvshowState';
 
 /* ------------- Sagas ------------- */
 

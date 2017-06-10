@@ -2,24 +2,24 @@ import { Container, Content, Grid, Col } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { Metrics } from '../Themes';
+import { Metrics } from 'Themes';
 import Loading from './Loading';
-import Poster from '../Components/Poster';
-import SeasonList from '../Components/SeasonList';
-import SingleFAB from '../Components/SingleFAB';
+import Poster from 'Components/Poster';
+import SeasonList from 'Components/SeasonList';
+import SingleFAB from 'Components/SingleFAB';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
-import TvshowSheet from '../Components/TvshowSheet';
-import editRedux from '../Redux/editRedux';
-import tv from '../Redux/tvshowRedux';
+import TvshowSheet from 'Components/TvshowSheet';
+import editState from 'State/editState';
+import tv from 'State/tvshowState';
 
 const mapStateToProps = (state, ownProps) => ({
   getTvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
-  isEditing: editRedux.selectors.isEditing(state),
-  editedObject: editRedux.selectors.editedObject(state),
+  isEditing: editState.selectors.isEditing(state),
+  editedObject: editState.selectors.editedObject(state),
 });
 
 const mapActionsToProps = {
-  editUpdate: editRedux.actions.editUpdate,
+  editUpdate: editState.actions.editUpdate,
   seasonsRefresh: tv.actions.seasonsRefresh,
 };
 

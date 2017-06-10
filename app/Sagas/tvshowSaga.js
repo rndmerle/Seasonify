@@ -1,8 +1,8 @@
 import { call, put, select, fork } from 'redux-saga/effects';
 
-import Identity from '../Libs/Identity';
-import tv from '../Redux/tvshowRedux';
-import ui from '../Redux/uiRedux';
+import Identity from 'Libs/Identity';
+import tv from 'State/tvshowState';
+import ui from 'State/uiState';
 
 export function* tvshowAddWithSeasons(api, { tvshow }) {
   const newTvshow = { ...tvshow, id: Identity.newid() };
