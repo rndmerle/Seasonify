@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { Metrics } from 'Themes';
-import Loading from './Loading';
 import Poster from 'Components/Poster';
 import SeasonList from 'Components/SeasonList';
 import SingleFAB from 'Components/SingleFAB';
-import TvshowDetailsHeader from './TvshowDetailsHeader';
 import TvshowSheet from 'Components/TvshowSheet';
 import editState from 'State/editState';
 import tv from 'State/tvshowState';
+import TvshowDetailsHeader from './TvshowDetailsHeader';
+import Loading from './Loading';
 
 const mapStateToProps = (state, ownProps) => ({
   getTvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),

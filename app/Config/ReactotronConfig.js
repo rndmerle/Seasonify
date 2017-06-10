@@ -1,11 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import Reactotron, {
-  overlay,
-  trackGlobalErrors,
-} from 'reactotron-react-native';
+/* eslint-disable no-console */
+import Reactotron, { overlay, trackGlobalErrors } from 'reactotron-react-native';
 import { reactotronRedux } from 'reactotron-redux';
 import sagaPlugin from 'reactotron-redux-saga';
-/* eslint-enable import/no-extraneous-dependencies */
 
 import Config from './DebugConfig';
 
@@ -18,8 +14,7 @@ if (Config.useReactotron) {
     .use(
       trackGlobalErrors({
         // ignore all error frames from react-native (for example)
-        veto: frame =>
-          frame.fileName.indexOf('/node_modules/react-native/') >= 0,
+        veto: frame => frame.fileName.indexOf('/node_modules/react-native/') >= 0,
       }),
     )
     // add overlay ability for graphics
@@ -62,16 +57,12 @@ if (Config.useReactotron) {
         case 1:
           name = 'CONSOLE.LOG';
           value = args[0];
-          preview = typeof args[0] === 'object'
-            ? JSON.stringify(args[0])
-            : args[0];
+          preview = typeof args[0] === 'object' ? JSON.stringify(args[0]) : args[0];
           break;
         case 2:
           name = args[0];
           value = args[1];
-          preview = typeof args[1] === 'object'
-            ? JSON.stringify(args[1])
-            : args[1];
+          preview = typeof args[1] === 'object' ? JSON.stringify(args[1]) : args[1];
           break;
         default:
           name = args[0];

@@ -28,10 +28,6 @@ export function TvshowAdd({
     suggestionsRequest(name);
   });
 
-  const onEndName = event => {
-    const name = event.nativeEvent.text;
-  };
-
   const onPressSuggestion = suggestionKey => {
     tvshowAddWithSeasons(suggestions[suggestionKey]);
     navigation.navigate('TvshowList', {}); // Note : a goBack() would prevent Toast to stay in foreground
@@ -44,12 +40,7 @@ export function TvshowAdd({
         <Form>
           <Item fixedLabel>
             <Label>Tvshow&rsquo;s name:</Label>
-            <Input
-              onChangeText={onChangeName}
-              onEndEditing={onEndName}
-              autoFocus
-              autoCapitalize="words"
-            />
+            <Input onChangeText={onChangeName} autoFocus autoCapitalize="words" />
           </Item>
         </Form>
         {suggestions &&

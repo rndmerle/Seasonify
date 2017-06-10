@@ -1,4 +1,4 @@
-import { call, put, select, fork } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 
 import Identity from 'Libs/Identity';
 import tv from 'State/tvshowState';

@@ -1,6 +1,5 @@
 import React from 'react';
 import DebugConfig from './DebugConfig';
-import AppConfig from './AppConfig';
 
 export default () => {
   if (__DEV__) {
