@@ -1,4 +1,4 @@
-import { call, put, select } from 'redux-saga/effects';
+import { call, fork, put, select } from 'redux-saga/effects';
 
 import ui from 'State/uiState';
 import tv from 'State/tvshowState';
@@ -12,7 +12,7 @@ export function* seasonsRefresh(api, { id, silent = false }) {
     yield put(ui.actions.messageToast('error', response.error));
   } else {
     if (!silent) {
-      yield call(
+      yield fork(
         _informIfNewSeason,
         Object.keys(tvshow.seasons).length,
         Object.keys(response.data).length,
