@@ -1,6 +1,6 @@
-import { Container, Content, List } from 'native-base';
-import { connect } from 'react-redux';
 import React from 'react';
+import { connect } from 'react-redux';
+import { Container, Content, List } from 'native-base';
 
 import FriendItem from 'Components/FriendItem';
 import HeaderRoot from 'Components/HeaderRoot';
@@ -15,7 +15,7 @@ const mapActionsToProps = {};
 
 export function FriendList({ navigation, friends }) {
   const onFAB = () => {
-    navigation.navigate('FriendAddPage', {});
+    navigation.navigate('FriendAddPage');
   };
   return (
     <Container>

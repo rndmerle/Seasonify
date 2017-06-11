@@ -1,4 +1,4 @@
-import api, { Allocine } from '../Allocine';
+import api from '../Allocine';
 import fixtures from '../apiFixtures';
 
 describe('Allocine API and Fixtures should match when', () => {

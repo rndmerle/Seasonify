@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import Identity from './app/Libs/Identity';
+
 // Make Enzyme functions available in all test files without importing
 global.shallow = shallow;
 // global.render = render;
@@ -17,6 +17,18 @@ const hijackConsole = browserConsole => {
   };
 };
 hijackConsole(console.info);
+// and reactotron so it does'nt mess around
+// hijackConsole(console.tron);
+
+// Needed because of some issue when importing react-navigation stuff.
+// Might try later to comment that and run Root.test.js again (still a "Native module cannot be null" error ?)
+jest.mock('Linking', () => ({
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+  openURL: jest.fn(),
+  canOpenURL: jest.fn(),
+  getInitialURL: jest.fn(),
+}));
 
 //
 // jest.mock('./app/Libs/Identity', () => {

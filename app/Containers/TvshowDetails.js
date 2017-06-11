@@ -55,7 +55,6 @@ export function TvshowDetails({
                 name={tvshow.name}
                 localizedName={tvshow.localizedName}
                 year={tvshow.year}
-                seasonCount={tvshow.seasonCount}
                 edit={editedObject}
                 isEditing={isEditing}
                 onChangeName={onChangeName}

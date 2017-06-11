@@ -32,7 +32,7 @@ describe('Events', () => {
   it('should navigate with tvshow params, when clicking on list item', () => {
     const { component, props } = setup();
     component.find('Styled(ListItem)').simulate('press');
-    expect(props.navigate).toBeCalledWith('TvshowDetails', {
+    expect(props.navigate).toBeCalledWith('TvshowDetailsPage', {
       tvshowId: props.tvshowId,
       tvshowName: props.tvshowName,
     });

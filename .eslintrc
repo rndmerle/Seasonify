@@ -28,7 +28,8 @@
       "describe": true,
       "expect": true,
       "it": true,
-      "shallow": true
+      "shallow": true,
+      "jasmine": true,
     },
   "extends": ["plugin:react/recommended", "airbnb"],
   "rules": {
@@ -69,6 +70,7 @@
         "react/prefer-stateless-function": ["warn"],
         "prefer-const": ["warn"],
         "semi": ["warn"],
+        "spaced-comment": ["warn"],
         "space-before-function-paren": ["warn"],
         # Deactivating
         "import/no-named-as-default": 0,

@@ -30,7 +30,7 @@ export function TvshowAdd({
 
   const onPressSuggestion = suggestionKey => {
     tvshowAddWithSeasons(suggestions[suggestionKey]);
-    navigation.navigate('TvshowListPage', {}); // Note : a goBack() would prevent Toast to stay in foreground
+    navigation.navigate('TvshowListPage'); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
   };
 

@@ -25,6 +25,8 @@ describe('Events', () => {
   it('should call navigation.navigate', () => {
     const { component, props } = setup();
     component.find('Styled(ListItem)').simulate('press');
-    expect(props.navigate).toBeCalledWith('FriendDetails', { friend: { name: 'Someone' } });
+    expect(props.navigate).toBeCalledWith('FriendDetailsPage', {
+      friend: { name: 'Someone' },
+    });
   });
 });

@@ -31,7 +31,7 @@ describe('rendering', () => {
     it('should navigate', () => {
       const { component, props } = setup();
       component.find('SingleFAB').simulate('press');
-      expect(props.navigation.navigate).toBeCalledWith('TvshowAdd');
+      expect(props.navigation.navigate).toBeCalledWith('TvshowAddPage');
     });
   });
 });

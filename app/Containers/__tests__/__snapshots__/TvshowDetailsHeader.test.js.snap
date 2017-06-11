@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rendering should render, when editing 1`] = `
+exports[`Rendering should render, when not editing 1`] = `
 <HeaderModular
   actionButtons={
     Array [
@@ -31,7 +31,7 @@ exports[`Rendering should render, when editing 1`] = `
 />
 `;
 
-exports[`Rendering should render, when not editing 1`] = `
+exports[`Rendering should render, when not editing 2`] = `
 <HeaderModular
   actionButtons={
     Array [

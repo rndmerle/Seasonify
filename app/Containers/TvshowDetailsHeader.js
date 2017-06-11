@@ -36,11 +36,9 @@ export function TvshowDetailsHeader({
   const tvshow = getTvshow;
 
   const handleExit = () => {
-    navigate('TvshowListPage', {}); // Note : a goBack() would prevent Toast to stay in foreground
+    navigate('TvshowListPage'); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();
-    if (isEditing) {
-      editEnd();
-    }
+    editEnd();
   };
 
   const handleEdit = () => {

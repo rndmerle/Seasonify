@@ -23,9 +23,14 @@ describe('Rendering', () => {
 });
 
 describe('Events', () => {
-  it('should call prop function, on press', () => {
-    const { component, props } = setup();
-    component.find('Styled(Fab)').simulate('press');
-    expect(props.onPress).toBeCalled();
+  const { component, props } = setup();
+  const Fab = component.find('Styled(Fab)');
+
+  describe('when calling onPress', () => {
+    Fab.simulate('press');
+
+    it('calls onPress', () => {
+      expect(props.onPress).toBeCalled();
+    });
   });
 });

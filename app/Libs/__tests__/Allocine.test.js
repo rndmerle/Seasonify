@@ -1,5 +1,7 @@
 import api, { Allocine } from '../Allocine';
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; // 10 second timeout
+
 describe('Allocine API', () => {
   it('should get a tvshow with multiple result, from a known name', async () => {
     const response = await api.searchTvshows('Happy');
