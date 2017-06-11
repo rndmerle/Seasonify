@@ -2,7 +2,9 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": ["app/"],
+  "moduleRoots": [
+    "app/"
+  ],
   "scripts": {
     "lint": "eslint ./app",
     "test": "SET NODE_ENV=development && jest",
@@ -16,15 +18,15 @@
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
   "dependencies": {
-    "axios": "~0.16.1",
+    "axios": "~0.16.2",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "jshashes": "^1.0.6",
-    "native-base": "^2.1.3",
+    "native-base": "^2.1.5",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44",
     "react-native-fit-image": "^1.4.8",
-    "react-navigation": "^1.0.0-beta.9",
+    "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
@@ -36,8 +38,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "babel-jest": "^20.0.0",
-    "babel-preset-react-native": "^1.9.1",
+    "babel-jest": "^20.0.3",
+    "babel-preset-react-native": "^1.9.2",
     "deep-freeze": "0.0.1",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
@@ -48,14 +50,14 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
-    "jest": "^20.0.0",
-    "jest-cli": "^20.0.3",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
     "react-dom": "^15.5.4",
     "react-native-debugger-open": "^0.3.11",
     "react-test-renderer": "^15.5.4",
-    "reactotron-react-native": "^1.10.0",
-    "reactotron-redux": "^1.10.0",
-    "reactotron-redux-saga": "^1.10.0",
+    "reactotron-react-native": "^1.11.1",
+    "reactotron-redux": "^1.11.2",
+    "reactotron-redux-saga": "^1.11.1",
     "redux-saga-test-plan": "^3.1.0",
     "why-did-you-update": "0.0.8"
   },
@@ -64,7 +66,9 @@
     "setupFiles": [
       "./jest.setup.js"
     ],
-    "modulePaths": ["<rootDir>/app/"],
+    "modulePaths": [
+      "<rootDir>/app/"
+    ],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/Config/**",

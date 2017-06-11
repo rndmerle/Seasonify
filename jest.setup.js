@@ -6,9 +6,9 @@ global.shallow = shallow;
 // global.mount = mount;
 
 // Fail tests on any warning
-console.error = message => {
-  throw new Error(message);
-};
+// console.error = message => {
+//   throw new Error(message);
+// };
 
 // Hide console.info because of redux-saga cancellation message
 const hijackConsole = browserConsole => {
