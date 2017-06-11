@@ -80,14 +80,14 @@ export class FriendDetails extends React.Component {
   handleDone = () => {
     Keyboard.dismiss();
     this.props.friendUpdate(this.state.friend);
-    this.props.navigation.navigate('FriendList', {});
+    this.props.navigation.navigate('FriendListPage', {});
     this.props.messageToast('success', `${this.state.friend.name} has been edited`);
   };
 
   handleDelete = () => {
     const { friend } = this.props.navigation.state.params;
     this.props.friendRemove(friend.id);
-    this.props.navigation.navigate('FriendList', {});
+    this.props.navigation.navigate('FriendListPage', {});
     this.props.messageToast('warning', `${friend.name} has been deleted`);
   };
 

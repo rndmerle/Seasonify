@@ -15,7 +15,7 @@ const mapActionsToProps = {};
 
 export function FriendList({ navigation, friends }) {
   const onFAB = () => {
-    navigation.navigate('FriendAdd', {});
+    navigation.navigate('FriendAddPage', {});
   };
   return (
     <Container>

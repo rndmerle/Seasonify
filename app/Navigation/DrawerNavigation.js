@@ -5,16 +5,16 @@ import TvshowNavigation from './TvshowNavigation';
 
 const DrawerNavigation = DrawerNavigator(
   {
-    Tvshows: {
+    TvshowsPage: {
       screen: TvshowNavigation,
     },
-    Friends: {
+    FriendsPage: {
       screen: FriendNavigation,
     },
   },
   {
     drawerWidth: 250,
-    initialRouteName: 'Tvshows',
+    initialRouteName: 'TvshowsPage',
     // Should the back button cause a switch to the initial route? If yes, set to initialRoute, otherwise none. Defaults to initialRoute behavior.
     backBehavior: 'initialRoute',
     // More customization : https://github.com/react-community/react-navigation/blob/master/docs/api/navigators/DrawerNavigator.md

@@ -8,18 +8,18 @@ import TvshowDetails from 'Containers/TvshowDetails';
 
 const TvshowNavigation = StackNavigator(
   {
-    TvshowList: {
+    TvshowListPage: {
       screen: TvshowList,
     },
-    TvshowAdd: {
+    TvshowAddPage: {
       screen: TvshowAdd,
     },
-    TvshowDetails: {
+    TvshowDetailsPage: {
       screen: TvshowDetails,
     },
   },
   {
-    initialRouteName: 'TvshowList',
+    initialRouteName: 'TvshowListPage',
     mode: 'card',
     headerMode: 'float',
     navigationOptions: {

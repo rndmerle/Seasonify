@@ -3,7 +3,7 @@ import { ListItem, Text } from 'native-base';
 
 export default function TvshowItem({ tvshowId, tvshowName, navigate }) {
   const onPressTvshow = () => {
-    navigate('TvshowDetails', {
+    navigate('TvshowDetailsPage', {
       tvshowId,
       tvshowName,
     });

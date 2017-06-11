@@ -3,7 +3,7 @@ import { ListItem, Text } from 'native-base';
 
 export default function FriendItem({ friend, navigate }) {
   const onPressFriend = () => {
-    navigate('FriendDetails', {
+    navigate('FriendDetailsPage', {
       friend,
     });
   };

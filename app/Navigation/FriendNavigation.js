@@ -8,18 +8,18 @@ import FriendDetails from 'Containers/FriendDetails';
 
 const FriendNavigation = StackNavigator(
   {
-    FriendList: {
+    FriendListPage: {
       screen: FriendList,
     },
-    FriendAdd: {
+    FriendAddPage: {
       screen: FriendAdd,
     },
-    FriendDetails: {
+    FriendDetailsPage: {
       screen: FriendDetails,
     },
   },
   {
-    initialRouteName: 'FriendList',
+    initialRouteName: 'FriendListPage',
     mode: 'card',
     headerMode: 'float',
     navigationOptions: {
