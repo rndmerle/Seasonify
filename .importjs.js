@@ -30,9 +30,8 @@ module.exports = {
       'race',
     ],
     'redux-saga-test-plan': ['expectSaga'],
-    reduxsauce: ['createReducer', 'createActions'],
-    'react-redux': ['connect'],
   },
+  globals: ['jest', 'shallow', 'console', 'expect', 'describe', 'it', 'test'],
   importDevDependencies: ({ pathToCurrentFile }) => testFilePattern.test(pathToCurrentFile),
   moduleNameFormatter({ moduleName, pathToCurrentFile }) {
     newModuleName = moduleName;

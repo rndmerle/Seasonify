@@ -1,14 +1,15 @@
 import React from 'react';
 import { List, ListItem, Text, Grid, Col, Badge } from 'native-base';
 
+import type { Seasons } from 'Types';
 import { Metrics, AtomicStyles } from 'Themes';
 
-export default function SeasonList({ seasons }) {
+export default function SeasonList({ seasons }: { seasons: Seasons[] }) {
   return (
     <List>
       {seasons &&
-        Object.keys(seasons).reverse().map(id => (
-          <ListItem key={id}>
+        Object.keys(seasons).reverse().map(id =>
+          (<ListItem key={id}>
             <Grid>
               <Col size={Metrics.columnLeft} style={AtomicStyles.noFlex}>
                 <Badge info>
@@ -23,8 +24,8 @@ export default function SeasonList({ seasons }) {
                 {/* <Text>Renaud, Sylvain, Papa&Maman</Text> */}
               </Col>
             </Grid>
-          </ListItem>
-        ))}
+          </ListItem>),
+        )}
     </List>
   );
 }

@@ -38,6 +38,7 @@ const actionButtons = [
     action: jest.fn(),
   },
   { text: 'text1', action: jest.fn() },
+  { action: jest.fn() },
 ];
 
 describe('Rendering', () => {
@@ -49,7 +50,7 @@ describe('Rendering', () => {
   it('should render all visible action buttons', () => {
     const { component } = setup({ actionButtons });
     const buttons = component.find('Styled(Button)');
-    expect(buttons).toHaveLength(5);
+    expect(buttons).toHaveLength(6);
     expect(component).toMatchSnapshot();
   });
 });

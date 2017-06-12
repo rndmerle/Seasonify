@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'native-base';
 
+import type { Message } from 'Types';
 import ui from 'State/uiState';
 import Messages from 'Config/Messages';
 
@@ -13,7 +14,12 @@ const mapActionsToProps = {
   messageHide: ui.actions.messageHide,
 };
 
-export class ToastMessage extends React.Component {
+type Props = {
+  message: Message,
+  messageHide: Function,
+};
+
+export class ToastMessage extends React.Component<void, Props, void> {
   componentWillReceiveProps({ message, messageHide }) {
     if (message) {
       const messageConfig = Messages[message.level];

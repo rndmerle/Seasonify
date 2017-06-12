@@ -1,4 +1,6 @@
 import { createReducer, createActions } from 'reduxsauce';
+
+import type { Message } from 'Types';
 import tvshowsNormalizer from 'Normalizers/tvshowsNormalizer';
 
 /* ========== ACTIONS ========== */
@@ -17,9 +19,9 @@ const { Types: types, Creators } = createActions({
 
 /* ========== REDUCERS ========== */
 
-export const messageToast = (state, { level, text }) => ({
+export const messageToast = (state, message: Message) => ({
   ...state,
-  message: { level, text },
+  message,
 });
 
 export const messageHide = state => ({ ...state, message: null });

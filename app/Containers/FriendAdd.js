@@ -13,7 +13,12 @@ const mapActionsToProps = {
   friendAdd: friendState.actions.friendAdd,
 };
 
-export class FriendAdd extends React.Component {
+type Props = {
+  navigation: Object,
+  friendAdd: Function,
+};
+
+export class FriendAdd extends React.Component<void, Props, void> {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <HeaderModular
@@ -30,7 +35,7 @@ export class FriendAdd extends React.Component {
     });
   }
 
-  onChangeName = name => {
+  onChangeName = (name: string) => {
     this.setState({ friendName: name });
   };
 

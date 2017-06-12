@@ -1,7 +1,7 @@
 import React from 'react';
 import { Fab, Icon } from 'native-base';
 
-export default function SingleFAB({ icon, onPress }) {
+export default function SingleFAB({ icon, onPress }: { icon: string, onPress: Function }) {
   return (
     <Fab
       // containerStyle={{ marginRight: 10 }}

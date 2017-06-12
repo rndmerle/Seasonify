@@ -82,6 +82,7 @@
         "import/prefer-default-export": 0,
         "no-mixed-operators": 0,
         "import/no-extraneous-dependencies": 0,
+        "react/require-default-props": 0, # might reactivate if they support default declaration in ES6 destructured params
         "react/no-unused-prop-types": 0, # Seems it doesn't detect destructured props being used
   }
 }

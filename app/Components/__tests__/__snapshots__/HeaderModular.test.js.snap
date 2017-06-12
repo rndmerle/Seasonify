@@ -50,6 +50,10 @@ exports[`Rendering should render all visible action buttons 1`] = `
         text1
       </Styled(Text)>
     </Styled(Button)>
+    <Styled(Button)
+      onPress={[Function]}
+      transparent={true}
+    />
   </Styled(Right)>
 </Styled(Header)>
 `;

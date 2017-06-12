@@ -1,13 +1,29 @@
-/* eslint-disable react/no-array-index-key */
+/* @flow */
 import React from 'react';
 import { Keyboard } from 'react-native';
 import { Header, Title, Left, Right, Body, Button, Icon, Text } from 'native-base';
+import type { HeaderButton } from 'Types';
 
-export default function HeaderModular({ title, cancelButton, actionButtons = [] }) {
+export default function HeaderModular({
+  title,
+  cancelButton,
+  actionButtons = [],
+}: {
+  title: string,
+  cancelButton: HeaderButton,
+  actionButtons: HeaderButton[],
+}) {
   const cancelAction = () => {
     cancelButton.action();
     Keyboard.dismiss();
   };
+
+  const renderTextOrIcon = (button: HeaderButton) => {
+    if (button.icon) return <Icon name={button.icon} />;
+    if (button.text) return <Text>{button.text}</Text>;
+    return null;
+  };
+
   const renderButton = () =>
     actionButtons.map((button, index) => {
       if (
@@ -15,8 +31,9 @@ export default function HeaderModular({ title, cancelButton, actionButtons = [] 
         (typeof button.visibleIf === 'undefined' && !button.hideByDefault)
       ) {
         return (
+          /* eslint-disable react/no-array-index-key */
           <Button key={index} transparent onPress={button.action}>
-            {button.icon ? <Icon name={button.icon} /> : <Text>{button.text}</Text>}
+            {renderTextOrIcon(button)}
           </Button>
         );
       }
@@ -27,7 +44,7 @@ export default function HeaderModular({ title, cancelButton, actionButtons = [] 
     <Header>
       <Left>
         <Button transparent onPress={cancelAction}>
-          <Icon name={cancelButton.icon} />
+          {renderTextOrIcon(cancelButton)}
         </Button>
       </Left>
       <Body>

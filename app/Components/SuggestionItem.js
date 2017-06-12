@@ -1,7 +1,19 @@
 import React from 'react';
 import { ListItem, Left, Body, Right, Thumbnail, Text, Icon, Button } from 'native-base';
 
-export default function SuggestionItem({ suggestionKey, onPress, poster, title, subtitle }) {
+export default function SuggestionItem({
+  suggestionKey,
+  onPress,
+  poster = null,
+  title,
+  subtitle = null,
+}: {
+  suggestionKey: number,
+  onPress: Function,
+  poster?: string,
+  title: string,
+  subtitle?: string,
+}) {
   const onPressSuggestion = () => {
     onPress(suggestionKey);
   };

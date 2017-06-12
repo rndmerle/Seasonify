@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Content,
-  Form,
-  Item,
-  Input,
-  Icon,
-  List,
-  ListItem,
-  Text,
-} from 'native-base';
+import { Content, Form, Item, Input, Icon, List, ListItem, Text } from 'native-base';
 
 export default function TvshowSheet({
   name,
@@ -17,6 +8,13 @@ export default function TvshowSheet({
   isEditing,
   edit,
   onChangeName,
+}: {
+  name: string,
+  year: number,
+  localizedName: string,
+  isEditing: boolean,
+  edit: Function,
+  onChangeName: Function,
 }) {
   return (
     <Content>
