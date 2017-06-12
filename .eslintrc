@@ -62,6 +62,7 @@
         "object-property-newline": ["warn"],
         "array-bracket-spacing": ["warn"],
         "no-multi-spaces": ["warn"],
+        "space-infix-ops": ["warn"],
         "arrow-body-style": ["warn"],
         "no-unused-vars": ["warn"],
         "import/first": ["warn"],

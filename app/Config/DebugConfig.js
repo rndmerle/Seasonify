@@ -13,6 +13,8 @@ export default {
   reduxLogging: __DEV__,
   navigationLogging: false,
   whyDidYouUpdate: false,
+  PerfMonitor: false,
+  PerfMonitorSettings: { waitBeforeStart: 0, recordingDuration: 10000 },
   useReduxDevtoolsExtension: __DEV__,
   useReactotron: false, // adb reverse tcp:9090 tcp:9090
   notImportantLogs: ['Navigation Dispatch', 'Running application'], // Reactotron
