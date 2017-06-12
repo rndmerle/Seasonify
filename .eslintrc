@@ -3,7 +3,8 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "flowtype"
   ],
   settings: {
     import/resolver: {
@@ -81,5 +82,6 @@
         "import/prefer-default-export": 0,
         "no-mixed-operators": 0,
         "import/no-extraneous-dependencies": 0,
+        "react/no-unused-prop-types": 0, # Seems it doesn't detect destructured props being used
   }
 }

@@ -1,7 +1,18 @@
+// @flow
 import React from 'react';
 import { ListItem, Text } from 'native-base';
 
-export default function FriendItem({ friend, navigate }) {
+type Friend = {
+  name: string,
+};
+
+export default function FriendItem({
+  friend,
+  navigate,
+}: {
+  friend: Friend,
+  navigate: Function,
+}) {
   const onPressFriend = () => {
     navigate('FriendDetailsPage', {
       friend,

@@ -1,22 +1,7 @@
 import React from 'react';
-import {
-  ListItem,
-  Left,
-  Body,
-  Right,
-  Thumbnail,
-  Text,
-  Icon,
-  Button,
-} from 'native-base';
+import { ListItem, Left, Body, Right, Thumbnail, Text, Icon, Button } from 'native-base';
 
-export default function SuggestionItem({
-  suggestionKey,
-  onPress,
-  poster,
-  title,
-  subtitle,
-}) {
+export default function SuggestionItem({ suggestionKey, onPress, poster, title, subtitle }) {
   const onPressSuggestion = () => {
     onPress(suggestionKey);
   };
@@ -24,8 +9,7 @@ export default function SuggestionItem({
     <ListItem onPress={onPressSuggestion} avatar>
       <Left>
         {poster && <Thumbnail square source={{ uri: poster }} />}
-        {!poster &&
-          <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
+        {!poster && <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
       <Body>
         <Text>{title}</Text>
