@@ -3,18 +3,41 @@
 exports[`rendering should show 2 series 1`] = `
 <Styled(Container)>
   <Styled(Content)>
-    <Styled(List)>
-      <TvshowItem
-        navigate={[Function]}
-        tvshowId="abc"
-        tvshowName="tvshow1"
-      />
-      <TvshowItem
-        navigate={[Function]}
-        tvshowId="qsd"
-        tvshowName="tvshow2"
-      />
-    </Styled(List)>
+    <VirtualizedList
+      data={
+        Object {
+          "abc": Object {
+            "id": "abc",
+            "name": "tvshow1",
+          },
+          "qsd": Object {
+            "id": "qsd",
+            "name": "tvshow2",
+          },
+        }
+      }
+      disableVirtualization={false}
+      extraData={
+        Array [
+          "abc",
+          "qsd",
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      initialNumberToRender={11}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onEndReached={[Function]}
+      onEndReachedThreshold={2}
+      removeClippedSubviews={true}
+      renderItem={[Function]}
+      renderScrollComponent={[Function]}
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
   </Styled(Content)>
   <SingleFAB
     icon="add"

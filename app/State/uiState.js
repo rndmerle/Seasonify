@@ -19,9 +19,9 @@ const { Types: types, Creators } = createActions({
 
 /* ========== REDUCERS ========== */
 
-export const messageToast = (state, message: Message) => ({
+export const messageToast = (state, { level, text }: Message) => ({
   ...state,
-  message,
+  message: { level, text },
 });
 
 export const messageHide = state => ({ ...state, message: null });

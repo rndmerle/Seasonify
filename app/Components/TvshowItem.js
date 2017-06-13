@@ -1,5 +1,5 @@
+import { Body, ListItem, Text } from 'native-base';
 import React from 'react';
-import { ListItem, Text } from 'native-base';
 
 export default function TvshowItem({
   tvshowId,
@@ -19,7 +19,9 @@ export default function TvshowItem({
 
   return (
     <ListItem onPress={onPressTvshow}>
-      <Text>{tvshowName}</Text>
+      <Body>
+        <Text>{tvshowName}</Text>
+      </Body>
     </ListItem>
   );
 }

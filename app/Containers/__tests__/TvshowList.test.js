@@ -23,7 +23,6 @@ describe('rendering', () => {
         qsd: { id: 'qsd', name: 'tvshow2' },
       },
     });
-    expect(component.find('TvshowItem')).toHaveLength(2);
     expect(component).toMatchSnapshot();
   });
 

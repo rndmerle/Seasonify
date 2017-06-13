@@ -1,4 +1,5 @@
-import { Container, Content, List } from 'native-base';
+import { Container, Content } from 'native-base';
+import { /* FlatList,*/ VirtualizedList } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -18,19 +19,31 @@ export function TvshowList({ navigation, tvshows }) {
     navigation.navigate('TvshowAddPage');
   };
 
+  const renderItem = ({ item: tvshow }) =>
+    (<TvshowItem
+      tvshowId={tvshow.id}
+      tvshowName={tvshow.name}
+      navigate={navigation.navigate}
+    />);
+
+  const keyExtractor = item => item.id;
+
+  const tvshowKeys = Object.keys(tvshows);
+
+  const getItem = (data, index) => data[tvshowKeys[index]];
+
   return (
     <Container>
       <Content>
-        <List>
-          {Object.keys(tvshows).map(id =>
-            (<TvshowItem
-              key={id}
-              tvshowId={id}
-              tvshowName={tvshows[id].name}
-              navigate={navigation.navigate}
-            />),
-          )}
-        </List>
+        <VirtualizedList
+          initialNumberToRender={11}
+          data={tvshows}
+          extraData={tvshowKeys}
+          getItemCount={data => Object.keys(data).length}
+          getItem={getItem}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+        />
       </Content>
       <SingleFAB icon="add" onPress={onFAB} />
     </Container>

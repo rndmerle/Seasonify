@@ -4,9 +4,11 @@ exports[`Rendering should match, with a tvshowName 1`] = `
 <Styled(ListItem)
   onPress={[Function]}
 >
-  <Styled(Text)>
-    Deadwood
-  </Styled(Text)>
+  <Styled(Body)>
+    <Styled(Text)>
+      Deadwood
+    </Styled(Text)>
+  </Styled(Body)>
 </Styled(ListItem)>
 `;
 
@@ -14,6 +16,8 @@ exports[`Rendering should match, with an empty tvshowName 1`] = `
 <Styled(ListItem)
   onPress={[Function]}
 >
-  <Styled(Text) />
+  <Styled(Body)>
+    <Styled(Text) />
+  </Styled(Body)>
 </Styled(ListItem)>
 `;
