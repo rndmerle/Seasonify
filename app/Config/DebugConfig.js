@@ -1,5 +1,6 @@
 export default {
   useFixtures: false,
+  logApiCallToConsole: false,
   yellowBox: __DEV__,
   ignoredYellowBox: [
     'Warning: BackAndroid',

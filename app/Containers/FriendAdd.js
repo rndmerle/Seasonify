@@ -24,7 +24,12 @@ export class FriendAdd extends React.Component<void, Props, void> {
       <HeaderModular
         title="New friend"
         cancelButton={{ icon: 'close', action: navigation.goBack }}
-        actionButtons={[{ text: 'ADD', action: navigation.state.params.handleSave }]}
+        actionButtons={[
+          {
+            text: 'ADD',
+            action: navigation.state.params && navigation.state.params.handleSave,
+          },
+        ]}
       />
     ),
   });

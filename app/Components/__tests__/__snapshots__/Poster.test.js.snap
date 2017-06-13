@@ -3,10 +3,16 @@
 exports[`Rendering should render 1`] = `
 <Image
   resizeMethod="scale"
-  resizeMode="contain"
+  resizeMode="cover"
   source={
     Object {
       "uri": "http://somewhere.net/poster.jpg",
+    }
+  }
+  style={
+    Object {
+      "height": 380,
+      "width": 285,
     }
   }
 />

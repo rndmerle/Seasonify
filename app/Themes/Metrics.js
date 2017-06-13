@@ -1,10 +1,11 @@
 import { Dimensions, Platform } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { screenWidth, screenHeight, screenScale } = Dimensions.get('window');
 
 const metrics = {
-  screenWidth: width < height ? width : height,
-  screenHeight: width < height ? height : width,
+  screenWidth,
+  screenHeight,
+  screenScale,
   navBarHeight: Platform.OS === 'ios' ? 64 : 54,
   searchBarHeight: 30,
   horizontalLineHeight: 1,
@@ -13,6 +14,9 @@ const metrics = {
   smallMargin: 5,
   columnLeft: 38,
   columnRight: 62,
+  poster: {
+    averageRatio: 400 / 300,
+  },
   icons: {
     tiny: 15,
     small: 20,

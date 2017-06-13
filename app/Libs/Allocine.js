@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
-import jshashes from 'jshashes';
 import axios from 'axios';
+import jshashes from 'jshashes';
+
+import DebugConfig from 'Config/DebugConfig';
 
 // DOC : https://wiki.gromez.fr/dev/api/allocine_v3
 export class Allocine {
@@ -64,6 +66,9 @@ export class Allocine {
 
   get = (method, options) => {
     const path = this.buildPath(method, options);
+    if (DebugConfig.logApiCallToConsole) {
+      console.log('Allocine call: ', this.config.apiHostName + path);
+    }
     return axios.get(this.config.apiHostName + path);
     // .then(result => ({ error: null, data: result.data }))
     // .catch(error => ({ error: error.message, data: null }));

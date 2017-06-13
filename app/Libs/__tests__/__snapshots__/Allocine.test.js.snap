@@ -114,7 +114,7 @@ Object {
         },
       ],
       "productionStatus": Object {
-        "$": "Production achevée",
+        "$": "Terminée",
         "code": 122006,
       },
       "seasonNumber": 3,
@@ -132,7 +132,7 @@ Object {
         },
       ],
       "productionStatus": Object {
-        "$": "Production achevée",
+        "$": "Terminée",
         "code": 122006,
       },
       "seasonNumber": 2,
@@ -149,7 +149,7 @@ Object {
         },
       ],
       "productionStatus": Object {
-        "$": "Production achevée",
+        "$": "Terminée",
         "code": 122006,
       },
       "seasonNumber": 1,

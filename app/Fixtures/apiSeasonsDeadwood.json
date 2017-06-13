@@ -3,7 +3,7 @@
     "code": 2664,
     "seasonNumber": 3,
     "episodeCount": 12,
-    "productionStatus": { "code": 122006, "$": "Production achevée" },
+    "productionStatus": { "code": 122006, "$": "Terminée" },
     "yearStart": 2006,
     "yearEnd": 2006,
     "link": [{
@@ -16,7 +16,7 @@
     "code": 711,
     "seasonNumber": 2,
     "episodeCount": 12,
-    "productionStatus": { "code": 122006, "$": "Production achevée" },
+    "productionStatus": { "code": 122006, "$": "Terminée" },
     "yearStart": 2005,
     "yearEnd": 2005,
     "link": [{
@@ -28,7 +28,7 @@
     "code": 565,
     "seasonNumber": 1,
     "episodeCount": 12,
-    "productionStatus": { "code": 122006, "$": "Production achevée" },
+    "productionStatus": { "code": 122006, "$": "Terminée" },
     "link": [{
       "href": "http://www.allocine.fr/series/ficheserie-213/saison-565/",
       "rel": "aco:web"

@@ -1,4 +1,4 @@
-import { Container, Content, Grid, Col } from 'native-base';
+import { Col, Container, Content, Grid, View } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
@@ -9,8 +9,9 @@ import SingleFAB from 'Components/SingleFAB';
 import TvshowSheet from 'Components/TvshowSheet';
 import editState from 'State/editState';
 import tv from 'State/tvshowState';
-import TvshowDetailsHeader from './TvshowDetailsHeader';
+
 import Loading from './Loading';
+import TvshowDetailsHeader from './TvshowDetailsHeader';
 
 const mapStateToProps = (state, ownProps) => ({
   getTvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
