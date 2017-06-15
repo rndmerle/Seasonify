@@ -114,4 +114,15 @@ describe('Selectors', () => {
       b: { name: 'B' },
     });
   });
+
+  it('getCodes', () => {
+    expect(
+      tv.selectors.getCodes({
+        tvshows: {
+          a: { name: 'A', allocine: 123 },
+          b: { name: 'B', allocine: 456 },
+        },
+      }),
+    ).toEqual([123, 456]);
+  });
 });

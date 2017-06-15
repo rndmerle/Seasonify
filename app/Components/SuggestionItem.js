@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, Left, Body, Right, Thumbnail, Text, Icon, Button } from 'native-base';
+import { View, ListItem, Left, Body, Right, Thumbnail, Text, Icon, Button } from 'native-base';
 
 export default function SuggestionItem({
   suggestionKey,
@@ -7,29 +7,34 @@ export default function SuggestionItem({
   poster = null,
   title,
   subtitle = null,
+  alreadyAdded = false,
 }: {
   suggestionKey: number,
   onPress: Function,
   poster?: string,
   title: string,
   subtitle?: string,
+  alreadyAdded?: boolean,
 }) {
   const onPressSuggestion = () => {
-    onPress(suggestionKey);
+    if (!alreadyAdded) onPress(suggestionKey);
   };
   return (
-    <ListItem onPress={onPressSuggestion} avatar>
-      <Left>
-        {poster && <Thumbnail square source={{ uri: poster }} />}
-        {!poster && <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
-      </Left>
-      <Body>
-        <Text>{title}</Text>
-        <Text note>{subtitle}</Text>
-      </Body>
-      <Right>
-        <Icon name="add-circle" />
-      </Right>
-    </ListItem>
+    <View>
+      <ListItem onPress={onPressSuggestion} avatar>
+        <Left>
+          {poster && <Thumbnail square source={{ uri: poster }} />}
+          {!poster && <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
+        </Left>
+        <Body>
+          <Text>{title}</Text>
+          <Text note>{subtitle}</Text>
+        </Body>
+        {!alreadyAdded &&
+          <Right>
+            <Icon name="add-circle" />
+          </Right>}
+      </ListItem>
+    </View>
   );
 }

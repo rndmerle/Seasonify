@@ -8,6 +8,7 @@ function setup(specificProps = {}) {
       goBack: jest.fn(),
       state: { params: {} },
     },
+    codes: [111, 222],
     suggestions: [
       {
         allocine: 111,
@@ -33,7 +34,7 @@ function setup(specificProps = {}) {
   };
 }
 
-describe('Rendering, with 2 suggestions', () => {
+describe('Rendering, with 2 suggestions, one being already added', () => {
   const { component } = setup();
   it('should match', () => {
     expect(component).toMatchSnapshot();
@@ -69,10 +70,6 @@ describe('Events & Functions, with 2 suggestions', () => {
 
     it('calls tvshowAddWithSeasons', () => {
       expect(props.tvshowAddWithSeasons).toBeCalledWith(props.suggestions[0]);
-    });
-
-    it('calls navigate', () => {
-      expect(props.navigation.navigate).toBeCalledWith('TvshowListPage');
     });
   });
 });

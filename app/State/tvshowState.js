@@ -71,6 +71,7 @@ export const reducer = createReducer(INITIAL_STATE, {
 const selectors = {
   getTvshows: state => state.tvshows,
   getTvshow: (state, id) => state.tvshows[id],
+  getCodes: state => Object.keys(state.tvshows).map(key => state.tvshows[key].allocine),
 };
 
 /* ========== EXPORTS ========== */

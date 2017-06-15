@@ -11,6 +11,7 @@ import SuggestionItem from 'Components/SuggestionItem';
 
 const mapStateToProps = state => ({
   suggestions: ui.selectors.getSuggestions(state),
+  codes: tv.selectors.getCodes(state),
 });
 
 const mapActionsToProps = {
@@ -19,19 +20,24 @@ const mapActionsToProps = {
 };
 
 export function TvshowAdd({
-  navigation,
+  // navigation,
   suggestions,
+  codes,
   tvshowAddWithSeasons,
   suggestionsRequest,
 }) {
+  let input = null;
+
   const onChangeName = debounce(500, name => {
     suggestionsRequest(name);
   });
 
   const onPressSuggestion = suggestionKey => {
     tvshowAddWithSeasons(suggestions[suggestionKey]);
-    navigation.navigate('TvshowListPage'); // Note : a goBack() would prevent Toast to stay in foreground
-    Keyboard.dismiss();
+    if (input) {
+      input.wrappedInstance.clear();
+      input.wrappedInstance.focus();
+    }
   };
 
   return (
@@ -40,7 +46,12 @@ export function TvshowAdd({
         <Form>
           <Item fixedLabel>
             <Label>Tvshow&rsquo;s name:</Label>
-            <Input onChangeText={onChangeName} autoFocus autoCapitalize="words" />
+            <Input
+              onChangeText={onChangeName}
+              autoFocus
+              autoCapitalize="words"
+              ref={ref => (input = ref)}
+            />
           </Item>
         </Form>
         {suggestions &&
@@ -53,6 +64,7 @@ export function TvshowAdd({
                 poster={suggestion.poster}
                 title={suggestion.name}
                 subtitle={suggestion.year}
+                alreadyAdded={!!codes.find(code => suggestion.allocine === code)}
               />),
             )}
           </List>}

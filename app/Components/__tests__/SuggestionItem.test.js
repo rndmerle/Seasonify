@@ -7,6 +7,7 @@ function setup(specificProps = {}) {
     poster: 'http://url//poster.jpg',
     title: 'Deadwood',
     subtitle: '2004',
+    alreadyAdded: false,
     onPress: jest.fn(),
     ...specificProps,
   };
@@ -27,12 +28,23 @@ describe('Rendering', () => {
     const { component } = setup({ poster: undefined });
     expect(component).toMatchSnapshot();
   });
+
+  it('should render, when already added', () => {
+    const { component } = setup({ alreadyAdded: true });
+    expect(component).toMatchSnapshot();
+  });
 });
 
 describe('Events', () => {
-  it('should call onPress, when pressing the list item', () => {
-    const { component, props } = setup();
+  it('should call onPress, when pressing the list item (not already added)', () => {
+    const { component, props } = setup({ alreadyAdded: false });
     component.find('Styled(ListItem)').simulate('press');
     expect(props.onPress).toBeCalled();
+  });
+
+  it("should'nt call onPress, when pressing the list item (already added)", () => {
+    const { component, props } = setup({ alreadyAdded: true });
+    component.find('Styled(ListItem)').simulate('press');
+    expect(props.onPress).not.toBeCalled();
   });
 });
