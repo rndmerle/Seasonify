@@ -1,20 +1,25 @@
-const defaults = {
+const baseDuration = 3000;
+
+const defaults: {
+  text: string,
+  position: string,
+  buttonText: string,
+  duraction: number,
+} = {
   text: '',
   position: 'bottom',
   buttonText: 'OK',
+  duration: baseDuration,
 };
-const baseDuration = 3000;
 
 export default {
+  neutral: {
+    ...defaults,
+  },
+
   success: {
     ...defaults,
     type: 'success',
-    duration: baseDuration,
-  },
-
-  neutral: {
-    ...defaults,
-    duration: baseDuration,
   },
 
   warning: {

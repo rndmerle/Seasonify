@@ -5,10 +5,12 @@ function setup(specificProps = {}) {
   const props = {
     seasons: {
       abc123: {
+        id: 'abc123',
         episodes: 13,
         year: 2014,
       },
       xyz890: {
+        id: 'xyz890',
         episodes: 13,
         year: 2015,
       },

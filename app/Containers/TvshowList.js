@@ -1,8 +1,10 @@
+/* @flow */
 import { Container, Content } from 'native-base';
 import { /* FlatList,*/ VirtualizedList } from 'react-native';
 import { connect } from 'react-redux';
 import React from 'react';
 
+import type { Tvshows } from 'Types';
 import HeaderRoot from 'Components/HeaderRoot';
 import SingleFAB from 'Components/SingleFAB';
 import TvshowItem from 'Components/TvshowItem';
@@ -14,7 +16,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export function TvshowList({ navigation, tvshows }) {
+export function TvshowList({ navigation, tvshows }: { navigation: Object, tvshows: Tvshows }) {
   const onFAB = () => {
     navigation.navigate('TvshowAddPage');
   };

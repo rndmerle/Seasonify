@@ -1,14 +1,17 @@
 import { shallow } from 'enzyme';
+import globals from 'Config/globals';
 
+globals();
 // Make Enzyme functions available in all test files without importing
 global.shallow = shallow;
 // global.render = render;
 // global.mount = mount;
-
 // Fail tests on any warning
 // console.error = message => {
 //   throw new Error(message);
 // };
+
+global.objectValues = map => Object.values(map);
 
 // Hide console.info because of redux-saga cancellation message
 const hijackConsole = browserConsole => {

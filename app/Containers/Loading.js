@@ -1,3 +1,4 @@
+/* @flow */
 import { Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
@@ -11,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export function Loading({ isSpinning, color }) {
+export function Loading({ isSpinning, color }: { isSpinning: boolean, color: string }) {
   if (isSpinning) {
     return <Spinner style={styles.nextToFAB} color={color} />;
   }

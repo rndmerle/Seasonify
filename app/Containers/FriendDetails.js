@@ -1,8 +1,10 @@
+/* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Item, Input, Icon } from 'native-base';
 
+import type { Friend } from 'Types';
 import friendState from 'State/friendState';
 import ui from 'State/uiState';
 import HeaderModular from 'Components/HeaderModular';
@@ -15,7 +17,18 @@ const mapActionsToProps = {
   messageToast: ui.actions.messageToast,
 };
 
-export class FriendDetails extends React.Component {
+type Props = {
+  navigation: Object,
+  friendRemove: Function,
+  friendUpdate: Function,
+  messageToast: Function,
+};
+
+type State = {
+  friend: Friend,
+};
+
+export class FriendDetails extends React.Component<void, Props, State> {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
@@ -42,10 +55,12 @@ export class FriendDetails extends React.Component {
     };
   };
 
-  componentWillMount() {
+  state = {
     // local model
-    this.setState({ friend: this.props.navigation.state.params.friend });
+    friend: this.props.navigation.state.params.friend,
+  };
 
+  componentWillMount() {
     // actions and params for the navigation state
     this.props.navigation.setParams({
       isEditing: false,
@@ -55,11 +70,11 @@ export class FriendDetails extends React.Component {
     });
   }
 
-  onChangeName = name => {
+  onChangeName = (name: string) => {
     this.syncModel({ name });
   };
 
-  syncModel = ({ name }, callback = () => {}) => {
+  syncModel = ({ name }: { name: string }, callback: Function = () => {}) => {
     this.setState(
       {
         friend: { ...this.state.friend, name: name.trim() },

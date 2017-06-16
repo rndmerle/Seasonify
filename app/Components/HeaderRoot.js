@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import { Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
 

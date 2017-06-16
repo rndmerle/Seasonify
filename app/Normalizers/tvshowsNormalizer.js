@@ -4,9 +4,10 @@ function tvshowsNormalizer(tvshows) {
       array.concat({
         allocine: suggestion.code,
         name: suggestion.originalTitle,
-        localizedName: 'title' in suggestion ? suggestion.title : null,
-        poster: 'poster' in suggestion ? suggestion.poster.href : null,
+        localizedName: 'title' in suggestion ? suggestion.title : '',
+        poster: 'poster' in suggestion ? suggestion.poster.href : '',
         year: suggestion.yearStart,
+        seasons: {},
       }),
     [],
   );

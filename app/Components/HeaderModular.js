@@ -11,7 +11,7 @@ export default function HeaderModular({
 }: {
   title: string,
   cancelButton: HeaderButton,
-  actionButtons: HeaderButton[],
+  actionButtons?: HeaderButton[],
 }) {
   const cancelAction = () => {
     cancelButton.action();

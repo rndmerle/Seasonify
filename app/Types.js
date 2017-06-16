@@ -14,11 +14,35 @@ export type HeaderTextButton = {
 };
 export type HeaderButton = HeaderIconButton | HeaderTextButton;
 
-export type Seasons = {
-  id: number,
+export type Season = {
+  id: string,
   allocine: number,
   year: number,
   episodes: number,
+};
+export type Seasons = {
+  [id: string]: Season,
+};
+
+export type Tvshow = {
+  id: string,
+  allocine: number,
+  name: string,
+  year: number,
+  localizedName?: string,
+  poster?: string,
+  seasons: Seasons | {},
+};
+export type Tvshows = {
+  [id: string]: Tvshow,
+};
+
+export type Friend = {
+  id: string,
+  name: string,
+};
+export type Friends = {
+  [id: string]: Friend,
 };
 
 export type Message = {

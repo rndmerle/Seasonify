@@ -42,8 +42,22 @@ describe('Reducer', () => {
       ],
       {
         suggestions: [
-          { name: 'Tvshow 1', allocine: 1234, year: 2014, localizedName: null, poster: null },
-          { name: 'Tvshow 2', allocine: 5678, year: 2015, localizedName: null, poster: null },
+          {
+            name: 'Tvshow 1',
+            allocine: 1234,
+            year: 2014,
+            localizedName: '',
+            poster: '',
+            seasons: {},
+          },
+          {
+            name: 'Tvshow 2',
+            allocine: 5678,
+            year: 2015,
+            localizedName: '',
+            poster: '',
+            seasons: {},
+          },
         ],
       },
     );

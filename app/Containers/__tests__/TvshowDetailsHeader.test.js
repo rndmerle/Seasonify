@@ -7,7 +7,7 @@ function setup(specificProps = {}) {
     navigate: jest.fn(),
     isEditing: true,
     editedObject: { id: 'abc123' },
-    getTvshow: {
+    tvshow: {
       id: 'abc123',
       name: 'Some tvshow',
     },

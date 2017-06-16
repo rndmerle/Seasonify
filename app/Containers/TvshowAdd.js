@@ -1,9 +1,10 @@
+/* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Input, Item, List } from 'native-base';
 import debounce from 'throttle-debounce/debounce';
 
+import type { Tvshow } from 'Types';
 import tv from 'State/tvshowState';
 import ui from 'State/uiState';
 import HeaderModular from 'Components/HeaderModular';
@@ -25,6 +26,11 @@ export function TvshowAdd({
   codes,
   tvshowAddWithSeasons,
   suggestionsRequest,
+}: {
+  suggestions: Tvshow[],
+  codes: number[],
+  tvshowAddWithSeasons: Function,
+  suggestionsRequest: Function,
 }) {
   let input = null;
 
@@ -63,7 +69,7 @@ export function TvshowAdd({
                 onPress={onPressSuggestion}
                 poster={suggestion.poster}
                 title={suggestion.name}
-                subtitle={suggestion.year}
+                subtitle={suggestion.year.toString()}
                 alreadyAdded={!!codes.find(code => suggestion.allocine === code)}
               />),
             )}

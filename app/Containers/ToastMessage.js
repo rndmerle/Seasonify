@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'native-base';
@@ -20,11 +21,17 @@ type Props = {
 };
 
 export class ToastMessage extends React.Component<void, Props, void> {
-  componentWillReceiveProps({ message, messageHide }) {
+  componentWillReceiveProps({
+    message,
+    messageHide,
+  }: {
+    message: Message,
+    messageHide: Function,
+  }) {
     if (message) {
       const messageConfig = Messages[message.level];
 
-      this.hideTimeout = setTimeout(() => {
+      setTimeout(() => {
         messageHide();
       }, messageConfig.duration);
       Toast.show({ ...messageConfig, text: message.text });

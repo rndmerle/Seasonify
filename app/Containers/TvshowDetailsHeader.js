@@ -1,7 +1,9 @@
+/* @flow */
 import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 
+import type { Tvshow } from 'Types';
 import ui from 'State/uiState';
 import tv from 'State/tvshowState';
 import editState from 'State/editState';
@@ -10,7 +12,7 @@ import HeaderModular from 'Components/HeaderModular';
 const mapStateToProps = (state, ownProps) => ({
   isEditing: editState.selectors.isEditing(state),
   editedObject: editState.selectors.editedObject(state),
-  getTvshow: tv.selectors.getTvshow(state, ownProps.tvshowId),
+  tvshow: tv.selectors.getTvshow(state, ownProps.tvshowId),
 });
 
 const mapActionsToProps = {
@@ -26,15 +28,24 @@ export function TvshowDetailsHeader({
   tvshowId, // eslint-disable-line no-unused-vars
   isEditing,
   editedObject,
-  getTvshow,
+  tvshow,
   tvshowRemove,
   tvshowUpdate,
   messageToast,
   editStart,
   editEnd,
+}: {
+  navigate: Function,
+  tvshowId: string,
+  isEditing: boolean,
+  editedObject: Object,
+  tvshow: Tvshow,
+  tvshowRemove: Function,
+  tvshowUpdate: Function,
+  messageToast: Function,
+  editStart: Function,
+  editEnd: Function,
 }) {
-  const tvshow = getTvshow;
-
   const handleExit = () => {
     navigate('TvshowListPage'); // Note : a goBack() would prevent Toast to stay in foreground
     Keyboard.dismiss();

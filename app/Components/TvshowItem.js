@@ -1,3 +1,4 @@
+/* @flow */
 import { Body, ListItem, Text } from 'native-base';
 import React from 'react';
 

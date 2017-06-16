@@ -25,7 +25,14 @@ exports[`Rendering when default state should match 1`] = `
       </ColumnNB>
     </GridNB>
     <SeasonList
-      tvshowId="abc123"
+      seasons={
+        Object {
+          "allocine": 987,
+          "episodes": 1,
+          "id": "xxx999",
+          "year": 2016,
+        }
+      }
     />
   </Styled(Content)>
   <SingleFAB

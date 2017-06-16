@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
 import { Container } from 'native-base';
@@ -16,7 +17,11 @@ const mapActionsToProps = {
   startup: ui.actions.startup,
 };
 
-export class Root extends React.Component {
+type Props = {
+  startup: Function,
+};
+
+export class Root extends React.Component<void, Props, void> {
   componentDidMount() {
     if (!PersistConfig.active) {
       this.props.startup();

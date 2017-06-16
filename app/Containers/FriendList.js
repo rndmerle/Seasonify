@@ -1,7 +1,9 @@
+/* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, List } from 'native-base';
 
+import type { Friends } from 'Types';
 import FriendItem from 'Components/FriendItem';
 import HeaderRoot from 'Components/HeaderRoot';
 import SingleFAB from 'Components/SingleFAB';
@@ -13,7 +15,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {};
 
-export function FriendList({ navigation, friends }) {
+export function FriendList({ navigation, friends }: { navigation: Object, friends: Friends }) {
   const onFAB = () => {
     navigation.navigate('FriendAddPage');
   };
@@ -21,8 +23,8 @@ export function FriendList({ navigation, friends }) {
     <Container>
       <Content>
         <List>
-          {Object.keys(friends).map(id =>
-            <FriendItem key={id} friend={friends[id]} navigate={navigation.navigate} />,
+          {objectValues(friends).map(friend =>
+            <FriendItem key={friend.id} friend={friend} navigate={navigation.navigate} />,
           )}
         </List>
       </Content>

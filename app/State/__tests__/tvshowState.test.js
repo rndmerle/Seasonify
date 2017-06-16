@@ -12,8 +12,8 @@ describe('Reducer', () => {
       reducer,
       undefined,
       [
-        tv.actions.tvshowAdd({ id: 'abc-123', name: 'Deadwood' }),
-        tv.actions.tvshowAdd({ id: 'xyz-789', name: 'Breaking Bad' }),
+        tv.actions.tvshowAdd({ id: 'abc-123', name: 'Deadwood', seasons: {} }),
+        tv.actions.tvshowAdd({ id: 'xyz-789', name: 'Breaking Bad', seasons: {} }),
       ],
       {
         'abc-123': { id: 'abc-123', name: 'Deadwood', seasons: {} },

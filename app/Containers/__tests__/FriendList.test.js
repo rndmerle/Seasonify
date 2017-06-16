@@ -9,8 +9,8 @@ function setup(specificProps = {}) {
       state: { params: {} },
     },
     friends: {
-      abc123: { name: 'Someone' },
-      xyz890: { name: 'Someone else' },
+      abc123: { id: 'abc123', name: 'Someone' },
+      xyz890: { id: 'xyz890', name: 'Someone else' },
     },
     ...specificProps,
   };

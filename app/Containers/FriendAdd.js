@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Keyboard } from 'react-native';
@@ -18,7 +19,11 @@ type Props = {
   friendAdd: Function,
 };
 
-export class FriendAdd extends React.Component<void, Props, void> {
+type State = {
+  friendName: string,
+};
+
+export class FriendAdd extends React.Component<void, Props, State> {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <HeaderModular
@@ -34,6 +39,10 @@ export class FriendAdd extends React.Component<void, Props, void> {
     ),
   });
 
+  state = {
+    friendName: '',
+  };
+
   componentWillMount() {
     this.props.navigation.setParams({
       handleSave: this.handleSave,
@@ -45,7 +54,7 @@ export class FriendAdd extends React.Component<void, Props, void> {
   };
 
   handleSave = () => {
-    if (this.state && this.state.friendName && this.state.friendName.trim() !== '') {
+    if (this.state.friendName.trim() !== '') {
       this.props.friendAdd(Identity.newid(), this.state.friendName.trim());
       this.props.navigation.goBack();
       Keyboard.dismiss();

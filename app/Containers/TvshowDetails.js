@@ -1,7 +1,9 @@
+/* @flow */
 import { Col, Container, Content, Grid, View } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
+import type { Tvshow } from 'Types';
 import { Metrics } from 'Themes';
 import Poster from 'Components/Poster';
 import SeasonList from 'Components/SeasonList';
@@ -14,7 +16,7 @@ import Loading from './Loading';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
 
 const mapStateToProps = (state, ownProps) => ({
-  getTvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
+  tvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
   isEditing: editState.selectors.isEditing(state),
   editedObject: editState.selectors.editedObject(state),
 });
@@ -26,14 +28,20 @@ const mapActionsToProps = {
 
 export function TvshowDetails({
   navigation,
-  getTvshow,
+  tvshow,
   isEditing,
   editedObject,
   editUpdate,
   seasonsRefresh,
+}: {
+  navigation: Object,
+  tvshow: Tvshow,
+  isEditing: boolean,
+  editedObject: Object,
+  editUpdate: Function,
+  seasonsRefresh: Function,
 }) {
   const { tvshowId } = navigation.state.params;
-  const tvshow = getTvshow;
 
   const onChangeName = name => {
     editUpdate({ id: tvshowId, name });
@@ -62,11 +70,7 @@ export function TvshowDetails({
               />
             </Col>
           </Grid>
-          <SeasonList
-            tvshowId={tvshow.id}
-            tvshowAllocine={tvshow.allocine}
-            seasons={tvshow.seasons}
-          />
+          <SeasonList seasons={tvshow.seasons} />
         </Content>
         <SingleFAB icon="refresh" onPress={onFAB} />
         <Loading color="lightblue" />

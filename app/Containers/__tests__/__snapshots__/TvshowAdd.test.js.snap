@@ -22,7 +22,7 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
         alreadyAdded={true}
         onPress={[Function]}
         poster="http://poster1.png"
-        subtitle={2011}
+        subtitle="2011"
         suggestionKey={0}
         title="A tvshow"
       />
@@ -30,7 +30,7 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
         alreadyAdded={false}
         onPress={[Function]}
         poster="http://poster5.png"
-        subtitle={2015}
+        subtitle="2015"
         suggestionKey={1}
         title="A other tvshow"
       />

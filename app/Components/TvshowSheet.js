@@ -1,19 +1,20 @@
+/* @flow */
 import React from 'react';
 import { Content, Form, Item, Input, Icon, List, ListItem, Text } from 'native-base';
 
 export default function TvshowSheet({
   name,
   year,
-  localizedName,
+  localizedName = '',
   isEditing,
   edit,
   onChangeName,
 }: {
   name: string,
   year: number,
-  localizedName: string,
+  localizedName?: string,
   isEditing: boolean,
-  edit: Function,
+  edit: Object,
   onChangeName: Function,
 }) {
   return (

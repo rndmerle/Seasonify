@@ -7,12 +7,18 @@ function setup(specificProps = {}) {
       navigate: jest.fn(),
       state: { params: { tvshowId: 'abc123' } },
     },
-    getTvshow: {
+    tvshow: {
       id: 'abc123',
       name: 'A tvshow',
       localizedName: 'Une série',
       poster: 'http://poster.png',
       year: 2017,
+      seasons: {
+        id: 'xxx999',
+        allocine: 987,
+        year: 2016,
+        episodes: 1,
+      },
     },
     isEditing: false,
     editedObject: {},
@@ -35,7 +41,7 @@ describe('Rendering when default state', () => {
 });
 
 describe('Rendering when no tvshow', () => {
-  const { component } = setup({ getTvshow: undefined });
+  const { component } = setup({ tvshow: undefined });
   it('should match', () => {
     expect(component).toMatchSnapshot();
   });
@@ -53,7 +59,7 @@ describe('Events & Functions', () => {
 
     it('calls editUpdate', () => {
       expect(props.editUpdate).toBeCalledWith({
-        id: props.getTvshow.id,
+        id: props.tvshow.id,
         name: 'New name',
       });
     });
@@ -63,7 +69,7 @@ describe('Events & Functions', () => {
     SingleFAB.prop('onPress')();
 
     it('calls seasonsRefresh', () => {
-      expect(props.seasonsRefresh).toBeCalledWith(props.getTvshow.id);
+      expect(props.seasonsRefresh).toBeCalledWith(props.tvshow.id);
     });
   });
 });

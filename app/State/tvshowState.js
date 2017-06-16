@@ -19,7 +19,7 @@ const { Types: types, Creators } = createActions({
 
 export const tvshowAdd = (state, { tvshow }) => ({
   ...state,
-  [tvshow.id]: { seasons: {}, ...tvshow },
+  [tvshow.id]: { ...tvshow },
 });
 
 export const tvshowRemove = (state, { id }) => {
