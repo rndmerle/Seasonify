@@ -1,8 +1,10 @@
+/* @flow */
 /* eslint-disable no-use-before-define */
 import axios from 'axios';
 import jshashes from 'jshashes';
 
 import DebugConfig from 'Config/DebugConfig';
+import type { ApiResponse, ApiPromise } from 'Types';
 
 // DOC : https://wiki.gromez.fr/dev/api/allocine_v3
 export class Allocine {
@@ -24,9 +26,9 @@ export class Allocine {
     season: { profile: 'medium' },
   };
 
-  sha1 = null;
+  sha1 = new jshashes.SHA1();
 
-  static removeDynamicData(field, data) {
+  static removeDynamicData(field: string, data: Array<Object>): Array<Object> {
     return data.map(tvshow => {
       const { [field]: deleted, ...newTvShowContent } = tvshow;
 
@@ -34,11 +36,7 @@ export class Allocine {
     });
   }
 
-  constructor() {
-    this.sha1 = new jshashes.SHA1();
-  }
-
-  todayDate = () => {
+  todayDate = (): string => {
     const date = new Date();
     return (
       date.getFullYear() +
@@ -47,27 +45,32 @@ export class Allocine {
     );
   };
 
-  buildPath = (route, specificParams) => {
-    const Url = this.config.apiBasePath + route;
+  buildPath = (route: string, specificParams: Object) => {
+    const Url: string = this.config.apiBasePath + route;
 
-    const params = Object.assign({}, this.presets.global, this.presets[route], specificParams);
+    const params: Object = Object.assign(
+      {},
+      this.presets.global,
+      this.presets[route],
+      specificParams,
+    );
 
-    const paramsString = Object.keys(params)
+    const paramsString: string = Object.keys(params)
       .map(key => [key, params[key]].map(encodeURIComponent).join('='))
       .join('&');
 
-    const sed = this.todayDate();
+    const sed: string = this.todayDate();
 
-    const sig = `${this.config.apiSecretKey}${paramsString}&sed=${sed}`;
-    const encodedSig = encodeURIComponent(this.sha1.b64(sig));
+    const sig: string = `${this.config.apiSecretKey}${paramsString}&sed=${sed}`;
+    const encodedSig: string = encodeURIComponent(this.sha1.b64(sig));
 
     return `${Url}?${paramsString}&sed=${sed}&sig=${encodedSig}`;
   };
 
-  get = (method, options) => {
-    const path = this.buildPath(method, options);
+  get = (method: string, options: Object): Promise<*> => {
+    const path: string = this.buildPath(method, options);
     if (DebugConfig.logApiCallToConsole) {
-      console.log('Allocine call: ', this.config.apiHostName + path);
+      console.log('Allocine call: ', this.config.apiHostName + path); // eslint-disable-line no-console
     }
     return axios.get(this.config.apiHostName + path);
     // .then(result => ({ error: null, data: result.data }))
@@ -80,7 +83,8 @@ const api = new Allocine();
 /* ========== API CALLS ========== */
 
 export default {
-  searchTvshows: query => {
+  class: api,
+  searchTvshows: (query: string): ApiResponse | ApiPromise => {
     if (query.trim() === '') {
       return { error: null, data: [] };
     }
@@ -95,20 +99,21 @@ export default {
       .catch(error => ({ error: error.message, data: null }));
   },
 
-  getSeasons: code =>
+  getSeasons: (code: number): ApiPromise =>
     api
       .get('tvseries', { code })
       .then(result => {
         if (!result.data.tvseries) {
           return { error: "API didn't found the TV show", data: null };
         }
-        const data = Allocine.removeDynamicData('statistics', result.data.tvseries.season);
+        const data: Array<Object> = Allocine.removeDynamicData(
+          'statistics',
+          result.data.tvseries.season,
+        );
         return {
           error: null,
           data,
         };
       })
       .catch(error => ({ error: error.message, data: null })),
-
-  class: api,
 };

@@ -1,10 +1,11 @@
+/* @flow */
 import uuid from 'uuid';
 
 export default class Identity {
-  static lastId = 0;
-  static forcedIds = [];
+  static lastId: string = 'xxx';
+  static forcedIds: Array<string> = [];
 
-  static newid() {
+  static newid(): string {
     if (this.forcedIds.length > 0) {
       this.lastId = this.forcedIds.shift();
     } else {
@@ -13,11 +14,11 @@ export default class Identity {
     return this.lastId;
   }
 
-  static id() {
+  static id(): string {
     return this.lastId;
   }
 
-  static forceId(ids) {
+  static forceId(ids: string | Array<string>): string | Array<string> {
     if (!Array.isArray(ids)) {
       this.forcedIds = [ids];
       return ids;

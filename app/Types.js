@@ -49,3 +49,15 @@ export type Message = {
   level: string,
   text: string,
 };
+
+export type ApiResponse =
+  | {
+      error: null,
+      data: Array<Object>,
+    }
+  | {
+      error: string,
+      data: null,
+    };
+
+export type ApiPromise = Promise<ApiResponse>;

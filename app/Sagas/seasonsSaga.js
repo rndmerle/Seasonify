@@ -1,30 +1,32 @@
+/* @flow */
 import { call, fork, put, select } from 'redux-saga/effects';
 
+import type { Tvshow, ApiResponse } from 'Types';
 import ui from 'State/uiState';
 import tv from 'State/tvshowState';
 
-export function* seasonsRefresh(api, { id, silent = false }) {
+export function* seasonsRefresh(
+  api: Object,
+  { id, silent = false }: { id: string, silent: boolean },
+): Generator<*, *, *> {
   if (!silent) yield put(ui.actions.spinnerShow());
-  const tvshow = yield select(tv.selectors.getTvshow, id);
-  const response = yield call(api.getSeasons, tvshow.allocine);
-  if (response.error) {
-    yield put(tv.actions.seasonsFail());
-    yield put(ui.actions.messageToast('error', response.error));
-  } else {
+  const tvshow: Tvshow = yield select(tv.selectors.getTvshow, id);
+  const response: ApiResponse = yield call(api.getSeasons, tvshow.allocine);
+
+  if (response.data !== null) {
     if (!silent) {
-      yield fork(
-        _informIfNewSeason,
-        Object.keys(tvshow.seasons).length,
-        Object.keys(response.data).length,
-      );
+      yield fork(_informIfNewSeason, Object.keys(tvshow.seasons).length, response.data.length);
     }
     yield put(tv.actions.seasonsSuccess(tvshow.id, response.data));
+  } else {
+    yield put(tv.actions.seasonsFail());
+    yield put(ui.actions.messageToast('error', response.error));
   }
   if (!silent) yield put(ui.actions.spinnerHide());
 }
 
-function* _informIfNewSeason(countBefore, countAfter) {
-  const nbNewSeasons = countAfter - countBefore;
+function* _informIfNewSeason(countBefore: number, countAfter: number) {
+  const nbNewSeasons: number = countAfter - countBefore;
   if (nbNewSeasons > 0) {
     yield put(
       ui.actions.messageToast(

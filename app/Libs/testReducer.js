@@ -1,6 +1,12 @@
+/* @flow */
 import deepFreeze from 'deep-freeze';
 
-export default function testReducer(reducer, init, action, expectedState) {
+export default function testReducer(
+  reducer: Function,
+  init: Object,
+  action: Object | Array<Object>,
+  expectedState: Object,
+) {
   const initialState = reducer(undefined, {});
   deepFreeze(initialState);
   deepFreeze(expectedState);
@@ -9,20 +15,20 @@ export default function testReducer(reducer, init, action, expectedState) {
   else if (typeof initialState === 'object') stateType = 'object';
 
   // if single action, still put in an array
-  const actions = Array.isArray(action) ? action : [action];
+  const actions: Array<Object> = Array.isArray(action) ? action : [action];
 
   let reduceStarter;
   if (stateType === 'array') reduceStarter = [...initialState, ...init];
   else if (stateType === 'object') reduceStarter = { ...initialState, ...init };
 
   // run all the actions/reducers and combine de states. We've to account for the fact that the initialState can be a literal, an object or an object
-  const finalState = Object.keys(actions).reduce(
-    (state, key) => reducer(state, actions[key]),
-    reduceStarter,
-  );
+  const finalState = actions.reduce((state, act) => reducer(state, act), reduceStarter);
 
+  // $FlowExpectedError (expect)
   if (stateType === 'array') expect(finalState).toEqual([...initialState, ...expectedState]);
   else if (stateType === 'object') {
+    // $FlowExpectedError (expect)
     expect(finalState).toEqual({ ...initialState, ...expectedState });
+    // $FlowExpectedError (expect)
   } else expect(finalState).toEqual(expectedState);
 }

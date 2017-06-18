@@ -1,5 +1,8 @@
+/* @flow */
+import type { ApiResponse } from 'Types';
+
 export default {
-  searchTvshows: query => {
+  searchTvshows: (query: string): ApiResponse => {
     if (query.trim() === '') {
       return { error: null, data: [] };
     }
@@ -9,7 +12,7 @@ export default {
     };
   },
 
-  getSeasons: () => ({
+  getSeasons: (): ApiResponse => ({
     error: null,
     data: require('Fixtures/apiSeasonsDeadwood.json'),
   }),
