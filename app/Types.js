@@ -14,42 +14,6 @@ export type HeaderTextButton = {
 };
 export type HeaderButton = HeaderIconButton | HeaderTextButton;
 
-export type Season = {
-  id: string,
-  allocine: number,
-  year: number,
-  episodes: number,
-};
-export type Seasons = {
-  [id: string]: Season,
-};
-
-export type Tvshow = {
-  id: string,
-  allocine: number,
-  name: string,
-  year: number,
-  localizedName?: string,
-  poster?: string,
-  seasons: Seasons | {},
-};
-export type Tvshows = {
-  [id: string]: Tvshow,
-};
-
-export type Friend = {
-  id: string,
-  name: string,
-};
-export type Friends = {
-  [id: string]: Friend,
-};
-
-export type Message = {
-  level: string,
-  text: string,
-};
-
 export type ApiResponse =
   | {
       error: null,
@@ -61,3 +25,43 @@ export type ApiResponse =
     };
 
 export type ApiPromise = Promise<ApiResponse>;
+
+export type Season = {
+  id: string,
+  allocine: number,
+  year: number,
+  episodes: number,
+};
+export type Seasons = {
+  [id: string]: Season,
+};
+
+export type Uuid = {
+  id: string,
+};
+
+export type TvshowWithoutID = {
+  allocine: number,
+  name: string,
+  year: number,
+  localizedName?: string,
+  poster?: string,
+  seasons: Seasons | {},
+};
+export type Tvshow = TvshowWithoutID & Uuid;
+export type Tvshows = {
+  [id: string]: Tvshow,
+};
+
+export type FriendWithoutID = {
+  name: string,
+};
+export type Friend = FriendWithoutID & Uuid;
+export type Friends = {
+  [id: string]: Friend,
+};
+
+export type Message = {
+  level: string,
+  text: string,
+};

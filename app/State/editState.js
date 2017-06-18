@@ -1,4 +1,16 @@
+/* @flow */
 import { createReducer, createActions } from 'reduxsauce';
+
+export type State = {
+  isEditing: boolean,
+  editedObject: Object,
+};
+export type FullState = { edit: State };
+
+export const INITIAL_STATE: State = {
+  isEditing: false,
+  editedObject: {},
+};
 
 const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
@@ -8,19 +20,21 @@ const { Types: types, Creators } = createActions({
 });
 
 /* ========== REDUCERS ========== */
-export const editStart = state => ({ ...state, isEditing: true });
+export const editStart = (state: State): State => ({ ...state, isEditing: true });
 
-export const editEnd = state => ({ ...state, editedObject: {}, isEditing: false });
+export const editEnd = (state: State): State => ({
+  ...state,
+  editedObject: {},
+  isEditing: false,
+});
 
-export const editUpdate = (state, { editedObject }) => ({
+export const editUpdate = (
+  state: State,
+  { editedObject }: { editedObject: Object },
+): State => ({
   ...state,
   editedObject: { ...state.editedObject, ...editedObject },
 });
-
-export const INITIAL_STATE = {
-  isEditing: false,
-  editedObject: {},
-};
 
 export const reducer = createReducer(INITIAL_STATE, {
   [types.EDIT_START]: editStart,
@@ -31,8 +45,8 @@ export const reducer = createReducer(INITIAL_STATE, {
 /* ========== SELECTORS ========== */
 
 const selectors = {
-  isEditing: state => state.edit.isEditing,
-  editedObject: state => state.edit.editedObject,
+  isEditing: (state: FullState): boolean => state.edit.isEditing,
+  editedObject: (state: FullState): Object => state.edit.editedObject,
 };
 
 /* ========== EXPORTS ========== */
