@@ -18,6 +18,11 @@
     "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache"
   },
+  "pre-commit": [
+    "flow",
+    "lint",
+    "test",
+  ],
   "dependencies": {
     "axios": "~0.16.2",
     "babel-plugin-module-resolver": "^2.7.1",
@@ -53,6 +58,7 @@
     "flow-bin": "^0.47.0",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
+    "pre-commit": "^1.2.2",
     "react-dom": "^15.5.4",
     "react-native-debugger-open": "^0.3.11",
     "react-test-renderer": "^15.5.4",

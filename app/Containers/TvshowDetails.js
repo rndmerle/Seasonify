@@ -1,5 +1,5 @@
 /* @flow */
-import { Col, Container, Content, Grid, View } from 'native-base';
+import { Col, Container, Content, Grid } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 

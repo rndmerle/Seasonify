@@ -1,5 +1,3 @@
-import { Metrics } from 'Themes';
-
 export default {
   nextToFAB: {
     position: 'absolute',
