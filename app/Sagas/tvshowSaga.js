@@ -1,3 +1,4 @@
+/* @flow */
 import { put } from 'redux-saga/effects';
 
 import type { Tvshow } from 'Types';

@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Rendering on default screen should render as PORTRAIT 1`] = `
+<Image
+  orientation="PORTRAIT"
+  resizeMethod="scale"
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "http://somewhere.net/poster.jpg",
+    }
+  }
+  style={
+    Object {
+      "height": 380,
+      "width": 285,
+    }
+  }
+/>
+`;
+
+exports[`Rendering on landscape screen should render as LANDSCAPE 1`] = `
+<Image
+  orientation="LANDSCAPE"
+  resizeMethod="scale"
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "http://somewhere.net/poster.jpg",
+    }
+  }
+  style={
+    Object {
+      "height": 638.4,
+      "width": 478.8,
+    }
+  }
+/>
+`;
+
 exports[`Rendering should render 1`] = `
 <Image
   resizeMethod="scale"

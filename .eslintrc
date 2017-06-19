@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
   "plugins": [
     "react",
+    "react-native",
     "jsx-a11y",
     "import",
     "flowtype"
@@ -34,11 +35,23 @@
       "Generator": true,
       "objectValues": true,
     },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended",
+    "airbnb"
+  ],
   "rules": {
-        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-        "react/prop-types": ["warn", {skipUndeclared: true}], # only when an incomplete proptypes
-        "arrow-parens": ["error", "as-needed", { "requireForBlockBody": false }],
+        #### Basic rules ####
+        "global-require": 0, # Used by webpack isomorphic tools and React Native.
+        "arrow-parens": 0, # Does not work with Flow generic types.
+        "import/prefer-default-export": 0, # Nah. Actions can have just one action.
+        "jsx-a11y/anchor-has-content": 0, # Does not work with new components.
+        "no-mixed-operators": 0, # Prettier sorts it
+        "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
+        "import/no-named-as-default": 0, # Not nice to component recomposition / HOC'ing
+        "no-underscore-dangle": 0, # I'll use it sparingly, I promise
+        "no-confusing-arrow": 0, # Not confusiont to me :(
+        "import/no-extraneous-dependencies": 0, # I put dev tools int dev dependencies
         "no-console": ["warn", { allow: ["disableYellowBox", "ignoredYellowBox", "tron"] }],
         "no-use-before-define": [ "error", {
             "functions": false,
@@ -55,7 +68,17 @@
             "ignoreTemplateLiterals": true
           }
         ],
-        # Switching from error to warn
+
+        #### React ####
+        "react/prop-types": ["warn", {skipUndeclared: true}], # only when an incomplete proptypes
+        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+        "react/jsx-closing-bracket-location": 0, // Prettier does it
+        "react/require-default-props": 0, # might reactivate if they support default declaration in ES6 destructured params
+        "react/no-unused-prop-types": 0, # Seems it doesn't detect destructured props being used
+        "react-native/no-unused-styles": ["error"],
+        "react-native/split-platform-components": ["error"],
+
+        #### Switching from error to warn ####
         "indent": ["warn"],
         "quotes": ["warn"],
         "comma-dangle": ["warn"],
@@ -76,15 +99,5 @@
         "semi": ["warn"],
         "spaced-comment": ["warn"],
         "space-before-function-paren": ["warn"],
-        # Deactivating
-        "import/no-named-as-default": 0,
-        "no-underscore-dangle": 0,
-        "no-case-declarations": 0,
-        "global-require": 0,
-        "import/prefer-default-export": 0,
-        "no-mixed-operators": 0,
-        "import/no-extraneous-dependencies": 0,
-        "react/require-default-props": 0, # might reactivate if they support default declaration in ES6 destructured params
-        "react/no-unused-prop-types": 0, # Seems it doesn't detect destructured props being used
   }
 }

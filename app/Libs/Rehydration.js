@@ -3,7 +3,7 @@ import { persistStore } from 'redux-persist';
 import PersistConfig from 'Config/PersistConfig';
 import ui from 'State/uiState';
 
-const updateReducers = (store: Object) => {
+const updateReducers = store => {
   const reducerVersion = PersistConfig.reducerVersion;
   const config = PersistConfig.storeConfig;
   const start = () => store.dispatch(ui.actions.startup());

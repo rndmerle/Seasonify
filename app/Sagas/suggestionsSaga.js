@@ -1,3 +1,4 @@
+/* @flow */
 import { call, put } from 'redux-saga/effects';
 
 import type { ApiResponse } from 'Types';

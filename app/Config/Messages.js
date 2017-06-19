@@ -1,10 +1,11 @@
+/* @flow */
 const baseDuration = 3000;
 
 const defaults: {
   text: string,
   position: string,
   buttonText: string,
-  duraction: number,
+  duration: number,
 } = {
   text: '',
   position: 'bottom',
