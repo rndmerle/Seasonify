@@ -40,6 +40,7 @@ export function TvshowAdd({
 
   const onPressSuggestion = suggestionKey => {
     tvshowAddWithSeasons(suggestions[suggestionKey]);
+    /* istanbul ignore next */
     if (input) {
       input.wrappedInstance.clear();
       input.wrappedInstance.focus();
@@ -56,7 +57,7 @@ export function TvshowAdd({
               onChangeText={onChangeName}
               autoFocus
               autoCapitalize="words"
-              ref={ref => (input = ref)}
+              ref={/* istanbul ignore next */ ref => (input = ref)}
             />
           </Item>
         </Form>

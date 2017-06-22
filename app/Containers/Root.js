@@ -23,9 +23,11 @@ type Props = {
 
 export class Root extends React.Component<void, Props, void> {
   componentDidMount() {
+    /* istanbul ignore next */
     if (!PersistConfig.active) {
       this.props.startup();
     }
+    /* istanbul ignore next */
     if (DebugConfig.PerfMonitor) {
       PerfMonitor.toggle();
       setTimeout(() => {

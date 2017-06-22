@@ -18,7 +18,11 @@ export const App = () =>
     <Root />
   </Provider>);
 
-// Reactotron overlay. $FlowExpectedError
-const AppWithBenefits = DebugConfig.useReactotron ? console.tron.overlay(App) : App;
+// Reactotron overlay
+/* istanbul ignore next */
+const AppWithBenefits = DebugConfig.useReactotron
+  ? /* $FlowExpectedError */
+    console.tron.overlay(App)
+  : App;
 
 export default AppWithBenefits;

@@ -16,6 +16,7 @@ import * as seasonsSaga from './seasonsSaga';
 
 /* ------------- API/Fixtures ------------- */
 
+/* istanbul ignore next */
 const api = DebugConfig.useFixtures ? apiFixtures : apiAllocine;
 
 /* ------------- Connect Types To Sagas ------------- */

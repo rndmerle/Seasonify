@@ -31,6 +31,7 @@ module.exports = {
     ],
     'redux-saga-test-plan': ['expectSaga'],
   },
+  logLevel: 'info', // debug
   globals: ['jest', 'shallow', 'console', 'expect', 'describe', 'it', 'test'],
   importDevDependencies: ({ pathToCurrentFile }) => testFilePattern.test(pathToCurrentFile),
   moduleNameFormatter({ moduleName, pathToCurrentFile }) {
@@ -38,9 +39,7 @@ module.exports = {
     // if (/-test/.test(pathToCurrentFile)) {
     //   moduleName `mocks/${moduleName}`;
     // }
-    // back-slashes to slashes (remove the rule after importjs update)
-    newModuleName = newModuleName.replace(antiSlashesPattern, '/');
-    // remove app when absolute importing
+    /* remove app when absolute importing */
     newModuleName = newModuleName.replace(appPrefixPattern, '');
     return newModuleName;
   },

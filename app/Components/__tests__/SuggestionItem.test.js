@@ -7,7 +7,7 @@ function setup(specificProps = {}) {
     poster: 'http://url//poster.jpg',
     title: 'Deadwood',
     subtitle: '2004',
-    alreadyAdded: false,
+    // alreadyAdded: false,
     onPress: jest.fn(),
     ...specificProps,
   };
@@ -26,6 +26,11 @@ describe('Rendering', () => {
 
   it('should render, when no poster', () => {
     const { component } = setup({ poster: undefined });
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render, when no subtitle', () => {
+    const { component } = setup({ subtitle: undefined });
     expect(component).toMatchSnapshot();
   });
 

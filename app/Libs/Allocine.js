@@ -69,6 +69,7 @@ export class Allocine {
 
   get = (method: string, options: Object): Promise<*> => {
     const path: string = this.buildPath(method, options);
+    /* istanbul ignore next */
     if (DebugConfig.logApiCallToConsole) {
       console.log('Allocine call: ', this.config.apiHostName + path); // eslint-disable-line no-console
     }

@@ -99,3 +99,36 @@ exports[`Rendering should render, when no poster 1`] = `
   </Styled(ListItem)>
 </Styled(ViewNB)>
 `;
+
+exports[`Rendering should render, when no subtitle 1`] = `
+<Styled(ViewNB)>
+  <Styled(ListItem)
+    avatar={true}
+    onPress={[Function]}
+  >
+    <Styled(Left)>
+      <Styled(Thumbnail)
+        source={
+          Object {
+            "uri": "http://url//poster.jpg",
+          }
+        }
+        square={true}
+      />
+    </Styled(Left)>
+    <Styled(Body)>
+      <Styled(Text)>
+        Deadwood
+      </Styled(Text)>
+      <Styled(Text)
+        note={true}
+      />
+    </Styled(Body)>
+    <Styled(Right)>
+      <Styled(Icon)
+        name="add-circle"
+      />
+    </Styled(Right)>
+  </Styled(ListItem)>
+</Styled(ViewNB)>
+`;

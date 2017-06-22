@@ -21,6 +21,7 @@ export function TvshowList({ navigation, tvshows }: { navigation: Object, tvshow
     navigation.navigate('TvshowAddPage');
   };
 
+  /* istanbul ignore next */
   const renderItem = ({ item: tvshow }) =>
     (<TvshowItem
       tvshowId={tvshow.id}
@@ -41,7 +42,7 @@ export function TvshowList({ navigation, tvshows }: { navigation: Object, tvshow
           initialNumberToRender={11}
           data={tvshows}
           extraData={tvshowKeys}
-          getItemCount={data => Object.keys(data).length}
+          getItemCount={/* istanbul ignore next */ data => Object.keys(data).length}
           getItem={getItem}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
