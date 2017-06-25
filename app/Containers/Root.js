@@ -1,14 +1,15 @@
 /* @flow */
-import React from 'react';
-import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
 import { Container } from 'native-base';
 import { connect } from 'react-redux';
+import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
+import React from 'react';
 
-import navigationLogging from 'Libs/Logging';
-import PersistConfig from 'Config/PersistConfig';
 import DebugConfig from 'Config/DebugConfig';
 import DrawerNavigation from 'Navigation/DrawerNavigation';
+import PersistConfig from 'Config/PersistConfig';
+import navigationLogging from 'Libs/Logging';
 import ui from 'State/uiState';
+
 import ToastMessage from './ToastMessage';
 
 const mapStateToProps = null; // state => ({});

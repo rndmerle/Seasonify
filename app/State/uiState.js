@@ -1,8 +1,8 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
 
-import tvshowsNormalizer from 'Normalizers/tvshowsNormalizer';
 import type { Message, TvshowWithoutID } from 'Types';
+import tvshowsNormalizer from 'Normalizers/tvshowsNormalizer';
 
 export type State = {
   spinner: boolean,

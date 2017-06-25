@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import Reactotron, { overlay, trackGlobalErrors } from 'reactotron-react-native';
 import { reactotronRedux } from 'reactotron-redux';
+import Reactotron, { overlay, trackGlobalErrors } from 'reactotron-react-native';
 import sagaPlugin from 'reactotron-redux-saga';
 
 import Config from './DebugConfig';

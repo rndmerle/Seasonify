@@ -1,6 +1,6 @@
 /* @flow */
-import React from 'react';
 import { Header, Title, Button, Left, Right, Body, Icon } from 'native-base';
+import React from 'react';
 
 export default function HeaderRoot({
   title,

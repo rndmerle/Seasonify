@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SuggestionItem from '../SuggestionItem';
 
 function setup(specificProps = {}) {

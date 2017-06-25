@@ -1,4 +1,5 @@
 import testReducer from 'Libs/testReducer';
+
 import friend, { reducer, INITIAL_STATE } from '../friendState';
 
 describe('Reducer', () => {

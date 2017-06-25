@@ -3,8 +3,8 @@ import { Col, Container, Content, Grid } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
-import type { Tvshow } from 'Types';
 import { Metrics } from 'Themes';
+import type { Tvshow } from 'Types';
 import Poster from 'Components/Poster';
 import SeasonList from 'Components/SeasonList';
 import SingleFAB from 'Components/SingleFAB';

@@ -1,13 +1,13 @@
 /* @flow */
-import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
+import React from 'react';
 
 import type { Tvshow } from 'Types';
-import ui from 'State/uiState';
-import tv from 'State/tvshowState';
-import editState from 'State/editState';
 import HeaderModular from 'Components/HeaderModular';
+import editState from 'State/editState';
+import tv from 'State/tvshowState';
+import ui from 'State/uiState';
 
 const mapStateToProps = (state, ownProps) => ({
   isEditing: editState.selectors.isEditing(state),

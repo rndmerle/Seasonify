@@ -1,7 +1,6 @@
-import { call, select } from 'redux-saga/effects';
-
-import { expectSaga } from 'redux-saga-test-plan';
 // import * as matchers from 'redux-saga-test-plan/matchers';
+import { call, select } from 'redux-saga/effects';
+import { expectSaga } from 'redux-saga-test-plan';
 
 import Identity from 'Libs/Identity';
 import api from 'Libs/Allocine';

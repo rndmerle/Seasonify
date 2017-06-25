@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TvshowDetails } from '../TvshowDetails';
 
 function setup(specificProps = {}) {

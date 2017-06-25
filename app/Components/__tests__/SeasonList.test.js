@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SeasonList from '../SeasonList';
 
 function setup(specificProps = {}) {

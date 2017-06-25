@@ -1,4 +1,5 @@
 import testReducer from 'Libs/testReducer';
+
 import edit, { reducer, INITIAL_STATE } from '../editState';
 
 describe('Reducer', () => {

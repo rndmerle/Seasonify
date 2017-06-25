@@ -1,6 +1,6 @@
 /* @flow */
-import React from 'react';
 import { ListItem, Text } from 'native-base';
+import React from 'react';
 
 type Friend = {
   name: string,

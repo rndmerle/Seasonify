@@ -1,6 +1,6 @@
 /* @flow */
-import React from 'react';
 import { View, ListItem, Left, Body, Right, Thumbnail, Text, Icon, Button } from 'native-base';
+import React from 'react';
 
 export default function SuggestionItem({
   suggestionKey,

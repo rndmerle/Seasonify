@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SingleFAB from '../SingleFAB';
 
 function setup(specificProps = {}) {

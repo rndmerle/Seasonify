@@ -1,10 +1,10 @@
-import React from 'react';
 import { Icon } from 'native-base';
 import { StackNavigator } from 'react-navigation';
+import React from 'react';
 
-import TvshowList from 'Containers/TvshowList';
 import TvshowAdd from 'Containers/TvshowAdd';
 import TvshowDetails from 'Containers/TvshowDetails';
+import TvshowList from 'Containers/TvshowList';
 
 const TvshowNavigation = StackNavigator(
   {

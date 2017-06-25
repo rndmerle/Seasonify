@@ -1,13 +1,13 @@
 /* @flow */
-import React from 'react';
-import { connect } from 'react-redux';
-import { Keyboard } from 'react-native';
 import { Container, Content, Form, Label, Item, Input, Icon } from 'native-base';
+import { Keyboard } from 'react-native';
+import { connect } from 'react-redux';
+import React from 'react';
 
 import type { Friend } from 'Types';
+import HeaderModular from 'Components/HeaderModular';
 import friendState from 'State/friendState';
 import ui from 'State/uiState';
-import HeaderModular from 'Components/HeaderModular';
 
 const mapStateToProps = null; // state => ({});
 

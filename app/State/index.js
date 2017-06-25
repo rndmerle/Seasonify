@@ -9,6 +9,7 @@ import DebugConfig from 'Config/DebugConfig';
 import PersistConfig from 'Config/PersistConfig';
 import Rehydration from 'Libs/Rehydration';
 import rootSaga from 'Sagas/rootSaga';
+
 import { reducer as editReducer } from './editState';
 import { reducer as friendReducer } from './friendState';
 import { reducer as tvshowReducer } from './tvshowState';

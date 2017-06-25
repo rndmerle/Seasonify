@@ -1,7 +1,7 @@
 /* @flow */
-import React from 'react';
-import { connect } from 'react-redux';
 import { Container, Content, List } from 'native-base';
+import { connect } from 'react-redux';
+import React from 'react';
 
 import type { Friends } from 'Types';
 import FriendItem from 'Components/FriendItem';

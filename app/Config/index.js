@@ -1,4 +1,5 @@
 import React from 'react';
+
 import DebugConfig from './DebugConfig';
 
 export default () => {

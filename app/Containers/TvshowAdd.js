@@ -1,14 +1,14 @@
 /* @flow */
-import React from 'react';
-import { connect } from 'react-redux';
 import { Container, Content, Form, Label, Input, Item, List } from 'native-base';
+import { connect } from 'react-redux';
+import React from 'react';
 import debounce from 'throttle-debounce/debounce';
 
 import type { Tvshow } from 'Types';
-import tv from 'State/tvshowState';
-import ui from 'State/uiState';
 import HeaderModular from 'Components/HeaderModular';
 import SuggestionItem from 'Components/SuggestionItem';
+import tv from 'State/tvshowState';
+import ui from 'State/uiState';
 
 const mapStateToProps = state => ({
   suggestions: ui.selectors.getSuggestions(state),

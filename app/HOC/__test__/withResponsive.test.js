@@ -1,5 +1,6 @@
-import React from 'react';
 import { Dimensions } from 'react-native';
+import React from 'react';
+
 import withResponsive from '../withResponsive';
 
 Dimensions.get = jest.fn().mockReturnValue({

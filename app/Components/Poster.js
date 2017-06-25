@@ -2,8 +2,8 @@
 import { Image } from 'react-native';
 import React from 'react';
 
-import withResponsive from 'HOC/withResponsive';
 import Metrics from 'Themes/Metrics';
+import withResponsive from 'HOC/withResponsive';
 
 const enhance = withResponsive;
 

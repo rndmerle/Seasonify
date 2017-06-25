@@ -1,8 +1,8 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
 
-import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 import type { Tvshow, Tvshows, Seasons } from 'Types';
+import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 
 export type State = Tvshows;
 export type FullState = { tvshows: State };

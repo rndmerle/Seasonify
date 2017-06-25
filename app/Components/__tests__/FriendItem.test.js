@@ -1,4 +1,5 @@
 import React from 'react';
+
 import FriendItem from '../FriendItem';
 
 function setup(specificProps = {}) {

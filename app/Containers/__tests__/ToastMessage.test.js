@@ -1,6 +1,8 @@
-import React from 'react';
 import { Toast } from 'native-base';
+import React from 'react';
+
 import Messages from 'Config/Messages';
+
 import { ToastMessage } from '../ToastMessage';
 
 function setup(specificProps = {}) {

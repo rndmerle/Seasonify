@@ -1,11 +1,11 @@
 /* @flow */
-import React from 'react';
-import { connect } from 'react-redux';
 import { Toast } from 'native-base';
+import { connect } from 'react-redux';
+import React from 'react';
 
 import type { Message } from 'Types';
-import ui from 'State/uiState';
 import Messages from 'Config/Messages';
+import ui from 'State/uiState';
 
 const mapStateToProps = state => ({
   message: ui.selectors.getMessage(state),

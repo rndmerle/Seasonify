@@ -1,6 +1,6 @@
 /* @flow */
-import React from 'react';
 import { Fab, Icon } from 'native-base';
+import React from 'react';
 
 export default function SingleFAB({ icon, onPress }: { icon: string, onPress: Function }) {
   return (

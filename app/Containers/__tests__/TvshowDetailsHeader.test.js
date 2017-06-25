@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TvshowDetailsHeader } from '../TvshowDetailsHeader';
 
 function setup(specificProps = {}) {

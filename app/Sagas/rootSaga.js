@@ -4,23 +4,19 @@ import apiFixtures from 'Libs/apiFixtures';
 import DebugConfig from 'Config/DebugConfig';
 
 /* ------------- Types ------------- */
-
 import ui from 'State/uiState';
 import tv from 'State/tvshowState';
 
 /* ------------- Sagas ------------- */
-
 import * as suggestionsSaga from './suggestionsSaga';
 import * as tvshowSaga from './tvshowSaga';
 import * as seasonsSaga from './seasonsSaga';
 
 /* ------------- API/Fixtures ------------- */
-
 /* istanbul ignore next */
 const api = DebugConfig.useFixtures ? apiFixtures : apiAllocine;
 
 /* ------------- Connect Types To Sagas ------------- */
-
 export default function* rootSaga() {
   yield all([
     takeLatest(ui.types.SUGGESTIONS_REQUEST, suggestionsSaga.suggestionsRequest, api),

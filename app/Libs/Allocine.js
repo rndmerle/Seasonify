@@ -3,8 +3,8 @@
 import axios from 'axios';
 import jshashes from 'jshashes';
 
-import DebugConfig from 'Config/DebugConfig';
 import type { ApiResponse, ApiPromise } from 'Types';
+import DebugConfig from 'Config/DebugConfig';
 
 // DOC : https://wiki.gromez.fr/dev/api/allocine_v3
 export class Allocine {

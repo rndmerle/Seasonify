@@ -1,4 +1,5 @@
 import React from 'react';
+
 import HeaderModular from '../HeaderModular';
 
 function setup(specificProps = {}) {

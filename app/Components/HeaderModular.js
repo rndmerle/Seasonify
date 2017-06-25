@@ -1,7 +1,8 @@
 /* @flow */
-import React from 'react';
-import { Keyboard } from 'react-native';
 import { Header, Title, Left, Right, Body, Button, Icon, Text } from 'native-base';
+import { Keyboard } from 'react-native';
+import React from 'react';
+
 import type { HeaderButton } from 'Types';
 
 export default function HeaderModular({

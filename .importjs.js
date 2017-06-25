@@ -32,8 +32,8 @@ module.exports = {
     'redux-saga-test-plan': ['expectSaga'],
   },
   logLevel: 'info', // debug
+  importDevDependencies: true,
   globals: ['jest', 'shallow', 'console', 'expect', 'describe', 'it', 'test'],
-  importDevDependencies: ({ pathToCurrentFile }) => testFilePattern.test(pathToCurrentFile),
   moduleNameFormatter({ moduleName, pathToCurrentFile }) {
     newModuleName = moduleName;
     // if (/-test/.test(pathToCurrentFile)) {

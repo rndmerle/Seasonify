@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import { persistStore } from 'redux-persist';
+
 import PersistConfig from 'Config/PersistConfig';
 import ui from 'State/uiState';
 

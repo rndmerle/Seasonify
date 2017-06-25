@@ -1,6 +1,6 @@
 /* @flow */
-import React from 'react';
 import { Content, Form, Item, Input, Icon, List, ListItem, Text } from 'native-base';
+import React from 'react';
 
 export default function TvshowSheet({
   name,

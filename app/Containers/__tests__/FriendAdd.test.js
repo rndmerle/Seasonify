@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FriendAdd } from '../FriendAdd';
 
 function setup(specificProps = {}) {

@@ -1,7 +1,9 @@
+import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
 import React from 'react';
-import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf'; // eslint-disable-line no-unused-vars
-import PersistConfig from 'Config/PersistConfig';
+
 import DebugConfig from 'Config/DebugConfig';
+import PersistConfig from 'Config/PersistConfig';
+
 import { Root } from '../Root';
 
 function setup(specificProps = {}) {
