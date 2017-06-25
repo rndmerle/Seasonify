@@ -15,16 +15,17 @@ import tv from 'State/tvshowState';
 import Loading from './Loading';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
 
-const mapStateToProps = (state, ownProps) => ({
-  tvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
-  isEditing: editState.selectors.isEditing(state),
-  editedObject: editState.selectors.editedObject(state),
-});
-
-const mapActionsToProps = {
-  editUpdate: editState.actions.editUpdate,
-  seasonsRefresh: tv.actions.seasonsRefresh,
-};
+const enhance = connect(
+  (state, ownProps) => ({
+    tvshow: tv.selectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
+    isEditing: editState.selectors.isEditing(state),
+    editedObject: editState.selectors.editedObject(state),
+  }),
+  {
+    editUpdate: editState.actions.editUpdate,
+    seasonsRefresh: tv.actions.seasonsRefresh,
+  },
+);
 
 export function TvshowDetails({
   navigation,
@@ -57,7 +58,7 @@ export function TvshowDetails({
         <Content>
           <Grid>
             <Col size={Metrics.columnLeft}>
-              <Poster url={tvshow.poster} />
+              {tvshow.poster && <Poster url={tvshow.poster} />}
             </Col>
             <Col size={Metrics.columnRight}>
               <TvshowSheet
@@ -89,4 +90,4 @@ TvshowDetails.navigationOptions = ({ navigation }) => ({
   ),
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowDetails);
+export default enhance(TvshowDetails);

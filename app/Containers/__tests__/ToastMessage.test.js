@@ -3,7 +3,7 @@ import React from 'react';
 
 import Messages from 'Config/Messages';
 
-import { ToastMessage } from '../ToastMessage';
+import { ToastMessage, componentWillReceiveProps } from '../ToastMessage';
 
 function setup(specificProps = {}) {
   const props = {
@@ -19,13 +19,13 @@ function setup(specificProps = {}) {
 }
 
 describe('componentWillReceiveProps with a message', () => {
-  const { component, props } = setup();
+  const { props } = setup();
   const fakeDuration = 5;
   beforeEach(() => {
     Toast.show = jest.fn();
     jest.useFakeTimers();
     Messages[props.message.level] = { duration: fakeDuration };
-    component.instance().componentWillReceiveProps(props);
+    componentWillReceiveProps(props);
   });
 
   it('should display a Toast with the message', () => {
@@ -40,11 +40,11 @@ describe('componentWillReceiveProps with a message', () => {
 });
 
 describe('componentWillReceiveProps WITHOUT a message', () => {
-  const { component, props } = setup({ message: null });
+  const { props } = setup({ message: null });
   beforeEach(() => {
     Toast.show = jest.fn();
     jest.useFakeTimers();
-    component.instance().componentWillReceiveProps(props);
+    componentWillReceiveProps(props);
   });
 
   it('shouldnt display a Toast', () => {

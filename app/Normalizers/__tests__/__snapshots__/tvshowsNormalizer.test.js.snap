@@ -4,7 +4,7 @@ exports[`tvshowsNormalizer output should match snapshot 1`] = `
 Array [
   Object {
     "allocine": 8090,
-    "localizedName": "",
+    "localizedName": undefined,
     "name": "Happy Endings",
     "poster": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg",
     "seasons": Object {},
@@ -20,7 +20,7 @@ Array [
   },
   Object {
     "allocine": 4876,
-    "localizedName": "",
+    "localizedName": undefined,
     "name": "Happy Town",
     "poster": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg",
     "seasons": Object {},
@@ -28,7 +28,7 @@ Array [
   },
   Object {
     "allocine": 7391,
-    "localizedName": "",
+    "localizedName": undefined,
     "name": "Happy Tree Friends",
     "poster": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg",
     "seasons": Object {},
@@ -36,9 +36,9 @@ Array [
   },
   Object {
     "allocine": 6417,
-    "localizedName": "",
+    "localizedName": undefined,
     "name": "Happy Lucky Bikkuriman",
-    "poster": "",
+    "poster": undefined,
     "seasons": Object {},
     "year": 2006,
   },

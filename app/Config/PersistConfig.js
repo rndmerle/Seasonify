@@ -2,7 +2,7 @@ import { AsyncStorage } from 'react-native';
 
 export default {
   active: true,
-  reducerVersion: '0.3',
+  reducerVersion: '0.4',
   storeConfig: {
     storage: AsyncStorage,
     // blacklist: ['login', 'search'], // reducer keys NOT stored to persistence

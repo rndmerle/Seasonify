@@ -9,11 +9,12 @@ import HeaderRoot from 'Components/HeaderRoot';
 import SingleFAB from 'Components/SingleFAB';
 import friendState from 'State/friendState';
 
-const mapStateToProps = state => ({
-  friends: friendState.selectors.getFriends(state),
-});
-
-const mapActionsToProps = {};
+const enhance = connect(
+  state => ({
+    friends: friendState.selectors.getFriends(state),
+  }),
+  {},
+);
 
 export function FriendList({ navigation, friends }: { navigation: Object, friends: Friends }) {
   const onFAB = () => {
@@ -37,4 +38,4 @@ FriendList.navigationOptions = ({ navigation }) => ({
   header: <HeaderRoot title="Friends" navigation={navigation} />,
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(FriendList);
+export default enhance(FriendList);

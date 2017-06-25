@@ -10,15 +10,16 @@ import SuggestionItem from 'Components/SuggestionItem';
 import tv from 'State/tvshowState';
 import ui from 'State/uiState';
 
-const mapStateToProps = state => ({
-  suggestions: ui.selectors.getSuggestions(state),
-  codes: tv.selectors.getCodes(state),
-});
-
-const mapActionsToProps = {
-  tvshowAddWithSeasons: tv.actions.tvshowAddWithSeasons,
-  suggestionsRequest: ui.actions.suggestionsRequest,
-};
+const enhance = connect(
+  state => ({
+    suggestions: ui.selectors.getSuggestions(state),
+    codes: tv.selectors.getCodes(state),
+  }),
+  {
+    tvshowAddWithSeasons: tv.actions.tvshowAddWithSeasons,
+    suggestionsRequest: ui.actions.suggestionsRequest,
+  },
+);
 
 export function TvshowAdd({
   // navigation,
@@ -89,4 +90,4 @@ TvshowAdd.navigationOptions = ({ navigation }) => ({
   ),
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowAdd);
+export default enhance(TvshowAdd);

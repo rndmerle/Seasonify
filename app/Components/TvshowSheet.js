@@ -5,7 +5,7 @@ import React from 'react';
 export default function TvshowSheet({
   name,
   year,
-  localizedName = '',
+  localizedName,
   isEditing,
   edit,
   onChangeName,

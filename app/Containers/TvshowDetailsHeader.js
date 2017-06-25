@@ -9,19 +9,20 @@ import editState from 'State/editState';
 import tv from 'State/tvshowState';
 import ui from 'State/uiState';
 
-const mapStateToProps = (state, ownProps) => ({
-  isEditing: editState.selectors.isEditing(state),
-  editedObject: editState.selectors.editedObject(state),
-  tvshow: tv.selectors.getTvshow(state, ownProps.tvshowId),
-});
-
-const mapActionsToProps = {
-  tvshowRemove: tv.actions.tvshowRemove,
-  tvshowUpdate: tv.actions.tvshowUpdate,
-  messageToast: ui.actions.messageToast,
-  editStart: editState.actions.editStart,
-  editEnd: editState.actions.editEnd,
-};
+const enhance = connect(
+  (state, ownProps) => ({
+    isEditing: editState.selectors.isEditing(state),
+    editedObject: editState.selectors.editedObject(state),
+    tvshow: tv.selectors.getTvshow(state, ownProps.tvshowId),
+  }),
+  {
+    tvshowRemove: tv.actions.tvshowRemove,
+    tvshowUpdate: tv.actions.tvshowUpdate,
+    messageToast: ui.actions.messageToast,
+    editStart: editState.actions.editStart,
+    editEnd: editState.actions.editEnd,
+  },
+);
 
 export function TvshowDetailsHeader({
   navigate,
@@ -93,4 +94,4 @@ export function TvshowDetailsHeader({
   );
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowDetailsHeader);
+export default enhance(TvshowDetailsHeader);

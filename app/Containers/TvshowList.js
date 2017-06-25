@@ -10,11 +10,12 @@ import SingleFAB from 'Components/SingleFAB';
 import TvshowItem from 'Components/TvshowItem';
 import tvshowState from 'State/tvshowState';
 
-const mapStateToProps = state => ({
-  tvshows: tvshowState.selectors.getTvshows(state),
-});
-
-const mapActionsToProps = {};
+const enhance = connect(
+  state => ({
+    tvshows: tvshowState.selectors.getTvshows(state),
+  }),
+  {},
+);
 
 export function TvshowList({ navigation, tvshows }: { navigation: Object, tvshows: Tvshows }) {
   const onFAB = () => {
@@ -57,4 +58,4 @@ TvshowList.navigationOptions = ({ navigation }) => ({
   header: <HeaderRoot title="TV Shows" navigation={navigation} />,
 });
 
-export default connect(mapStateToProps, mapActionsToProps)(TvshowList);
+export default enhance(TvshowList);
