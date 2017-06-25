@@ -7,7 +7,7 @@ exports[`Rendering when default state should match 1`] = `
       <ColumnNB
         size={38}
       >
-        <Poster
+        <withResponsive(Poster)
           url="http://poster.png"
         />
       </ColumnNB>
