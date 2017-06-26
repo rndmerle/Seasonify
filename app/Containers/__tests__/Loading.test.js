@@ -5,6 +5,7 @@ import { Loading } from '../Loading';
 function setup(specificProps = {}) {
   const props = {
     isSpinning: false,
+    position: 'nextToFAB',
     color: 'lightblue',
     ...specificProps,
   };

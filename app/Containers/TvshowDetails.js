@@ -74,7 +74,7 @@ export function TvshowDetails({
           <SeasonList seasons={tvshow.seasons} />
         </Content>
         <SingleFAB icon="refresh" onPress={onFAB} />
-        <Loading color="lightblue" />
+        <Loading position="nextToFAB" />
       </Container>
     );
   }

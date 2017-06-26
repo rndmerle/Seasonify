@@ -14,9 +14,17 @@ const enhance = connect(
   {},
 );
 
-export function Loading({ isSpinning, color }: { isSpinning: boolean, color: string }) {
+export function Loading({
+  isSpinning,
+  position = 'centered',
+  color = 'lightblue',
+}: {
+  isSpinning: boolean,
+  position?: string,
+  color?: string,
+}) {
   if (isSpinning) {
-    return <Spinner style={styles.nextToFAB} color={color} />;
+    return <Spinner style={styles[position]} color={color} />;
   }
   return null;
 }
