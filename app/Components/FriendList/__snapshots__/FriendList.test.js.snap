@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering when 2 friends should match 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(List)>
+      <pure(withHandlers(FriendItem))
+        friend={
+          Object {
+            "id": "abc123",
+            "name": "Someone",
+          }
+        }
+        navigate={[Function]}
+      />
+      <pure(withHandlers(FriendItem))
+        friend={
+          Object {
+            "id": "xyz890",
+            "name": "Someone else",
+          }
+        }
+        navigate={[Function]}
+      />
+    </Styled(List)>
+  </Styled(Content)>
+  <pure(SingleFAB)
+    icon="add"
+    onPress={[Function]}
+  />
+</Styled(Container)>
+`;
+
+exports[`Rendering when no friends should match 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(List) />
+  </Styled(Content)>
+  <pure(SingleFAB)
+    icon="add"
+    onPress={[Function]}
+  />
+</Styled(Container)>
+`;

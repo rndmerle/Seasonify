@@ -1,15 +1,18 @@
 import { shallow } from 'enzyme';
+
 import globals from 'Config/globals';
+import until from 'Libs/until';
 
 globals();
-// Make Enzyme functions available in all test files without importing
+
 global.shallow = shallow;
-// global.render = render;
-// global.mount = mount;
-// Fail tests on any warning
-// console.error = message => {
-//   throw new Error(message);
-// };
+
+global.shallowDive = (Component, target, context = {}) => {
+  if (typeof target === 'object') {
+    target = target.displayName;
+  }
+  return shallow(Component, context)::until(target);
+}
 
 global.objectValues = map => Object.values(map);
 
@@ -32,23 +35,3 @@ jest.mock('Linking', () => ({
   canOpenURL: jest.fn(),
   getInitialURL: jest.fn(),
 }));
-
-//
-// jest.mock('./app/Libs/Identity', () => {
-//   const usedIds = require('./app/Fixtures/uuids.json');
-//   const mockId = jest
-//     .fn()
-//     .mockReturnValueOnce(usedIds[0])
-//     .mockReturnValueOnce(usedIds[1])
-//     .mockReturnValueOnce(usedIds[2])
-//     .mockReturnValue(usedIds[3]);
-//   let id = null;
-//   return {
-//     newid: jest.fn().mockImplementation(() => {
-//       id = mockId();
-//       return id;
-//     }),
-//     id: jest.fn().mockImplementation(() => id),
-//     usedIds,
-//   };
-// });

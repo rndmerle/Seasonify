@@ -2,9 +2,9 @@ import { Icon } from 'native-base';
 import { StackNavigator } from 'react-navigation';
 import React from 'react';
 
-import FriendAdd from 'Containers/FriendAdd';
-import FriendDetails from 'Containers/FriendDetails';
-import FriendList from 'Containers/FriendList';
+import FriendAdd from 'Components/FriendAdd';
+import FriendDetails from 'Components/FriendDetails';
+import FriendList from 'Components/FriendList';
 
 const FriendNavigation = StackNavigator(
   {

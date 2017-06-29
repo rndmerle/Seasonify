@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering should show 2 series 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <VirtualizedList
+      data={
+        Object {
+          "abc": Object {
+            "id": "abc",
+            "name": "tvshow1",
+          },
+          "qsd": Object {
+            "id": "qsd",
+            "name": "tvshow2",
+          },
+        }
+      }
+      disableVirtualization={false}
+      extraData={
+        Array [
+          "abc",
+          "qsd",
+        ]
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      initialNumberToRender={11}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onEndReached={[Function]}
+      onEndReachedThreshold={2}
+      removeClippedSubviews={true}
+      renderItem={[Function]}
+      renderScrollComponent={[Function]}
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  </Styled(Content)>
+  <pure(SingleFAB)
+    icon="add"
+    onPress={[Function]}
+  />
+</Styled(Container)>
+`;

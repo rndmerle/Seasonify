@@ -15,7 +15,11 @@ export function* seasonsRefresh(
 
   if (response.data !== null) {
     if (!silent) {
-      yield fork(_informIfNewSeason, Object.keys(tvshow.seasons).length, response.data.length);
+      yield fork(
+        _informIfNewSeason,
+        Object.keys(tvshow.seasons).length,
+        response.data.length,
+      );
     }
     yield put(tv.actions.seasonsSuccess(tvshow.id, response.data));
   } else {

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering when default state should match 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+      >
+        <pure(withResponsive(Poster))
+          url="http://poster.png"
+        />
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+      >
+        <pure(TvshowSheet)
+          edit={Object {}}
+          isEditing={false}
+          localizedName="Une série"
+          name="A tvshow"
+          onChangeName={[Function]}
+          year={2017}
+        />
+      </ColumnNB>
+    </GridNB>
+    <pure(SeasonList)
+      seasons={
+        Object {
+          "allocine": 987,
+          "episodes": 1,
+          "id": "xxx999",
+          "year": 2016,
+        }
+      }
+    />
+  </Styled(Content)>
+  <pure(SingleFAB)
+    icon="refresh"
+    onPress={[Function]}
+  />
+  <Connect(pure(Loading))
+    position="nextToFAB"
+  />
+</Styled(Container)>
+`;
+
+exports[`Rendering when no tvshow should match 1`] = `<Styled(Container) />`;

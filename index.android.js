@@ -2,6 +2,6 @@
 import { AppRegistry } from 'react-native';
 
 import './app/Config/ReactotronConfig';
-import App from './app/Containers/App';
+import App from './app/App';
 
 AppRegistry.registerComponent('Seasonify', () => App);

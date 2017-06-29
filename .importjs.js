@@ -6,7 +6,7 @@ const antiSlashesPattern = /\\/g;
 
 module.exports = {
   aliases: {
-    styles: './styles/{filename}.style',
+    styles: './{filename}.style',
   },
   environments: ({ pathToCurrentFile }) => {
     if (testFilePattern.test(pathToCurrentFile)) {

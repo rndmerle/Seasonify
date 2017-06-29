@@ -31,6 +31,7 @@
       "expect": true,
       "it": true,
       "shallow": true,
+      "shallowDive": true,
       "jasmine": true,
       "Generator": true,
       "objectValues": true,
@@ -47,7 +48,8 @@
         "import/prefer-default-export": 0, # Nah. Actions can have just one action.
         "jsx-a11y/anchor-has-content": 0, # Does not work with new components.
         "no-mixed-operators": 0, # Prettier sorts it
-        "no-shadow": 0, // Shadowing is a nice language feature. Naming is hard.
+        "no-shadow": 0, # Shadowing is a nice language feature. Naming is hard.
+        "no-param-reassign": 0, # Usueful in reduce()
         "import/no-named-as-default": 0, # Not nice to component recomposition / HOC'ing
         "no-underscore-dangle": 0, # I'll use it sparingly, I promise
         "no-confusing-arrow": 0, # Not confusiont to me :(
@@ -59,7 +61,7 @@
             "variables": true
           }
         ],
-        "max-len": [ "error", 95, 2, {
+        "max-len": [ "error", 90, 2, {
             "ignorePattern": "^import.*",
             "ignoreUrls": true,
             "ignoreComments": true,
@@ -81,6 +83,7 @@
         #### Switching from error to warn ####
         "indent": ["warn"],
         "quotes": ["warn"],
+        "space-in-parens": ["warn"],
         "comma-dangle": ["warn"],
         "no-trailing-spaces": ["warn"],
         "no-multiple-empty-lines": ["warn"],

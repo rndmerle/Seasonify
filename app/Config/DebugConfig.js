@@ -13,9 +13,9 @@ export default {
   ],
   reduxLogging: __DEV__,
   navigationLogging: false,
-  whyDidYouUpdate: false,
+  reactWastageMonitor: __DEV__,
   PerfMonitor: false,
-  PerfMonitorSettings: { waitBeforeStart: 0, recordingDuration: 10000 },
+  PerfMonitorSettings: { waitBeforeStart: 5000, recordingDuration: 5000 },
   useReduxDevtoolsExtension: __DEV__,
   useReactotron: false, // adb reverse tcp:9090 tcp:9090
   notImportantLogs: ['Navigation Dispatch', 'Running application'], // Reactotron
