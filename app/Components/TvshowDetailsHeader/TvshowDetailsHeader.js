@@ -4,8 +4,8 @@ import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 import type { Tvshow } from 'Types';
+import { undoActions } from 'State/undoState';
 import HeaderModular from 'Components/HeaderModular';
-import undoState from 'State/undoState';
 
 type Props = {
   /* parent */
@@ -60,12 +60,7 @@ const enhance = compose(
       Keyboard.dismiss();
       editEnd();
       tvshowRemove(tvshow.id);
-      messageToast(
-        'warning',
-        `“${tvshow.name}” deleted`,
-        'UNDO',
-        undoState.actions.undo(),
-      );
+      messageToast('warning', `“${tvshow.name}” deleted`, 'UNDO', undoActions.undo());
     },
   }),
 );

@@ -31,4 +31,7 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors, types };
+export { Creators as undoActions };
+export { selectors as undoSelectors };
+export { types as undoTypes };
+export default reducer;

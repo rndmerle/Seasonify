@@ -2,8 +2,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { tvshowSelectors } from 'State/tvshowState';
 import HeaderRoot from 'Components/HeaderRoot';
-import tvshowState from 'State/tvshowState';
 
 import TvshowList from './TvshowList';
 
@@ -13,7 +13,7 @@ TvshowList.navigationOptions = ({ navigation }) => ({
 
 export default connect(
   state => ({
-    tvshows: tvshowState.selectors.getTvshows(state),
+    tvshows: tvshowSelectors.getTvshows(state),
   }),
   {},
 )(TvshowList);

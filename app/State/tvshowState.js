@@ -89,4 +89,7 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors, types };
+export { Creators as tvshowActions };
+export { selectors as tvshowSelectors };
+export { types as tvshowTypes };
+export default reducer;

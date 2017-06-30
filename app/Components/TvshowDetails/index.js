@@ -2,9 +2,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { editActions, editSelectors } from 'State/editState';
+import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
 import TvshowDetailsHeader from 'Components/TvshowDetailsHeader';
-import editState from 'State/editState';
-import tvshowState from 'State/tvshowState';
 
 import TvshowDetails from './TvshowDetails';
 
@@ -19,15 +19,12 @@ TvshowDetails.navigationOptions = ({ navigation }) => ({
 
 export default connect(
   (state, ownProps) => ({
-    tvshow: tvshowState.selectors.getTvshow(
-      state,
-      ownProps.navigation.state.params.tvshowId,
-    ),
-    isEditing: editState.selectors.isEditing(state),
-    editedObject: editState.selectors.editedObject(state),
+    tvshow: tvshowSelectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
+    isEditing: editSelectors.isEditing(state),
+    editedObject: editSelectors.editedObject(state),
   }),
   {
-    editUpdate: editState.actions.editUpdate,
-    seasonsRefresh: tvshowState.actions.seasonsRefresh,
+    editUpdate: editActions.editUpdate,
+    seasonsRefresh: tvshowActions.seasonsRefresh,
   },
 )(TvshowDetails);

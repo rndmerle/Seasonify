@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import tv, { reducer, INITIAL_STATE } from '../tvshowState';
+import reducer, { tvshowActions, tvshowSelectors, INITIAL_STATE } from '../tvshowState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {
@@ -13,8 +13,8 @@ describe('Reducer', () => {
       reducer,
       undefined,
       [
-        tv.actions.tvshowAdd({ id: 'abc-123', name: 'Deadwood', seasons: {} }),
-        tv.actions.tvshowAdd({ id: 'xyz-789', name: 'Breaking Bad', seasons: {} }),
+        tvshowActions.tvshowAdd({ id: 'abc-123', name: 'Deadwood', seasons: {} }),
+        tvshowActions.tvshowAdd({ id: 'xyz-789', name: 'Breaking Bad', seasons: {} }),
       ],
       {
         'abc-123': { id: 'abc-123', name: 'Deadwood', seasons: {} },
@@ -30,7 +30,7 @@ describe('Reducer', () => {
         xxx123: { id: 'xxx123', name: 'Tvshow 1' },
         xxx456: { id: 'xxx456', name: 'Tvshow 2' },
       },
-      [tv.actions.tvshowRemove('xxx123')],
+      [tvshowActions.tvshowRemove('xxx123')],
       {
         xxx456: { id: 'xxx456', name: 'Tvshow 2' },
       },
@@ -44,7 +44,7 @@ describe('Reducer', () => {
         xxx123: { id: 'xxx123', name: 'Tvshow 1' },
         xxx456: { id: 'xxx456', name: 'Tvshow 2' },
       },
-      [tv.actions.tvshowUpdate({ id: 'xxx456', name: 'Tvshow 3' })],
+      [tvshowActions.tvshowUpdate({ id: 'xxx456', name: 'Tvshow 3' })],
       {
         xxx123: { id: 'xxx123', name: 'Tvshow 1' },
         xxx456: { id: 'xxx456', name: 'Tvshow 3' },
@@ -58,7 +58,7 @@ describe('Reducer', () => {
       {
         xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: {} },
       },
-      [tv.actions.seasonsSuccess('xxx123', [{ seasonNumber: 1 }])],
+      [tvshowActions.seasonsSuccess('xxx123', [{ seasonNumber: 1 }])],
       {
         xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: { 1: { id: 1 } } },
       },
@@ -77,7 +77,7 @@ describe('Reducer', () => {
           },
         },
       },
-      [tv.actions.seasonRemove('Tvshow 1', 2)],
+      [tvshowActions.seasonRemove('Tvshow 1', 2)],
       {
         xxx123: { name: 'Tvshow 1', seasons: { 1: { id: 1 } } },
       },
@@ -90,7 +90,7 @@ describe('Reducer', () => {
 describe('Selectors', () => {
   it('getTvshow', () => {
     expect(
-      tv.selectors.getTvshow(
+      tvshowSelectors.getTvshow(
         {
           tvshows: {
             a: { name: 'A' },
@@ -104,7 +104,7 @@ describe('Selectors', () => {
 
   it('getTvshows', () => {
     expect(
-      tv.selectors.getTvshows({
+      tvshowSelectors.getTvshows({
         tvshows: {
           a: { name: 'A' },
           b: { name: 'B' },
@@ -118,7 +118,7 @@ describe('Selectors', () => {
 
   it('getCodes', () => {
     expect(
-      tv.selectors.getCodes({
+      tvshowSelectors.getCodes({
         tvshows: {
           a: { name: 'A', allocine: 123 },
           b: { name: 'B', allocine: 456 },

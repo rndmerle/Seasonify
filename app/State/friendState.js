@@ -45,4 +45,7 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors, types };
+export { Creators as friendActions };
+export { selectors as friendSelectors };
+export { types as friendTypes };
+export default reducer;

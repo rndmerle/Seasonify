@@ -1,8 +1,7 @@
 import { Button } from 'native-base';
+import React from 'react';
 
 import ToastConfig from 'Config/ToastConfig';
-
-import React from 'react';
 
 import ToastMessage from './ToastMessage';
 

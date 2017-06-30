@@ -51,4 +51,7 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors, types };
+export { Creators as editActions };
+export { selectors as editSelectors };
+export { types as editTypes };
+export default reducer;

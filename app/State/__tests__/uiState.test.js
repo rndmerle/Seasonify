@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import ui, { reducer, INITIAL_STATE } from '../uiState';
+import reducer, { uiActions, uiSelectors, INITIAL_STATE } from '../uiState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {
@@ -13,8 +13,8 @@ describe('Reducer', () => {
       reducer,
       undefined,
       [
-        ui.actions.messageToast('success', 'Message'),
-        ui.actions.messageToast('error', 'Other message'),
+        uiActions.messageToast('success', 'Message'),
+        uiActions.messageToast('error', 'Other message'),
       ],
       {
         message: {
@@ -26,7 +26,7 @@ describe('Reducer', () => {
   });
 
   it('handles messageReset action', () => {
-    testReducer(reducer, undefined, [ui.actions.messageReset()], {
+    testReducer(reducer, undefined, [uiActions.messageReset()], {
       message: null,
     });
   });
@@ -36,7 +36,7 @@ describe('Reducer', () => {
       reducer,
       undefined,
       [
-        ui.actions.suggestionsSuccess([
+        uiActions.suggestionsSuccess([
           { code: 1234, originalTitle: 'Tvshow 1', yearStart: 2014 },
           { code: 5678, originalTitle: 'Tvshow 2', yearStart: 2015 },
         ]),
@@ -65,19 +65,19 @@ describe('Reducer', () => {
   });
 
   it('handles suggestionsFail action', () => {
-    testReducer(reducer, undefined, [ui.actions.suggestionsFail()], {
+    testReducer(reducer, undefined, [uiActions.suggestionsFail()], {
       suggestions: [],
     });
   });
 
   it('handles spinnerShow action', () => {
-    testReducer(reducer, undefined, [ui.actions.spinnerShow()], {
+    testReducer(reducer, undefined, [uiActions.spinnerShow()], {
       spinner: true,
     });
   });
 
   it('handles spinnerHide action', () => {
-    testReducer(reducer, undefined, [ui.actions.spinnerHide()], {
+    testReducer(reducer, undefined, [uiActions.spinnerHide()], {
       spinner: false,
     });
   });
@@ -88,7 +88,7 @@ describe('Reducer', () => {
 describe('Selectors', () => {
   it('getMessage', () => {
     expect(
-      ui.selectors.getMessage({
+      uiSelectors.getMessage({
         ui: {
           message: { text: 'xxx' },
         },
@@ -98,7 +98,7 @@ describe('Selectors', () => {
 
   it('getSuggestions', () => {
     expect(
-      ui.selectors.getSuggestions({
+      uiSelectors.getSuggestions({
         ui: {
           suggestions: [{ code: 555 }],
         },
@@ -108,7 +108,7 @@ describe('Selectors', () => {
 
   it('isSpinning', () => {
     expect(
-      ui.selectors.isSpinning({
+      uiSelectors.isSpinning({
         ui: {
           spinner: true,
         },

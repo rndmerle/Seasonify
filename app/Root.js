@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
 import React from 'react';
 
+import { uiActions } from 'State/uiState';
 import DebugConfig from 'Config/DebugConfig';
 import DrawerNavigation from 'Navigation/DrawerNavigation';
 import PersistConfig from 'Config/PersistConfig';
 import ToastMessage from 'Components/ToastMessage';
 import navigationLogging from 'Libs/Logging';
-import uiState from 'State/uiState';
 
 const mapStateToProps = null; // state => ({});
 
 const mapActionsToProps = {
-  startup: uiState.actions.startup,
+  startup: uiActions.startup,
 };
 
 type Props = {

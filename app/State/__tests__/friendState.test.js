@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import friend, { reducer, INITIAL_STATE } from '../friendState';
+import reducer, { friendActions, friendSelectors, INITIAL_STATE } from '../friendState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {
@@ -13,8 +13,8 @@ describe('Reducer', () => {
       reducer,
       undefined,
       [
-        friend.actions.friendAdd('xxx123', 'Someone'),
-        friend.actions.friendAdd('xxx456', 'Someone else'),
+        friendActions.friendAdd('xxx123', 'Someone'),
+        friendActions.friendAdd('xxx456', 'Someone else'),
       ],
       {
         xxx123: { id: 'xxx123', name: 'Someone' },
@@ -30,7 +30,7 @@ describe('Reducer', () => {
         xxx123: { id: 'xxx123', name: 'Someone' },
         xxx456: { id: 'xxx456', name: 'Someone else' },
       },
-      [friend.actions.friendRemove('xxx123')],
+      [friendActions.friendRemove('xxx123')],
       {
         xxx456: { id: 'xxx456', name: 'Someone else' },
       },
@@ -43,7 +43,7 @@ describe('Reducer', () => {
 describe('Selectors', () => {
   it('getFriends', () => {
     expect(
-      friend.selectors.getFriends({
+      friendSelectors.getFriends({
         friends: {
           xxx123: { id: 'xxx123', name: 'Someone' },
         },

@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import edit, { reducer, INITIAL_STATE } from '../editState';
+import reducer, { editActions, editSelectors, INITIAL_STATE } from '../editState';
 
 describe('Reducer', () => {
   it('provides initial state', () => {
@@ -9,7 +9,7 @@ describe('Reducer', () => {
   });
 
   it('handles editStart action', () => {
-    testReducer(reducer, undefined, [edit.actions.editStart()], {
+    testReducer(reducer, undefined, [editActions.editStart()], {
       isEditing: true,
     });
   });
@@ -21,7 +21,7 @@ describe('Reducer', () => {
         isEditing: true,
         editedObject: { name: 'Edited name' },
       },
-      [edit.actions.editEnd()],
+      [editActions.editEnd()],
       {
         isEditing: false,
         editedObject: {},
@@ -33,7 +33,7 @@ describe('Reducer', () => {
     testReducer(
       reducer,
       { editedObject: { year: 2017, name: 'Some name' } },
-      [edit.actions.editUpdate({ name: 'Some new name', subname: 'Subname' })],
+      [editActions.editUpdate({ name: 'Some new name', subname: 'Subname' })],
       { editedObject: { year: 2017, name: 'Some new name', subname: 'Subname' } },
     );
   });
@@ -44,7 +44,7 @@ describe('Reducer', () => {
 describe('Selectors', () => {
   it('isEditing', () => {
     expect(
-      edit.selectors.isEditing({
+      editSelectors.isEditing({
         edit: {
           isEditing: true,
         },
@@ -54,7 +54,7 @@ describe('Selectors', () => {
 
   it('editedObject', () => {
     expect(
-      edit.selectors.editedObject({
+      editSelectors.editedObject({
         edit: {
           editedObject: { name: 'Some name' },
         },

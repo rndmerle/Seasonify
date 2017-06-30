@@ -2,9 +2,9 @@ import { call } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
+import { uiActions } from 'State/uiState';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
-import ui from 'State/uiState';
 
 describe('seasonsRefresh saga', () => {
   it('handles errors', () => {
@@ -13,9 +13,9 @@ describe('seasonsRefresh saga', () => {
       data: null,
     };
     return expectSaga(rootSaga)
-      .put(ui.actions.suggestionsFail())
+      .put(uiActions.suggestionsFail())
       .provide([[matchers.call.fn(api.searchTvshows), fakeResult]])
-      .dispatch(ui.actions.suggestionsRequest('Tvshow'))
+      .dispatch(uiActions.suggestionsRequest('Tvshow'))
       .silentRun();
   });
 
@@ -37,9 +37,9 @@ describe('seasonsRefresh saga', () => {
     };
 
     return expectSaga(rootSaga)
-      .put(ui.actions.suggestionsSuccess(fakeResults.data))
+      .put(uiActions.suggestionsSuccess(fakeResults.data))
       .provide([[call(api.searchTvshows, 'Tvshow'), fakeResults]])
-      .dispatch(ui.actions.suggestionsRequest('Tvshow'))
+      .dispatch(uiActions.suggestionsRequest('Tvshow'))
       .silentRun();
   });
 });

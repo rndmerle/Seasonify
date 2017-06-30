@@ -2,11 +2,11 @@
 import { call, select } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 
+import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
+import { uiActions } from 'State/uiState';
 import Identity from 'Libs/Identity';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
-import tv from 'State/tvshowState';
-import ui from 'State/uiState';
 
 describe('tvshowAddWithSeasons saga', () => {
   it('add the tv show', () => {
@@ -19,14 +19,14 @@ describe('tvshowAddWithSeasons saga', () => {
       data: fakeSeasons,
     };
     return expectSaga(rootSaga)
-      .put(tv.actions.seasonsSuccess(id, fakeSeasons))
-      .not.put(ui.actions.spinnerShow())
-      .put(tv.actions.tvshowAdd(tvshowWithId))
+      .put(tvshowActions.seasonsSuccess(id, fakeSeasons))
+      .not.put(uiActions.spinnerShow())
+      .put(tvshowActions.tvshowAdd(tvshowWithId))
       .provide([
         [call(api.getSeasons, 555), fakeSeasonsResult],
-        [select(tv.selectors.getTvshow, id), tvshowWithId],
+        [select(tvshowSelectors.getTvshow, id), tvshowWithId],
       ])
-      .dispatch(tv.actions.tvshowAddWithSeasons(tvshow))
+      .dispatch(tvshowActions.tvshowAddWithSeasons(tvshow))
       .silentRun();
   });
 });

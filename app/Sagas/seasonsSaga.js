@@ -2,15 +2,15 @@
 import { call, fork, put, select } from 'redux-saga/effects';
 
 import type { Tvshow, ApiResponse } from 'Types';
-import tv from 'State/tvshowState';
-import ui from 'State/uiState';
+import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
+import { uiActions } from 'State/uiState';
 
 export function* seasonsRefresh(
   api: Object,
   { id, silent = false }: { id: string, silent: boolean },
 ): Generator<*, *, *> {
-  if (!silent) yield put(ui.actions.spinnerShow());
-  const tvshow: Tvshow = yield select(tv.selectors.getTvshow, id);
+  if (!silent) yield put(uiActions.spinnerShow());
+  const tvshow: Tvshow = yield select(tvshowSelectors.getTvshow, id);
   const response: ApiResponse = yield call(api.getSeasons, tvshow.allocine);
 
   if (response.data !== null) {
@@ -21,24 +21,24 @@ export function* seasonsRefresh(
         response.data.length,
       );
     }
-    yield put(tv.actions.seasonsSuccess(tvshow.id, response.data));
+    yield put(tvshowActions.seasonsSuccess(tvshow.id, response.data));
   } else {
-    yield put(tv.actions.seasonsFail());
-    yield put(ui.actions.messageToast('error', response.error));
+    yield put(tvshowActions.seasonsFail());
+    yield put(uiActions.messageToast('error', response.error));
   }
-  if (!silent) yield put(ui.actions.spinnerHide());
+  if (!silent) yield put(uiActions.spinnerHide());
 }
 
 function* _informIfNewSeason(countBefore: number, countAfter: number) {
   const nbNewSeasons: number = countAfter - countBefore;
   if (nbNewSeasons > 0) {
     yield put(
-      ui.actions.messageToast(
+      uiActions.messageToast(
         'success',
         `${nbNewSeasons} new season${nbNewSeasons > 1 ? 's' : ''}!`,
       ),
     );
   } else {
-    yield put(ui.actions.messageToast('neutral', 'No new season :('));
+    yield put(uiActions.messageToast('neutral', 'No new season :('));
   }
 }

@@ -8,12 +8,12 @@ import AppConfig from 'Config/AppConfig';
 import DebugConfig from 'Config/DebugConfig';
 import PersistConfig from 'Config/PersistConfig';
 import Rehydration from 'Libs/Rehydration';
+import editState from 'State/editState';
+import friendState from 'State/friendState';
 import rootSaga from 'Sagas/rootSaga';
-
-import { reducer as editReducer } from './editState';
-import { reducer as friendReducer } from './friendState';
-import { reducer as tvshowReducer } from './tvshowState';
-import { reducer as uiReducer } from './uiState';
+import tvshowState from 'State/tvshowState';
+import uiState from 'State/uiState';
+import undoState from 'State/undoState';
 
 export default () => {
   // listen for the RESET action
@@ -21,10 +21,11 @@ export default () => {
 
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
-    ui: resettable(uiReducer),
-    edit: editReducer,
-    friends: friendReducer,
-    tvshows: tvshowReducer,
+    ui: resettable(uiState),
+    undo: resettable(undoState),
+    edit: editState,
+    friends: friendState,
+    tvshows: tvshowState,
   });
 
   /* ------------- Redux Configuration ------------- */

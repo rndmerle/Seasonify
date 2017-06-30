@@ -2,10 +2,10 @@ import { call } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
+import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
+import { uiActions } from 'State/uiState';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
-import tv from 'State/tvshowState';
-import ui from 'State/uiState';
 
 describe('seasonRefresh saga', () => {
   it("fetch the tvshow's seasons, when there is 1 more", () => {
@@ -19,12 +19,12 @@ describe('seasonRefresh saga', () => {
       data: fakeSeasons,
     };
     return expectSaga(rootSaga)
-      .put(ui.actions.spinnerHide())
-      .put(tv.actions.seasonsSuccess(id, fakeSeasons))
-      .put(ui.actions.spinnerShow())
+      .put(uiActions.spinnerHide())
+      .put(tvshowActions.seasonsSuccess(id, fakeSeasons))
+      .put(uiActions.spinnerShow())
       .withState(stateForSelect)
       .provide([[call(api.getSeasons, 555), fakeSeasonsResult]])
-      .dispatch(tv.actions.seasonsRefresh(id))
+      .dispatch(tvshowActions.seasonsRefresh(id))
       .silentRun();
   });
 
@@ -39,12 +39,12 @@ describe('seasonRefresh saga', () => {
       data: fakeSeasons,
     };
     return expectSaga(rootSaga)
-      .put(ui.actions.spinnerHide())
-      .put(tv.actions.seasonsSuccess(id, fakeSeasons))
-      .put(ui.actions.spinnerShow())
+      .put(uiActions.spinnerHide())
+      .put(tvshowActions.seasonsSuccess(id, fakeSeasons))
+      .put(uiActions.spinnerShow())
       .withState(stateForSelect)
       .provide([[call(api.getSeasons, 555), fakeSeasonsResult]])
-      .dispatch(tv.actions.seasonsRefresh(id, false))
+      .dispatch(tvshowActions.seasonsRefresh(id, false))
       .silentRun();
   });
 
@@ -68,10 +68,10 @@ describe('seasonRefresh saga', () => {
       data: fakeSeasons,
     };
     return expectSaga(rootSaga)
-      .put(ui.actions.messageToast('neutral', 'No new season :('))
+      .put(uiActions.messageToast('neutral', 'No new season :('))
       .withState(stateForSelect)
       .provide([[matchers.call.fn(api.getSeasons), fakeSeasonsResult]])
-      .dispatch(tv.actions.seasonsRefresh(id, false))
+      .dispatch(tvshowActions.seasonsRefresh(id, false))
       .silentRun();
   });
 
@@ -81,13 +81,13 @@ describe('seasonRefresh saga', () => {
       data: null,
     };
     return expectSaga(rootSaga)
-      .put(ui.actions.spinnerHide())
-      .put(tv.actions.seasonsFail())
+      .put(uiActions.spinnerHide())
+      .put(tvshowActions.seasonsFail())
       .provide([
         [matchers.call.fn(api.getSeasons), fakeSeasonsResult],
-        [matchers.select.selector(tv.selectors.getTvshow), {}],
+        [matchers.select.selector(tvshowSelectors.getTvshow), {}],
       ])
-      .dispatch(tv.actions.seasonsRefresh('abc', false))
+      .dispatch(tvshowActions.seasonsRefresh('abc', false))
       .silentRun();
   });
 });

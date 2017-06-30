@@ -76,4 +76,7 @@ const selectors = {
 
 /* ========== EXPORTS ========== */
 
-export default { actions: Creators, selectors, types };
+export { Creators as uiActions };
+export { selectors as uiSelectors };
+export { types as uiTypes };
+export default reducer;
