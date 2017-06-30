@@ -50,11 +50,13 @@ export const seasonsSuccess = (
   { id, seasons }: { id: string, seasons: Seasons },
 ): State => {
   const newSeasons = seasonsNormalizer(seasons);
+  const seasonsCount = Object.keys(newSeasons).length;
   return {
     ...state,
     [id]: {
       ...state[id],
       seasons: { ...state[id].seasons, ...newSeasons },
+      seasonsCount,
     },
   };
 };
@@ -71,6 +73,7 @@ export const seasonRemove = (
     [id]: {
       ...state[id],
       seasons: restSeasons,
+      seasonsCount: state[id].seasonsCount - 1,
     },
   };
 };

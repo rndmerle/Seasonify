@@ -75,11 +75,16 @@ describe('Reducer', () => {
     testReducer(
       reducer,
       {
-        xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: {} },
+        xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: {}, seasonsCount: 0 },
       },
       [tvshowActions.seasonsSuccess('xxx123', [{ seasonNumber: 1 }])],
       {
-        xxx123: { id: 'xxx123', name: 'Tvshow 1', seasons: { 1: { id: 1 } } },
+        xxx123: {
+          id: 'xxx123',
+          name: 'Tvshow 1',
+          seasons: { 1: { id: 1 } },
+          seasonsCount: 1,
+        },
       },
     );
   });
@@ -94,11 +99,12 @@ describe('Reducer', () => {
             1: { id: 1 },
             2: { id: 2 },
           },
+          seasonsCount: 2,
         },
       },
       [tvshowActions.seasonRemove('Tvshow 1', 2)],
       {
-        xxx123: { name: 'Tvshow 1', seasons: { 1: { id: 1 } } },
+        xxx123: { name: 'Tvshow 1', seasons: { 1: { id: 1 } }, seasonsCount: 1 },
       },
     );
   });

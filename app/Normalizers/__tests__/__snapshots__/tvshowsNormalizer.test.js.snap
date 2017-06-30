@@ -8,6 +8,7 @@ Array [
     "name": "Happy Endings",
     "poster": "http://fr.web.img2.acsta.net/medias/nmedia/18/78/21/06/20278341.jpg",
     "seasons": Object {},
+    "seasonsCount": 0,
     "year": 2011,
   },
   Object {
@@ -16,6 +17,7 @@ Array [
     "name": "Happy Days",
     "poster": "http://fr.web.img6.acsta.net/medias/nmedia/18/36/37/63/18478173.jpg",
     "seasons": Object {},
+    "seasonsCount": 0,
     "year": 1974,
   },
   Object {
@@ -24,6 +26,7 @@ Array [
     "name": "Happy Town",
     "poster": "http://fr.web.img4.acsta.net/medias/nmedia/18/73/99/08/19237328.jpg",
     "seasons": Object {},
+    "seasonsCount": 0,
     "year": 2010,
   },
   Object {
@@ -32,6 +35,7 @@ Array [
     "name": "Happy Tree Friends",
     "poster": "http://fr.web.img5.acsta.net/medias/nmedia/18/72/22/91/19157134.jpg",
     "seasons": Object {},
+    "seasonsCount": 0,
     "year": 2000,
   },
   Object {
@@ -40,6 +44,7 @@ Array [
     "name": "Happy Lucky Bikkuriman",
     "poster": undefined,
     "seasons": Object {},
+    "seasonsCount": 0,
     "year": 2006,
   },
 ]

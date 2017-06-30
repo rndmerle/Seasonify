@@ -50,6 +50,7 @@ describe('Reducer', () => {
             localizedName: undefined,
             poster: undefined,
             seasons: {},
+            seasonsCount: 0,
           },
           {
             name: 'Tvshow 2',
@@ -58,6 +59,7 @@ describe('Reducer', () => {
             localizedName: undefined,
             poster: undefined,
             seasons: {},
+            seasonsCount: 0,
           },
         ],
       },

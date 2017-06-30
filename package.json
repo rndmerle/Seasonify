@@ -2,13 +2,12 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": [
-    "app/"
-  ],
+  "moduleRoots": ["app/"],
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
     "test": "SET NODE_ENV=development && jest",
+    "t": "SET NODE_ENV=development && jest -o",
     "watch": "SET NODE_ENV=development && jest --watch",
     "coverage": "SET NODE_ENV=development && jest --coverage",
     "start": "adb reverse tcp:8081 tcp:8081 && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
@@ -17,15 +16,11 @@
     "build:ios": "bundle install --binstubs ./examples/ios && bundle exec pod install --project-directory=./example/ios/",
     "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "precommit:flow": "flow --quiet",
     "precommit:lint": "eslint ./app --quiet",
-    "precommit:flow": "flow || exit 0",
-    "precommit:test": "SET NODE_ENV=development && jest --onlyChanged"
+    "precommit:test": "SET NODE_ENV=development && jest --lastCommit --silent"
   },
-  "pre-commit": [
-    "precommit:flow",
-    "precommit:lint",
-    "precommit:test"
-  ],
+  "pre-commit": ["precommit:flow", "precommit:lint", "precommit:test"],
   "dependencies": {
     "axios": "~0.16.2",
     "babel-plugin-module-resolver": "^2.7.1",
@@ -78,12 +73,8 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": [
-      "./jest.setup.js"
-    ],
-    "modulePaths": [
-      "<rootDir>/app/"
-    ],
+    "setupFiles": ["./jest.setup.js"],
+    "modulePaths": ["<rootDir>/app/"],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/Config/**",
@@ -94,11 +85,7 @@
       "!app/Libs/Rehydration.js",
       "!app/Libs/until.js"
     ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/(?!native-base)/"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
   }
 }

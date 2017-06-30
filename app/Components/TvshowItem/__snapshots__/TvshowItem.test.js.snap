@@ -2,11 +2,39 @@
 
 exports[`Rendering should match, with a tvshowName 1`] = `
 <Styled(ListItem)
+  avatar={true}
   onPress={[Function]}
 >
+  <Styled(Left)>
+    <Styled(Button)
+      style={
+        Object {
+          "width": 57,
+        }
+      }
+      transparent={true}
+    />
+  </Styled(Left)>
   <Styled(Body)>
     <Styled(Text)>
       Deadwood
+       
+      <Styled(Text)
+        style={
+          Object {
+            "color": "gray",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        (
+        )
+      </Styled(Text)>
+    </Styled(Text)>
+    <Styled(Text)
+      note={true}
+    >
+      Renaud, Sylvain 
     </Styled(Text)>
   </Styled(Body)>
 </Styled(ListItem)>
@@ -14,10 +42,39 @@ exports[`Rendering should match, with a tvshowName 1`] = `
 
 exports[`Rendering should match, with an empty tvshowName 1`] = `
 <Styled(ListItem)
+  avatar={true}
   onPress={[Function]}
 >
+  <Styled(Left)>
+    <Styled(Button)
+      style={
+        Object {
+          "width": 57,
+        }
+      }
+      transparent={true}
+    />
+  </Styled(Left)>
   <Styled(Body)>
-    <Styled(Text) />
+    <Styled(Text)>
+       
+      <Styled(Text)
+        style={
+          Object {
+            "color": "gray",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        (
+        )
+      </Styled(Text)>
+    </Styled(Text)>
+    <Styled(Text)
+      note={true}
+    >
+      Renaud, Sylvain 
+    </Styled(Text)>
   </Styled(Body)>
 </Styled(ListItem)>
 `;

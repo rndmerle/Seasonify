@@ -47,6 +47,7 @@ export type TvshowWithoutID = {
   localizedName?: string,
   poster?: string,
   seasons: Seasons | {},
+  seasonsCount: number,
 };
 export type Tvshow = TvshowWithoutID & Uuid;
 export type Tvshows = {

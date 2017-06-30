@@ -31,8 +31,11 @@ function TvshowList({ navigation, tvshows, handleFAB }: Props) {
   /* istanbul ignore next */
   const renderItem = ({ item: tvshow }) =>
     (<TvshowItem
+      key={tvshow.id}
       tvshowId={tvshow.id}
       tvshowName={tvshow.name}
+      seasonsCount={tvshow.seasonsCount}
+      poster={tvshow.poster}
       navigate={navigation.navigate}
     />);
 
