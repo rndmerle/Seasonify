@@ -29,8 +29,6 @@ function setup(specificProps = {}) {
     codes: [111, 222],
     tvshowAddWithSeasons: jest.fn(),
     suggestionsRequest: jest.fn(),
-    registerInput: jest.fn(),
-    resetInput: jest.fn(),
     ...specificProps,
   };
   const component = shallowDive(<TvshowAdd {...props} />, Container);
@@ -42,6 +40,9 @@ function setup(specificProps = {}) {
 
 describe('Rendering, with 2 suggestions, one being already added', () => {
   const { component } = setup();
+  // just for the coverage...
+  component.instance().handlers.registerInput('refToInput');
+
   it('should match', () => {
     expect(component).toMatchSnapshot();
   });

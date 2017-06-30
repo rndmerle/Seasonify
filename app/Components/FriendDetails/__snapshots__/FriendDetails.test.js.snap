@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rendering when editing should match 1`] = `
+exports[`Rendering when default state should match 1`] = `
 <Styled(Container)>
   <Styled(Content)>
     <Styled(Form)>
@@ -14,10 +14,12 @@ exports[`Rendering when editing should match 1`] = `
           autoCapitalize="words"
           disabled={true}
           onChangeText={[Function]}
-          value="Someone"
+          value="A friend"
         />
       </Styled(Item)>
     </Styled(Form)>
   </Styled(Content)>
 </Styled(Container)>
 `;
+
+exports[`Rendering when no friend should match 1`] = `<Styled(Container) />`;

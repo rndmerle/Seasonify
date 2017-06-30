@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should render, when not editing 1`] = `
+<pure(withHandlers(HeaderModular))
+  actionButtons={
+    Array [
+      Object {
+        "action": [Function],
+        "icon": "create",
+        "visibleIf": false,
+      },
+      Object {
+        "action": [Function],
+        "hideByDefault": true,
+        "icon": "checkmark",
+        "visibleIf": true,
+      },
+      Object {
+        "action": [Function],
+        "icon": "trash",
+      },
+    ]
+  }
+  cancelButton={
+    Object {
+      "action": [Function],
+      "icon": "arrow-back",
+    }
+  }
+  title="Some friend"
+/>
+`;
+
+exports[`Rendering should render, when not editing 2`] = `
+<pure(withHandlers(HeaderModular))
+  actionButtons={
+    Array [
+      Object {
+        "action": [Function],
+        "icon": "create",
+        "visibleIf": true,
+      },
+      Object {
+        "action": [Function],
+        "hideByDefault": true,
+        "icon": "checkmark",
+        "visibleIf": false,
+      },
+      Object {
+        "action": [Function],
+        "icon": "trash",
+      },
+    ]
+  }
+  cancelButton={
+    Object {
+      "action": [Function],
+      "icon": "arrow-back",
+    }
+  }
+  title="Some friend"
+/>
+`;

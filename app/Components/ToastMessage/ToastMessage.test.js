@@ -28,6 +28,19 @@ describe('Rendering an empty message', () => {
     expect(component).toMatchSnapshot();
   });
 
+  describe('when receiving an empty message as a prop', () => {
+    beforeEach(() => {
+      component.setProps({
+        ...props,
+        message: null,
+      });
+    });
+
+    it('should match hidden state', () => {
+      expect(component).toMatchSnapshot();
+    });
+  });
+
   describe('when receiving message as a prop', () => {
     const fakeDuration = 5;
     beforeEach(() => {

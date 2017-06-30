@@ -7,6 +7,8 @@ function setup(specificProps = {}) {
   const props = {
     tvshowId: 'abc',
     tvshowName: 'Deadwood',
+    seasonsCount: 1,
+    poster: 'http://poster.png',
     navigate: jest.fn(),
     ...specificProps,
   };
@@ -24,8 +26,8 @@ describe('Rendering', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should match, with an empty tvshowName', () => {
-    const { component } = setup({ tvshowName: '' });
+  it('should match, with empty tvshowName and poster', () => {
+    const { component } = setup({ tvshowName: '', poster: '' });
     expect(component).toMatchSnapshot();
   });
 });

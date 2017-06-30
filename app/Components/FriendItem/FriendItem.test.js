@@ -5,7 +5,7 @@ import FriendItem from './FriendItem';
 
 function setup(specificProps = {}) {
   const props = {
-    friend: { name: 'Someone' },
+    friend: { id: 'abc123', name: 'Someone' },
     navigate: jest.fn(),
     ...specificProps,
   };
@@ -28,7 +28,8 @@ describe('Events', () => {
     const { component, props } = setup();
     component.find(ListItem).simulate('press');
     expect(props.navigate).toBeCalledWith('FriendDetailsPage', {
-      friend: { name: 'Someone' },
+      friendId: props.friend.id,
+      friendName: props.friend.name,
     });
   });
 });

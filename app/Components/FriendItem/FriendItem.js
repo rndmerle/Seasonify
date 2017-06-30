@@ -20,7 +20,8 @@ const enhance = compose(
   withHandlers({
     handlePress: ({ navigate, friend }: Props) => () => {
       navigate('FriendDetailsPage', {
-        friend,
+        friendId: friend.id,
+        friendName: friend.name,
       });
     },
   }),
@@ -29,7 +30,9 @@ const enhance = compose(
 function FriendItem({ friend, handlePress }: Props) {
   return (
     <ListItem onPress={handlePress}>
-      <Text>{friend.name}</Text>
+      <Text>
+        {friend.name}
+      </Text>
     </ListItem>
   );
 }

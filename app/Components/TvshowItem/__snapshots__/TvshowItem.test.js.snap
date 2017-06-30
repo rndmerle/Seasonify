@@ -6,13 +6,13 @@ exports[`Rendering should match, with a tvshowName 1`] = `
   onPress={[Function]}
 >
   <Styled(Left)>
-    <Styled(Button)
-      style={
+    <Styled(Thumbnail)
+      source={
         Object {
-          "width": 57,
+          "uri": "http://poster.png",
         }
       }
-      transparent={true}
+      square={true}
     />
   </Styled(Left)>
   <Styled(Body)>
@@ -28,6 +28,7 @@ exports[`Rendering should match, with a tvshowName 1`] = `
         }
       >
         (
+        1
         )
       </Styled(Text)>
     </Styled(Text)>
@@ -40,7 +41,7 @@ exports[`Rendering should match, with a tvshowName 1`] = `
 </Styled(ListItem)>
 `;
 
-exports[`Rendering should match, with an empty tvshowName 1`] = `
+exports[`Rendering should match, with empty tvshowName and poster 1`] = `
 <Styled(ListItem)
   avatar={true}
   onPress={[Function]}
@@ -67,6 +68,7 @@ exports[`Rendering should match, with an empty tvshowName 1`] = `
         }
       >
         (
+        1
         )
       </Styled(Text)>
     </Styled(Text)>

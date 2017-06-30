@@ -1,13 +1,29 @@
 /* @flow */
 import { connect } from 'react-redux';
+import React from 'react';
 
-import { friendActions } from 'State/friendState';
-import { uiActions } from 'State/uiState';
+import { editActions, editSelectors } from 'State/editState';
+import { friendSelectors } from 'State/friendState';
+import FriendDetailsHeader from 'Components/FriendDetailsHeader';
 
 import FriendDetails from './FriendDetails';
 
-export default connect(null, {
-  friendDelete: friendActions.friendDelete,
-  friendUpdate: friendActions.friendUpdate,
-  messageToast: uiActions.messageToast,
-})(FriendDetails);
+FriendDetails.navigationOptions = ({ navigation }) => ({
+  header: (
+    <FriendDetailsHeader
+      friendId={navigation.state.params.friendId}
+      navigate={navigation.navigate}
+    />
+  ),
+});
+
+export default connect(
+  (state, ownProps) => ({
+    friend: friendSelectors.getFriend(state, ownProps.navigation.state.params.friendId),
+    isEditing: editSelectors.isEditing(state),
+    editedObject: editSelectors.editedObject(state),
+  }),
+  {
+    editUpdate: editActions.editUpdate,
+  },
+)(FriendDetails);

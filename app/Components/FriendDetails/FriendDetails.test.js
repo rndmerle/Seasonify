@@ -1,4 +1,4 @@
-import { Container } from 'native-base';
+import { Container, Input } from 'native-base';
 import React from 'react';
 
 import FriendDetails from './FriendDetails';
@@ -7,18 +7,15 @@ function setup(specificProps = {}) {
   const props = {
     navigation: {
       navigate: jest.fn(),
-      goBack: jest.fn(),
-      setParams: jest.fn(),
-      state: {
-        params: {
-          isEditing: false,
-          friend: { id: 'abc123', name: 'Someone' },
-        },
-      },
+      state: { params: { friendId: 'abc123' } },
     },
-    friendDelete: jest.fn(),
-    friendUpdate: jest.fn(),
-    messageToast: jest.fn(),
+    friend: {
+      id: 'abc123',
+      name: 'A friend',
+    },
+    isEditing: false,
+    editedObject: {},
+    editUpdate: jest.fn(),
     ...specificProps,
   };
   const component = shallowDive(<FriendDetails {...props} />, Container);
@@ -28,9 +25,34 @@ function setup(specificProps = {}) {
   };
 }
 
-describe('Rendering when editing', () => {
+describe('Rendering when default state', () => {
   const { component } = setup();
   it('should match', () => {
     expect(component).toMatchSnapshot();
+  });
+});
+
+describe('Rendering when no friend', () => {
+  const { component } = setup({ friend: undefined });
+  it('should match', () => {
+    expect(component).toMatchSnapshot();
+  });
+});
+
+/* ========= Events & Functions ========= */
+
+describe('Events & Functions', () => {
+  const { component, props } = setup();
+  const input = component.find(Input);
+
+  describe('when calling onChangeName', () => {
+    input.props().onChangeText('New name');
+
+    it('calls editUpdate', () => {
+      expect(props.editUpdate).toBeCalledWith({
+        id: props.friend.id,
+        name: 'New name',
+      });
+    });
   });
 });

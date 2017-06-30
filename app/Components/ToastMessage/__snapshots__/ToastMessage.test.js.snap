@@ -62,6 +62,8 @@ exports[`Rendering a warning message with an undo button should match 1`] = `
 
 exports[`Rendering an empty message should match initial state 1`] = `null`;
 
+exports[`Rendering an empty message when receiving an empty message as a prop should match hidden state 1`] = `null`;
+
 exports[`Rendering an empty message when receiving message as a prop should match displayed state 1`] = `
 <Styled(ViewNB)>
   <AnimatedComponent

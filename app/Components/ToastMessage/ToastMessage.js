@@ -55,7 +55,7 @@ export default class ToastMessage extends React.Component<DefaultProps, Props, S
     if (message) {
       this.resetAnimation();
 
-      // a toast already displayed
+      /* istanbul ignore if. (A toast already displayed) */
       if (this.state.modalShown && this.closeTimeout) {
         clearTimeout(this.closeTimeout);
       }
@@ -99,11 +99,11 @@ export default class ToastMessage extends React.Component<DefaultProps, Props, S
 
   openToast = () => {
     this.showModal();
+    this.programCloseToast();
     Animated.timing(this.animation, {
       ...this.state.animationTiming,
       toValue: 1,
     }).start();
-    this.programCloseToast();
   };
 
   programCloseToast = () => {
