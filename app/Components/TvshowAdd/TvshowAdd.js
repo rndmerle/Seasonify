@@ -58,7 +58,7 @@ function TvshowAdd({
 }: Props) {
   return (
     <Container>
-      <Content>
+      <Content keyboardShouldPersistTaps="handled" keyboardDismissMode="none">
         <Form>
           <Item fixedLabel>
             <Label>Tvshow&rsquo;s name:</Label>

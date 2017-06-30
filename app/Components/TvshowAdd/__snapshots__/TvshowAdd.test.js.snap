@@ -2,7 +2,10 @@
 
 exports[`Rendering, with 2 suggestions, one being already added should match 1`] = `
 <Styled(Container)>
-  <Styled(Content)>
+  <Styled(Content)
+    keyboardDismissMode="none"
+    keyboardShouldPersistTaps="handled"
+  >
     <Styled(Form)>
       <Styled(Item)
         fixedLabel={true}
@@ -41,7 +44,10 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
 
 exports[`Rendering, with no suggestions should match 1`] = `
 <Styled(Container)>
-  <Styled(Content)>
+  <Styled(Content)
+    keyboardDismissMode="none"
+    keyboardShouldPersistTaps="handled"
+  >
     <Styled(Form)>
       <Styled(Item)
         fixedLabel={true}
