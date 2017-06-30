@@ -23,19 +23,38 @@ describe('Reducer', () => {
     );
   });
 
-  it('handles friendRemove action', () => {
+  it('handles friendDeleteProceed action', () => {
     testReducer(
       reducer,
       {
         xxx123: { id: 'xxx123', name: 'Someone' },
         xxx456: { id: 'xxx456', name: 'Someone else' },
       },
-      [friendActions.friendRemove('xxx123')],
+      [friendActions.friendDeleteProceed('xxx123')],
       {
         xxx456: { id: 'xxx456', name: 'Someone else' },
       },
     );
   });
+});
+
+it('handles friendUndo action', () => {
+  testReducer(
+    reducer,
+    {
+      xxx123: { id: 'xxx123', name: 'Friend 1 mod' },
+    },
+    [
+      friendActions.friendUndo({
+        xxx123: { id: 'xxx123', name: 'Friend 1' },
+        xxx456: { id: 'xxx456', name: 'Friend 2' },
+      }),
+    ],
+    {
+      xxx123: { id: 'xxx123', name: 'Friend 1' },
+      xxx456: { id: 'xxx456', name: 'Friend 2' },
+    },
+  );
 });
 
 /* ======= SELECTORS ======= */
@@ -51,5 +70,19 @@ describe('Selectors', () => {
     ).toEqual({
       xxx123: { id: 'xxx123', name: 'Someone' },
     });
+  });
+
+  it('getFriend', () => {
+    expect(
+      friendSelectors.getFriend(
+        {
+          friends: {
+            a: { name: 'A' },
+            b: { name: 'B' },
+          },
+        },
+        'b',
+      ),
+    ).toEqual({ name: 'B' });
   });
 });

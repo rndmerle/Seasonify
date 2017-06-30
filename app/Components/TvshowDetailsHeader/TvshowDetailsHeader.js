@@ -4,7 +4,6 @@ import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 import type { Tvshow } from 'Types';
-import { undoActions } from 'State/undoState';
 import HeaderModular from 'Components/HeaderModular';
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
   isEditing: boolean,
   editedObject: Object,
   tvshow: Tvshow,
-  tvshowRemove: Function,
+  tvshowDelete: Function,
   tvshowUpdate: Function,
   messageToast: Function,
   editStart: Function,
@@ -48,19 +47,12 @@ const enhance = compose(
       }
       editEnd();
     },
-    handleDelete: ({
-      navigate,
-      tvshow,
-      editEnd,
-      tvshowRemove,
-      messageToast,
-    }: Props) => () => {
+    handleDelete: ({ navigate, tvshow, editEnd, tvshowDelete }: Props) => () => {
       // Note : a goBack() would prevent Toast to stay in foreground
       navigate('TvshowListPage');
       Keyboard.dismiss();
       editEnd();
-      tvshowRemove(tvshow.id);
-      messageToast('warning', `“${tvshow.name}” deleted`, 'UNDO', undoActions.undo());
+      tvshowDelete(tvshow.id);
     },
   }),
 );

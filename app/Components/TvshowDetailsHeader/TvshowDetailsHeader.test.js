@@ -14,7 +14,7 @@ function setup(specificProps = {}) {
       id: 'abc123',
       name: 'Some tvshow',
     },
-    tvshowRemove: jest.fn(),
+    tvshowDelete: jest.fn(),
     tvshowUpdate: jest.fn(),
     messageToast: jest.fn(),
     editStart: jest.fn(),
@@ -90,7 +90,7 @@ describe('Functions, when editing', () => {
     });
 
     it('updates tvshow', () => {
-      expect(props.tvshowRemove).toBeCalledWith(props.tvshowId);
+      expect(props.tvshowDelete).toBeCalledWith(props.tvshowId);
     });
 
     it('messages', () => {

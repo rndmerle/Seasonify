@@ -11,6 +11,8 @@ $ react-native link native-base
 * Dev menu (ctrl+M or ctrl+F2) -> Start Remote JS Debugging
 
 
-# Long-term todos :
-* Undo button in Toast with a callback (when supported by native-base) for some undo actions
+# Todos :
+* UI/UX
 * Form validation (uniqueness and such)
+* E2E tests with Detox
+* Migrating to Haul?

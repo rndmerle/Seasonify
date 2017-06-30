@@ -7,7 +7,7 @@ import { uiActions } from 'State/uiState';
 import FriendDetails from './FriendDetails';
 
 export default connect(null, {
-  friendRemove: friendActions.friendRemove,
+  friendDelete: friendActions.friendDelete,
   friendUpdate: friendActions.friendUpdate,
   messageToast: uiActions.messageToast,
 })(FriendDetails);

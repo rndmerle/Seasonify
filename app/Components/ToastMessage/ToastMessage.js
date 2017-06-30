@@ -8,9 +8,13 @@ import ToastConfig from 'Config/ToastConfig';
 
 import styles from './ToastMessage.style';
 
+type DefaultProps = {
+  useNativeDriver: boolean,
+};
+
 type Props = {
   message: Message,
-  useNativeDriver?: boolean,
+  useNativeDriver: boolean,
   messageReset: Function,
   dispatch: Function,
 };
@@ -26,12 +30,14 @@ type State = {
   height: number,
 };
 
-export default class ToastMessage extends React.Component<void, Props, State> {
+export default class ToastMessage extends React.Component<DefaultProps, Props, State> {
+  static defaultProps = {
+    useNativeDriver: true,
+  };
+
   constructor(props: Props) {
     super(props);
-    if (props.useNativeDriver) {
-      this.state.animationTiming.useNativeDriver = props.useNativeDriver;
-    }
+    this.state.animationTiming.useNativeDriver = props.useNativeDriver;
   }
 
   state = {
@@ -76,6 +82,7 @@ export default class ToastMessage extends React.Component<void, Props, State> {
     if (this.state.message && this.state.message.callback) {
       this.props.dispatch(this.state.message.callback);
     }
+    this.closeToast();
   };
 
   resetAnimation() {

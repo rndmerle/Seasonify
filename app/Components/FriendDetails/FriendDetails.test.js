@@ -16,7 +16,7 @@ function setup(specificProps = {}) {
         },
       },
     },
-    friendRemove: jest.fn(),
+    friendDelete: jest.fn(),
     friendUpdate: jest.fn(),
     messageToast: jest.fn(),
     ...specificProps,

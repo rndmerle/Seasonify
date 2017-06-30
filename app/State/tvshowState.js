@@ -15,7 +15,9 @@ const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   tvshowAddWithSeasons: ['tvshow'],
   tvshowAdd: ['tvshow'],
-  tvshowRemove: ['id'],
+  tvshowDelete: ['id'],
+  tvshowDeleteProceed: ['id'],
+  tvshowUndo: ['savedState'],
   tvshowUpdate: ['tvshow'],
   seasonsRefresh: ['id', 'silent'],
   seasonsSuccess: ['id', 'seasons'],
@@ -30,10 +32,13 @@ export const tvshowAdd = (state: State, { tvshow }: { tvshow: Tvshow }): State =
   [tvshow.id]: { ...tvshow },
 });
 
-export const tvshowRemove = (state: State, { id }: { id: string }): State => {
+export const tvshowDeleteProceed = (state: State, { id }: { id: string }): State => {
   const { [id]: deleted, ...newState } = state;
   return newState;
 };
+
+export const tvshowUndo = (state: State, { savedState }: { savedState: State }): State =>
+  savedState;
 
 export const tvshowUpdate = (state: State, { tvshow }: { tvshow: Tvshow }): State => ({
   ...state,
@@ -72,7 +77,8 @@ export const seasonRemove = (
 
 export const reducer = createReducer(INITIAL_STATE, {
   [types.TVSHOW_ADD]: tvshowAdd,
-  [types.TVSHOW_REMOVE]: tvshowRemove,
+  [types.TVSHOW_DELETE_PROCEED]: tvshowDeleteProceed,
+  [types.TVSHOW_UNDO]: tvshowUndo,
   [types.TVSHOW_UPDATE]: tvshowUpdate,
   [types.SEASONS_SUCCESS]: seasonsSuccess,
   [types.SEASON_REMOVE]: seasonRemove,

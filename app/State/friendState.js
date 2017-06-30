@@ -11,7 +11,9 @@ export const INITIAL_STATE = {};
 const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   friendAdd: ['id', 'name'],
-  friendRemove: ['id'],
+  friendDelete: ['id'],
+  friendDeleteProceed: ['id'],
+  friendUndo: ['savedState'],
   friendUpdate: ['friend'],
 });
 
@@ -22,10 +24,13 @@ export const friendAdd = (state: State, { id, name }: Friend): State => ({
   [id]: { id, name },
 });
 
-export const friendRemove = (state: State, { id }: { id: string }): State => {
+export const friendDeleteProceed = (state: State, { id }: { id: string }): State => {
   const { [id]: deleted, ...newState } = state;
   return newState;
 };
+
+export const friendUndo = (state: State, { savedState }: { savedState: State }): State =>
+  savedState;
 
 export const friendUpdate = (state: State, { friend }: { friend: Friend }): State => ({
   ...state,
@@ -34,13 +39,15 @@ export const friendUpdate = (state: State, { friend }: { friend: Friend }): Stat
 
 export const reducer = createReducer(INITIAL_STATE, {
   [types.FRIEND_ADD]: friendAdd,
-  [types.FRIEND_REMOVE]: friendRemove,
+  [types.FRIEND_DELETE_PROCEED]: friendDeleteProceed,
+  [types.FRIEND_UNDO]: friendUndo,
   [types.FRIEND_UPDATE]: friendUpdate,
 });
 
 /* ========== SELECTORS ========== */
 const selectors = {
   getFriends: (state: FullState): Friends => state.friends,
+  getFriend: (state: FullState, id: string): Friend => state.friends[id],
 };
 
 /* ========== EXPORTS ========== */

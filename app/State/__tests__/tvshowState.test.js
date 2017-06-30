@@ -23,14 +23,14 @@ describe('Reducer', () => {
     );
   });
 
-  it('handles tvshowRemove action', () => {
+  it('handles tvshowDeleteProceed action', () => {
     testReducer(
       reducer,
       {
         xxx123: { id: 'xxx123', name: 'Tvshow 1' },
         xxx456: { id: 'xxx456', name: 'Tvshow 2' },
       },
-      [tvshowActions.tvshowRemove('xxx123')],
+      [tvshowActions.tvshowDeleteProceed('xxx123')],
       {
         xxx456: { id: 'xxx456', name: 'Tvshow 2' },
       },
@@ -48,6 +48,25 @@ describe('Reducer', () => {
       {
         xxx123: { id: 'xxx123', name: 'Tvshow 1' },
         xxx456: { id: 'xxx456', name: 'Tvshow 3' },
+      },
+    );
+  });
+
+  it('handles tvshowUndo action', () => {
+    testReducer(
+      reducer,
+      {
+        xxx123: { id: 'xxx123', name: 'Tvshow 1 mod' },
+      },
+      [
+        tvshowActions.tvshowUndo({
+          xxx123: { id: 'xxx123', name: 'Tvshow 1' },
+          xxx456: { id: 'xxx456', name: 'Tvshow 2' },
+        }),
+      ],
+      {
+        xxx123: { id: 'xxx123', name: 'Tvshow 1' },
+        xxx456: { id: 'xxx456', name: 'Tvshow 2' },
       },
     );
   });

@@ -10,7 +10,7 @@ type Props = {
   /* parent */
   navigation: Object,
   /* connect */
-  friendRemove: Function,
+  friendDelete: Function,
   friendUpdate: Function,
   messageToast: Function,
 };
@@ -92,9 +92,8 @@ export default class FriendDetails extends React.PureComponent<void, Props, Stat
 
   handleDelete = () => {
     const { friend } = this.props.navigation.state.params;
-    this.props.friendRemove(friend.id);
+    this.props.friendDelete(friend.id);
     this.props.navigation.navigate('FriendListPage', {});
-    this.props.messageToast('warning', `${friend.name} has been deleted`);
   };
 
   render() {

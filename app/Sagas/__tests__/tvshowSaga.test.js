@@ -4,21 +4,23 @@ import { expectSaga } from 'redux-saga-test-plan';
 
 import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
 import { uiActions } from 'State/uiState';
+import { undoActions } from 'State/undoState';
 import Identity from 'Libs/Identity';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
 
 describe('tvshowAddWithSeasons saga', () => {
-  it('add the tv show', () => {
-    const id = Identity.forceId('xxx123');
-    const tvshow = { name: 'Tvshow', allocine: 555 };
-    const tvshowWithId = { ...tvshow, id };
-    const fakeSeasons = [{ seasonNumber: 1 }];
-    const fakeSeasonsResult = {
-      error: null,
-      data: fakeSeasons,
-    };
-    return expectSaga(rootSaga)
+  const id = Identity.forceId('xxx123');
+  const tvshow = { name: 'Tvshow', allocine: 555 };
+  const tvshowWithId = { ...tvshow, id };
+  const fakeSeasons = [{ seasonNumber: 1 }];
+  const fakeSeasonsResult = {
+    error: null,
+    data: fakeSeasons,
+  };
+
+  it('add the tv show', () =>
+    expectSaga(rootSaga)
       .put(tvshowActions.seasonsSuccess(id, fakeSeasons))
       .not.put(uiActions.spinnerShow())
       .put(tvshowActions.tvshowAdd(tvshowWithId))
@@ -27,6 +29,26 @@ describe('tvshowAddWithSeasons saga', () => {
         [select(tvshowSelectors.getTvshow, id), tvshowWithId],
       ])
       .dispatch(tvshowActions.tvshowAddWithSeasons(tvshow))
-      .silentRun();
-  });
+      .silentRun());
+});
+
+describe('tvshowDelete saga', () => {
+  const tvshow = { id: 'abc123', name: 'Tvshow 1' };
+  const currentState = {
+    [tvshow.id]: tvshow,
+    xyz789: { id: 'xyz789', name: 'Tvshow 2' },
+  };
+  const undoAction = tvshowActions.tvshowUndo(currentState);
+
+  it('saves the state and delete the tvshow', () =>
+    expectSaga(rootSaga)
+      .put(tvshowActions.tvshowDeleteProceed(tvshow.id))
+      .put(undoActions.undoAdd(undoAction))
+      .put(undoActions.undoReset())
+      .provide([
+        [select(tvshowSelectors.getTvshows), currentState],
+        [select(tvshowSelectors.getTvshow, tvshow.id), tvshow],
+      ])
+      .dispatch(tvshowActions.tvshowDelete(tvshow.id))
+      .silentRun());
 });

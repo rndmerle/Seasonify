@@ -22,13 +22,13 @@ const toastConfig: Toasts = {
   warning: {
     ...defaults,
     level: 'warning',
-    duration: baseDuration * 2,
+    duration: baseDuration * 3,
   },
 
   error: {
     ...defaults,
     level: 'error',
-    duration: baseDuration * 3,
+    duration: baseDuration * 4,
   },
 };
 

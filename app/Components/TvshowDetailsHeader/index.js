@@ -14,7 +14,7 @@ export default connect(
     tvshow: tvshowSelectors.getTvshow(state, ownProps.tvshowId),
   }),
   {
-    tvshowRemove: tvshowActions.tvshowRemove,
+    tvshowDelete: tvshowActions.tvshowDelete,
     tvshowUpdate: tvshowActions.tvshowUpdate,
     messageToast: uiActions.messageToast,
     editStart: editActions.editStart,

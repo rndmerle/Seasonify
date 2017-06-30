@@ -1,7 +1,9 @@
 import { all, takeLatest } from 'redux-saga/effects';
 
+import { friendTypes } from 'State/friendState';
 import { tvshowTypes } from 'State/tvshowState';
 import { uiTypes } from 'State/uiState';
+import { undoTypes } from 'State/undoState';
 import DebugConfig from 'Config/DebugConfig';
 import apiAllocine from 'Libs/Allocine';
 import apiFixtures from 'Libs/apiFixtures';
@@ -9,6 +11,8 @@ import apiFixtures from 'Libs/apiFixtures';
 import * as seasonsSaga from './seasonsSaga';
 import * as suggestionsSaga from './suggestionsSaga';
 import * as tvshowSaga from './tvshowSaga';
+import * as friendSaga from './friendSaga';
+import * as undoSaga from './undoSaga';
 
 /* ------------- API/Fixtures ------------- */
 /* istanbul ignore next */
@@ -20,5 +24,9 @@ export default function* rootSaga() {
     takeLatest(uiTypes.SUGGESTIONS_REQUEST, suggestionsSaga.suggestionsRequest, api),
     takeLatest(tvshowTypes.TVSHOW_ADD_WITH_SEASONS, tvshowSaga.tvshowAddWithSeasons, api),
     takeLatest(tvshowTypes.SEASONS_REFRESH, seasonsSaga.seasonsRefresh, api),
+
+    takeLatest(undoTypes.UNDO, undoSaga.runRecoverOps),
+    takeLatest(tvshowTypes.TVSHOW_DELETE, tvshowSaga.tvshowSaveAndDelete),
+    takeLatest(friendTypes.FRIEND_DELETE, friendSaga.friendSaveAndDelete),
   ]);
 }
