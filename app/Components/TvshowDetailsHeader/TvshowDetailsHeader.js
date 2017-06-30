@@ -5,6 +5,7 @@ import React from 'react';
 
 import type { Tvshow } from 'Types';
 import HeaderModular from 'Components/HeaderModular';
+import undoState from 'State/undoState';
 
 type Props = {
   /* parent */
@@ -43,7 +44,7 @@ const enhance = compose(
       Keyboard.dismiss();
       if (editedObject.id) {
         tvshowUpdate(editedObject);
-        messageToast('success', `${editedObject.name} has been edited`);
+        messageToast('success', `“${editedObject.name}” edited`);
       }
       editEnd();
     },
@@ -59,7 +60,12 @@ const enhance = compose(
       Keyboard.dismiss();
       editEnd();
       tvshowRemove(tvshow.id);
-      messageToast('warning', `${tvshow.name} has been deleted`);
+      messageToast(
+        'warning',
+        `“${tvshow.name}” deleted`,
+        'UNDO',
+        undoState.actions.undo(),
+      );
     },
   }),
 );

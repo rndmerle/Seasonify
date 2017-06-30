@@ -22,8 +22,8 @@ export const INITIAL_STATE: State = {
 const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   startup: null,
-  messageToast: ['level', 'text'],
-  messageHide: null,
+  messageToast: ['level', 'text', 'button', 'callback'],
+  messageReset: null,
   suggestionsRequest: ['text'],
   suggestionsSuccess: ['suggestions'],
   suggestionsFail: null,
@@ -33,12 +33,15 @@ const { Types: types, Creators } = createActions({
 
 /* ========== REDUCERS ========== */
 
-export const messageToast = (state: State, { level, text }: Message): State => ({
+export const messageToast = (
+  state: State,
+  { level, text, button, callback }: Message,
+): State => ({
   ...state,
-  message: { level, text },
+  message: { level, text, button, callback },
 });
 
-export const messageHide = (state: State): State => ({ ...state, message: null });
+export const messageReset = (state: State): State => ({ ...state, message: null });
 
 export const suggestionsSuccess = (
   state: State,
@@ -56,7 +59,7 @@ export const spinnerHide = (state: State): State => ({ ...state, spinner: false 
 
 export const reducer = createReducer(INITIAL_STATE, {
   [types.MESSAGE_TOAST]: messageToast,
-  [types.MESSAGE_HIDE]: messageHide,
+  [types.MESSAGE_RESET]: messageReset,
   [types.SUGGESTIONS_SUCCESS]: suggestionsSuccess,
   [types.SUGGESTIONS_FAIL]: suggestionsFail,
   [types.SPINNER_SHOW]: spinnerShow,

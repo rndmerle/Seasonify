@@ -2,9 +2,9 @@
 
 exports[`Rendering when default state should match 1`] = `
 <Styled(Container)>
-  <Connect(pure(lifecycle(ToastMessage))) />
   <NavigationContainer
     onNavigationStateChange={[Function]}
   />
+  <Connect(ToastMessage) />
 </Styled(Container)>
 `;

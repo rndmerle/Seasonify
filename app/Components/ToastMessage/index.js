@@ -1,4 +1,5 @@
 /* @flow */
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import uiState from 'State/uiState';
@@ -9,7 +10,12 @@ export default connect(
   state => ({
     message: uiState.selectors.getMessage(state),
   }),
-  {
-    messageHide: uiState.actions.messageHide,
-  },
+  dispatch => ({
+    ...bindActionCreators({ messageReset: uiState.actions.messageReset }, dispatch),
+    dispatch,
+  }),
+
+  // {
+  //   messageReset: uiState.actions.messageReset,
+  // },
 )(ToastMessage);

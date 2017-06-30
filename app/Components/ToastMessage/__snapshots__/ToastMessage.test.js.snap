@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering a warning message with an undo button should match 1`] = `
+<Styled(ViewNB)>
+  <AnimatedComponent
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "backgroundColor": "#ffab00",
+        },
+        Object {
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  >
+    <Styled(ListItem)>
+      <Styled(Left)>
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          Warning message
+        </Styled(Text)>
+      </Styled(Left)>
+      <Styled(Right)>
+        <Styled(Button)
+          onPress={[Function]}
+          transparent={true}
+        >
+          <Styled(Text)
+            style={
+              Object {
+                "color": "white",
+                "fontWeight": "bold",
+              }
+            }
+          >
+            UNDO
+          </Styled(Text)>
+        </Styled(Button)>
+      </Styled(Right)>
+    </Styled(ListItem)>
+  </AnimatedComponent>
+</Styled(ViewNB)>
+`;
+
+exports[`Rendering an empty message should match initial state 1`] = `null`;
+
+exports[`Rendering an empty message when receiving message as a prop should match displayed state 1`] = `
+<Styled(ViewNB)>
+  <AnimatedComponent
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+        Object {
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  >
+    <Styled(ListItem)>
+      <Styled(Left)>
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          Success message
+        </Styled(Text)>
+      </Styled(Left)>
+    </Styled(ListItem)>
+  </AnimatedComponent>
+</Styled(ViewNB)>
+`;

@@ -1,37 +1,35 @@
 /* @flow */
+import type { Toast, Toasts } from 'Types';
+
 const baseDuration = 3000;
 
-const defaults: {
-  text: string,
-  position: string,
-  buttonText: string,
-  duration: number,
-} = {
+const defaults: Toast = {
   text: '',
-  position: 'bottom',
-  buttonText: 'OK',
+  level: 'neutral',
   duration: baseDuration,
 };
 
-export default {
+const toastConfig: Toasts = {
   neutral: {
     ...defaults,
   },
 
   success: {
     ...defaults,
-    type: 'success',
+    level: 'success',
   },
 
   warning: {
     ...defaults,
-    type: 'warning',
+    level: 'warning',
     duration: baseDuration * 2,
   },
 
   error: {
     ...defaults,
-    type: 'danger',
+    level: 'error',
     duration: baseDuration * 3,
   },
 };
+
+export default toastConfig;

@@ -12,6 +12,6 @@ export function* tvshowAddWithSeasons(
 ): Generator<*, *, *> {
   const newTvshow: Tvshow = { ...tvshow, id: Identity.newid() };
   yield put(tv.actions.tvshowAdd(newTvshow));
-  yield put(ui.actions.messageToast('success', `${newTvshow.name} added`));
+  yield put(ui.actions.messageToast('success', `“${newTvshow.name}” added`));
   yield put(tv.actions.seasonsRefresh(newTvshow.id, true));
 }

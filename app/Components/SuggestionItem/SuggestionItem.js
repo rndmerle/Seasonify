@@ -1,14 +1,14 @@
 /* @flow */
 import {
-  View,
-  ListItem,
-  Left,
   Body,
-  Right,
-  Thumbnail,
-  Text,
-  Icon,
   Button,
+  Icon,
+  Left,
+  ListItem,
+  Right,
+  Text,
+  Thumbnail,
+  View,
 } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
@@ -45,19 +45,25 @@ function SuggestionItem({
 }: Props) {
   return (
     <View>
-      <ListItem onPress={handlePressSuggestion} avatar>
+      <ListItem avatar onPress={handlePressSuggestion}>
         <Left>
           {poster && <Thumbnail square source={{ uri: poster }} />}
           {!poster &&
             <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
         </Left>
         <Body>
-          <Text>{title}</Text>
-          <Text note>{subtitle}</Text>
+          <Text>
+            {title}
+          </Text>
+          <Text note>
+            {subtitle}
+          </Text>
         </Body>
         {!alreadyAdded &&
           <Right>
+            {/* <Button transparent onPress={handlePressSuggestion}> */}
             <Icon name="add-circle" />
+            {/* </Button> */}
           </Right>}
       </ListItem>
     </View>

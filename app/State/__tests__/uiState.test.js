@@ -25,8 +25,8 @@ describe('Reducer', () => {
     );
   });
 
-  it('handles messageHide action', () => {
-    testReducer(reducer, undefined, [ui.actions.messageHide()], {
+  it('handles messageReset action', () => {
+    testReducer(reducer, undefined, [ui.actions.messageReset()], {
       message: null,
     });
   });

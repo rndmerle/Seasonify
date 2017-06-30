@@ -64,4 +64,15 @@ export type Friends = {
 export type Message = {
   level: string,
   text: string,
+  button?: string,
+  callback?: Object, // an action to dispatch
+};
+
+export type Toast = {
+  text: string,
+  level: string,
+  duration: number,
+};
+export type Toasts = {
+  [id: string]: Toast,
 };
