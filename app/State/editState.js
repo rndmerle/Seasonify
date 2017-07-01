@@ -18,6 +18,8 @@ const { Types: types, Creators } = createActions({
   editEnd: null,
   editUpdate: ['editedObject'],
 });
+export { Creators as editActions };
+export { types as editTypes };
 
 /* ========== REDUCERS ========== */
 export const editStart = (state: State): State => ({ ...state, isEditing: true });
@@ -36,7 +38,7 @@ export const editUpdate = (
   editedObject: { ...state.editedObject, ...editedObject },
 });
 
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [types.EDIT_START]: editStart,
   [types.EDIT_END]: editEnd,
   [types.EDIT_UPDATE]: editUpdate,
@@ -44,14 +46,11 @@ export const reducer = createReducer(INITIAL_STATE, {
 
 /* ========== SELECTORS ========== */
 
-const selectors = {
-  isEditing: (state: FullState): boolean => state.edit.isEditing,
-  editedObject: (state: FullState): Object => state.edit.editedObject,
+const isEditing = (state: FullState): boolean => state.edit.isEditing;
+
+const editedObject = (state: FullState): Object => state.edit.editedObject;
+
+export const editSelectors = {
+  isEditing,
+  editedObject,
 };
-
-/* ========== EXPORTS ========== */
-
-export { Creators as editActions };
-export { selectors as editSelectors };
-export { types as editTypes };
-export default reducer;

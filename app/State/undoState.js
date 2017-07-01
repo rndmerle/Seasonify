@@ -18,6 +18,8 @@ const { Types: types, Creators } = createActions({
   undoAdd: ['action'],
   undoReset: null,
 });
+export { Creators as undoActions };
+export { types as undoTypes };
 
 /* ========== REDUCERS ========== */
 export const undoReset = (): State => INITIAL_STATE;
@@ -26,20 +28,15 @@ export const undoAdd = (state: State, { action }: { action: Object }): State => 
   recoverOps: [...state.recoverOps, action],
 });
 
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [types.UNDO_RESET]: undoReset,
   [types.UNDO_ADD]: undoAdd,
 });
 
 /* ========== SELECTORS ========== */
 
-const selectors = {
-  getRecoverOps: (state: FullState): Array<RecoverOp> => state.undo.recoverOps,
+const getRecoverOps = (state: FullState): Array<RecoverOp> => state.undo.recoverOps;
+
+export const undoSelectors = {
+  getRecoverOps,
 };
-
-/* ========== EXPORTS ========== */
-
-export { Creators as undoActions };
-export { selectors as undoSelectors };
-export { types as undoTypes };
-export default reducer;

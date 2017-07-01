@@ -1,4 +1,4 @@
 /* @flow */
-declare module 'redux-saga/effects' {
+declare module 'reselect' {
   declare var exports: any;
 }

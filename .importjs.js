@@ -30,6 +30,7 @@ module.exports = {
       'race',
     ],
     'redux-saga-test-plan': ['expectSaga'],
+    reselect: ['createSelector'],
   },
   logLevel: 'info', // debug
   importDevDependencies: true,

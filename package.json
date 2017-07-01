@@ -19,15 +19,14 @@
     "build:ios": "bundle install --binstubs ./examples/ios && bundle exec pod install --project-directory=./example/ios/",
     "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache",
-    "staged": "lint-staged",
-    "precommit": "echo Checking Flow typing... && flow --quiet && lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "jest --silent && echo Eslint... && eslint ./app && echo Flow... && flow --quiet"
   },
   "lint-staged": {
     "*.js": [
-      "jest --silent --bail --findRelatedTests",
       "prettier-eslint --write",
       "git add",
-      "eslint --quiet"
+      "eslint --max-warnings 0"
     ]
   },
   "dependencies": {

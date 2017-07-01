@@ -16,6 +16,8 @@ const { Types: types, Creators } = createActions({
   friendUndo: ['savedState'],
   friendUpdate: ['friend'],
 });
+export { Creators as friendActions };
+export { types as friendTypes };
 
 /* ========== REDUCERS ========== */
 
@@ -37,7 +39,7 @@ export const friendUpdate = (state: State, { friend }: { friend: Friend }): Stat
   [friend.id]: { ...state[friend.id], ...friend },
 });
 
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [types.FRIEND_ADD]: friendAdd,
   [types.FRIEND_DELETE_PROCEED]: friendDeleteProceed,
   [types.FRIEND_UNDO]: friendUndo,
@@ -45,14 +47,12 @@ export const reducer = createReducer(INITIAL_STATE, {
 });
 
 /* ========== SELECTORS ========== */
-const selectors = {
-  getFriends: (state: FullState): Friends => state.friends,
-  getFriend: (state: FullState, id: string): Friend => state.friends[id],
+
+const getFriends = (state: FullState): Friends => state.friends;
+
+const getFriend = (state: FullState, id: string): Friend => state.friends[id];
+
+export const friendSelectors = {
+  getFriends,
+  getFriend,
 };
-
-/* ========== EXPORTS ========== */
-
-export { Creators as friendActions };
-export { selectors as friendSelectors };
-export { types as friendTypes };
-export default reducer;

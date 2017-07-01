@@ -1,5 +1,6 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
+import { createSelector } from 'reselect';
 
 import type { Tvshow, Tvshows, Seasons } from 'Types';
 import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
@@ -24,6 +25,8 @@ const { Types: types, Creators } = createActions({
   seasonsFail: null,
   seasonRemove: ['name', 'season'],
 });
+export { Creators as tvshowActions };
+export { types as tvshowTypes };
 
 /* ========== REDUCERS ========== */
 
@@ -78,7 +81,7 @@ export const seasonRemove = (
   };
 };
 
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [types.TVSHOW_ADD]: tvshowAdd,
   [types.TVSHOW_DELETE_PROCEED]: tvshowDeleteProceed,
   [types.TVSHOW_UNDO]: tvshowUndo,
@@ -89,16 +92,16 @@ export const reducer = createReducer(INITIAL_STATE, {
 
 /* ========== SELECTORS ========== */
 
-const selectors = {
-  getTvshows: (state: FullState): Tvshows => state.tvshows,
-  getTvshow: (state: FullState, id: string): Tvshow => state.tvshows[id],
-  getCodes: (state: FullState): Array<number> =>
-    Object.keys(state.tvshows).map(key => state.tvshows[key].allocine),
+const getTvshows = (state: FullState): Tvshows => state.tvshows;
+
+const getTvshow = (state: FullState, id: string): Tvshow => state.tvshows[id];
+
+const getCodes = createSelector(getTvshows, tvshows =>
+  Object.keys(tvshows).map(key => tvshows[key].allocine),
+);
+
+export const tvshowSelectors = {
+  getTvshows,
+  getTvshow,
+  getCodes,
 };
-
-/* ========== EXPORTS ========== */
-
-export { Creators as tvshowActions };
-export { selectors as tvshowSelectors };
-export { types as tvshowTypes };
-export default reducer;

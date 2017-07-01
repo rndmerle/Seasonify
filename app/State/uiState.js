@@ -30,6 +30,8 @@ const { Types: types, Creators } = createActions({
   spinnerShow: null,
   spinnerHide: null,
 });
+export { Creators as uiActions };
+export { types as uiTypes };
 
 /* ========== REDUCERS ========== */
 
@@ -57,7 +59,7 @@ export const spinnerShow = (state: State): State => ({ ...state, spinner: true }
 
 export const spinnerHide = (state: State): State => ({ ...state, spinner: false });
 
-export const reducer = createReducer(INITIAL_STATE, {
+export default createReducer(INITIAL_STATE, {
   [types.MESSAGE_TOAST]: messageToast,
   [types.MESSAGE_RESET]: messageReset,
   [types.SUGGESTIONS_SUCCESS]: suggestionsSuccess,
@@ -68,15 +70,14 @@ export const reducer = createReducer(INITIAL_STATE, {
 
 /* ========== SELECTORS ========== */
 
-const selectors = {
-  getMessage: (state: FullState): ?Message => state.ui.message,
-  getSuggestions: (state: FullState): TvshowWithoutID[] => state.ui.suggestions,
-  isSpinning: (state: FullState): boolean => state.ui.spinner,
+const getMessage = (state: FullState): ?Message => state.ui.message;
+
+const getSuggestions = (state: FullState): TvshowWithoutID[] => state.ui.suggestions;
+
+const isSpinning = (state: FullState): boolean => state.ui.spinner;
+
+export const uiSelectors = {
+  getMessage,
+  getSuggestions,
+  isSpinning,
 };
-
-/* ========== EXPORTS ========== */
-
-export { Creators as uiActions };
-export { selectors as uiSelectors };
-export { types as uiTypes };
-export default reducer;

@@ -3,9 +3,9 @@ import { reactotronRedux } from 'reactotron-redux';
 import Reactotron, { overlay, trackGlobalErrors } from 'reactotron-react-native';
 import sagaPlugin from 'reactotron-redux-saga';
 
-import Config from './DebugConfig';
+import DebugConfig from './DebugConfig';
 
-if (Config.useReactotron) {
+if (DebugConfig.useReactotron) {
   Reactotron.configure({
     // host: '10.0.3.2' // default is localhost (on android don't forget to `adb reverse tcp:9090 tcp:9090`)
     name: 'Seasonify',
@@ -45,6 +45,7 @@ if (Config.useReactotron) {
 
   // (when not into Chrome devtools) replace the regular console.log with Reactotron.display. If more than 1 argument supplied, the first argument is considered a title.
   const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
+
   const hijackConsole = browserConsole => {
     console.log = (...args) => {
       if (isDebuggingInChrome) {
@@ -72,8 +73,8 @@ if (Config.useReactotron) {
       const isNotImportant =
         name !== undefined &&
         preview !== undefined &&
-        Config.notImportantLogs &&
-        Config.notImportantLogs.some(
+        DebugConfig.notImportantLogs &&
+        DebugConfig.notImportantLogs.some(
           needle =>
             (typeof name === 'string' && name.startsWith(needle)) ||
             (typeof preview === 'string' && preview.startsWith(needle)),
