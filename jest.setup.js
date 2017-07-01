@@ -1,3 +1,5 @@
+import DebugConfig from 'Config/DebugConfig';
+
 import { shallow } from 'enzyme';
 
 import globals from 'Config/globals';
@@ -12,7 +14,7 @@ global.shallowDive = (Component, target, context = {}) => {
     target = target.displayName;
   }
   return shallow(Component, context)::until(target);
-}
+};
 
 global.objectValues = map => Object.values(map);
 
@@ -25,6 +27,8 @@ const hijackConsole = browserConsole => {
 hijackConsole(console.info);
 // and reactotron so it does'nt mess around
 // hijackConsole(console.tron);
+
+DebugConfig.useReactotron = false;
 
 // Needed because of some issue when importing react-navigation stuff.
 // Might try later to comment that and run Root.test.js again (still a "Native module cannot be null" error ?)

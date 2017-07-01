@@ -8,7 +8,7 @@ import Config from './DebugConfig';
 if (Config.useReactotron) {
   Reactotron.configure({
     // host: '10.0.3.2' // default is localhost (on android don't forget to `adb reverse tcp:9090 tcp:9090`)
-    name: 'SAIS0N',
+    name: 'Seasonify',
   })
     // forward all errors to Reactotron
     .use(

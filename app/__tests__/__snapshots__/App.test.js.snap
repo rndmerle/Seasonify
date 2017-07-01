@@ -6,6 +6,7 @@ exports[`Rendering when default state should match 1`] = `
     Object {
       "dispatch": [Function],
       "getState": [Function],
+      "replaceReducer": [Function],
       "subscribe": [Function],
     }
   }

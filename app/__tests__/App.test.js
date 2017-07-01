@@ -1,5 +1,4 @@
 import React from 'react';
-import createStore from 'State'; // eslint-disable-line no-unused-vars
 
 import { App } from '../App';
 
@@ -14,13 +13,13 @@ function setup(specificProps = {}) {
   };
 }
 
-jest.mock('State', () =>
-  jest.fn().mockReturnValue({
-    subscribe: jest.fn(),
-    dispatch: jest.fn(),
-    getState: jest.fn(),
-  }),
-);
+// jest.mock('State', () =>
+//   jest.fn().mockReturnValue({
+//     subscribe: jest.fn(),
+//     dispatch: jest.fn(),
+//     getState: jest.fn(),
+//   }),
+// );
 
 describe('Rendering when default state', () => {
   const { component } = setup();

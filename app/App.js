@@ -18,7 +18,6 @@ export const App = () =>
     <Root />
   </Provider>);
 
-// Reactotron overlay
 /* istanbul ignore next */
 const AppWithBenefits = DebugConfig.useReactotron
   ? /* $FlowExpectedError */
