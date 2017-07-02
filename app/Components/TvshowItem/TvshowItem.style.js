@@ -1,6 +1,17 @@
 export default {
+  infos: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'stretch',
+  },
+  name: {
+    flexGrow: 1,
+  },
   seasonsCount: {
-    fontStyle: 'italic',
-    color: 'gray',
+    alignSelf: 'flex-end',
+  },
+  viewers: {
+    flexBasis: '100%',
   },
 };

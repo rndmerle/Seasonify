@@ -38,11 +38,14 @@ function TvshowItem({ tvshow, seasonsCount, handlePress }: Props) {
         {!tvshow.poster &&
           <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
-      <Body>
-        <Text>
-          {tvshow.name} <Text style={styles.seasonsCount}>({seasonsCount})</Text>
+      <Body style={styles.infos}>
+        <Text style={styles.name}>
+          {tvshow.name}
         </Text>
-        <Text note>
+        <Text style={styles.seasonsCount}>
+          / {seasonsCount}
+        </Text>
+        <Text note style={styles.viewers}>
           Renaud, Sylvain {/* TODO */}
         </Text>
       </Body>
