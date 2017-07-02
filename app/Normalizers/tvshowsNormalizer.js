@@ -8,7 +8,6 @@ function tvshowsNormalizer(tvshows) {
         poster: 'poster' in suggestion ? suggestion.poster.href : undefined,
         year: suggestion.yearStart,
         seasons: {},
-        seasonsCount: 0,
       }),
     [],
   );

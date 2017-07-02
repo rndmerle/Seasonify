@@ -3,16 +3,17 @@ import { Body, Button, Left, ListItem, Text, Thumbnail } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
+import type { Tvshow } from 'Types';
+
 import styles from './TvshowItem.style';
 
 type Props = {
   /* parent */
   tvshowId: string,
-  tvshowName: string,
-  poster: ?string,
-  seasonsCount: number,
   navigate: Function,
   /* connect */
+  tvshow: Tvshow,
+  seasonsCount: number,
   /* state */
   /* handlers */
   handlePress: Function,
@@ -21,25 +22,26 @@ type Props = {
 const enhance = compose(
   pure,
   withHandlers({
-    handlePress: ({ tvshowId, tvshowName, navigate }: Props) => () => {
+    handlePress: ({ tvshowId, tvshow, navigate }: Props) => () => {
       navigate('TvshowDetailsPage', {
         tvshowId,
-        tvshowName,
+        tvshowName: tvshow.name,
       });
     },
   }),
 );
 
-function TvshowItem({ tvshowName, poster, seasonsCount, handlePress }: Props) {
+function TvshowItem({ tvshow, seasonsCount, handlePress }: Props) {
   return (
     <ListItem avatar onPress={handlePress}>
       <Left>
-        {poster && <Thumbnail square source={{ uri: poster }} />}
-        {!poster && <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
+        {tvshow.poster && <Thumbnail square source={{ uri: tvshow.poster }} />}
+        {!tvshow.poster &&
+          <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
       <Body>
         <Text>
-          {tvshowName} <Text style={styles.seasonsCount}>({seasonsCount})</Text>
+          {tvshow.name} <Text style={styles.seasonsCount}>({seasonsCount})</Text>
         </Text>
         <Text note>
           Renaud, Sylvain {/* TODO */}

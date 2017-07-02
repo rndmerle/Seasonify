@@ -2,9 +2,7 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": [
-    "app/"
-  ],
+  "moduleRoots": ["app/"],
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
@@ -23,11 +21,7 @@
     "prepush": "jest --silent && echo Eslint... && eslint ./app && echo Flow... && flow --quiet"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier-eslint --write",
-      "git add",
-      "eslint --max-warnings 0"
-    ]
+    "*.js": ["prettier-eslint --write", "git add", "eslint --max-warnings 0"]
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -82,12 +76,8 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": [
-      "./jest.setup.js"
-    ],
-    "modulePaths": [
-      "<rootDir>/app/"
-    ],
+    "setupFiles": ["./jest.setup.js"],
+    "modulePaths": ["<rootDir>/app/"],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/**/index.js",
@@ -99,11 +89,7 @@
       "!app/Libs/until.js",
       "!app/HOC/withLog.js"
     ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/(?!native-base)/"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
   }
 }

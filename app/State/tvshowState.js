@@ -53,13 +53,11 @@ export const seasonsSuccess = (
   { id, seasons }: { id: string, seasons: Seasons },
 ): State => {
   const newSeasons = seasonsNormalizer(seasons);
-  const seasonsCount = Object.keys(newSeasons).length;
   return {
     ...state,
     [id]: {
       ...state[id],
       seasons: { ...state[id].seasons, ...newSeasons },
-      seasonsCount,
     },
   };
 };
@@ -76,7 +74,6 @@ export const seasonRemove = (
     [id]: {
       ...state[id],
       seasons: restSeasons,
-      seasonsCount: state[id].seasonsCount - 1,
     },
   };
 };
@@ -94,14 +91,19 @@ export default createReducer(INITIAL_STATE, {
 
 const getTvshows = (state: FullState): Tvshows => state.tvshows;
 
-const getTvshow = (state: FullState, id: string): Tvshow => state.tvshows[id];
-
-const getCodes = createSelector(getTvshows, tvshows =>
+const getCodes = createSelector(getTvshows, (tvshows: Tvshows) =>
   Object.keys(tvshows).map(key => tvshows[key].allocine),
 );
+
+const getTvshow = (state: FullState, { tvshowId }: { tvshowId: string }): Tvshow =>
+  state.tvshows[tvshowId];
+
+const makeGetSeasonsCount = () =>
+  createSelector(getTvshow, (tvshow: Tvshow) => Object.keys(tvshow.seasons).length);
 
 export const tvshowSelectors = {
   getTvshows,
   getTvshow,
   getCodes,
+  makeGetSeasonsCount,
 };

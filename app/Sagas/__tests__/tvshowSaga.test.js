@@ -10,9 +10,9 @@ import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
 
 describe('tvshowAddWithSeasons saga', () => {
-  const id = Identity.forceId('xxx123');
+  const tvshowId = Identity.forceId('xxx123');
   const tvshow = { name: 'Tvshow', allocine: 555 };
-  const tvshowWithId = { ...tvshow, id };
+  const tvshowWithId = { ...tvshow, id: tvshowId };
   const fakeSeasons = [{ seasonNumber: 1 }];
   const fakeSeasonsResult = {
     error: null,
@@ -21,12 +21,12 @@ describe('tvshowAddWithSeasons saga', () => {
 
   it('add the tv show', () =>
     expectSaga(rootSaga)
-      .put(tvshowActions.seasonsSuccess(id, fakeSeasons))
+      .put(tvshowActions.seasonsSuccess(tvshowId, fakeSeasons))
       .not.put(uiActions.spinnerShow())
       .put(tvshowActions.tvshowAdd(tvshowWithId))
       .provide([
         [call(api.getSeasons, 555), fakeSeasonsResult],
-        [select(tvshowSelectors.getTvshow, id), tvshowWithId],
+        [select(tvshowSelectors.getTvshow, { tvshowId }), tvshowWithId],
       ])
       .dispatch(tvshowActions.tvshowAddWithSeasons(tvshow))
       .silentRun());
@@ -47,7 +47,7 @@ describe('tvshowDelete saga', () => {
       .put(undoActions.undoReset())
       .provide([
         [select(tvshowSelectors.getTvshows), currentState],
-        [select(tvshowSelectors.getTvshow, tvshow.id), tvshow],
+        [select(tvshowSelectors.getTvshow, { tvshowId: tvshow.id }), tvshow],
       ])
       .dispatch(tvshowActions.tvshowDelete(tvshow.id))
       .silentRun());

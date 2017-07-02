@@ -8,10 +8,10 @@ import { uiActions } from 'State/uiState';
 import TvshowDetailsHeader from './TvshowDetailsHeader';
 
 export default connect(
-  (state, ownProps) => ({
+  (state, { tvshowId }) => ({
     isEditing: editSelectors.isEditing(state),
     editedObject: editSelectors.editedObject(state),
-    tvshow: tvshowSelectors.getTvshow(state, ownProps.tvshowId),
+    tvshow: tvshowSelectors.getTvshow(state, { tvshowId }),
   }),
   {
     tvshowDelete: tvshowActions.tvshowDelete,

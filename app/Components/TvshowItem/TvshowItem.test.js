@@ -6,9 +6,8 @@ import TvshowItem from './TvshowItem';
 function setup(specificProps = {}) {
   const props = {
     tvshowId: 'abc',
-    tvshowName: 'Deadwood',
+    tvshow: { id: 'abc', name: 'Deadwood', poster: 'http://poster.png' },
     seasonsCount: 1,
-    poster: 'http://poster.png',
     navigate: jest.fn(),
     ...specificProps,
   };
@@ -27,7 +26,7 @@ describe('Rendering', () => {
   });
 
   it('should match, with empty tvshowName and poster', () => {
-    const { component } = setup({ tvshowName: '', poster: '' });
+    const { component } = setup({ tvshow: { name: '', poster: '' } });
     expect(component).toMatchSnapshot();
   });
 });
@@ -38,7 +37,7 @@ describe('Events', () => {
     component.find(ListItem).simulate('press');
     expect(props.navigate).toBeCalledWith('TvshowDetailsPage', {
       tvshowId: props.tvshowId,
-      tvshowName: props.tvshowName,
+      tvshowName: props.tvshow.name,
     });
   });
 });

@@ -30,14 +30,7 @@ const enhance = compose(
 function TvshowList({ navigation, tvshows, handleFAB }: Props) {
   /* istanbul ignore next */
   const renderItem = ({ item: tvshow }) =>
-    (<TvshowItem
-      key={tvshow.id}
-      tvshowId={tvshow.id}
-      tvshowName={tvshow.name}
-      seasonsCount={tvshow.seasonsCount}
-      poster={tvshow.poster}
-      navigate={navigation.navigate}
-    />);
+    <TvshowItem key={tvshow.id} tvshowId={tvshow.id} navigate={navigation.navigate} />;
 
   const keyExtractor = item => item.id;
   const tvshowKeys = Object.keys(tvshows);

@@ -10,7 +10,7 @@ export function* seasonsRefresh(
   { id, silent = false }: { id: string, silent: boolean },
 ): Generator<*, *, *> {
   if (!silent) yield put(uiActions.spinnerShow());
-  const tvshow: Tvshow = yield select(tvshowSelectors.getTvshow, id);
+  const tvshow: Tvshow = yield select(tvshowSelectors.getTvshow, { tvshowId: id });
   const response: ApiResponse = yield call(api.getSeasons, tvshow.allocine);
 
   if (response.data !== null) {

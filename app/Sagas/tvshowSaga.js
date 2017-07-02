@@ -18,7 +18,7 @@ export function* tvshowAddWithSeasons(
 }
 
 export function* tvshowSaveAndDelete({ id }: { id: string }): Generator<*, *, *> {
-  const tvshow = yield select(tvshowSelectors.getTvshow, id);
+  const tvshow = yield select(tvshowSelectors.getTvshow, { tvshowId: id });
   const savedState = yield select(tvshowSelectors.getTvshows);
   const undoAction = tvshowActions.tvshowUndo(savedState);
   yield put(undoActions.undoReset());

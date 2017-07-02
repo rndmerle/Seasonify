@@ -18,8 +18,8 @@ TvshowDetails.navigationOptions = ({ navigation }) => ({
 });
 
 export default connect(
-  (state, ownProps) => ({
-    tvshow: tvshowSelectors.getTvshow(state, ownProps.navigation.state.params.tvshowId),
+  (state, { navigation: { state: { params: { tvshowId } } } }) => ({
+    tvshow: tvshowSelectors.getTvshow(state, { tvshowId }),
     isEditing: editSelectors.isEditing(state),
     editedObject: editSelectors.editedObject(state),
   }),
