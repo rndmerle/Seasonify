@@ -13,7 +13,7 @@ TvshowList.navigationOptions = ({ navigation }) => ({
 
 export default connect(
   state => ({
-    tvshows: tvshowSelectors.getTvshows(state),
+    tvshowsIds: tvshowSelectors.getTvshowsIds(state),
   }),
   {},
 )(TvshowList);

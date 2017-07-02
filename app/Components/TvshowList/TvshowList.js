@@ -4,7 +4,6 @@ import { /* FlatList,*/ VirtualizedList } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { Tvshows } from 'Types';
 import SingleFAB from 'Components/SingleFAB';
 import TvshowItem from 'Components/TvshowItem';
 
@@ -12,7 +11,7 @@ type Props = {
   /* parent */
   navigation: Object,
   /* connect */
-  tvshows: Tvshows,
+  tvshowsIds: string[],
   /* HOC */
   handleFAB: Function,
 };
@@ -26,23 +25,21 @@ const enhance = compose(
   }),
 );
 
-function TvshowList({ navigation, tvshows, handleFAB }: Props) {
+function TvshowList({ navigation, tvshowsIds, handleFAB }: Props) {
   /* istanbul ignore next */
-  const renderItem = ({ item: tvshow }) =>
-    <TvshowItem key={tvshow.id} tvshowId={tvshow.id} navigate={navigation.navigate} />;
+  const renderItem = ({ item: id }) =>
+    <TvshowItem tvshowId={id} navigate={navigation.navigate} />;
 
-  const keyExtractor = item => item.id;
-  const tvshowKeys = Object.keys(tvshows);
-  const getItem = (data, index) => data[tvshowKeys[index]];
+  const getItem = (data, index) => data[index];
+  const keyExtractor = item => item;
 
   return (
     <Container>
       <Content>
         <VirtualizedList
           initialNumberToRender={11}
-          data={tvshows}
-          extraData={tvshowKeys}
-          getItemCount={/* istanbul ignore next */ data => Object.keys(data).length}
+          data={tvshowsIds}
+          getItemCount={/* istanbul ignore next */ data => data.length}
           getItem={getItem}
           renderItem={renderItem}
           keyExtractor={keyExtractor}

@@ -2,7 +2,7 @@
 import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
-import type { Tvshow, Tvshows, Seasons } from 'Types';
+import type { Seasons, Tvshow, Tvshows } from 'Types';
 import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 
 export type State = Tvshows;
@@ -95,6 +95,8 @@ const getCodes = createSelector(getTvshows, (tvshows: Tvshows) =>
   Object.keys(tvshows).map(key => tvshows[key].allocine),
 );
 
+const getTvshowsIds = ({ tvshows }: FullState): string[] => Object.keys(tvshows);
+
 const getTvshow = (state: FullState, { tvshowId }: { tvshowId: string }): Tvshow =>
   state.tvshows[tvshowId];
 
@@ -103,6 +105,7 @@ const makeGetSeasonsCount = () =>
 
 export const tvshowSelectors = {
   getTvshows,
+  getTvshowsIds,
   getTvshow,
   getCodes,
   makeGetSeasonsCount,

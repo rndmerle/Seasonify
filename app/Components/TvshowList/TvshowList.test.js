@@ -7,7 +7,7 @@ import TvshowList from './TvshowList';
 
 function setup(specificProps = {}) {
   const props = {
-    tvshows: {},
+    tvshowsIds: [],
     navigation: { navigate: jest.fn() },
     ...specificProps,
   };
@@ -22,10 +22,7 @@ function setup(specificProps = {}) {
 describe('rendering', () => {
   it('should show 2 series', () => {
     const { component } = setup({
-      tvshows: {
-        abc: { id: 'abc', name: 'tvshow1' },
-        qsd: { id: 'qsd', name: 'tvshow2' },
-      },
+      tvshowsIds: ['abc', 'qsd'],
     });
     expect(component).toMatchSnapshot();
   });

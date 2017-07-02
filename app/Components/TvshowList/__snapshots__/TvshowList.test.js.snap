@@ -5,24 +5,12 @@ exports[`rendering should show 2 series 1`] = `
   <Styled(Content)>
     <VirtualizedList
       data={
-        Object {
-          "abc": Object {
-            "id": "abc",
-            "name": "tvshow1",
-          },
-          "qsd": Object {
-            "id": "qsd",
-            "name": "tvshow2",
-          },
-        }
-      }
-      disableVirtualization={false}
-      extraData={
         Array [
           "abc",
           "qsd",
         ]
       }
+      disableVirtualization={false}
       getItem={[Function]}
       getItemCount={[Function]}
       horizontal={false}
