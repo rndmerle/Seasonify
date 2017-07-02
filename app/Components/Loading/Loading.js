@@ -11,8 +11,7 @@ type Props = {
   color?: string,
   /* connect */
   isSpinning: boolean,
-  /* state */
-  /* handlers */
+  /* HOC */
 };
 
 const enhance = pure;

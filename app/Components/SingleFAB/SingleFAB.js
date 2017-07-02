@@ -8,8 +8,7 @@ type Props = {
   icon: string,
   onPress: Function,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
 };
 
 const enhance = pure;

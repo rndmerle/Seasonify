@@ -14,8 +14,7 @@ type Props = {
   /* connect */
   tvshow: Tvshow,
   seasonsCount: number,
-  /* state */
-  /* handlers */
+  /* HOC */
   handlePress: Function,
 };
 

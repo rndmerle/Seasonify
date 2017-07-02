@@ -10,8 +10,7 @@ type Props = {
   navigate: Function,
   friend: Friend,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
   handlePress: Function,
 };
 

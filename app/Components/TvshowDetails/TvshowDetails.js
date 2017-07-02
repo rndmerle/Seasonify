@@ -20,8 +20,7 @@ type Props = {
   editedObject: Object,
   editUpdate: Function,
   seasonsRefresh: Function,
-  /* state */
-  /* handlers */
+  /* HOC */
   handleChangeName: Function,
   handleFAB: Function,
 };

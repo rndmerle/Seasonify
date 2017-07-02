@@ -13,8 +13,7 @@ type Props = {
   isEditing: boolean,
   editedObject: Object,
   editUpdate: Function,
-  /* state */
-  /* handlers */
+  /* HOC */
   handleChangeName: Function,
 };
 

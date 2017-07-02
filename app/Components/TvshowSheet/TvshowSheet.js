@@ -12,8 +12,7 @@ type Props = {
   edit: Object,
   onChangeName: Function,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
 };
 
 const enhance = pure;
@@ -43,10 +42,14 @@ function TvshowSheet({
       <List>
         {localizedName &&
           <ListItem>
-            <Text note>{localizedName}</Text>
+            <Text note>
+              {localizedName}
+            </Text>
           </ListItem>}
         <ListItem>
-          <Text note>{year}</Text>
+          <Text note>
+            {year}
+          </Text>
         </ListItem>
       </List>
     </Content>

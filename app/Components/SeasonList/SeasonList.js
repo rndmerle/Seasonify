@@ -10,8 +10,7 @@ type Props = {
   /* parent */
   seasons: Seasons,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
 };
 
 const enhance = pure;

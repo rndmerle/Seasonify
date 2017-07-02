@@ -19,8 +19,7 @@ type Props = {
   messageToast: Function,
   editStart: Function,
   editEnd: Function,
-  /* state */
-  /* handlers */
+  /* HOC */
   handleExit: Function,
   handleEdit: Function,
   handleDone: Function,

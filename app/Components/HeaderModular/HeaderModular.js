@@ -12,8 +12,7 @@ type Props = {
   cancelButton: HeaderButton,
   actionButtons?: HeaderButton[],
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
   handleCancel: Function,
 };
 
@@ -30,7 +29,13 @@ const enhance = compose(
 function HeaderModular({ title, cancelButton, actionButtons = [], handleCancel }: Props) {
   const renderTextOrIcon = (button: HeaderButton) => {
     if (button.icon) return <Icon name={button.icon} />;
-    if (button.text) return <Text>{button.text}</Text>;
+    if (button.text) {
+      return (
+        <Text>
+          {button.text}
+        </Text>
+      );
+    }
     return null;
   };
 
@@ -58,7 +63,9 @@ function HeaderModular({ title, cancelButton, actionButtons = [], handleCancel }
         </Button>
       </Left>
       <Body>
-        <Title>{title}</Title>
+        <Title>
+          {title}
+        </Title>
       </Body>
       <Right>
         {renderButton()}

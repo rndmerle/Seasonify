@@ -12,8 +12,7 @@ type Props = {
   navigation: Object,
   /* connect */
   friends: Friends,
-  /* state */
-  /* handlers */
+  /* HOC */
   handleFAB: Function,
 };
 

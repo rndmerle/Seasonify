@@ -8,8 +8,7 @@ type Props = {
   title: string,
   navigation: Object,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
   handleDrawer: Function,
 };
 
@@ -31,7 +30,9 @@ function HeaderRoot({ title, handleDrawer }: Props) {
         </Button>
       </Left>
       <Body>
-        <Title>{title}</Title>
+        <Title>
+          {title}
+        </Title>
       </Body>
       <Right />
     </Header>

@@ -22,8 +22,7 @@ type Props = {
   subtitle?: string,
   alreadyAdded?: boolean,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
   handlePressSuggestion: Function,
 };
 

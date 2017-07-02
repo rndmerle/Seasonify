@@ -13,8 +13,7 @@ type Props = {
   navigation: Object,
   /* connect */
   tvshows: Tvshows,
-  /* state */
-  /* handlers */
+  /* HOC */
   handleFAB: Function,
 };
 

@@ -12,8 +12,7 @@ type Props = {
   orientation: 'PORTRAIT' | 'LANDSCAPE',
   window: Object,
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
 };
 
 const enhance = compose(pure, withResponsive);

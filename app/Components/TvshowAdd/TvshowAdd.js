@@ -14,8 +14,7 @@ type Props = {
   codes: number[],
   tvshowAddWithSeasons: Function,
   suggestionsRequest: Function,
-  /* state */
-  /* handlers */
+  /* HOC */
   registerInput: Function,
   handleChangeName: Function,
   handlePressSuggestion: Function,
