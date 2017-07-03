@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { editActions, editSelectors } from 'State/editState';
-import { friendSelectors } from 'State/friendState';
+import { friendActions, friendSelectors } from 'State/friendState';
 import FriendDetailsHeader from 'Components/FriendDetailsHeader';
 
 import FriendDetails from './FriendDetails';
@@ -25,5 +25,6 @@ export default connect(
   }),
   {
     editUpdate: editActions.editUpdate,
+    friendUpdate: friendActions.friendUpdate,
   },
 )(FriendDetails);

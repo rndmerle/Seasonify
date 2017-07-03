@@ -55,6 +55,7 @@
         "no-underscore-dangle": 0, # I'll use it sparingly, I promise
         "no-confusing-arrow": 0, # Not confusiont to me :(
         "import/no-extraneous-dependencies": 0, # I put dev tools int dev dependencies
+        "no-nested-ternary": 0, # I'll rarely used them, I promise
         "no-console": ["warn", { allow: ["disableYellowBox", "ignoredYellowBox", "tron"] }],
         "no-use-before-define": [ "error", {
             "functions": false,

@@ -1,4 +1,4 @@
-import { Container, Input } from 'native-base';
+import { Container, Input, Picker } from 'native-base';
 import React from 'react';
 
 import FriendDetails from './FriendDetails';
@@ -12,10 +12,12 @@ function setup(specificProps = {}) {
     friend: {
       id: 'abc123',
       name: 'A friend',
+      color: 'pink',
     },
     isEditing: false,
     editedObject: {},
     editUpdate: jest.fn(),
+    friendUpdate: jest.fn(),
     ...specificProps,
   };
   const component = shallowDive(<FriendDetails {...props} />, Container);
@@ -67,12 +69,13 @@ describe('Events & Functions', () => {
   });
 
   describe('when calling onChangeColor', () => {
-    inputs.at(1).props().onChangeText('#ffffff');
+    const picker = component.find(Picker);
+    picker.props().onValueChange('blue');
 
-    it('calls editUpdate', () => {
-      expect(props.editUpdate).toBeCalledWith({
+    it('calls friendUpdate', () => {
+      expect(props.friendUpdate).toBeCalledWith({
         id: props.friend.id,
-        color: '#ffffff',
+        color: 'blue',
       });
     });
   });

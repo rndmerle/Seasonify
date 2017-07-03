@@ -74,10 +74,6 @@ export default class FriendAdd extends React.PureComponent<void, Props, State> {
               <Label>Friend&rsquo;s name</Label>
               <Input onChangeText={this.onChangeName} autoFocus autoCapitalize="words" />
             </Item>
-            <Item floatingLabel>
-              <Label>Color</Label>
-              <Input onChangeText={this.onChangeColor} autoCapitalize="words" />
-            </Item>
           </Form>
         </Content>
       </Container>

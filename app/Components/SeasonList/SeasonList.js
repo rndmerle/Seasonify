@@ -19,10 +19,9 @@ type Props = {
 
 const enhance = pure;
 
-const getBadgeBgColor = (color: string) => (color ? { backgroundColor: color } : {});
+const getBadgeBgColor = (color: string) => ({ backgroundColor: color });
 
-const getBadgeColor = (color: string) =>
-  color ? { color: getContrastingTextColor(color) } : {};
+const getBadgeColor = (color: string) => ({ color: getContrastingTextColor(color) });
 
 function SeasonList({ seasons, seasonViewings }: Props) {
   return (

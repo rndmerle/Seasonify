@@ -16,17 +16,6 @@ exports[`Rendering when default state should match 1`] = `
           onChangeText={[Function]}
         />
       </Styled(Item)>
-      <Styled(Item)
-        floatingLabel={true}
-      >
-        <Styled(Label)>
-          Color
-        </Styled(Label)>
-        <Styled(Input)
-          autoCapitalize="words"
-          onChangeText={[Function]}
-        />
-      </Styled(Item)>
     </Styled(Form)>
   </Styled(Content)>
 </Styled(Container)>

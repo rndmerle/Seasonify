@@ -39,6 +39,11 @@ jest.mock('Linking', () => ({
   getInitialURL: jest.fn(),
 }));
 
+jest.mock('Themes/cssColors', () => ({
+  pink: '#ffc0cb',
+  blue: '#0000ff',
+}));
+
 global.NavigationMock = {
   navigate: jest.fn(),
   goBack: jest.fn(),

@@ -1,9 +1,25 @@
 /* @flow */
-import { Container, Content, Form, Icon, Input, Item, Label } from 'native-base';
+import {
+  Body,
+  Button,
+  Container,
+  Content,
+  Form,
+  Icon,
+  Input,
+  Item,
+  Label,
+  Left,
+  ListItem,
+  Picker,
+} from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 import type { Friend } from 'Types';
+import cssColors from 'Themes/cssColors';
+
+import styles from './FriendDetails.style';
 
 type Props = {
   /* parent */
@@ -13,6 +29,7 @@ type Props = {
   isEditing: boolean,
   editedObject: Object,
   editUpdate: Function,
+  friendUpdate: Function,
   /* HOC */
   handleChangeName: Function,
   handleChangeColor: Function,
@@ -24,8 +41,8 @@ const enhance = compose(
     handleChangeName: ({ navigation, editUpdate }: Props) => (name: string) => {
       editUpdate({ id: navigation.state.params.friendId, name });
     },
-    handleChangeColor: ({ navigation, editUpdate }: Props) => (color: string) => {
-      editUpdate({ id: navigation.state.params.friendId, color });
+    handleChangeColor: ({ navigation, friendUpdate }: Props) => (color: string) => {
+      friendUpdate({ id: navigation.state.params.friendId, color });
     },
   }),
 );
@@ -52,17 +69,31 @@ function FriendDetails({
                 autoCapitalize="words"
               />
             </Item>
-            <Item fixedLabel>
-              <Label>Color</Label>
-              {isEditing && <Icon name="create" />}
-              <Input
-                disabled={!isEditing}
-                value={'color' in editedObject ? editedObject.color : friend.color}
-                onChangeText={handleChangeColor}
-                autoCapitalize="words"
-              />
-            </Item>
           </Form>
+          <ListItem icon>
+            <Left>
+              <Button
+                disabled
+                style={{
+                  ...styles.colorPatch,
+                  backgroundColor: friend.color,
+                }}
+              />
+            </Left>
+            <Body>
+              <Picker
+                note
+                iosHeader="Select a color"
+                selectedValue={friend.color}
+                onValueChange={handleChangeColor}
+                mode="dropdown"
+              >
+                {Object.keys(cssColors).map((color: string) =>
+                  <Picker.Item key={color} label={color} value={color} />,
+                )}
+              </Picker>
+            </Body>
+          </ListItem>
         </Content>
       </Container>
     );

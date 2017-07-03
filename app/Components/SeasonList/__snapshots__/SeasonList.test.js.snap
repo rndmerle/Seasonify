@@ -52,12 +52,17 @@ exports[`Rendering should render 1`] = `
           style={
             Object {
               "alignSelf": "flex-start",
+              "backgroundColor": "pink",
               "marginHorizontal": 5,
             }
           }
         >
           <Styled(Text)
-            style={Object {}}
+            style={
+              Object {
+                "color": "#ffffff",
+              }
+            }
           >
             Friend 1
           </Styled(Text)>
@@ -67,12 +72,17 @@ exports[`Rendering should render 1`] = `
           style={
             Object {
               "alignSelf": "flex-start",
+              "backgroundColor": "blue",
               "marginHorizontal": 5,
             }
           }
         >
           <Styled(Text)
-            style={Object {}}
+            style={
+              Object {
+                "color": "#ffffff",
+              }
+            }
           >
             Friend 2
           </Styled(Text)>

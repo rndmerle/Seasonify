@@ -22,10 +22,12 @@ function setup(specificProps = {}) {
         {
           friendId: 'f1',
           name: 'Friend 1',
+          color: 'pink',
         },
         {
           friendId: 'f2',
           name: 'Friend 2',
+          color: 'blue',
         },
       ],
     },
