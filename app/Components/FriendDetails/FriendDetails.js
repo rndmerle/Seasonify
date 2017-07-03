@@ -15,6 +15,7 @@ type Props = {
   editUpdate: Function,
   /* HOC */
   handleChangeName: Function,
+  handleChangeColor: Function,
 };
 
 const enhance = compose(
@@ -23,10 +24,19 @@ const enhance = compose(
     handleChangeName: ({ navigation, editUpdate }: Props) => (name: string) => {
       editUpdate({ id: navigation.state.params.friendId, name });
     },
+    handleChangeColor: ({ navigation, editUpdate }: Props) => (color: string) => {
+      editUpdate({ id: navigation.state.params.friendId, color });
+    },
   }),
 );
 
-function FriendDetails({ friend, isEditing, editedObject, handleChangeName }: Props) {
+function FriendDetails({
+  friend,
+  isEditing,
+  editedObject,
+  handleChangeName,
+  handleChangeColor,
+}: Props) {
   if (friend) {
     return (
       <Container>
@@ -39,6 +49,16 @@ function FriendDetails({ friend, isEditing, editedObject, handleChangeName }: Pr
                 disabled={!isEditing}
                 value={'name' in editedObject ? editedObject.name : friend.name}
                 onChangeText={handleChangeName}
+                autoCapitalize="words"
+              />
+            </Item>
+            <Item fixedLabel>
+              <Label>Color</Label>
+              {isEditing && <Icon name="create" />}
+              <Input
+                disabled={!isEditing}
+                value={'color' in editedObject ? editedObject.color : friend.color}
+                onChangeText={handleChangeColor}
                 autoCapitalize="words"
               />
             </Item>

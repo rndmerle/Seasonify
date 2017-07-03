@@ -17,6 +17,18 @@ exports[`Rendering when default state should match 1`] = `
           value="A friend"
         />
       </Styled(Item)>
+      <Styled(Item)
+        fixedLabel={true}
+      >
+        <Styled(Label)>
+          Color
+        </Styled(Label)>
+        <Styled(Input)
+          autoCapitalize="words"
+          disabled={true}
+          onChangeText={[Function]}
+        />
+      </Styled(Item)>
     </Styled(Form)>
   </Styled(Content)>
 </Styled(Container)>
@@ -40,6 +52,21 @@ exports[`Rendering when editing should match 1`] = `
           disabled={false}
           onChangeText={[Function]}
           value="A friend mod"
+        />
+      </Styled(Item)>
+      <Styled(Item)
+        fixedLabel={true}
+      >
+        <Styled(Label)>
+          Color
+        </Styled(Label)>
+        <Styled(Icon)
+          name="create"
+        />
+        <Styled(Input)
+          autoCapitalize="words"
+          disabled={false}
+          onChangeText={[Function]}
         />
       </Styled(Item)>
     </Styled(Form)>

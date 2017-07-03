@@ -5,6 +5,7 @@ import React from 'react';
 
 import { Metrics } from 'Themes';
 import type { Seasons, ViewerInfo } from 'Types';
+import { getContrastingTextColor } from 'Libs/Helpers';
 
 import styles from './SeasonList.style';
 
@@ -17,6 +18,11 @@ type Props = {
 };
 
 const enhance = pure;
+
+const getBadgeBgColor = (color: string) => (color ? { backgroundColor: color } : {});
+
+const getBadgeColor = (color: string) =>
+  color ? { color: getContrastingTextColor(color) } : {};
 
 function SeasonList({ seasons, seasonViewings }: Props) {
   return (
@@ -35,8 +41,12 @@ function SeasonList({ seasons, seasonViewings }: Props) {
               <Col size={Metrics.columnRight} style={styles.viewerList}>
                 {seasonViewings[season.id] &&
                   seasonViewings[season.id].map(viewer =>
-                    (<Badge key={viewer.friendId} style={styles.viewer}>
-                      <Text>
+                    (<Badge
+                      primary
+                      key={viewer.friendId}
+                      style={{ ...styles.viewer, ...getBadgeBgColor(viewer.color) }}
+                    >
+                      <Text style={getBadgeColor(viewer.color)}>
                         {viewer.name}
                       </Text>
                     </Badge>),

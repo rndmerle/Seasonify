@@ -4,12 +4,7 @@ import FriendAdd from './FriendAdd';
 
 function setup(specificProps = {}) {
   const props = {
-    navigation: {
-      navigate: jest.fn(),
-      goBack: jest.fn(),
-      setParams: jest.fn(),
-      state: { params: {} },
-    },
+    navigation: NavigationMock,
     ...specificProps,
   };
   const component = shallow(<FriendAdd {...props} />);

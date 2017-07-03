@@ -10,7 +10,7 @@ export const INITIAL_STATE = {};
 
 const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
-  friendAdd: ['id', 'name'],
+  friendAdd: ['id', 'name', 'color'],
   friendDelete: ['id'],
   friendDeleteProceed: ['id'],
   friendUndo: ['savedState'],
@@ -21,9 +21,9 @@ export { types as friendTypes };
 
 /* ========== REDUCERS ========== */
 
-export const friendAdd = (state: State, { id, name }: Friend): State => ({
+export const friendAdd = (state: State, { id, name, color }: Friend): State => ({
   ...state,
-  [id]: { id, name },
+  [id]: { id, name, color },
 });
 
 export const friendDeleteProceed = (state: State, { id }: { id: string }): State => {

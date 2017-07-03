@@ -8,7 +8,7 @@ import TvshowList from './TvshowList';
 function setup(specificProps = {}) {
   const props = {
     tvshowsIds: [],
-    navigation: { navigate: jest.fn() },
+    navigation: NavigationMock,
     ...specificProps,
   };
   const component = shallowDive(<TvshowList {...props} />, Container);

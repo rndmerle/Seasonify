@@ -35,6 +35,7 @@
       "jasmine": true,
       "Generator": true,
       "objectValues": true,
+      "NavigationMock": true,
     },
   "extends": [
     "plugin:react/recommended",

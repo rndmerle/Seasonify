@@ -66,7 +66,7 @@ const _eagerViewers = (viewers: Viewing | string[], friends: Friends) => {
     .map(friendId =>
       Object.assign(
         {},
-        { friendId, name: friends[friendId].name },
+        { friendId, name: friends[friendId].name, color: friends[friendId].color },
         !Array.isArray(viewers) ? { seasonsViewed: viewers[friendId] } : undefined,
       ),
     )

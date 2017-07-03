@@ -55,6 +55,7 @@ export type Tvshows = {
 
 export type FriendWithoutID = {
   name: string,
+  color: string,
 };
 export type Friend = FriendWithoutID & Uuid;
 export type Friends = {
@@ -71,6 +72,7 @@ export type Viewings = {
 export type ViewerInfo = {
   friendId: string,
   name: string,
+  color: string,
   seasonsViewed: number,
 };
 

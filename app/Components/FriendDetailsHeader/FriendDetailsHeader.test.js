@@ -7,7 +7,11 @@ import FriendDetailsHeader from './FriendDetailsHeader';
 function setup(specificProps = {}) {
   const props = {
     friendId: 'abc123',
-    navigate: jest.fn(),
+    navigation: {
+      navigate: jest.fn(),
+      goBack: jest.fn(),
+      state: { params: { tvshowId: 'abc123' } },
+    },
     isEditing: true,
     editedObject: { id: 'abc123' },
     friend: {
@@ -50,7 +54,7 @@ describe('Functions, when editing', () => {
     headerModular.prop('cancelButton').action();
 
     it('navigates', () => {
-      expect(props.navigate).toBeCalledWith('FriendListPage');
+      expect(props.navigation.goBack).toBeCalled();
     });
 
     it('ends edit', () => {
@@ -86,7 +90,7 @@ describe('Functions, when editing', () => {
     headerModular.prop('actionButtons')[2].action();
 
     it('navigates', () => {
-      expect(props.navigate).toBeCalledWith('FriendListPage');
+      expect(props.navigation.goBack).toBeCalled();
     });
 
     it('updates friend', () => {

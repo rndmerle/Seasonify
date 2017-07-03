@@ -6,7 +6,7 @@ import HeaderRoot from './HeaderRoot';
 function setup(specificProps = {}) {
   const props = {
     title: 'Some tvshow',
-    navigation: { navigate: jest.fn() },
+    navigation: NavigationMock,
     ...specificProps,
   };
   const component = shallowDive(<HeaderRoot {...props} />, Header);

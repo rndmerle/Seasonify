@@ -7,11 +7,7 @@ import TvshowAdd from './TvshowAdd';
 
 function setup(specificProps = {}) {
   const props = {
-    navigation: {
-      navigate: jest.fn(),
-      goBack: jest.fn(),
-      state: { params: {} },
-    },
+    navigation: NavigationMock,
     suggestions: [
       {
         allocine: 111,

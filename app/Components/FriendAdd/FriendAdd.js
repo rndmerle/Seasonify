@@ -15,6 +15,7 @@ type Props = {
 
 type State = {
   friendName: string,
+  friendColor: string,
 };
 
 export default class FriendAdd extends React.PureComponent<void, Props, State> {
@@ -35,6 +36,7 @@ export default class FriendAdd extends React.PureComponent<void, Props, State> {
 
   state = {
     friendName: '',
+    friendColor: '',
   };
 
   componentWillMount() {
@@ -47,9 +49,17 @@ export default class FriendAdd extends React.PureComponent<void, Props, State> {
     this.setState({ friendName: name });
   };
 
+  onChangeColor = (color: string) => {
+    this.setState({ friendColor: color });
+  };
+
   handleSave = () => {
     if (this.state.friendName.trim() !== '') {
-      this.props.friendAdd(Identity.newid(), this.state.friendName.trim());
+      this.props.friendAdd(
+        Identity.newid(),
+        this.state.friendName.trim(),
+        this.state.friendColor,
+      );
       this.props.navigation.goBack();
       Keyboard.dismiss();
     }
@@ -63,6 +73,10 @@ export default class FriendAdd extends React.PureComponent<void, Props, State> {
             <Item floatingLabel>
               <Label>Friend&rsquo;s name</Label>
               <Input onChangeText={this.onChangeName} autoFocus autoCapitalize="words" />
+            </Item>
+            <Item floatingLabel>
+              <Label>Color</Label>
+              <Input onChangeText={this.onChangeColor} autoCapitalize="words" />
             </Item>
           </Form>
         </Content>

@@ -12,7 +12,7 @@ TvshowDetails.navigationOptions = ({ navigation }) => ({
   header: (
     <TvshowDetailsHeader
       tvshowId={navigation.state.params.tvshowId}
-      navigate={navigation.navigate}
+      navigation={navigation}
     />
   ),
 });

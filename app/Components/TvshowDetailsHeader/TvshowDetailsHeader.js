@@ -8,7 +8,7 @@ import HeaderModular from 'Components/HeaderModular';
 
 type Props = {
   /* parent */
-  navigate: Function,
+  navigation: Object,
   tvshowId: string,
   /* connect */
   isEditing: boolean,
@@ -29,9 +29,8 @@ type Props = {
 const enhance = compose(
   pure,
   withHandlers({
-    handleExit: ({ navigate, editEnd }: Props) => () => {
-      // Note : a goBack() would prevent Toast to stay in foreground
-      navigate('TvshowListPage');
+    handleExit: ({ navigation, editEnd }: Props) => () => {
+      navigation.goBack();
       Keyboard.dismiss();
       editEnd();
     },
@@ -46,9 +45,8 @@ const enhance = compose(
       }
       editEnd();
     },
-    handleDelete: ({ navigate, tvshow, editEnd, tvshowDelete }: Props) => () => {
-      // Note : a goBack() would prevent Toast to stay in foreground
-      navigate('TvshowListPage');
+    handleDelete: ({ navigation, tvshow, editEnd, tvshowDelete }: Props) => () => {
+      navigation.goBack();
       Keyboard.dismiss();
       editEnd();
       tvshowDelete(tvshow.id);

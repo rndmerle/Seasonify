@@ -1,3 +1,4 @@
+/* eslint-disable  no-unused-vars, no-console */
 import DebugConfig from 'Config/DebugConfig';
 
 import { shallow } from 'enzyme';
@@ -25,8 +26,6 @@ const hijackConsole = browserConsole => {
   };
 };
 hijackConsole(console.info);
-// and reactotron so it does'nt mess around
-// hijackConsole(console.tron);
 
 DebugConfig.useReactotron = false;
 
@@ -39,3 +38,10 @@ jest.mock('Linking', () => ({
   canOpenURL: jest.fn(),
   getInitialURL: jest.fn(),
 }));
+
+global.NavigationMock = {
+  navigate: jest.fn(),
+  goBack: jest.fn(),
+  setParams: jest.fn(),
+  state: { params: {} },
+};

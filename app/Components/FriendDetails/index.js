@@ -12,7 +12,7 @@ FriendDetails.navigationOptions = ({ navigation }) => ({
   header: (
     <FriendDetailsHeader
       friendId={navigation.state.params.friendId}
-      navigate={navigation.navigate}
+      navigation={navigation}
     />
   ),
 });

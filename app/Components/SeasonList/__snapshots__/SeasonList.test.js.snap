@@ -48,6 +48,7 @@ exports[`Rendering should render 1`] = `
         }
       >
         <Styled(Badge)
+          primary={true}
           style={
             Object {
               "alignSelf": "flex-start",
@@ -55,11 +56,14 @@ exports[`Rendering should render 1`] = `
             }
           }
         >
-          <Styled(Text)>
+          <Styled(Text)
+            style={Object {}}
+          >
             Friend 1
           </Styled(Text)>
         </Styled(Badge)>
         <Styled(Badge)
+          primary={true}
           style={
             Object {
               "alignSelf": "flex-start",
@@ -67,7 +71,9 @@ exports[`Rendering should render 1`] = `
             }
           }
         >
-          <Styled(Text)>
+          <Styled(Text)
+            style={Object {}}
+          >
             Friend 2
           </Styled(Text)>
         </Styled(Badge)>

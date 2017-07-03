@@ -7,11 +7,7 @@ import FriendList from './FriendList';
 
 function setup(specificProps = {}) {
   const props = {
-    navigation: {
-      navigate: jest.fn(),
-      goBack: jest.fn(),
-      state: { params: {} },
-    },
+    navigation: NavigationMock,
     friends: {
       abc123: { id: 'abc123', name: 'Someone' },
       xyz890: { id: 'xyz890', name: 'Someone else' },

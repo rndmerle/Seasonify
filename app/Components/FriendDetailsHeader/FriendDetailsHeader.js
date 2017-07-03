@@ -8,7 +8,7 @@ import HeaderModular from 'Components/HeaderModular';
 
 type Props = {
   /* parent */
-  navigate: Function,
+  navigation: Object,
   friendId: string,
   /* connect */
   isEditing: boolean,
@@ -29,26 +29,35 @@ type Props = {
 const enhance = compose(
   pure,
   withHandlers({
-    handleExit: ({ navigate, editEnd }: Props) => () => {
-      // Note : a goBack() would prevent Toast to stay in foreground
-      navigate('FriendListPage');
+    handleExit: ({ navigation, editEnd }: Props) => () => {
+      navigation.goBack();
       Keyboard.dismiss();
       editEnd();
     },
     handleEdit: ({ editStart }: Props) => () => {
       editStart();
     },
-    handleDone: ({ editedObject, friendUpdate, messageToast, editEnd }: Props) => () => {
+    handleDone: ({
+      editedObject,
+      friendUpdate,
+      friend,
+      messageToast,
+      editEnd,
+    }: Props) => () => {
       Keyboard.dismiss();
       if (editedObject.id) {
         friendUpdate(editedObject);
-        messageToast('success', `“${editedObject.name}” edited`);
+        messageToast(
+          'success',
+          `“${friend.name}” edited${editedObject.name
+            ? ` to “${editedObject.name}”`
+            : ''}`,
+        );
       }
       editEnd();
     },
-    handleDelete: ({ navigate, friend, editEnd, friendDelete }: Props) => () => {
-      // Note : a goBack() would prevent Toast to stay in foreground
-      navigate('FriendListPage');
+    handleDelete: ({ navigation, friend, editEnd, friendDelete }: Props) => () => {
+      navigation.goBack();
       Keyboard.dismiss();
       editEnd();
       friendDelete(friend.id);

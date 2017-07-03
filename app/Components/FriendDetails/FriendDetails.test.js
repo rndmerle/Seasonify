@@ -53,15 +53,26 @@ describe('Rendering when editing', () => {
 
 describe('Events & Functions', () => {
   const { component, props } = setup();
-  const input = component.find(Input);
+  const inputs = component.find(Input);
 
   describe('when calling onChangeName', () => {
-    input.props().onChangeText('New name');
+    inputs.first().props().onChangeText('New name');
 
     it('calls editUpdate', () => {
       expect(props.editUpdate).toBeCalledWith({
         id: props.friend.id,
         name: 'New name',
+      });
+    });
+  });
+
+  describe('when calling onChangeColor', () => {
+    inputs.at(1).props().onChangeText('#ffffff');
+
+    it('calls editUpdate', () => {
+      expect(props.editUpdate).toBeCalledWith({
+        id: props.friend.id,
+        color: '#ffffff',
       });
     });
   });

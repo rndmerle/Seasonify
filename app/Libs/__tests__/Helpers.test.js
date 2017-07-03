@@ -1,4 +1,4 @@
-import { trimmed, collecToArray } from '../Helpers';
+import { trimmed, collecToArray, getContrastingTextColor } from '../Helpers';
 
 test('trim a single string', () => {
   expect(trimmed(' Text  ')).toEqual('Text');
@@ -29,4 +29,19 @@ test('transform a collection to an array', () => {
   };
   const expected = [{ id: '123', description: 'abc' }, { id: '456', description: 'xyz' }];
   expect(collecToArray(input)).toEqual(expected);
+});
+
+describe('getContrastingTextColor()', () => {
+  describe('with a dark background', () => {
+    const backgroundColor = '#4466ff';
+    it('gives a white foreground', () => {
+      expect(getContrastingTextColor(backgroundColor)).toEqual('#ffffff');
+    });
+  });
+  describe('with a light background', () => {
+    const backgroundColor = '#aaaaff';
+    it('gives a black foreground', () => {
+      expect(getContrastingTextColor(backgroundColor)).toEqual('#000000');
+    });
+  });
 });

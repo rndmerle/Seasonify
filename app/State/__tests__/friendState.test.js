@@ -13,12 +13,12 @@ describe('Reducer', () => {
       reducer,
       undefined,
       [
-        friendActions.friendAdd('xxx123', 'Someone'),
-        friendActions.friendAdd('xxx456', 'Someone else'),
+        friendActions.friendAdd('xxx123', 'Someone', '#ffffff'),
+        friendActions.friendAdd('xxx456', 'Someone else', '#ff00ff'),
       ],
       {
-        xxx123: { id: 'xxx123', name: 'Someone' },
-        xxx456: { id: 'xxx456', name: 'Someone else' },
+        xxx123: { id: 'xxx123', name: 'Someone', color: '#ffffff' },
+        xxx456: { id: 'xxx456', name: 'Someone else', color: '#ff00ff' },
       },
     );
   });
@@ -64,11 +64,11 @@ describe('Selectors', () => {
     expect(
       friendSelectors.getFriends({
         friends: {
-          xxx123: { id: 'xxx123', name: 'Someone' },
+          xxx123: { id: 'xxx123', name: 'Someone', color: '#ff00ff' },
         },
       }),
     ).toEqual({
-      xxx123: { id: 'xxx123', name: 'Someone' },
+      xxx123: { id: 'xxx123', name: 'Someone', color: '#ff00ff' },
     });
   });
 
