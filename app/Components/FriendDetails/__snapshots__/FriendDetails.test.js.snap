@@ -22,4 +22,29 @@ exports[`Rendering when default state should match 1`] = `
 </Styled(Container)>
 `;
 
+exports[`Rendering when editing should match 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(Form)>
+      <Styled(Item)
+        fixedLabel={true}
+      >
+        <Styled(Label)>
+          Name
+        </Styled(Label)>
+        <Styled(Icon)
+          name="create"
+        />
+        <Styled(Input)
+          autoCapitalize="words"
+          disabled={false}
+          onChangeText={[Function]}
+          value="A friend mod"
+        />
+      </Styled(Item)>
+    </Styled(Form)>
+  </Styled(Content)>
+</Styled(Container)>
+`;
+
 exports[`Rendering when no friend should match 1`] = `<Styled(Container) />`;

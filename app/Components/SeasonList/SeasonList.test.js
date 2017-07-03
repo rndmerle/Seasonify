@@ -6,16 +6,28 @@ import SeasonList from './SeasonList';
 function setup(specificProps = {}) {
   const props = {
     seasons: {
-      abc123: {
-        id: 'abc123',
+      1: {
+        id: 1,
         episodes: 13,
         year: 2014,
       },
-      xyz890: {
-        id: 'xyz890',
+      2: {
+        id: 2,
         episodes: 13,
         year: 2015,
       },
+    },
+    seasonViewings: {
+      2: [
+        {
+          friendId: 'f1',
+          name: 'Friend 1',
+        },
+        {
+          friendId: 'f2',
+          name: 'Friend 2',
+        },
+      ],
     },
     ...specificProps,
   };

@@ -3,7 +3,7 @@ import { Body, Button, Left, ListItem, Text, Thumbnail } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { Tvshow } from 'Types';
+import type { Tvshow, ViewerInfo } from 'Types';
 
 import styles from './TvshowItem.style';
 
@@ -14,6 +14,7 @@ type Props = {
   /* connect */
   tvshow: Tvshow,
   seasonsCount: number,
+  viewers: ViewerInfo[],
   /* HOC */
   handlePress: Function,
 };
@@ -30,7 +31,7 @@ const enhance = compose(
   }),
 );
 
-function TvshowItem({ tvshow, seasonsCount, handlePress }: Props) {
+function TvshowItem({ tvshow, seasonsCount, viewers, handlePress }: Props) {
   return (
     <ListItem avatar onPress={handlePress}>
       <Left>
@@ -46,7 +47,9 @@ function TvshowItem({ tvshow, seasonsCount, handlePress }: Props) {
           / {seasonsCount}
         </Text>
         <Text note style={styles.viewers}>
-          Renaud, Sylvain {/* TODO */}
+          {viewers.length
+            ? viewers.map(viewer => `${viewer.name} (${viewer.seasonsViewed})`).join(' ')
+            : ' '}
         </Text>
       </Body>
     </ListItem>

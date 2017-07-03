@@ -63,7 +63,7 @@ function TvshowDetails({
               />
             </Col>
           </Grid>
-          <SeasonList seasons={tvshow.seasons} />
+          <SeasonList tvshowId={tvshow.id} seasons={tvshow.seasons} />
         </Content>
         <SingleFAB icon="refresh" onPress={handleFAB} />
         <Loading position="nextToFAB" />

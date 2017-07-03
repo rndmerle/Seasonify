@@ -7,7 +7,11 @@ function setup(specificProps = {}) {
   const props = {
     tvshowId: 'abc',
     tvshow: { id: 'abc', name: 'Deadwood', poster: 'http://poster.png' },
-    seasonsCount: 1,
+    seasonsCount: 5,
+    viewers: [
+      { friendId: 'f1', name: 'Friend 1', seasonsViewed: 4 },
+      { friendId: 'f2', name: 'Friend 2', seasonsViewed: 5 },
+    ],
     navigate: jest.fn(),
     ...specificProps,
   };
@@ -25,8 +29,8 @@ describe('Rendering', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should match, with empty tvshowName and poster', () => {
-    const { component } = setup({ tvshow: { name: '', poster: '' } });
+  it('should match, with empty values', () => {
+    const { component } = setup({ tvshow: { name: '', poster: '', viewers: [] } });
     expect(component).toMatchSnapshot();
   });
 });

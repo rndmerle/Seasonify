@@ -8,27 +8,70 @@ exports[`Rendering should render 1`] = `
         size={38}
         style={
           Object {
-            "flex": 0,
+            "alignItems": "flex-end",
+            "flexDirection": "column",
+            "justifyContent": "flex-start",
           }
         }
       >
-        <Styled(Badge)
-          info={true}
+        <Styled(Text)
+          style={
+            Object {
+              "alignSelf": "flex-end",
+            }
+          }
         >
-          <Styled(Text)>
-            Season xyz890
-          </Styled(Text)>
-        </Styled(Badge)>
+          Season 2
+        </Styled(Text)>
         <Styled(Text)
           note={true}
+          style={
+            Object {
+              "alignSelf": "flex-end",
+            }
+          }
         >
-          13 ep. 
-          in 2015
+          13 ep.
+           in 2015
         </Styled(Text)>
       </ColumnNB>
       <ColumnNB
         size={62}
-      />
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        <Styled(Badge)
+          style={
+            Object {
+              "alignSelf": "flex-start",
+              "marginHorizontal": 5,
+            }
+          }
+        >
+          <Styled(Text)>
+            Friend 1
+          </Styled(Text)>
+        </Styled(Badge)>
+        <Styled(Badge)
+          style={
+            Object {
+              "alignSelf": "flex-start",
+              "marginHorizontal": 5,
+            }
+          }
+        >
+          <Styled(Text)>
+            Friend 2
+          </Styled(Text)>
+        </Styled(Badge)>
+      </ColumnNB>
     </GridNB>
   </Styled(ListItem)>
   <Styled(ListItem)>
@@ -37,26 +80,44 @@ exports[`Rendering should render 1`] = `
         size={38}
         style={
           Object {
-            "flex": 0,
+            "alignItems": "flex-end",
+            "flexDirection": "column",
+            "justifyContent": "flex-start",
           }
         }
       >
-        <Styled(Badge)
-          info={true}
+        <Styled(Text)
+          style={
+            Object {
+              "alignSelf": "flex-end",
+            }
+          }
         >
-          <Styled(Text)>
-            Season abc123
-          </Styled(Text)>
-        </Styled(Badge)>
+          Season 1
+        </Styled(Text)>
         <Styled(Text)
           note={true}
+          style={
+            Object {
+              "alignSelf": "flex-end",
+            }
+          }
         >
-          13 ep. 
-          in 2014
+          13 ep.
+           in 2014
         </Styled(Text)>
       </ColumnNB>
       <ColumnNB
         size={62}
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "paddingHorizontal": 20,
+          }
+        }
       />
     </GridNB>
   </Styled(ListItem)>

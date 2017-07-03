@@ -14,6 +14,7 @@ import rootSaga from 'Sagas/rootSaga';
 import tvshowState from 'State/tvshowState';
 import uiState from 'State/uiState';
 import undoState from 'State/undoState';
+import viewingState from 'State/viewingState';
 
 export default () => {
   // listen for the RESET action
@@ -26,6 +27,7 @@ export default () => {
     edit: editState,
     friends: friendState,
     tvshows: tvshowState,
+    viewings: viewingState,
   });
 
   /* ------------- Redux Configuration ------------- */

@@ -24,7 +24,7 @@ exports[`Rendering when default state should match 1`] = `
         />
       </ColumnNB>
     </GridNB>
-    <pure(SeasonList)
+    <Connect(pure(SeasonList))
       seasons={
         Object {
           "allocine": 987,
@@ -33,6 +33,7 @@ exports[`Rendering when default state should match 1`] = `
           "year": 2016,
         }
       }
+      tvshowId="abc123"
     />
   </Styled(Content)>
   <pure(SingleFAB)

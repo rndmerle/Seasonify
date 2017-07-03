@@ -61,6 +61,19 @@ export type Friends = {
   [id: string]: Friend,
 };
 
+export type Viewing = {
+  [friendId: string]: number,
+};
+export type Viewings = {
+  [tvshowId: string]: Viewing,
+};
+
+export type ViewerInfo = {
+  friendId: string,
+  name: string,
+  seasonsViewed: number,
+};
+
 export type Message = {
   level: string,
   text: string,

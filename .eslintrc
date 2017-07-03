@@ -83,6 +83,7 @@
         #### Switching from error to warn ####
         "indent": ["warn"],
         "quotes": ["warn"],
+        "quote-props": ["warn"],
         "space-in-parens": ["warn"],
         "comma-dangle": ["warn"],
         "no-trailing-spaces": ["warn"],
@@ -102,5 +103,6 @@
         "semi": ["warn"],
         "spaced-comment": ["warn"],
         "space-before-function-paren": ["warn"],
+        "flowtype/space-after-type-colon": ["warn"],
   }
 }

@@ -39,6 +39,16 @@ describe('Rendering when no friend', () => {
   });
 });
 
+describe('Rendering when editing', () => {
+  const { component } = setup({
+    isEditing: true,
+    editedObject: { name: 'A friend mod' },
+  });
+  it('should match', () => {
+    expect(component).toMatchSnapshot();
+  });
+});
+
 /* ========= Events & Functions ========= */
 
 describe('Events & Functions', () => {

@@ -15,33 +15,50 @@ exports[`Rendering should match, with a tvshowName 1`] = `
       square={true}
     />
   </Styled(Left)>
-  <Styled(Body)>
-    <Styled(Text)>
-      Deadwood
-       
-      <Styled(Text)
-        style={
-          Object {
-            "color": "gray",
-            "fontStyle": "italic",
-          }
+  <Styled(Body)
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "flexGrow": 1,
         }
-      >
-        (
-        1
-        )
-      </Styled(Text)>
+      }
+    >
+      Deadwood
+    </Styled(Text)>
+    <Styled(Text)
+      style={
+        Object {
+          "alignSelf": "flex-end",
+        }
+      }
+    >
+      / 
+      5
     </Styled(Text)>
     <Styled(Text)
       note={true}
+      style={
+        Object {
+          "flexBasis": "100%",
+        }
+      }
     >
-      Renaud, Sylvain 
+      Friend 1 (4) Friend 2 (5)
     </Styled(Text)>
   </Styled(Body)>
 </Styled(ListItem)>
 `;
 
-exports[`Rendering should match, with empty tvshowName and poster 1`] = `
+exports[`Rendering should match, with empty values 1`] = `
 <Styled(ListItem)
   avatar={true}
   onPress={[Function]}
@@ -56,26 +73,42 @@ exports[`Rendering should match, with empty tvshowName and poster 1`] = `
       transparent={true}
     />
   </Styled(Left)>
-  <Styled(Body)>
-    <Styled(Text)>
-       
-      <Styled(Text)
-        style={
-          Object {
-            "color": "gray",
-            "fontStyle": "italic",
-          }
+  <Styled(Body)
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Styled(Text)
+      style={
+        Object {
+          "flexGrow": 1,
         }
-      >
-        (
-        1
-        )
-      </Styled(Text)>
+      }
+    />
+    <Styled(Text)
+      style={
+        Object {
+          "alignSelf": "flex-end",
+        }
+      }
+    >
+      / 
+      5
     </Styled(Text)>
     <Styled(Text)
       note={true}
+      style={
+        Object {
+          "flexBasis": "100%",
+        }
+      }
     >
-      Renaud, Sylvain 
+      Friend 1 (4) Friend 2 (5)
     </Styled(Text)>
   </Styled(Body)>
 </Styled(ListItem)>
