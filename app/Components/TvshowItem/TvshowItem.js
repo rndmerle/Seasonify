@@ -1,5 +1,5 @@
 /* @flow */
-import { Body, Button, Left, ListItem, Text, Thumbnail } from 'native-base';
+import { Body, Button, Left, ListItem, Text, Thumbnail, View } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
@@ -35,7 +35,8 @@ function TvshowItem({ tvshow, seasonsCount, viewers, handlePress }: Props) {
   return (
     <ListItem avatar onPress={handlePress}>
       <Left>
-        {tvshow.poster && <Thumbnail square source={{ uri: tvshow.poster }} />}
+        {tvshow.poster &&
+          <Thumbnail square source={{ uri: tvshow.poster }} style={styles.poster} />}
         {!tvshow.poster &&
           <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
@@ -46,11 +47,15 @@ function TvshowItem({ tvshow, seasonsCount, viewers, handlePress }: Props) {
         <Text style={styles.seasonsCount}>
           / {seasonsCount}
         </Text>
-        <Text note style={styles.viewers}>
+        <View style={styles.viewers}>
           {viewers.length
-            ? viewers.map(viewer => `${viewer.name} (${viewer.seasonsViewed})`).join(' ')
-            : ' '}
-        </Text>
+            ? viewers.map(viewer =>
+              (<Text note numberOfLines={1} key={viewer.name} style={styles.viewer}>
+                {viewer.name}:{viewer.seasonsViewed}&nbsp;
+              </Text>),
+              )
+            : <Text>&nbsp;</Text>}
+        </View>
       </Body>
     </ListItem>
   );

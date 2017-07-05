@@ -13,6 +13,7 @@ exports[`Rendering should match, with a tvshowName 1`] = `
         }
       }
       square={true}
+      style={Object {}}
     />
   </Styled(Left)>
   <Styled(Body)
@@ -35,25 +36,41 @@ exports[`Rendering should match, with a tvshowName 1`] = `
       Deadwood
     </Styled(Text)>
     <Styled(Text)
-      style={
-        Object {
-          "alignSelf": "flex-end",
-        }
-      }
+      style={Object {}}
     >
       / 
       5
     </Styled(Text)>
-    <Styled(Text)
-      note={true}
+    <Styled(ViewNB)
       style={
         Object {
           "flexBasis": "100%",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
         }
       }
     >
-      Friend 1 (4) Friend 2 (5)
-    </Styled(Text)>
+      <Styled(Text)
+        note={true}
+        numberOfLines={1}
+        style={Object {}}
+      >
+        Friend 1
+        :
+        4
+         
+      </Styled(Text)>
+      <Styled(Text)
+        note={true}
+        numberOfLines={1}
+        style={Object {}}
+      >
+        Friend 2
+        :
+        5
+         
+      </Styled(Text)>
+    </Styled(ViewNB)>
   </Styled(Body)>
 </Styled(ListItem)>
 `;
@@ -91,25 +108,41 @@ exports[`Rendering should match, with empty values 1`] = `
       }
     />
     <Styled(Text)
-      style={
-        Object {
-          "alignSelf": "flex-end",
-        }
-      }
+      style={Object {}}
     >
       / 
       5
     </Styled(Text)>
-    <Styled(Text)
-      note={true}
+    <Styled(ViewNB)
       style={
         Object {
           "flexBasis": "100%",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
         }
       }
     >
-      Friend 1 (4) Friend 2 (5)
-    </Styled(Text)>
+      <Styled(Text)
+        note={true}
+        numberOfLines={1}
+        style={Object {}}
+      >
+        Friend 1
+        :
+        4
+         
+      </Styled(Text)>
+      <Styled(Text)
+        note={true}
+        numberOfLines={1}
+        style={Object {}}
+      >
+        Friend 2
+        :
+        5
+         
+      </Styled(Text)>
+    </Styled(ViewNB)>
   </Styled(Body)>
 </Styled(ListItem)>
 `;

@@ -1,4 +1,5 @@
 export default {
+  poster: {},
   infos: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -9,9 +10,12 @@ export default {
     flexGrow: 1,
   },
   seasonsCount: {
-    alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
   },
   viewers: {
     flexBasis: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
+  viewer: {},
 };
