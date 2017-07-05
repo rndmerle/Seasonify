@@ -1,7 +1,7 @@
 export default {
   nextToFAB: {
     position: 'absolute',
-    bottom: 25,
+    bottom: 10,
     right: 90,
   },
   centered: {
