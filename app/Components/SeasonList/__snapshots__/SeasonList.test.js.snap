@@ -47,13 +47,15 @@ exports[`Rendering should render 1`] = `
           }
         }
       >
-        <Styled(Badge)
-          primary={true}
+        <Styled(Button)
+          onPress={[Function]}
+          small={true}
           style={
             Object {
               "alignSelf": "flex-start",
               "backgroundColor": "pink",
-              "marginHorizontal": 5,
+              "marginHorizontal": 2,
+              "marginVertical": 2,
             }
           }
         >
@@ -66,14 +68,16 @@ exports[`Rendering should render 1`] = `
           >
             Friend 1
           </Styled(Text)>
-        </Styled(Badge)>
-        <Styled(Badge)
-          primary={true}
+        </Styled(Button)>
+        <Styled(Button)
+          onPress={[Function]}
+          small={true}
           style={
             Object {
               "alignSelf": "flex-start",
               "backgroundColor": "blue",
-              "marginHorizontal": 5,
+              "marginHorizontal": 2,
+              "marginVertical": 2,
             }
           }
         >
@@ -86,7 +90,7 @@ exports[`Rendering should render 1`] = `
           >
             Friend 2
           </Styled(Text)>
-        </Styled(Badge)>
+        </Styled(Button)>
       </ColumnNB>
     </GridNB>
   </Styled(ListItem)>

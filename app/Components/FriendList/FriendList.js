@@ -20,7 +20,7 @@ const enhance = compose(
   pure,
   withHandlers({
     handleFAB: ({ navigation }: Props) => () => {
-      navigation.navigate('FriendAddPage');
+      navigation.navigate('FriendsPage');
     },
   }),
 );

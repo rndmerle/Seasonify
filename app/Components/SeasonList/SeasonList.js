@@ -1,6 +1,6 @@
 /* @flow */
-import { List, ListItem, Text, Grid, Col, Badge } from 'native-base';
-import { pure } from 'recompose';
+import { Button, Col, Grid, List, ListItem, Text } from 'native-base';
+import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 import { Metrics } from 'Themes';
@@ -12,18 +12,30 @@ import styles from './SeasonList.style';
 type Props = {
   /* parent */
   seasons: Seasons,
+  navigation: Object,
   /* connect */
   seasonViewings: { [season: string]: ViewerInfo[] },
   /* HOC */
+  handleViewerPress: Function,
 };
 
-const enhance = pure;
+const enhance = compose(
+  pure,
+  withHandlers({
+    handleViewerPress: ({ navigation }: Props) => (viewer: ViewerInfo) => {
+      navigation.navigate('FriendDetailsPage', {
+        friendId: viewer.friendId,
+        friendName: viewer.name,
+      });
+    },
+  }),
+);
 
 const getBadgeBgColor = (color: string) => ({ backgroundColor: color });
 
 const getBadgeColor = (color: string) => ({ color: getContrastingTextColor(color) });
 
-function SeasonList({ seasons, seasonViewings }: Props) {
+function SeasonList({ seasons, seasonViewings, handleViewerPress }: Props) {
   return (
     <List>
       {seasons &&
@@ -40,15 +52,16 @@ function SeasonList({ seasons, seasonViewings }: Props) {
               <Col size={Metrics.columnRight} style={styles.viewerList}>
                 {seasonViewings[season.id] &&
                   seasonViewings[season.id].map(viewer =>
-                    (<Badge
-                      primary
+                    (<Button
+                      small
                       key={viewer.friendId}
                       style={{ ...styles.viewer, ...getBadgeBgColor(viewer.color) }}
+                      onPress={() => handleViewerPress(viewer)}
                     >
                       <Text style={getBadgeColor(viewer.color)}>
                         {viewer.name}
                       </Text>
-                    </Badge>),
+                    </Button>),
                   )}
               </Col>
             </Grid>

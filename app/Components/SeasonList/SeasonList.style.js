@@ -19,6 +19,7 @@ export default {
   },
   viewer: {
     alignSelf: 'flex-start',
-    marginHorizontal: 5,
+    marginHorizontal: 2,
+    marginVertical: 2,
   },
 };

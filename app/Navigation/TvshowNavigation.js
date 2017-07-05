@@ -2,6 +2,7 @@ import { Icon } from 'native-base';
 import { StackNavigator } from 'react-navigation';
 import React from 'react';
 
+import FriendDetails from 'Components/FriendDetails';
 import TvshowAdd from 'Components/TvshowAdd';
 import TvshowDetails from 'Components/TvshowDetails';
 import TvshowList from 'Components/TvshowList';
@@ -16,6 +17,9 @@ const TvshowNavigation = StackNavigator(
     },
     TvshowDetailsPage: {
       screen: TvshowDetails,
+    },
+    FriendDetailsPage: {
+      screen: FriendDetails,
     },
   },
   {

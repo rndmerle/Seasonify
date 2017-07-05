@@ -38,6 +38,7 @@ const enhance = compose(
 );
 
 function TvshowDetails({
+  navigation,
   tvshow,
   isEditing,
   editedObject,
@@ -63,7 +64,11 @@ function TvshowDetails({
               />
             </Col>
           </Grid>
-          <SeasonList tvshowId={tvshow.id} seasons={tvshow.seasons} />
+          <SeasonList
+            tvshowId={tvshow.id}
+            seasons={tvshow.seasons}
+            navigation={navigation}
+          />
         </Content>
         <SingleFAB icon="refresh" onPress={handleFAB} />
         <Loading position="nextToFAB" />
