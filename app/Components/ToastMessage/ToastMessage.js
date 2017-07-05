@@ -57,7 +57,7 @@ export default class ToastMessage extends React.Component<DefaultProps, Props, S
 
       /* istanbul ignore if. (A toast already displayed) */
       if (this.state.modalShown && this.closeTimeout) {
-        clearTimeout(this.closeTimeout);
+        this.removeCloseTimeout();
       }
 
       this.setState(
@@ -82,6 +82,10 @@ export default class ToastMessage extends React.Component<DefaultProps, Props, S
     if (this.state.message && this.state.message.callback) {
       this.props.dispatch(this.state.message.callback);
     }
+    this.closeToast();
+  };
+
+  handleToastPress = () => {
     this.closeToast();
   };
 
@@ -117,6 +121,12 @@ export default class ToastMessage extends React.Component<DefaultProps, Props, S
       ...this.state.animationTiming,
       toValue: 0,
     }).start(this.hideModal);
+
+    this.removeCloseTimeout();
+  };
+
+  removeCloseTimeout = () => {
+    clearTimeout(this.closeTimeout);
   };
 
   render() {
@@ -139,7 +149,7 @@ export default class ToastMessage extends React.Component<DefaultProps, Props, S
               },
             ]}
           >
-            <ListItem>
+            <ListItem onPress={this.handleToastPress}>
               <Left>
                 <Text style={StyleSheet.flatten(styles.text)}>
                   {message.text}
