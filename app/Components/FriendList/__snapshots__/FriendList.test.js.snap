@@ -24,10 +24,31 @@ exports[`Rendering when 2 friends should match 1`] = `
       />
     </Styled(List)>
   </Styled(Content)>
-  <pure(SingleFAB)
-    icon="add"
-    onPress={[Function]}
-  />
+  <Styled(ListItem)>
+    <Styled(Body)>
+      <Styled(Form)>
+        <Styled(Item)
+          regular={true}
+        >
+          <Styled(Input)
+            autoCapitalize="words"
+            onChangeText={[Function]}
+            placeholder="Add a new friend"
+            value=""
+          />
+        </Styled(Item)>
+      </Styled(Form)>
+    </Styled(Body)>
+    <Styled(Right)>
+      <Styled(Button)
+        onPress={[Function]}
+      >
+        <Styled(Icon)
+          name="add"
+        />
+      </Styled(Button)>
+    </Styled(Right)>
+  </Styled(ListItem)>
 </Styled(Container)>
 `;
 
@@ -36,9 +57,30 @@ exports[`Rendering when no friends should match 1`] = `
   <Styled(Content)>
     <Styled(List) />
   </Styled(Content)>
-  <pure(SingleFAB)
-    icon="add"
-    onPress={[Function]}
-  />
+  <Styled(ListItem)>
+    <Styled(Body)>
+      <Styled(Form)>
+        <Styled(Item)
+          regular={true}
+        >
+          <Styled(Input)
+            autoCapitalize="words"
+            onChangeText={[Function]}
+            placeholder="Add a new friend"
+            value=""
+          />
+        </Styled(Item)>
+      </Styled(Form)>
+    </Styled(Body)>
+    <Styled(Right)>
+      <Styled(Button)
+        onPress={[Function]}
+      >
+        <Styled(Icon)
+          name="add"
+        />
+      </Styled(Button)>
+    </Styled(Right)>
+  </Styled(ListItem)>
 </Styled(Container)>
 `;

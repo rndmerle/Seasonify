@@ -1,31 +1,63 @@
 /* @flow */
-import { Container, Content, List } from 'native-base';
-import { compose, pure, withHandlers } from 'recompose';
+import {
+  Body,
+  Button,
+  Container,
+  Content,
+  Form,
+  Icon,
+  Input,
+  Item,
+  List,
+  ListItem,
+  Right,
+} from 'native-base';
+import { Keyboard } from 'react-native';
+import { compose, pure, withHandlers, withState } from 'recompose';
 import React from 'react';
 
 import type { Friends } from 'Types';
+import AppConfig from 'Config/AppConfig';
 import FriendItem from 'Components/FriendItem';
-import SingleFAB from 'Components/SingleFAB';
+import Identity from 'Libs/Identity';
 
 type Props = {
   /* parent */
   navigation: Object,
   /* connect */
   friends: Friends,
+  friendAdd: Function,
   /* HOC */
-  handleFAB: Function,
+  newFriendName: string,
+  setNewFriendName: Function,
+  handleChangeName: Function,
+  handleAddButton: Function,
 };
 
 const enhance = compose(
   pure,
+  withState('newFriendName', 'setNewFriendName', ''),
   withHandlers({
-    handleFAB: ({ navigation }: Props) => () => {
-      navigation.navigate('FriendsPage');
+    handleChangeName: ({ setNewFriendName }: Props) => (name: string) => {
+      setNewFriendName(name);
+    },
+    handleAddButton: ({ friendAdd, newFriendName, setNewFriendName }: Props) => () => {
+      if (newFriendName.trim() !== '') {
+        friendAdd(Identity.newid(), newFriendName.trim(), AppConfig.defaultFriendColor);
+        setNewFriendName('');
+        Keyboard.dismiss();
+      }
     },
   }),
 );
 
-function FriendList({ navigation, friends, handleFAB }: Props) {
+function FriendList({
+  navigation,
+  friends,
+  newFriendName,
+  handleChangeName,
+  handleAddButton,
+}: Props) {
   return (
     <Container>
       <Content>
@@ -35,7 +67,25 @@ function FriendList({ navigation, friends, handleFAB }: Props) {
           )}
         </List>
       </Content>
-      <SingleFAB icon="add" onPress={handleFAB} />
+      <ListItem>
+        <Body>
+          <Form>
+            <Item regular>
+              <Input
+                placeholder="Add a new friend"
+                onChangeText={handleChangeName}
+                value={newFriendName}
+                autoCapitalize="words"
+              />
+            </Item>
+          </Form>
+        </Body>
+        <Right>
+          <Button onPress={handleAddButton}>
+            <Icon name="add" />
+          </Button>
+        </Right>
+      </ListItem>
     </Container>
   );
 }

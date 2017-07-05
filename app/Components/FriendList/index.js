@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { friendSelectors } from 'State/friendState';
+import { friendActions, friendSelectors } from 'State/friendState';
 import HeaderRoot from 'Components/HeaderRoot';
 
 import FriendList from './FriendList';
@@ -15,5 +15,7 @@ export default connect(
   state => ({
     friends: friendSelectors.getFriends(state),
   }),
-  {},
+  {
+    friendAdd: friendActions.friendAdd,
+  },
 )(FriendList);
