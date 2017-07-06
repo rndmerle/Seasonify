@@ -6,34 +6,41 @@ exports[`Rendering should render 1`] = `
     <GridNB>
       <ColumnNB
         size={38}
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "flexDirection": "column",
-            "justifyContent": "flex-start",
-          }
-        }
       >
-        <Styled(Text)
+        <TouchableOpacity
+          activeOpacity={0.2}
+          focusedOpacity={0.7}
+          onPress={[Function]}
           style={
             Object {
-              "alignSelf": "flex-end",
+              "alignItems": "flex-end",
+              "flexDirection": "column",
+              "justifyContent": "flex-start",
             }
           }
+          transparent={true}
         >
-          Season 2
-        </Styled(Text)>
-        <Styled(Text)
-          note={true}
-          style={
-            Object {
-              "alignSelf": "flex-end",
+          <Styled(Text)
+            style={
+              Object {
+                "alignSelf": "flex-end",
+              }
             }
-          }
-        >
-          13 ep.
-           in 2015
-        </Styled(Text)>
+          >
+            Season 2
+          </Styled(Text)>
+          <Styled(Text)
+            note={true}
+            style={
+              Object {
+                "alignSelf": "flex-end",
+              }
+            }
+          >
+            13 ep
+             in 2015
+          </Styled(Text)>
+        </TouchableOpacity>
       </ColumnNB>
       <ColumnNB
         size={62}
@@ -98,34 +105,41 @@ exports[`Rendering should render 1`] = `
     <GridNB>
       <ColumnNB
         size={38}
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "flexDirection": "column",
-            "justifyContent": "flex-start",
-          }
-        }
       >
-        <Styled(Text)
+        <TouchableOpacity
+          activeOpacity={0.2}
+          focusedOpacity={0.7}
+          onPress={[Function]}
           style={
             Object {
-              "alignSelf": "flex-end",
+              "alignItems": "flex-end",
+              "flexDirection": "column",
+              "justifyContent": "flex-start",
             }
           }
+          transparent={true}
         >
-          Season 1
-        </Styled(Text)>
-        <Styled(Text)
-          note={true}
-          style={
-            Object {
-              "alignSelf": "flex-end",
+          <Styled(Text)
+            style={
+              Object {
+                "alignSelf": "flex-end",
+              }
             }
-          }
-        >
-          13 ep.
-           in 2014
-        </Styled(Text)>
+          >
+            Season 1
+          </Styled(Text)>
+          <Styled(Text)
+            note={true}
+            style={
+              Object {
+                "alignSelf": "flex-end",
+              }
+            }
+          >
+            13 ep
+             in 2014
+          </Styled(Text)>
+        </TouchableOpacity>
       </ColumnNB>
       <ColumnNB
         size={62}

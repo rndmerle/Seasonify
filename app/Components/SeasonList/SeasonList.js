@@ -1,5 +1,6 @@
 /* @flow */
 import { Button, Col, Grid, List, ListItem, Text } from 'native-base';
+import { TouchableOpacity } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
@@ -11,12 +12,14 @@ import styles from './SeasonList.style';
 
 type Props = {
   /* parent */
+  tvshowId: string,
   seasons: Seasons,
   navigation: Object,
   /* connect */
   seasonViewings: { [season: string]: ViewerInfo[] },
   /* HOC */
   handleViewerPress: Function,
+  handleSeasonPress: Function,
 };
 
 const enhance = compose(
@@ -28,6 +31,9 @@ const enhance = compose(
         friendName: viewer.name,
       });
     },
+    handleSeasonPress: () => () => {
+      // XXX
+    },
   }),
 );
 
@@ -35,19 +41,30 @@ const getBadgeBgColor = (color: string) => ({ backgroundColor: color });
 
 const getBadgeColor = (color: string) => ({ color: getContrastingTextColor(color) });
 
-function SeasonList({ seasons, seasonViewings, handleViewerPress }: Props) {
+function SeasonList({
+  seasons,
+  seasonViewings,
+  handleViewerPress,
+  handleSeasonPress,
+}: Props) {
   return (
     <List>
       {seasons &&
         objectValues(seasons).reverse().map(season =>
           (<ListItem key={season.id}>
             <Grid>
-              <Col size={Metrics.columnLeft} style={styles.seasonHeader}>
-                <Text style={styles.seasonTitle}>{`Season ${season.id}`}</Text>
-                <Text note style={styles.seasonInfos}>
-                  {season.episodes && `${season.episodes} ep.`}
-                  {season.year && ` in ${season.year}`}
-                </Text>
+              <Col size={Metrics.columnLeft}>
+                <TouchableOpacity
+                  transparent
+                  style={styles.seasonHeader}
+                  onPress={() => handleSeasonPress(season.id)}
+                >
+                  <Text style={styles.seasonTitle}>{`Season ${season.id}`}</Text>
+                  <Text note style={styles.seasonInfos}>
+                    {season.episodes && `${season.episodes} ep`}
+                    {season.year && ` in ${season.year}`}
+                  </Text>
+                </TouchableOpacity>
               </Col>
               <Col size={Metrics.columnRight} style={styles.viewerList}>
                 {seasonViewings[season.id] &&

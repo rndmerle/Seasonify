@@ -18,39 +18,27 @@ exports[`Rendering when default state should match 1`] = `
         />
       </Styled(Item)>
     </Styled(Form)>
-    <Styled(ListItem)
-      icon={true}
+    <Styled(Button)
+      full={true}
+      onPress={[Function]}
+      style={
+        Object {
+          "backgroundColor": "pink",
+          "flexBasis": "66%",
+          "margin": 20,
+        }
+      }
     >
-      <Styled(Left)>
-        <Styled(Button)
-          disabled={true}
-          style={
-            Object {
-              "backgroundColor": "pink",
-              "flexBasis": "29%",
-            }
+      <Styled(Text)
+        style={
+          Object {
+            "color": "#ffffff",
           }
-        />
-      </Styled(Left)>
-      <Styled(Body)>
-        <Styled(PickerNB)
-          iosHeader="Select a color"
-          mode="dropdown"
-          note={true}
-          onValueChange={[Function]}
-          selectedValue="pink"
-        >
-          <Item
-            label="pink"
-            value="pink"
-          />
-          <Item
-            label="blue"
-            value="blue"
-          />
-        </Styled(PickerNB)>
-      </Styled(Body)>
-    </Styled(ListItem)>
+        }
+      >
+        Color
+      </Styled(Text)>
+    </Styled(Button)>
   </Styled(Content)>
 </Styled(Container)>
 `;
@@ -76,39 +64,27 @@ exports[`Rendering when editing should match 1`] = `
         />
       </Styled(Item)>
     </Styled(Form)>
-    <Styled(ListItem)
-      icon={true}
+    <Styled(Button)
+      full={true}
+      onPress={[Function]}
+      style={
+        Object {
+          "backgroundColor": "pink",
+          "flexBasis": "66%",
+          "margin": 20,
+        }
+      }
     >
-      <Styled(Left)>
-        <Styled(Button)
-          disabled={true}
-          style={
-            Object {
-              "backgroundColor": "pink",
-              "flexBasis": "29%",
-            }
+      <Styled(Text)
+        style={
+          Object {
+            "color": "#ffffff",
           }
-        />
-      </Styled(Left)>
-      <Styled(Body)>
-        <Styled(PickerNB)
-          iosHeader="Select a color"
-          mode="dropdown"
-          note={true}
-          onValueChange={[Function]}
-          selectedValue="pink"
-        >
-          <Item
-            label="pink"
-            value="pink"
-          />
-          <Item
-            label="blue"
-            value="blue"
-          />
-        </Styled(PickerNB)>
-      </Styled(Body)>
-    </Styled(ListItem)>
+        }
+      >
+        Color
+      </Styled(Text)>
+    </Styled(Button)>
   </Styled(Content)>
 </Styled(Container)>
 `;

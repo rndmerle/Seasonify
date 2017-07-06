@@ -1,6 +1,5 @@
 /* @flow */
 import {
-  Body,
   Button,
   Container,
   Content,
@@ -9,15 +8,14 @@ import {
   Input,
   Item,
   Label,
-  Left,
-  ListItem,
-  Picker,
+  Text,
 } from 'native-base';
-import { compose, pure, withHandlers } from 'recompose';
+import { ColorPicker } from 'react-native-color-picker';
+import { compose, pure, withHandlers, withState } from 'recompose';
 import React from 'react';
 
 import type { Friend } from 'Types';
-import cssColors from 'Themes/cssColors';
+import { getContrastingTextColor } from 'Libs/Helpers';
 
 import styles from './FriendDetails.style';
 
@@ -31,18 +29,25 @@ type Props = {
   editUpdate: Function,
   friendUpdate: Function,
   /* HOC */
+  isPickerVisible: boolean,
+  setPickerVisibility: Function,
   handleChangeName: Function,
-  handleChangeColor: Function,
+  handleColorPatchPress: Function,
+  handleColorSelect: Function,
 };
 
 const enhance = compose(
   pure,
+  withState('isPickerVisible', 'setPickerVisibility', false),
   withHandlers({
     handleChangeName: ({ navigation, editUpdate }: Props) => (name: string) => {
       editUpdate({ id: navigation.state.params.friendId, name });
     },
-    handleChangeColor: ({ navigation, friendUpdate }: Props) => (color: string) => {
-      friendUpdate({ id: navigation.state.params.friendId, color });
+    handleColorPatchPress: ({ setPickerVisibility }: Props) => () => {
+      setPickerVisibility(visibility => !visibility);
+    },
+    handleColorSelect: ({ friend, friendUpdate }: Props) => (color: string) => {
+      friendUpdate({ id: friend.id, color });
     },
   }),
 );
@@ -51,8 +56,10 @@ function FriendDetails({
   friend,
   isEditing,
   editedObject,
+  isPickerVisible,
   handleChangeName,
-  handleChangeColor,
+  handleColorPatchPress,
+  handleColorSelect,
 }: Props) {
   if (friend) {
     return (
@@ -70,31 +77,24 @@ function FriendDetails({
               />
             </Item>
           </Form>
-          <ListItem icon>
-            <Left>
-              <Button
-                disabled
-                style={{
-                  ...styles.colorPatch,
-                  backgroundColor: friend.color,
-                }}
-              />
-            </Left>
-            <Body>
-              <Picker
-                note
-                iosHeader="Select a color"
-                selectedValue={friend.color}
-                onValueChange={handleChangeColor}
-                mode="dropdown"
-              >
-                {Object.keys(cssColors).map((color: string) =>
-                  <Picker.Item key={color} label={color} value={color} />,
-                )}
-              </Picker>
-            </Body>
-          </ListItem>
+          <Button
+            full
+            style={{
+              ...styles.colorPatch,
+              backgroundColor: friend.color,
+            }}
+            onPress={handleColorPatchPress}
+          >
+            <Text style={{ color: getContrastingTextColor(friend.color) }}>Color</Text>
+          </Button>
         </Content>
+        {isPickerVisible &&
+          <ColorPicker
+            onColorSelected={handleColorSelect}
+            style={styles.colorPicker}
+            defaultColor={friend.color}
+            oldColor={friend.color}
+          />}
       </Container>
     );
   }

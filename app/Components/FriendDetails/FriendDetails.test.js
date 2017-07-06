@@ -1,4 +1,4 @@
-import { Container, Input, Picker } from 'native-base';
+import { Container, Input } from 'native-base';
 import React from 'react';
 
 import FriendDetails from './FriendDetails';
@@ -68,15 +68,15 @@ describe('Events & Functions', () => {
     });
   });
 
-  describe('when calling onChangeColor', () => {
-    const picker = component.find(Picker);
-    picker.props().onValueChange('blue');
-
-    it('calls friendUpdate', () => {
-      expect(props.friendUpdate).toBeCalledWith({
-        id: props.friend.id,
-        color: 'blue',
-      });
-    });
-  });
+  // describe('when calling onChangeColor', () => {
+  //   const picker = component.find(Picker);
+  //   picker.props().onValueChange('blue');
+  //
+  //   it('calls friendUpdate', () => {
+  //     expect(props.friendUpdate).toBeCalledWith({
+  //       id: props.friend.id,
+  //       color: 'blue',
+  //     });
+  //   });
+  // });
 });

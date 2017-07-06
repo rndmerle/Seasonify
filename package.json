@@ -2,7 +2,9 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": ["app/"],
+  "moduleRoots": [
+    "app/"
+  ],
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
@@ -21,7 +23,11 @@
     "prepush": "jest --silent && echo Eslint... && eslint ./app && echo Flow... && flow --quiet"
   },
   "lint-staged": {
-    "*.js": ["prettier-eslint --write", "git add", "eslint --max-warnings 0"]
+    "*.js": [
+      "prettier-eslint --write",
+      "git add",
+      "eslint --max-warnings 0"
+    ]
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -31,6 +37,7 @@
     "native-base": "^2.2.0",
     "react": "^16.0.0-alpha.6",
     "react-native": "^0.44",
+    "react-native-color-picker": "^0.2.1",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",
     "recompose": "^0.23.5",
@@ -76,8 +83,12 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": ["./jest.setup.js"],
-    "modulePaths": ["<rootDir>/app/"],
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "modulePaths": [
+      "<rootDir>/app/"
+    ],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/**/index.js",
@@ -89,7 +100,11 @@
       "!app/Libs/until.js",
       "!app/HOC/withLog.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ]
   }
 }

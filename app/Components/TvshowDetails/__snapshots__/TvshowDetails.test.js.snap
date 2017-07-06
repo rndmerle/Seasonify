@@ -24,7 +24,17 @@ exports[`Rendering when default state should match 1`] = `
         />
       </ColumnNB>
     </GridNB>
-    <Connect(pure(SeasonList))
+    <Connect(pure(withHandlers(SeasonList)))
+      navigation={
+        Object {
+          "navigate": [Function],
+          "state": Object {
+            "params": Object {
+              "tvshowId": "abc123",
+            },
+          },
+        }
+      }
       seasons={
         Object {
           "allocine": 987,

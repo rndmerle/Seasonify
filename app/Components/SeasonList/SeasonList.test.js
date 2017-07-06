@@ -1,4 +1,4 @@
-import { Button, List } from 'native-base';
+import { List } from 'native-base';
 import React from 'react';
 
 import SeasonList from './SeasonList';
@@ -52,10 +52,10 @@ describe('Rendering', () => {
 
 describe('Events & Functions', () => {
   const { component, props } = setup();
-  const button = component.find(Button).first();
+  const buttonFriend1 = component.findWhere(node => node.key() === 'f1');
 
   describe('when calling onPress on Button', () => {
-    button.props().onPress();
+    buttonFriend1.props().onPress();
 
     it('calls ', () => {
       expect(props.navigation.navigate).toBeCalledWith('FriendDetailsPage', {
