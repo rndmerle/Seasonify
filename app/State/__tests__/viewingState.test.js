@@ -57,6 +57,28 @@ describe('Reducer', () => {
     );
   });
 
+  it('handles viewingUnviewAll action', () => {
+    testReducer(
+      reducer,
+      {
+        tvshow1: {
+          friend1: 3,
+        },
+        tvshow2: {
+          friend1: 4,
+          friend2: 5,
+        },
+      },
+      [viewingActions.viewingUnviewAll('friend1')],
+      {
+        tvshow1: {},
+        tvshow2: {
+          friend2: 5,
+        },
+      },
+    );
+  });
+
   it('handles viewingDelete action', () => {
     testReducer(
       reducer,

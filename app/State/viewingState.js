@@ -13,6 +13,7 @@ const { Types: types, Creators } = createActions({
   // a parameter named 'type' is forbidden
   viewingUpdate: ['tvshowId', 'friendId', 'viewed'],
   viewingUnview: ['tvshowId', 'friendId'],
+  viewingUnviewAll: ['friendId'],
   viewingDelete: ['tvshowId'],
   viewingUndo: ['savedState'],
 });
@@ -37,6 +38,12 @@ const viewingUnview = (
   return { [tvshowId]: newTvshowView, ...newState };
 };
 
+const viewingUnviewAll = (state: State, { friendId }: { friendId: string }): State =>
+  Object.keys(state).reduce(
+    (newState, tvshowId) => viewingUnview(newState, { tvshowId, friendId }),
+    state,
+  );
+
 const viewingDelete = (state: State, { tvshowId }: { tvshowId: string }): State => {
   const { [tvshowId]: deleted, ...newState } = state;
   return { ...newState };
@@ -48,6 +55,7 @@ const viewingUndo = (state: State, { savedState }: { savedState: State }): State
 export default createReducer(INITIAL_STATE, {
   [types.VIEWING_UPDATE]: viewingUpdate,
   [types.VIEWING_UNVIEW]: viewingUnview,
+  [types.VIEWING_UNVIEW_ALL]: viewingUnviewAll,
   [types.VIEWING_DELETE]: viewingDelete,
   [types.VIEWING_UNDO]: viewingUndo,
 });
