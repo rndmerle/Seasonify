@@ -14,6 +14,7 @@ const { Types: types, Creators } = createActions({
   viewingUpdate: ['tvshowId', 'friendId', 'viewed'],
   viewingUnview: ['tvshowId', 'friendId'],
   viewingDelete: ['tvshowId'],
+  viewingUndo: ['savedState'],
 });
 export { Creators as viewingActions };
 export { types as viewingTypes };
@@ -41,13 +42,19 @@ const viewingDelete = (state: State, { tvshowId }: { tvshowId: string }): State 
   return { ...newState };
 };
 
+const viewingUndo = (state: State, { savedState }: { savedState: State }): State =>
+  savedState;
+
 export default createReducer(INITIAL_STATE, {
   [types.VIEWING_UPDATE]: viewingUpdate,
   [types.VIEWING_UNVIEW]: viewingUnview,
   [types.VIEWING_DELETE]: viewingDelete,
+  [types.VIEWING_UNDO]: viewingUndo,
 });
 
 /* ========== SELECTORS ========== */
+
+const getViewings = ({ viewings }: FullState): Viewings => viewings;
 
 const getViewers = (
   { viewings }: FullState,
@@ -97,6 +104,7 @@ const getSeasonsWithViewers = createSelector(
 );
 
 export const viewingSelectors = {
+  getViewings,
   getViewers,
   makeGetViewersArray,
   getSeasonsWithViewers,

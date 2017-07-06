@@ -5,6 +5,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
 import { uiActions } from 'State/uiState';
 import { undoActions } from 'State/undoState';
+import { viewingActions, viewingSelectors } from 'State/viewingState';
 import Identity from 'Libs/Identity';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
@@ -34,19 +35,27 @@ describe('tvshowAddWithSeasons saga', () => {
 
 describe('tvshowDelete saga', () => {
   const tvshow = { id: 'abc123', name: 'Tvshow 1' };
-  const currentState = {
+  const currentTvshowState = {
     [tvshow.id]: tvshow,
     xyz789: { id: 'xyz789', name: 'Tvshow 2' },
   };
-  const undoAction = tvshowActions.tvshowUndo(currentState);
+  const currentViewingState = {
+    [tvshow.id]: { f1: 4, f2: 3 },
+    xyz789: { f1: 2 },
+  };
+  const undoTvshowAction = tvshowActions.tvshowUndo(currentTvshowState);
+  const undoViewingAction = viewingActions.viewingUndo(currentViewingState);
 
   it('saves the state and delete the tvshow', () =>
     expectSaga(rootSaga)
+      .put(viewingActions.viewingDelete(tvshow.id))
       .put(tvshowActions.tvshowDeleteProceed(tvshow.id))
-      .put(undoActions.undoAdd(undoAction))
+      .put(undoActions.undoAdd(undoViewingAction))
+      .put(undoActions.undoAdd(undoTvshowAction))
       .put(undoActions.undoReset())
       .provide([
-        [select(tvshowSelectors.getTvshows), currentState],
+        [select(viewingSelectors.getViewings), currentViewingState],
+        [select(tvshowSelectors.getTvshows), currentTvshowState],
         [select(tvshowSelectors.getTvshow, { tvshowId: tvshow.id }), tvshow],
       ])
       .dispatch(tvshowActions.tvshowDelete(tvshow.id))

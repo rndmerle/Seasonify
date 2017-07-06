@@ -5,6 +5,7 @@ import type { Tvshow } from 'Types';
 import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
 import { uiActions } from 'State/uiState';
 import { undoActions } from 'State/undoState';
+import { viewingActions, viewingSelectors } from 'State/viewingState';
 import Identity from 'Libs/Identity';
 
 export function* tvshowAddWithSeasons(
@@ -19,11 +20,16 @@ export function* tvshowAddWithSeasons(
 
 export function* tvshowSaveAndDelete({ id }: { id: string }): Generator<*, *, *> {
   const tvshow = yield select(tvshowSelectors.getTvshow, { tvshowId: id });
-  const savedState = yield select(tvshowSelectors.getTvshows);
-  const undoAction = tvshowActions.tvshowUndo(savedState);
+  const savedTvshowState = yield select(tvshowSelectors.getTvshows);
+  const savedViewingState = yield select(viewingSelectors.getViewings);
+  const undoTvshowAction = tvshowActions.tvshowUndo(savedTvshowState);
+  const undoViewingAction = viewingActions.viewingUndo(savedViewingState);
+
   yield put(undoActions.undoReset());
-  yield put(undoActions.undoAdd(undoAction));
+  yield put(undoActions.undoAdd(undoTvshowAction));
+  yield put(undoActions.undoAdd(undoViewingAction));
   yield put(tvshowActions.tvshowDeleteProceed(id));
+  yield put(viewingActions.viewingDelete(id));
   yield put(
     uiActions.messageToast(
       'warning',

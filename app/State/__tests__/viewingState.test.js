@@ -76,6 +76,25 @@ describe('Reducer', () => {
       },
     );
   });
+
+  it('handles viewingUndo action', () => {
+    testReducer(
+      reducer,
+      {
+        xxx123: { f1: 5 },
+      },
+      [
+        viewingActions.viewingUndo({
+          xxx123: { f1: 5 },
+          xxx456: { f1: 4 },
+        }),
+      ],
+      {
+        xxx123: { f1: 5 },
+        xxx456: { f1: 4 },
+      },
+    );
+  });
 });
 
 /* ======= SELECTORS ======= */
