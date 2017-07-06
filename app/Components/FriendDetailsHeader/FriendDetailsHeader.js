@@ -29,10 +29,10 @@ type Props = {
 const enhance = compose(
   pure,
   withHandlers({
-    handleExit: ({ navigation, editEnd }: Props) => () => {
+    handleExit: ({ navigation, editEnd, isEditing }: Props) => () => {
       navigation.goBack();
       Keyboard.dismiss();
-      editEnd();
+      if (isEditing) editEnd();
     },
     handleEdit: ({ editStart }: Props) => () => {
       editStart();

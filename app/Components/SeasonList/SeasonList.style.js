@@ -1,14 +1,20 @@
 export default {
   seasonHeader: {
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end', // not-working, so using alignSelf
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start', // not-working, so using alignSelf
   },
+  seasonButton: {},
   seasonTitle: {
-    alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
+    flexGrow: 1,
+    textAlign: 'right',
   },
   seasonInfos: {
-    alignSelf: 'flex-end',
+    // alignSelf: 'flex-end',
+    flexBasis: '100%',
+    textAlign: 'right',
   },
   viewerList: {
     flexDirection: 'row',

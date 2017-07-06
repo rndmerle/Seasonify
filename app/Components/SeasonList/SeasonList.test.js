@@ -1,4 +1,5 @@
 import { List } from 'native-base';
+import { TouchableOpacity } from 'react-native';
 import React from 'react';
 
 import SeasonList from './SeasonList';
@@ -16,6 +17,9 @@ function setup(specificProps = {}) {
         id: 2,
         episodes: 13,
         year: 2015,
+      },
+      3: {
+        id: 3,
       },
     },
     seasonViewings: {
@@ -52,6 +56,7 @@ describe('Rendering', () => {
 
 describe('Events & Functions', () => {
   const { component, props } = setup();
+  const seasonHeader = component.find(TouchableOpacity).first();
   const buttonFriend1 = component.findWhere(node => node.key() === 'f1');
 
   describe('when calling onPress on Button', () => {
@@ -62,6 +67,14 @@ describe('Events & Functions', () => {
         friendId: 'f1',
         friendName: 'Friend 1',
       });
+    });
+  });
+
+  describe('when calling onPress on TouchableOpacity', () => {
+    seasonHeader.props().onPress(1);
+
+    it('navigates', () => {
+      expect(props.navigation.navigate).toBeCalled();
     });
   });
 });

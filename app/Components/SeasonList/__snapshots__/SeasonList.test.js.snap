@@ -13,17 +13,87 @@ exports[`Rendering should render 1`] = `
           onPress={[Function]}
           style={
             Object {
-              "alignItems": "flex-end",
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
             }
           }
           transparent={true}
         >
+          <Styled(Left)
+            style={Object {}}
+          >
+            <Styled(Icon)
+              name="add-circle"
+            />
+          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
-                "alignSelf": "flex-end",
+                "flexGrow": 1,
+                "textAlign": "right",
+              }
+            }
+          >
+            Season 3
+          </Styled(Text)>
+          <Styled(Text)
+            note={true}
+            style={
+              Object {
+                "flexBasis": "100%",
+                "textAlign": "right",
+              }
+            }
+          />
+        </TouchableOpacity>
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "paddingHorizontal": 20,
+          }
+        }
+      />
+    </GridNB>
+  </Styled(ListItem)>
+  <Styled(ListItem)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          focusedOpacity={0.7}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+            }
+          }
+          transparent={true}
+        >
+          <Styled(Left)
+            style={Object {}}
+          >
+            <Styled(Icon)
+              name="add-circle"
+            />
+          </Styled(Left)>
+          <Styled(Text)
+            style={
+              Object {
+                "flexGrow": 1,
+                "textAlign": "right",
               }
             }
           >
@@ -33,11 +103,12 @@ exports[`Rendering should render 1`] = `
             note={true}
             style={
               Object {
-                "alignSelf": "flex-end",
+                "flexBasis": "100%",
+                "textAlign": "right",
               }
             }
           >
-            13 ep
+            13 ep.
              in 2015
           </Styled(Text)>
         </TouchableOpacity>
@@ -112,17 +183,26 @@ exports[`Rendering should render 1`] = `
           onPress={[Function]}
           style={
             Object {
-              "alignItems": "flex-end",
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
             }
           }
           transparent={true}
         >
+          <Styled(Left)
+            style={Object {}}
+          >
+            <Styled(Icon)
+              name="add-circle"
+            />
+          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
-                "alignSelf": "flex-end",
+                "flexGrow": 1,
+                "textAlign": "right",
               }
             }
           >
@@ -132,11 +212,12 @@ exports[`Rendering should render 1`] = `
             note={true}
             style={
               Object {
-                "alignSelf": "flex-end",
+                "flexBasis": "100%",
+                "textAlign": "right",
               }
             }
           >
-            13 ep
+            13 ep.
              in 2014
           </Styled(Text)>
         </TouchableOpacity>

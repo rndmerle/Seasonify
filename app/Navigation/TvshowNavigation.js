@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import React from 'react';
 
 import FriendDetails from 'Components/FriendDetails';
+import PickScreen from 'Components/PickScreen';
 import TvshowAdd from 'Components/TvshowAdd';
 import TvshowDetails from 'Components/TvshowDetails';
 import TvshowList from 'Components/TvshowList';
@@ -20,6 +21,9 @@ const TvshowNavigation = StackNavigator(
     },
     FriendDetailsPage: {
       screen: FriendDetails,
+    },
+    PickPage: {
+      screen: PickScreen,
     },
   },
   {

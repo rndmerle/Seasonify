@@ -1,11 +1,11 @@
 /* @flow */
-import { Button, Col, Grid, List, ListItem, Text } from 'native-base';
+import { Body, Button, Col, Grid, Icon, Left, List, ListItem, Text } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
+import type { Friends, Seasons, ViewerInfo } from 'Types';
 import { Metrics } from 'Themes';
-import type { Seasons, ViewerInfo } from 'Types';
 import { getContrastingTextColor } from 'Libs/Helpers';
 
 import styles from './SeasonList.style';
@@ -17,6 +17,8 @@ type Props = {
   navigation: Object,
   /* connect */
   seasonViewings: { [season: string]: ViewerInfo[] },
+  friends: Friends,
+  viewingUpdate: Function,
   /* HOC */
   handleViewerPress: Function,
   handleSeasonPress: Function,
@@ -31,8 +33,15 @@ const enhance = compose(
         friendName: viewer.name,
       });
     },
-    handleSeasonPress: () => () => {
-      // XXX
+    handleSeasonPress: ({ navigation, tvshowId, friends, viewingUpdate }: Props) => (
+      seasonId: string,
+    ) => {
+      navigation.navigate('PickPage', {
+        title: 'Who watched that season?',
+        isMultiSelection: false,
+        collection: friends,
+        onSelect: friendId => viewingUpdate(tvshowId, friendId, seasonId),
+      });
     },
   }),
 );
@@ -59,9 +68,12 @@ function SeasonList({
                   style={styles.seasonHeader}
                   onPress={() => handleSeasonPress(season.id)}
                 >
+                  <Left style={styles.seasonButton}>
+                    <Icon name="add-circle" />
+                  </Left>
                   <Text style={styles.seasonTitle}>{`Season ${season.id}`}</Text>
                   <Text note style={styles.seasonInfos}>
-                    {season.episodes && `${season.episodes} ep`}
+                    {season.episodes && `${season.episodes} ep.`}
                     {season.year && ` in ${season.year}`}
                   </Text>
                 </TouchableOpacity>
