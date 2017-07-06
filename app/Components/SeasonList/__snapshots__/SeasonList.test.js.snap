@@ -126,6 +126,7 @@ exports[`Rendering should render 1`] = `
         }
       >
         <Styled(Button)
+          onLongPress={[Function]}
           onPress={[Function]}
           small={true}
           style={
@@ -148,6 +149,7 @@ exports[`Rendering should render 1`] = `
           </Styled(Text)>
         </Styled(Button)>
         <Styled(Button)
+          onLongPress={[Function]}
           onPress={[Function]}
           small={true}
           style={

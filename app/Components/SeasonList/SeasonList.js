@@ -19,8 +19,10 @@ type Props = {
   seasonViewings: { [season: string]: ViewerInfo[] },
   friends: Friends,
   viewingUpdate: Function,
+  viewingUnview: Function,
   /* HOC */
   handleViewerPress: Function,
+  handleViewerLongPress: Function,
   handleSeasonPress: Function,
 };
 
@@ -32,6 +34,11 @@ const enhance = compose(
         friendId: viewer.friendId,
         friendName: viewer.name,
       });
+    },
+    handleViewerLongPress: ({ tvshowId, viewingUnview }: Props) => (
+      viewer: ViewerInfo,
+    ) => {
+      viewingUnview(tvshowId, viewer.friendId);
     },
     handleSeasonPress: ({ navigation, tvshowId, friends, viewingUpdate }: Props) => (
       seasonId: string,
@@ -54,6 +61,7 @@ function SeasonList({
   seasons,
   seasonViewings,
   handleViewerPress,
+  handleViewerLongPress,
   handleSeasonPress,
 }: Props) {
   return (
@@ -86,6 +94,7 @@ function SeasonList({
                       key={viewer.friendId}
                       style={{ ...styles.viewer, ...getBadgeBgColor(viewer.color) }}
                       onPress={() => handleViewerPress(viewer)}
+                      onLongPress={() => handleViewerLongPress(viewer)}
                     >
                       <Text style={getBadgeColor(viewer.color)}>
                         {viewer.name}

@@ -13,5 +13,6 @@ export default connect(
   }),
   {
     viewingUpdate: viewingActions.viewingUpdate,
+    viewingUnview: viewingActions.viewingUnview,
   },
 )(SeasonList);

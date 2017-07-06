@@ -7,6 +7,7 @@ import SeasonList from './SeasonList';
 function setup(specificProps = {}) {
   const props = {
     navigation: NavigationMock,
+    tvshowId: 's1',
     seasons: {
       1: {
         id: 1,
@@ -36,6 +37,7 @@ function setup(specificProps = {}) {
         },
       ],
     },
+    viewingUnview: jest.fn(),
     ...specificProps,
   };
   const component = shallowDive(<SeasonList {...props} />, List);
@@ -62,11 +64,19 @@ describe('Events & Functions', () => {
   describe('when calling onPress on Button', () => {
     buttonFriend1.props().onPress();
 
-    it('calls ', () => {
+    it("navigates to friend's page", () => {
       expect(props.navigation.navigate).toBeCalledWith('FriendDetailsPage', {
         friendId: 'f1',
         friendName: 'Friend 1',
       });
+    });
+  });
+
+  describe('when calling onLongPress on Button', () => {
+    buttonFriend1.props().onLongPress();
+
+    it('unview', () => {
+      expect(props.viewingUnview).toBeCalledWith(props.tvshowId, 'f1');
     });
   });
 

@@ -21,7 +21,7 @@
     "prepush": "jest --silent && echo Eslint... && eslint ./app && echo Flow... && flow --quiet"
   },
   "lint-staged": {
-    "*.js": ["prettier-eslint --write", "git add", "eslint --max-warnings 10"]
+    "*.js": ["prettier-eslint --write", "git add", "eslint --quiet --max-warnings 10"]
   },
   "dependencies": {
     "axios": "^0.16.2",
