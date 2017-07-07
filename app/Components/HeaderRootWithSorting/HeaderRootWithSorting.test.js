@@ -1,3 +1,4 @@
+import { Button } from 'native-base';
 import React from 'react';
 
 import HeaderRoot from 'Components/HeaderRoot';
@@ -24,21 +25,20 @@ function setup(specificProps = {}) {
 describe('Rendering when default state', () => {
   const { component } = setup();
   it('should match', () => {
-    expect(component).toMatchSnapshot();
+    expect(component.dive()).toMatchSnapshot();
   });
 });
 
 /* ========= Events & Functions ========= */
 
-// describe('Events & Functions', () => {
-//   const { component, props } = setup();
-//   const sortButton = component.find(Button).first();
-//
-//   describe('when calling onPress on sortButton', () => {
-//     sortButton.props().onPress();
-//
-//     it('calls ', () => {
-//       expect(props.toggleSorting).toBeCalledWith(props.sortingKey);
-//     });
-//   });
-// });
+describe('Events & Functions', () => {
+  const { component, props } = setup();
+
+  describe('pressing on the sorting button', () => {
+    component.props().toggleButton.props.onPress();
+
+    it('calls toggleSorting', () => {
+      expect(props.toggleSorting).toBeCalledWith(props.sortingKey);
+    });
+  });
+});

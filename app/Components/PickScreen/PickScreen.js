@@ -6,16 +6,19 @@ import React from 'react';
 type Props = {
   /* parent */
   navigation: {
-    state: Object,
     goBack: Function,
-    title: string,
-    isMultiSelection?: boolean,
-    collection: Array<Object> | Object, // Can be either an object or an array of {id, name}
-    onSelect: Function,
+    state: {
+      params: {
+        title: string,
+        isMultiSelection?: boolean,
+        onSelect: Function,
+        // Can be either an object or an array of {id, name}
+        collection: Array<Object> | Object,
+      },
+    },
   },
   /* connect */
-  /* state */
-  /* handlers */
+  /* HOC */
   handleItemSelect: Function,
 };
 
@@ -25,6 +28,7 @@ const enhance = compose(
     handleItemSelect: ({ navigation }: Props) => itemId => {
       const { isMultiSelection, onSelect } = navigation.state.params;
       onSelect(itemId);
+      /* istanbul ignore else */
       if (!isMultiSelection) navigation.goBack();
     },
   }),

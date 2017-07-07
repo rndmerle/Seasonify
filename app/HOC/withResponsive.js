@@ -26,6 +26,7 @@ export default function withResponsive(BaseComponent: ReactClass<*>) {
     }
 
     componentWillUnmount() {
+      /* istanbul ignore next */
       Dimensions.removeEventListener('change', this.handleDimensionsChange);
     }
 
@@ -41,10 +42,12 @@ export default function withResponsive(BaseComponent: ReactClass<*>) {
     }
   }
 
+  /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production') {
     return setDisplayName(wrapDisplayName(BaseComponent, 'withResponsive'))(
       ResponsiveComponent,
     );
   }
+  /* istanbul ignore next */
   return ResponsiveComponent;
 }

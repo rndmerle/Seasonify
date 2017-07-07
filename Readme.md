@@ -1,15 +1,11 @@
 
-# Installing :
-```
-$ yarn install
-$ react-native link native-base
-```
-
 # Launching (dev) :
-* `$ npm start`
-* Launch the app ( or `$ npm run android` if not installed)
-* Dev menu (ctrl+M or ctrl+F2) -> Start Remote JS Debugging
-
+```
+$ npm install
+$ react-native link native-base
+$ npm start
+$ npm run android (or launch the app if already installed)
+```
 
 # Todos :
 * UI/UX

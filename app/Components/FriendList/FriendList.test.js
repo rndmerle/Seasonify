@@ -17,28 +17,28 @@ function setup(specificProps = {}) {
   };
   // const c = shallow(<FriendList {...props} />);
   // console.warn(c.getNode());
-  const component = shallow(<FriendList {...props} />);
-  const innerComponent = shallowDive(<FriendList {...props} />, Container);
+  // XXX const component = shallow(<FriendList {...props} />);
+  const component = shallowDive(<FriendList {...props} />, Container);
   return {
     props,
     component,
-    innerComponent,
-    input: innerComponent.find(Input),
-    button: innerComponent.find(Button),
+    // innerComponent,
+    input: component.find(Input),
+    button: component.find(Button),
   };
 }
 
 describe('Rendering when 2 friends', () => {
-  const { innerComponent } = setup();
+  const { component } = setup();
   it('should match', () => {
-    expect(innerComponent).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });
 
 describe('Rendering when no friends', () => {
-  const { innerComponent } = setup({ friendsArray: [] });
+  const { component } = setup({ friendsArray: [] });
   it('should match', () => {
-    expect(innerComponent).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });
 
@@ -53,15 +53,16 @@ describe('Events & Functions', () => {
       input.props().onChangeText('Someone');
       component.update();
       // FIXME : à priori le state n'est pas pres quand on appelle simulate plus bas. Ou alors c'est un autre sousi de HOC
-      // console.warn(component.props());
-      // console.warn(component.getNode());
-      // component.onUpdate(1, () => {
-      button.simulate('press');
-      // });
+      button.props().onPress();
+      component.update();
     });
 
     // FIXME
-    // it('calls setNewFriendName', () => {
+    // it('sets the newFriendName prop', () => {
+    //   expect(component.instance().props.newFriendName).toEqual('Someone')
+    // });
+
+    // it('calls friendAdd', () => {
     //   expect(props.friendAdd).toBeCalledWith(
     //     'abc123',
     //     'Someone',

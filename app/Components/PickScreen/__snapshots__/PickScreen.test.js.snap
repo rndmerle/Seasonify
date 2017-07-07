@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering when default state should match 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(ListItem)
+      onPress={[Function]}
+    >
+      <Styled(Text)>
+        Item A
+      </Styled(Text)>
+      <Styled(Right)>
+        <Styled(Radio)
+          onPress={[Function]}
+          selected={false}
+        />
+      </Styled(Right)>
+    </Styled(ListItem)>
+    <Styled(ListItem)
+      onPress={[Function]}
+    >
+      <Styled(Text)>
+        Item B
+      </Styled(Text)>
+      <Styled(Right)>
+        <Styled(Radio)
+          onPress={[Function]}
+          selected={false}
+        />
+      </Styled(Right)>
+    </Styled(ListItem)>
+  </Styled(Content)>
+</Styled(Container)>
+`;
+
+exports[`Rendering with an object collection should match 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(ListItem)
+      onPress={[Function]}
+    >
+      <Styled(Text)>
+        Item A
+      </Styled(Text)>
+      <Styled(Right)>
+        <Styled(Radio)
+          onPress={[Function]}
+          selected={false}
+        />
+      </Styled(Right)>
+    </Styled(ListItem)>
+    <Styled(ListItem)
+      onPress={[Function]}
+    >
+      <Styled(Text)>
+        Item B
+      </Styled(Text)>
+      <Styled(Right)>
+        <Styled(Radio)
+          onPress={[Function]}
+          selected={false}
+        />
+      </Styled(Right)>
+    </Styled(ListItem)>
+  </Styled(Content)>
+</Styled(Container)>
+`;

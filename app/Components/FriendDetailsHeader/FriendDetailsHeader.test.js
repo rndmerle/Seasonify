@@ -10,10 +10,10 @@ function setup(specificProps = {}) {
     navigation: {
       navigate: jest.fn(),
       goBack: jest.fn(),
-      state: { params: { tvshowId: 'abc123' } },
+      state: { params: { friendId: 'abc123' } },
     },
     isEditing: true,
-    editedObject: { id: 'abc123' },
+    editedObject: { id: 'abc123', name: 'Edited name' },
     friend: {
       id: 'abc123',
       name: 'Some friend',

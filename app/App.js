@@ -3,13 +3,13 @@ import { Provider } from 'react-redux';
 import React from 'react';
 
 import DebugConfig from 'Config/DebugConfig';
-import Config from 'Config';
+import configure from 'Config/configure';
 import createStore from 'Store';
 import globals from 'Config/globals';
 
 import Root from './Root';
 
-Config();
+configure();
 globals();
 const store = createStore();
 

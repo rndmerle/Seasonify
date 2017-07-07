@@ -47,7 +47,10 @@ const enhance = compose(
         title: 'Who watched that season?',
         isMultiSelection: false,
         collection: friends,
-        onSelect: friendId => viewingUpdate(tvshowId, friendId, seasonId),
+        onSelect: friendId => {
+          /* istanbul ignore next */
+          viewingUpdate(tvshowId, friendId, seasonId);
+        },
       });
     },
   }),

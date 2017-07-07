@@ -122,24 +122,7 @@ exports[`Rendering should match, with empty values 1`] = `
         }
       }
     >
-      <Styled(Text)
-        note={true}
-        numberOfLines={1}
-        style={Object {}}
-      >
-        Friend 1
-        :
-        4
-         
-      </Styled(Text)>
-      <Styled(Text)
-        note={true}
-        numberOfLines={1}
-        style={Object {}}
-      >
-        Friend 2
-        :
-        5
+      <Styled(Text)>
          
       </Styled(Text)>
     </Styled(ViewNB)>

@@ -30,7 +30,7 @@ describe('Rendering', () => {
   });
 
   it('should match, with empty values', () => {
-    const { component } = setup({ tvshow: { name: '', poster: '', viewers: [] } });
+    const { props, component } = setup({ tvshow: { name: '', poster: '' }, viewers: [] });
     expect(component).toMatchSnapshot();
   });
 });

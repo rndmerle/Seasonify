@@ -32,6 +32,7 @@ const enhance = compose(
     handleExit: ({ navigation, editEnd, isEditing }: Props) => () => {
       navigation.goBack();
       Keyboard.dismiss();
+      /* istanbul ignore else */
       if (isEditing) editEnd();
     },
     handleEdit: ({ editStart }: Props) => () => {
@@ -51,7 +52,7 @@ const enhance = compose(
           'success',
           `“${friend.name}” edited${editedObject.name
             ? ` to “${editedObject.name}”`
-            : ''}`,
+            : /* istanbul ignore next */ ''}`,
         );
       }
       editEnd();

@@ -32,7 +32,10 @@ const enhance = compose(
     handleExit: ({ navigation, editEnd, isEditing }: Props) => () => {
       navigation.goBack();
       Keyboard.dismiss();
-      if (isEditing) editEnd();
+      /* istanbul ignore else */
+      if (isEditing) {
+        editEnd();
+      }
     },
     handleEdit: ({ editStart }: Props) => () => {
       editStart();

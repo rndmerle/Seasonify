@@ -31,4 +31,24 @@ describe('With width larger then height', () => {
     });
     expect(Hoc.find('Component')).toHaveLength(1);
   });
+
+  describe('When rotating', () => {
+    beforeAll(() => {
+      Hoc.instance().handleDimensionsChange({
+        window: {
+          width: 720,
+          height: 1260,
+          fontscale: 2,
+          scale: 2,
+        },
+        width: 720,
+        height: 1260,
+      });
+      Hoc.update();
+    });
+
+    it('should change orientation', () => {
+      expect(Hoc.props().orientation).toEqual('PORTRAIT');
+    });
+  });
 });
