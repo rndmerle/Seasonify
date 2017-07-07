@@ -2,7 +2,9 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": ["app/"],
+  "moduleRoots": [
+    "app/"
+  ],
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
@@ -24,7 +26,11 @@
     "*.js": []
   },
   "lint-staged-BACKUP": {
-    "*.js": ["prettier-eslint --write", "git add", "eslint --quiet --max-warnings 10"]
+    "*.js": [
+      "prettier-eslint --write",
+      "git add",
+      "eslint --quiet --max-warnings 10"
+    ]
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -66,22 +72,26 @@
     "husky": "^0.14.1",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
-    "lint-staged": "^4.0.0",
+    "lint-staged": "^4.0.1",
     "prettier-eslint": "^6.4.1",
     "react-addons-perf": "^15.4.2",
     "react-dom": "^15.6.1",
     "react-native-debugger-open": "^0.3.11",
     "react-test-renderer": "^15.6.1",
-    "reactotron-react-native": "^1.11.1",
-    "reactotron-redux": "^1.11.2",
-    "reactotron-redux-saga": "^1.11.1",
+    "reactotron-react-native": "^1.12.0",
+    "reactotron-redux": "^1.12.0",
+    "reactotron-redux-saga": "^1.12.0",
     "redux-saga-test-plan": "^3.1.0",
     "reselect": "^3.0.1"
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": ["./jest.setup.js"],
-    "modulePaths": ["<rootDir>/app/"],
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "modulePaths": [
+      "<rootDir>/app/"
+    ],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/**/index.js",
@@ -93,7 +103,11 @@
       "!app/Libs/until.js",
       "!app/HOC/withLog.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ]
   }
 }
