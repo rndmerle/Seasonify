@@ -1,4 +1,3 @@
-import { Button } from 'native-base';
 import React from 'react';
 
 import HeaderRoot from 'Components/HeaderRoot';

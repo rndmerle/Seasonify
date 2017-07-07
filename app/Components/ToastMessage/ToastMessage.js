@@ -3,7 +3,6 @@ import { Animated, StyleSheet } from 'react-native';
 import { Button, Left, ListItem, Right, Text, View } from 'native-base';
 import React from 'react';
 
-import type { Message, Toast } from 'Types';
 import ToastConfig from 'Config/ToastConfig';
 
 import styles from './ToastMessage.style';

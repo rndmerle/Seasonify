@@ -4,6 +4,7 @@ import React from 'react';
 
 import FriendDetails from 'Components/FriendDetails';
 import PickScreen from 'Components/PickScreen';
+import TvshowAdd from 'Components/TvshowAdd';
 import TvshowDetails from 'Components/TvshowDetails';
 import TvshowList from 'Components/TvshowList';
 
@@ -14,6 +15,9 @@ const TvshowNavigation = StackNavigator(
     },
     TvshowDetailsPage: {
       screen: TvshowDetails,
+    },
+    TvshowAddPage: {
+      screen: TvshowAdd,
     },
     FriendDetailsPage: {
       screen: FriendDetails,

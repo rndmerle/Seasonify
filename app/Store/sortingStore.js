@@ -2,7 +2,6 @@
 import { createReducer, createActions } from 'reduxsauce';
 
 import type { FullState } from 'Store';
-import type { SortingValue } from 'Types';
 
 type StateKey = 'friend' | 'tvshow';
 type StateValue = SortingValue;

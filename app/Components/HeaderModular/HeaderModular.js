@@ -4,7 +4,19 @@ import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { HeaderButton } from 'Types';
+type HeaderIconButton = {
+  icon: string,
+  action: Function,
+  visibleIf?: boolean,
+  hideByDefault?: boolean,
+};
+type HeaderTextButton = {
+  text: string,
+  action: Function,
+  visibleIf?: boolean,
+  hideByDefault?: boolean,
+};
+export type HeaderButton = HeaderIconButton | HeaderTextButton;
 
 type Props = {
   /* parent */

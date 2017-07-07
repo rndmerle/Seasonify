@@ -3,7 +3,6 @@ import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { Friend } from 'Types';
 import HeaderModular from 'Components/HeaderModular';
 
 type Props = {

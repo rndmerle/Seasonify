@@ -1,7 +1,6 @@
 /* @flow */
 import { put, select } from 'redux-saga/effects';
 
-import type { Tvshow } from 'Types';
 import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
 import { uiActions } from 'Store/uiStore';
 import { undoActions } from 'Store/undoStore';

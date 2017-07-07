@@ -2,7 +2,7 @@
 import { createReducer, createActions } from 'reduxsauce';
 
 import type { FullState } from 'Store';
-import type { Message, TvshowWithoutID } from 'Types';
+
 import tvshowsNormalizer from 'Normalizers/tvshowsNormalizer';
 
 type State = {

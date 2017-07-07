@@ -7,7 +7,6 @@ export default {
     'Setting a timer for',
     'Debugger and device times',
     'Unable to symbolicate stack trace',
-    '[...effects]', // saga ?
     '%cfont-weight: bold "Value did not change.', // why-did-you-update
     'Value is a function. Possibly avoidable re-render', // why-did-you-update
   ],

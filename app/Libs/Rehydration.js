@@ -1,3 +1,4 @@
+import Reactotron from 'reactotron-react-native';
 import { AsyncStorage } from 'react-native';
 import { persistStore } from 'redux-persist';
 
@@ -13,7 +14,7 @@ const updateReducers = store => {
   AsyncStorage.getItem('reducerVersion')
     .then(localVersion => {
       if (localVersion !== reducerVersion) {
-        console.tron.display({
+        Reactotron.display({
           name: 'PURGE',
           value: {
             'Old Version:': localVersion,

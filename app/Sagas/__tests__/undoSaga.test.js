@@ -1,5 +1,5 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import { select } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 
 import { undoActions, undoSelectors } from 'Store/undoStore';
 import rootSaga from 'Sagas/rootSaga';
@@ -8,9 +8,10 @@ describe('runUndoActions saga', () => {
   describe('with no ops to recover', () => {
     const recoverOps = [];
 
-    it('does nothing', () => expectSaga(rootSaga)
+    it('does nothing', () =>
+      expectSaga(rootSaga).not
+        .put(undoActions.undoReset())
         .provide([[select(undoSelectors.getRecoverOps), recoverOps]])
-        .not.put(undoActions.undoReset())
         .dispatch(undoActions.undo())
         .silentRun());
   });

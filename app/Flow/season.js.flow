@@ -1,0 +1,12 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type Season = {
+  id: string,
+  allocine: number,
+  year: number,
+  episodes: number,
+};
+declare type Seasons = {
+  [id: string]: Season,
+};

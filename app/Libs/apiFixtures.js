@@ -1,5 +1,4 @@
 /* @flow */
-import type { ApiResponse } from 'Types';
 
 export default {
   searchTvshows: (query: string): ApiResponse => {

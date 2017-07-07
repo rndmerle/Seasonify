@@ -1,0 +1,9 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type Message = {
+  level: string,
+  text: string,
+  button?: string,
+  callback?: Object, // an action to dispatch
+};

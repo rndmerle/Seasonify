@@ -2,7 +2,6 @@
 import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
-import type { Friends, ViewerInfo, Viewing, Viewings } from 'Types';
 import type { FullState } from 'Store';
 
 type State = Viewings;

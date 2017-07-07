@@ -1,5 +1,4 @@
 /* @flow */
-import type { SortingValue } from 'Types';
 
 export function trimmed(subject: any) {
   if (typeof subject === 'string') {

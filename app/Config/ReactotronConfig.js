@@ -39,10 +39,6 @@ if (DebugConfig.useReactotron) {
   // Let's clear Reactotron on every time we load the app
   Reactotron.clear();
 
-  // Totally hacky, but this allows you to not both importing reactotron-react-native
-  // on every file.  This is just DEV mode, so no big deal.
-  console.tron = Reactotron;
-
   // (when not into Chrome devtools) replace the regular console.log with Reactotron.display. If more than 1 argument supplied, the first argument is considered a title.
   const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 
@@ -88,14 +84,4 @@ if (DebugConfig.useReactotron) {
     };
   };
   hijackConsole(console.log);
-} else {
-  // a mock version should you decide to leave console.tron in your codebase
-  console.tron = {
-    log: () => false,
-    warn: () => false,
-    error: () => false,
-    display: () => false,
-    image: () => false,
-    overlay: App => App,
-  };
 }

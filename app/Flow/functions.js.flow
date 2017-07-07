@@ -1,2 +1,4 @@
 /* @flow */
+/* eslint-disable no-undef */
+
 declare function objectValues<T>(object: { [key: string]: T }): Array<T>;

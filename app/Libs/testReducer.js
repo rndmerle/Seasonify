@@ -1,6 +1,8 @@
 /* @flow */
 import deepFreeze from 'deep-freeze';
 
+declare function expect(param: any): any;
+
 export default function testReducer(
   reducer: Function,
   init: Object,
@@ -24,11 +26,9 @@ export default function testReducer(
   // run all the actions/reducers and combine de states. We've to account for the fact that the initialState can be a literal, an object or an object
   const finalState = actions.reduce((state, act) => reducer(state, act), reduceStarter);
 
-  // $FlowExpectedError (expect)
-  if (stateType === 'array') expect(finalState).toEqual([...initialState, ...expectedState]);
-  else if (stateType === 'object') {
-    // $FlowExpectedError (expect)
+  if (stateType === 'array') {
+    expect(finalState).toEqual([...initialState, ...expectedState]);
+  } else if (stateType === 'object') {
     expect(finalState).toEqual({ ...initialState, ...expectedState });
-    // $FlowExpectedError (expect)
   } else expect(finalState).toEqual(expectedState);
 }

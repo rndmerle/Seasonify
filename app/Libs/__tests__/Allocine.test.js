@@ -2,6 +2,19 @@ import api, { Allocine } from '../Allocine';
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; // 10 second timeout
 
+describe('Axios call', () => {
+  it('should grab a fake post from jsonplaceholder', async () => {
+    const response = await api.axiosTest();
+    expect(response.error).toBeFalsy();
+    expect(response.data).toBeTruthy();
+  });
+  it('should report an error', async () => {
+    const response = await api.axiosTest(false);
+    expect(response.error).toBeTruthy();
+    expect(response.data).toBeFalsy();
+  });
+});
+
 describe('Allocine API', () => {
   it('should get a tvshow with multiple result, from a known name', async () => {
     const response = await api.searchTvshows('Happy');

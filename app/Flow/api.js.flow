@@ -1,0 +1,14 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type ApiResponse =
+  | {
+      error: null,
+      data: Array<Object>,
+    }
+  | {
+      error: string,
+      data: null,
+    };
+
+declare type ApiPromise = Promise<ApiResponse>;

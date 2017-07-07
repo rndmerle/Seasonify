@@ -3,8 +3,6 @@ import { Body, Button, Left, ListItem, Text, Thumbnail, View } from 'native-base
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { Tvshow, ViewerInfo } from 'Types';
-
 import styles from './TvshowItem.style';
 
 type Props = {

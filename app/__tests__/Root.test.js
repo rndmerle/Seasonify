@@ -27,6 +27,7 @@ describe('Rendering when default state', () => {
 });
 
 describe('componentDidMount & PersistConfig not active & DebugConfig.PerfMonitor active', () => {
+  console.log = jest.fn(); // eslint-disable-line no-console
   const { component, props } = setup();
   PersistConfig.active = false;
   DebugConfig.PerfMonitor = true;

@@ -1,0 +1,11 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type Toast = {
+  text: string,
+  level: string,
+  duration: number,
+};
+declare type Toasts = {
+  [id: string]: Toast,
+};

@@ -14,7 +14,6 @@ import { ColorPicker } from 'react-native-color-picker';
 import { compose, pure, withHandlers, withState } from 'recompose';
 import React from 'react';
 
-import type { Friend } from 'Types';
 import { getContrastingTextColor } from 'Libs/Helpers';
 
 import styles from './FriendDetails.style';

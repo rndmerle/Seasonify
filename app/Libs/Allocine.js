@@ -3,7 +3,6 @@
 import axios from 'axios';
 import jshashes from 'jshashes';
 
-import type { ApiResponse, ApiPromise } from 'Types';
 import DebugConfig from 'Config/DebugConfig';
 
 // DOC : https://wiki.gromez.fr/dev/api/allocine_v3
@@ -81,9 +80,23 @@ export class Allocine {
 
 const api = new Allocine();
 
+const axiosTest = (truthy: boolean = true) => {
+  const url = truthy
+    ? 'https://jsonplaceholder.typicode.com/posts/1'
+    : 'https://jsonplaceholder.typicode.com/WRONG';
+
+  return axios
+    .get(url)
+    .then(result =>
+      // console.warn(result);
+       ({ error: null, data: result.data }))
+    .catch(error => ({ error: error.message, data: null }));
+};
+
 /* ========== API CALLS ========== */
 
 export default {
+  axiosTest,
   class: api,
   searchTvshows: (query: string): ApiResponse | ApiPromise => {
     if (query.trim() === '') {
@@ -93,9 +106,10 @@ export default {
       .get('search', { q: query })
       .then(result => ({
         error: null,
-        data: result.data.feed && result.data.feed.tvseries
-          ? Allocine.removeDynamicData('statistics', result.data.feed.tvseries)
-          : [],
+        data:
+          result.data.feed && result.data.feed.tvseries
+            ? Allocine.removeDynamicData('statistics', result.data.feed.tvseries)
+            : [],
       }))
       .catch(error => ({ error: error.message, data: null }));
   },

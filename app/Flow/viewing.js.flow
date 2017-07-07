@@ -1,0 +1,16 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type Viewing = {
+  [friendId: string]: number,
+};
+declare type Viewings = {
+  [tvshowId: string]: Viewing,
+};
+
+declare type ViewerInfo = {
+  friendId: string,
+  name: string,
+  color: string,
+  seasonsViewed: number,
+};

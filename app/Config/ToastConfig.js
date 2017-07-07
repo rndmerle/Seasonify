@@ -1,5 +1,4 @@
 /* @flow */
-import type { Toast, Toasts } from 'Types';
 
 const baseDuration = 3000;
 

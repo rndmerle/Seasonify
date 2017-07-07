@@ -2,7 +2,6 @@
 import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
-import type { Friend, Friends, SortingValue } from 'Types';
 import type { FullState } from 'Store';
 import { sortAlpha } from 'Libs/Helpers';
 import { sortingKeys, sortingSelectors } from 'Store/sortingStore';

@@ -4,7 +4,6 @@ import { TouchableOpacity } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { Friends, Seasons, ViewerInfo } from 'Types';
 import { Metrics } from 'Themes';
 import { getContrastingTextColor } from 'Libs/Helpers';
 

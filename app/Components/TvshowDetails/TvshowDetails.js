@@ -4,7 +4,7 @@ import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 import { Metrics } from 'Themes';
-import type { Tvshow } from 'Types';
+
 import Loading from 'Components/Loading';
 import Poster from 'Components/Poster';
 import SeasonList from 'Components/SeasonList';

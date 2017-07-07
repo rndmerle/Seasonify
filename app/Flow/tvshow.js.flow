@@ -1,0 +1,15 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type TvshowWithoutID = {
+  allocine: number,
+  name: string,
+  year: number,
+  localizedName?: string,
+  poster?: string,
+  seasons: Seasons | {},
+};
+declare type Tvshow = TvshowWithoutID & Uuid;
+declare type Tvshows = {
+  [id: string]: Tvshow,
+};

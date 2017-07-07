@@ -1,0 +1,11 @@
+/* @flow */
+/* eslint-disable no-undef */
+
+declare type FriendWithoutID = {
+  name: string,
+  color: string,
+};
+declare type Friend = FriendWithoutID & Uuid;
+declare type Friends = {
+  [id: string]: Friend,
+};

@@ -3,7 +3,6 @@ import { Button, Text } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { SortingValue } from 'Types';
 import AppConfig from 'Config/AppConfig';
 import HeaderRoot from 'Components/HeaderRoot';
 

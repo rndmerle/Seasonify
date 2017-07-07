@@ -1,6 +1,7 @@
 /* @flow */
 import { Provider } from 'react-redux';
 import React from 'react';
+import Reactotron from 'reactotron-react-native';
 
 import DebugConfig from 'Config/DebugConfig';
 import configure from 'Config/configure';
@@ -19,9 +20,6 @@ export const App = () =>
   </Provider>);
 
 /* istanbul ignore next */
-const AppWithBenefits = DebugConfig.useReactotron
-  ? /* $FlowExpectedError */
-    console.tron.overlay(App)
-  : App;
+const AppWithBenefits = DebugConfig.useReactotron ? Reactotron.overlay(App) : App;
 
 export default AppWithBenefits;

@@ -3,8 +3,6 @@ import { ListItem, Text } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
-import type { Friend } from 'Types';
-
 type Props = {
   /* parent */
   navigate: Function,

@@ -4,6 +4,7 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { resettableReducer } from 'reduxsauce';
 import createSagaMiddleware from 'redux-saga';
+import Reactotron from 'reactotron-react-native';
 
 import AppConfig from 'Config/AppConfig';
 import DebugConfig from 'Config/DebugConfig';
@@ -49,8 +50,7 @@ export default () => {
   const enhancers = [];
 
   /* ------------- Saga Middleware ------------- */
-  /* $FlowExpectedError */
-  const sagaMonitor = DebugConfig.useReactotron ? console.tron.createSagaMonitor() : null;
+  const sagaMonitor = DebugConfig.useReactotron ? Reactotron.createSagaMonitor() : null;
   const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
   middleware.push(sagaMiddleware);
 
@@ -69,8 +69,7 @@ export default () => {
 
   // Reactotron if enabled
   const createAppropriateStore = DebugConfig.useReactotron
-    ? /* $FlowExpectedError */
-      console.tron.createStore
+    ? Reactotron.createStore
     : createStore;
 
   // redux-devtools-extension if enabled

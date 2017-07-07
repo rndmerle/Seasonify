@@ -16,7 +16,6 @@ import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers, withState } from 'recompose';
 import React from 'react';
 
-import type { Friend } from 'Types';
 import AppConfig from 'Config/AppConfig';
 import FriendItem from 'Components/FriendItem';
 import Identity from 'Libs/Identity';
