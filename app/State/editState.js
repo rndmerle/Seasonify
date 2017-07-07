@@ -1,11 +1,13 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
 
-export type State = {
+import type { FullState } from 'State';
+
+type State = {
   isEditing: boolean,
   editedObject: Object,
 };
-export type FullState = { edit: State };
+export type EditState = State;
 
 export const INITIAL_STATE: State = {
   isEditing: false,

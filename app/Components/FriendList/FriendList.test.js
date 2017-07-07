@@ -8,10 +8,10 @@ import FriendList from './FriendList';
 function setup(specificProps = {}) {
   const props = {
     navigation: NavigationMock,
-    friends: {
-      abc123: { id: 'abc123', name: 'Someone' },
-      xyz890: { id: 'xyz890', name: 'Someone else' },
-    },
+    friendsArray: [
+      { id: 'abc123', name: 'Someone' },
+      { id: 'xyz890', name: 'Someone else' },
+    ],
     friendAdd: jest.fn(),
     ...specificProps,
   };
@@ -36,7 +36,7 @@ describe('Rendering when 2 friends', () => {
 });
 
 describe('Rendering when no friends', () => {
-  const { innerComponent } = setup({ friends: {} });
+  const { innerComponent } = setup({ friendsArray: [] });
   it('should match', () => {
     expect(innerComponent).toMatchSnapshot();
   });

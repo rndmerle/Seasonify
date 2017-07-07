@@ -139,6 +139,30 @@ describe('Selectors', () => {
     });
   });
 
+  it('getTvshowsIds', () => {
+    expect(
+      tvshowSelectors.getTvshowsIds({
+        tvshows: {
+          b: { id: 'b', name: 'B' },
+          a: { id: 'a', name: 'A' },
+        },
+        sorting: { tvshow: 'ASC' },
+      }),
+    ).toEqual(['a', 'b']);
+  });
+
+  it('getTvshowsArray', () => {
+    expect(
+      tvshowSelectors.getTvshowsArray({
+        tvshows: {
+          b: { id: 'b', name: 'B' },
+          a: { id: 'a', name: 'A' },
+        },
+        sorting: { tvshow: 'ASC' },
+      }),
+    ).toEqual([{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }]);
+  });
+
   it('getCodes', () => {
     expect(
       tvshowSelectors.getCodes({

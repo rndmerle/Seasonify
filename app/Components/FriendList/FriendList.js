@@ -16,7 +16,7 @@ import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers, withState } from 'recompose';
 import React from 'react';
 
-import type { Friends } from 'Types';
+import type { Friend } from 'Types';
 import AppConfig from 'Config/AppConfig';
 import FriendItem from 'Components/FriendItem';
 import Identity from 'Libs/Identity';
@@ -25,7 +25,7 @@ type Props = {
   /* parent */
   navigation: Object,
   /* connect */
-  friends: Friends,
+  friendsArray: Friend[],
   friendAdd: Function,
   /* HOC */
   newFriendName: string,
@@ -53,7 +53,7 @@ const enhance = compose(
 
 function FriendList({
   navigation,
-  friends,
+  friendsArray,
   newFriendName,
   handleChangeName,
   handleAddButton,
@@ -62,7 +62,7 @@ function FriendList({
     <Container>
       <Content>
         <List>
-          {objectValues(friends).map(friend =>
+          {friendsArray.map(friend =>
             <FriendItem key={friend.id} friend={friend} navigate={navigation.navigate} />,
           )}
         </List>

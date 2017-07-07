@@ -1,15 +1,16 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
 
+import type { FullState } from 'State';
 import type { Message, TvshowWithoutID } from 'Types';
 import tvshowsNormalizer from 'Normalizers/tvshowsNormalizer';
 
-export type State = {
+type State = {
   spinner: boolean,
   message: ?Message,
   suggestions: TvshowWithoutID[],
 };
-export type FullState = { ui: State };
+export type UiState = State;
 
 export const INITIAL_STATE: State = {
   spinner: false,

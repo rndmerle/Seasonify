@@ -1,12 +1,14 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
 
+import type { FullState } from 'State';
+
 export type RecoverOp = { type: string, savedState: Object };
 
-export type State = {
+type State = {
   recoverOps: Array<RecoverOp>,
 };
-export type FullState = { undo: State };
+export type UndoState = State;
 
 export const INITIAL_STATE: State = {
   recoverOps: [],

@@ -2,13 +2,20 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { sortingKeys } from 'State/sortingState';
 import { tvshowSelectors } from 'State/tvshowState';
-import HeaderRoot from 'Components/HeaderRoot';
+import HeaderRootWithSorting from 'Components/HeaderRootWithSorting';
 
 import TvshowList from './TvshowList';
 
 TvshowList.navigationOptions = ({ navigation }) => ({
-  header: <HeaderRoot title="TV Shows" navigation={navigation} />,
+  header: (
+    <HeaderRootWithSorting
+      title="TV Shows"
+      navigation={navigation}
+      sortingKey={sortingKeys.TVSHOW}
+    />
+  ),
 });
 
 export default connect(

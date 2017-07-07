@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering when default state should match 1`] = `
+<pure(withHandlers(HeaderRoot))
+  navigation={
+    Object {
+      "goBack": [Function],
+      "navigate": [Function],
+      "setParams": [Function],
+      "state": Object {
+        "params": Object {},
+      },
+    }
+  }
+  title="Title"
+  toggleButton={
+    <Styled(Button)
+      onPress={[Function]}
+      small={true}
+      transparent={true}
+    >
+      <Styled(Text)>
+        Z-A
+      </Styled(Text)>
+    </Styled(Button)>
+  }
+/>
+`;

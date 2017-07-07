@@ -1,4 +1,6 @@
 /* @flow */
+import type { SortingValue } from 'Types';
+
 export function trimmed(subject: any) {
   if (typeof subject === 'string') {
     return subject.trim();
@@ -54,4 +56,9 @@ export function getContrastingTextColor(hex: string) {
     return '#000000';
   }
   return '#ffffff';
+}
+
+export function sortAlpha(sorting: SortingValue, a: string, b: string): number {
+  if (sorting === 'DESC') return b.localeCompare(a);
+  return a.localeCompare(b);
 }

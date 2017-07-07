@@ -3,17 +3,24 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { friendActions, friendSelectors } from 'State/friendState';
-import HeaderRoot from 'Components/HeaderRoot';
+import { sortingKeys } from 'State/sortingState';
+import HeaderRootWithSorting from 'Components/HeaderRootWithSorting';
 
 import FriendList from './FriendList';
 
 FriendList.navigationOptions = ({ navigation }) => ({
-  header: <HeaderRoot title="Friends" navigation={navigation} />,
+  header: (
+    <HeaderRootWithSorting
+      title="Friends"
+      navigation={navigation}
+      sortingKey={sortingKeys.FRIEND}
+    />
+  ),
 });
 
 export default connect(
   state => ({
-    friends: friendSelectors.getFriends(state),
+    friendsArray: friendSelectors.getFriendsArray(state),
   }),
   {
     friendAdd: friendActions.friendAdd,

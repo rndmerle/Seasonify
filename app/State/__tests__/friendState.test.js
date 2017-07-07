@@ -85,4 +85,28 @@ describe('Selectors', () => {
       ),
     ).toEqual({ name: 'B' });
   });
+
+  it('getFriendsArray', () => {
+    expect(
+      friendSelectors.getFriendsArray({
+        friends: {
+          xxx456: { id: 'xxx456', name: 'B Someone' },
+          xxx123: { id: 'xxx123', name: 'A Someone' },
+        },
+        sorting: { friend: 'ASC' },
+      }),
+    ).toEqual([{ id: 'xxx123', name: 'A Someone' }, { id: 'xxx456', name: 'B Someone' }]);
+  });
+
+  it('getFriendsIds', () => {
+    expect(
+      friendSelectors.getFriendsIds({
+        friends: {
+          xxx456: { id: 'xxx456', name: 'B Someone' },
+          xxx123: { id: 'xxx123', name: 'A Someone' },
+        },
+        sorting: { friend: 'ASC' },
+      }),
+    ).toEqual(['xxx123', 'xxx456']);
+  });
 });

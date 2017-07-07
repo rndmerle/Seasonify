@@ -3,9 +3,10 @@ import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
 import type { Friends, ViewerInfo, Viewing, Viewings } from 'Types';
+import type { FullState } from 'State';
 
-export type State = Viewings;
-export type FullState = { viewings: Viewings };
+type State = Viewings;
+export type ViewingState = State;
 
 export const INITIAL_STATE: State = {};
 

@@ -1,3 +1,4 @@
+/* @flow */
 import { autoRehydrate } from 'redux-persist';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -8,13 +9,25 @@ import AppConfig from 'Config/AppConfig';
 import DebugConfig from 'Config/DebugConfig';
 import PersistConfig from 'Config/PersistConfig';
 import Rehydration from 'Libs/Rehydration';
-import editState from 'State/editState';
-import friendState from 'State/friendState';
 import rootSaga from 'Sagas/rootSaga';
-import tvshowState from 'State/tvshowState';
-import uiState from 'State/uiState';
-import undoState from 'State/undoState';
-import viewingState from 'State/viewingState';
+/* Stores */
+import editState, { type EditState } from 'State/editState';
+import friendState, { type FriendState } from 'State/friendState';
+import sortingState, { type SortingState } from 'State/sortingState';
+import tvshowState, { type TvshowState } from 'State/tvshowState';
+import uiState, { type UiState } from 'State/uiState';
+import undoState, { type UndoState } from 'State/undoState';
+import viewingState, { type ViewingState } from 'State/viewingState';
+
+export type FullState = {
+  ui: UiState,
+  undo: UndoState,
+  edit: EditState,
+  friends: FriendState,
+  tvshows: TvshowState,
+  viewings: ViewingState,
+  sorting: SortingState,
+};
 
 export default () => {
   // listen for the RESET action
@@ -28,6 +41,7 @@ export default () => {
     friends: friendState,
     tvshows: tvshowState,
     viewings: viewingState,
+    sorting: resettable(sortingState),
   });
 
   /* ------------- Redux Configuration ------------- */
@@ -35,6 +49,7 @@ export default () => {
   const enhancers = [];
 
   /* ------------- Saga Middleware ------------- */
+  /* $FlowExpectedError */
   const sagaMonitor = DebugConfig.useReactotron ? console.tron.createSagaMonitor() : null;
   const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
   middleware.push(sagaMiddleware);
@@ -54,7 +69,8 @@ export default () => {
 
   // Reactotron if enabled
   const createAppropriateStore = DebugConfig.useReactotron
-    ? console.tron.createStore
+    ? /* $FlowExpectedError */
+      console.tron.createStore
     : createStore;
 
   // redux-devtools-extension if enabled

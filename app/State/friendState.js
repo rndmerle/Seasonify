@@ -1,10 +1,14 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
+import { createSelector } from 'reselect';
 
-import type { Friend, Friends } from 'Types';
+import type { Friend, Friends, SortingValue } from 'Types';
+import type { FullState } from 'State';
+import { sortAlpha } from 'Libs/Helpers';
+import { sortingKeys, sortingSelectors } from 'State/sortingState';
 
-export type State = Friends;
-export type FullState = { friends: State };
+type State = Friends;
+export type FriendState = State;
 
 export const INITIAL_STATE = {};
 
@@ -48,11 +52,35 @@ export default createReducer(INITIAL_STATE, {
 
 /* ========== SELECTORS ========== */
 
+/* istanbul ignore next */
+const _getSorting = (state: FullState): SortingValue =>
+  sortingSelectors.getSorting(state, sortingKeys.FRIEND);
+
 const getFriends = (state: FullState): Friends => state.friends;
 
 const getFriend = (state: FullState, id: string): Friend => state.friends[id];
 
+const getFriendsArray = createSelector(
+  getFriends,
+  _getSorting,
+  (friends: Friends, sorting: SortingValue): Friend[] =>
+    objectValues(friends).sort((left: Friend, right: Friend) =>
+      sortAlpha(sorting, left.name, right.name),
+    ),
+);
+
+const getFriendsIds = createSelector(
+  getFriends,
+  _getSorting,
+  (friends: Friends, sorting: SortingValue): string[] =>
+    Object.keys(friends).sort((leftId: string, rightId: string) =>
+      sortAlpha(sorting, friends[leftId].name, friends[rightId].name),
+    ),
+);
+
 export const friendSelectors = {
   getFriends,
   getFriend,
+  getFriendsArray,
+  getFriendsIds,
 };

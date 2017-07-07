@@ -26,6 +26,8 @@ export type ApiResponse =
 
 export type ApiPromise = Promise<ApiResponse>;
 
+export type SortingValue = 'ASC' | 'DESC';
+
 export type Season = {
   id: string,
   allocine: number,

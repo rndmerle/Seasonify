@@ -7,6 +7,7 @@ type Props = {
   /* parent */
   title: string,
   navigation: Object,
+  toggleButton?: ReactComponent<*, *, *>,
   /* connect */
   /* HOC */
   handleDrawer: Function,
@@ -21,7 +22,7 @@ const enhance = compose(
   }),
 );
 
-function HeaderRoot({ title, handleDrawer }: Props) {
+function HeaderRoot({ title, handleDrawer, toggleButton }: Props) {
   return (
     <Header>
       <Left>
@@ -34,7 +35,9 @@ function HeaderRoot({ title, handleDrawer }: Props) {
           {title}
         </Title>
       </Body>
-      <Right />
+      <Right>
+        {toggleButton || null}
+      </Right>
     </Header>
   );
 }

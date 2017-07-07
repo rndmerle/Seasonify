@@ -1,4 +1,4 @@
-import { trimmed, collecToArray, getContrastingTextColor } from '../Helpers';
+import { collecToArray, getContrastingTextColor, sortAlpha, trimmed } from 'Libs/Helpers';
 
 test('trim a single string', () => {
   expect(trimmed(' Text  ')).toEqual('Text');
@@ -42,6 +42,27 @@ describe('getContrastingTextColor()', () => {
     const backgroundColor = '#aaaaff';
     it('gives a black foreground', () => {
       expect(getContrastingTextColor(backgroundColor)).toEqual('#000000');
+    });
+  });
+});
+
+describe('alphaSort', () => {
+  const left = 'alpha';
+  const right = 'Zulu';
+
+  describe('with ASC', () => {
+    const sorting = 'ASC';
+
+    it('sorts from lower to higher alphanumeric', () => {
+      expect(sortAlpha(sorting, left, right)).toEqual(-1);
+    });
+  });
+
+  describe('with DESC', () => {
+    const sorting = 'DESC';
+
+    it('sorts from lower to higher alphanumeric', () => {
+      expect(sortAlpha(sorting, left, right)).toEqual(1);
     });
   });
 });

@@ -2,11 +2,14 @@
 import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
-import type { Seasons, Tvshow, Tvshows } from 'Types';
+import type { FullState } from 'State';
+import type { Seasons, SortingValue, Tvshow, Tvshows } from 'Types';
+import { sortAlpha } from 'Libs/Helpers';
+import { sortingKeys, sortingSelectors } from 'State/sortingState';
 import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 
-export type State = Tvshows;
-export type FullState = { tvshows: State };
+type State = Tvshows;
+export type TvshowState = State;
 
 export const INITIAL_STATE = {};
 
@@ -91,14 +94,34 @@ export default createReducer(INITIAL_STATE, {
 
 const getTvshows = (state: FullState): Tvshows => state.tvshows;
 
+const getTvshow = (state: FullState, { tvshowId }: { tvshowId: string }): Tvshow =>
+  state.tvshows[tvshowId];
+
 const getCodes = createSelector(getTvshows, (tvshows: Tvshows) =>
   Object.keys(tvshows).map(key => tvshows[key].allocine),
 );
 
-const getTvshowsIds = ({ tvshows }: FullState): string[] => Object.keys(tvshows);
+/* istanbul ignore next */
+const _getSorting = (state: FullState): SortingValue =>
+  sortingSelectors.getSorting(state, sortingKeys.TVSHOW);
 
-const getTvshow = (state: FullState, { tvshowId }: { tvshowId: string }): Tvshow =>
-  state.tvshows[tvshowId];
+const getTvshowsArray = createSelector(
+  getTvshows,
+  _getSorting,
+  (tvshows: Tvshows, sorting: SortingValue): Tvshow[] =>
+    objectValues(tvshows).sort((left: Tvshow, right: Tvshow) =>
+      sortAlpha(sorting, left.name, right.name),
+    ),
+);
+
+const getTvshowsIds = createSelector(
+  getTvshows,
+  _getSorting,
+  (tvshows: Tvshows, sorting: SortingValue): string[] =>
+    Object.keys(tvshows).sort((leftId: string, rightId: string) =>
+      sortAlpha(sorting, tvshows[leftId].name, tvshows[rightId].name),
+    ),
+);
 
 const makeGetSeasonsCount = () =>
   createSelector(getTvshow, (tvshow: Tvshow) => Object.keys(tvshow.seasons).length);
@@ -107,6 +130,7 @@ export const tvshowSelectors = {
   getTvshows,
   getTvshowsIds,
   getTvshow,
+  getTvshowsArray,
   getCodes,
   makeGetSeasonsCount,
 };
