@@ -1,7 +1,7 @@
 /* @flow */
 import { connect } from 'react-redux';
 
-import { uiSelectors } from 'State/uiState';
+import { uiSelectors } from 'Store/uiStore';
 
 import Loading from './Loading';
 

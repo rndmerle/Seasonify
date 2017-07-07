@@ -1,7 +1,7 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 
-import { undoActions, undoSelectors } from 'State/undoState';
+import { undoActions, undoSelectors } from 'Store/undoStore';
 import rootSaga from 'Sagas/rootSaga';
 
 describe('runUndoActions saga', () => {

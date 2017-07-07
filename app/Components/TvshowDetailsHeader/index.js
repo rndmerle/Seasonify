@@ -1,9 +1,9 @@
 /* @flow */
 import { connect } from 'react-redux';
 
-import { editActions, editSelectors } from 'State/editState';
-import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
-import { uiActions } from 'State/uiState';
+import { editActions, editSelectors } from 'Store/editStore';
+import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
+import { uiActions } from 'Store/uiStore';
 
 import TvshowDetailsHeader from './TvshowDetailsHeader';
 

@@ -1,9 +1,9 @@
 /* @flow */
 import { connect } from 'react-redux';
 
-import { editActions, editSelectors } from 'State/editState';
-import { friendActions, friendSelectors } from 'State/friendState';
-import { uiActions } from 'State/uiState';
+import { editActions, editSelectors } from 'Store/editStore';
+import { friendActions, friendSelectors } from 'Store/friendStore';
+import { uiActions } from 'Store/uiStore';
 
 import FriendDetailsHeader from './FriendDetailsHeader';
 

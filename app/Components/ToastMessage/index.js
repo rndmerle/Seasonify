@@ -2,7 +2,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { uiActions, uiSelectors } from 'State/uiState';
+import { uiActions, uiSelectors } from 'Store/uiStore';
 
 import ToastMessage from './ToastMessage';
 

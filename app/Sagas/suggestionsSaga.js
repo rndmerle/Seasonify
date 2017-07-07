@@ -2,7 +2,7 @@
 import { call, put } from 'redux-saga/effects';
 
 import type { ApiResponse } from 'Types';
-import { uiActions } from 'State/uiState';
+import { uiActions } from 'Store/uiStore';
 
 export function* suggestionsRequest(
   api: Object,

@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import reducer, { friendActions, friendSelectors, INITIAL_STATE } from '../friendState';
+import reducer, { friendActions, friendSelectors, INITIAL_STATE } from '../friendStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

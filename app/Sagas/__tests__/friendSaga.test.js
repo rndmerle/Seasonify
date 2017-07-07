@@ -2,9 +2,9 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { select } from 'redux-saga/effects';
 
-import { friendActions, friendSelectors } from 'State/friendState';
-import { undoActions } from 'State/undoState';
-import { viewingActions, viewingSelectors } from 'State/viewingState';
+import { friendActions, friendSelectors } from 'Store/friendStore';
+import { undoActions } from 'Store/undoStore';
+import { viewingActions, viewingSelectors } from 'Store/viewingStore';
 import rootSaga from 'Sagas/rootSaga';
 
 describe('friendDelete saga', () => {

@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import reducer, { undoActions, undoSelectors, INITIAL_STATE } from '../undoState';
+import reducer, { undoActions, undoSelectors, INITIAL_STATE } from '../undoStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

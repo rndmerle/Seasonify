@@ -1,7 +1,7 @@
 /* @flow */
 import { all, put, select } from 'redux-saga/effects';
 
-import { undoActions, undoSelectors } from 'State/undoState';
+import { undoActions, undoSelectors } from 'Store/undoStore';
 
 export function* runRecoverOps(): Generator<*, *, *> {
   const recoverOps = yield select(undoSelectors.getRecoverOps);

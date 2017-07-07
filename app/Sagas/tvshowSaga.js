@@ -2,10 +2,10 @@
 import { put, select } from 'redux-saga/effects';
 
 import type { Tvshow } from 'Types';
-import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
-import { uiActions } from 'State/uiState';
-import { undoActions } from 'State/undoState';
-import { viewingActions, viewingSelectors } from 'State/viewingState';
+import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
+import { uiActions } from 'Store/uiStore';
+import { undoActions } from 'Store/undoStore';
+import { viewingActions, viewingSelectors } from 'Store/viewingStore';
 import Identity from 'Libs/Identity';
 
 export function* tvshowAddWithSeasons(

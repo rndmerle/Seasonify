@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import reducer, { tvshowActions, tvshowSelectors, INITIAL_STATE } from '../tvshowState';
+import reducer, { tvshowActions, tvshowSelectors, INITIAL_STATE } from '../tvshowStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

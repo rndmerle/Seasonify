@@ -2,8 +2,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { editActions, editSelectors } from 'State/editState';
-import { friendActions, friendSelectors } from 'State/friendState';
+import { editActions, editSelectors } from 'Store/editStore';
+import { friendActions, friendSelectors } from 'Store/friendStore';
 import FriendDetailsHeader from 'Components/FriendDetailsHeader';
 
 import FriendDetails from './FriendDetails';

@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import reducer, { uiActions, uiSelectors, INITIAL_STATE } from '../uiState';
+import reducer, { uiActions, uiSelectors, INITIAL_STATE } from '../uiStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

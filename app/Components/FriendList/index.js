@@ -2,8 +2,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { friendActions, friendSelectors } from 'State/friendState';
-import { sortingKeys } from 'State/sortingState';
+import { friendActions, friendSelectors } from 'Store/friendStore';
+import { sortingKeys } from 'Store/sortingStore';
 import HeaderRootWithSorting from 'Components/HeaderRootWithSorting';
 
 import FriendList from './FriendList';

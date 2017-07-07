@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
 import React from 'react';
 
-import { uiActions } from 'State/uiState';
+import { uiActions } from 'Store/uiStore';
 import DebugConfig from 'Config/DebugConfig';
 import DrawerNavigation from 'Navigation/DrawerNavigation';
 import PersistConfig from 'Config/PersistConfig';

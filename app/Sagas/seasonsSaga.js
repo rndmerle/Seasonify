@@ -2,8 +2,8 @@
 import { call, fork, put, select } from 'redux-saga/effects';
 
 import type { Tvshow, ApiResponse } from 'Types';
-import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
-import { uiActions } from 'State/uiState';
+import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
+import { uiActions } from 'Store/uiStore';
 
 export function* seasonsRefresh(
   api: Object,

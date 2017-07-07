@@ -2,10 +2,10 @@
 import { call, select } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 
-import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
-import { uiActions } from 'State/uiState';
-import { undoActions } from 'State/undoState';
-import { viewingActions, viewingSelectors } from 'State/viewingState';
+import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
+import { uiActions } from 'Store/uiStore';
+import { undoActions } from 'Store/undoStore';
+import { viewingActions, viewingSelectors } from 'Store/viewingStore';
 import Identity from 'Libs/Identity';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';

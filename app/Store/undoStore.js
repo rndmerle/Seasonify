@@ -1,7 +1,7 @@
 /* @flow */
 import { createReducer, createActions } from 'reduxsauce';
 
-import type { FullState } from 'State';
+import type { FullState } from 'Store';
 
 export type RecoverOp = { type: string, savedState: Object };
 

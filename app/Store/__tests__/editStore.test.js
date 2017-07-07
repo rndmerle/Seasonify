@@ -1,6 +1,6 @@
 import testReducer from 'Libs/testReducer';
 
-import reducer, { editActions, editSelectors, INITIAL_STATE } from '../editState';
+import reducer, { editActions, editSelectors, INITIAL_STATE } from '../editStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

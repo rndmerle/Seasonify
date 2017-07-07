@@ -11,13 +11,13 @@ import PersistConfig from 'Config/PersistConfig';
 import Rehydration from 'Libs/Rehydration';
 import rootSaga from 'Sagas/rootSaga';
 /* Stores */
-import editState, { type EditState } from 'State/editState';
-import friendState, { type FriendState } from 'State/friendState';
-import sortingState, { type SortingState } from 'State/sortingState';
-import tvshowState, { type TvshowState } from 'State/tvshowState';
-import uiState, { type UiState } from 'State/uiState';
-import undoState, { type UndoState } from 'State/undoState';
-import viewingState, { type ViewingState } from 'State/viewingState';
+import editStore, { type EditState } from 'Store/editStore';
+import friendStore, { type FriendState } from 'Store/friendStore';
+import sortingStore, { type SortingState } from 'Store/sortingStore';
+import tvshowStore, { type TvshowState } from 'Store/tvshowStore';
+import uiStore, { type UiState } from 'Store/uiStore';
+import undoStore, { type UndoState } from 'Store/undoStore';
+import viewingStore, { type ViewingState } from 'Store/viewingStore';
 
 export type FullState = {
   ui: UiState,
@@ -35,13 +35,13 @@ export default () => {
 
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
-    ui: resettable(uiState),
-    undo: resettable(undoState),
-    edit: editState,
-    friends: friendState,
-    tvshows: tvshowState,
-    viewings: viewingState,
-    sorting: resettable(sortingState),
+    ui: resettable(uiStore),
+    undo: resettable(undoStore),
+    edit: editStore,
+    friends: friendStore,
+    tvshows: tvshowStore,
+    viewings: viewingStore,
+    sorting: resettable(sortingStore),
   });
 
   /* ------------- Redux Configuration ------------- */

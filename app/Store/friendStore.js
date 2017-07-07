@@ -3,9 +3,9 @@ import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
 import type { Friend, Friends, SortingValue } from 'Types';
-import type { FullState } from 'State';
+import type { FullState } from 'Store';
 import { sortAlpha } from 'Libs/Helpers';
-import { sortingKeys, sortingSelectors } from 'State/sortingState';
+import { sortingKeys, sortingSelectors } from 'Store/sortingStore';
 
 type State = Friends;
 export type FriendState = State;

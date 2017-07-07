@@ -1,10 +1,10 @@
 /* @flow */
 import { put, select } from 'redux-saga/effects';
 
-import { friendActions, friendSelectors } from 'State/friendState';
-import { uiActions } from 'State/uiState';
-import { undoActions } from 'State/undoState';
-import { viewingActions, viewingSelectors } from 'State/viewingState';
+import { friendActions, friendSelectors } from 'Store/friendStore';
+import { uiActions } from 'Store/uiStore';
+import { undoActions } from 'Store/undoStore';
+import { viewingActions, viewingSelectors } from 'Store/viewingStore';
 
 export function* friendSaveAndDelete({ id }: { id: string }): Generator<*, *, *> {
   const friend = yield select(friendSelectors.getFriend, id);

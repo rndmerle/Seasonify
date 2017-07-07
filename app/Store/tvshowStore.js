@@ -2,10 +2,10 @@
 import { createReducer, createActions } from 'reduxsauce';
 import { createSelector } from 'reselect';
 
-import type { FullState } from 'State';
+import type { FullState } from 'Store';
 import type { Seasons, SortingValue, Tvshow, Tvshows } from 'Types';
 import { sortAlpha } from 'Libs/Helpers';
-import { sortingKeys, sortingSelectors } from 'State/sortingState';
+import { sortingKeys, sortingSelectors } from 'Store/sortingStore';
 import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 
 type State = Tvshows;

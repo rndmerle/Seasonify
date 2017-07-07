@@ -4,7 +4,7 @@ import reducer, {
   viewingActions,
   viewingSelectors,
   INITIAL_STATE,
-} from '../viewingState';
+} from '../viewingStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

@@ -2,7 +2,7 @@ import { call } from 'redux-saga/effects';
 import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 
-import { uiActions } from 'State/uiState';
+import { uiActions } from 'Store/uiStore';
 import api from 'Libs/Allocine';
 import rootSaga from 'Sagas/rootSaga';
 

@@ -1,8 +1,8 @@
 /* @flow */
 import { connect } from 'react-redux';
 
-import { friendSelectors } from 'State/friendState';
-import { viewingActions, viewingSelectors } from 'State/viewingState';
+import { friendSelectors } from 'Store/friendStore';
+import { viewingActions, viewingSelectors } from 'Store/viewingStore';
 
 import SeasonList from './SeasonList';
 

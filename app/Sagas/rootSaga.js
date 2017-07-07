@@ -1,9 +1,9 @@
 import { all, takeLatest } from 'redux-saga/effects';
 
-import { friendTypes } from 'State/friendState';
-import { tvshowTypes } from 'State/tvshowState';
-import { uiTypes } from 'State/uiState';
-import { undoTypes } from 'State/undoState';
+import { friendTypes } from 'Store/friendStore';
+import { tvshowTypes } from 'Store/tvshowStore';
+import { uiTypes } from 'Store/uiStore';
+import { undoTypes } from 'Store/undoStore';
 import DebugConfig from 'Config/DebugConfig';
 import apiAllocine from 'Libs/Allocine';
 import apiFixtures from 'Libs/apiFixtures';

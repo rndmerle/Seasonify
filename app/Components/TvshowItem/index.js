@@ -1,8 +1,8 @@
 /* @flow */
 import { connect } from 'react-redux';
 
-import { tvshowSelectors } from 'State/tvshowState';
-import { viewingSelectors } from 'State/viewingState';
+import { tvshowSelectors } from 'Store/tvshowStore';
+import { viewingSelectors } from 'Store/viewingStore';
 
 import TvshowItem from './TvshowItem';
 

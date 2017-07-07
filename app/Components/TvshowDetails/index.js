@@ -2,8 +2,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { editActions, editSelectors } from 'State/editState';
-import { tvshowActions, tvshowSelectors } from 'State/tvshowState';
+import { editActions, editSelectors } from 'Store/editStore';
+import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
 import TvshowDetailsHeader from 'Components/TvshowDetailsHeader';
 
 import TvshowDetails from './TvshowDetails';

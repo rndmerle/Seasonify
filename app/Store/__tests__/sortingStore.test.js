@@ -5,7 +5,7 @@ import reducer, {
   sortingSelectors,
   sortingKeys,
   INITIAL_STATE,
-} from '../sortingState';
+} from '../sortingStore';
 
 describe('Reducer', () => {
   it('provides initial state', () => {

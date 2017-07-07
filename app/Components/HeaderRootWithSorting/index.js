@@ -1,7 +1,7 @@
 /* @flow */
 import { connect } from 'react-redux';
 
-import { sortingActions, sortingSelectors } from 'State/sortingState';
+import { sortingActions, sortingSelectors } from 'Store/sortingStore';
 
 import HeaderRootWithSorting from './HeaderRootWithSorting';
 
