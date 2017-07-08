@@ -41,7 +41,6 @@ describe('Events', () => {
     component.find(ListItem).simulate('press');
     expect(props.navigate).toBeCalledWith('TvshowDetailsPage', {
       tvshowId: props.tvshowId,
-      tvshowName: props.tvshow.name,
     });
   });
 });

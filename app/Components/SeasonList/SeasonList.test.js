@@ -67,7 +67,6 @@ describe('Events & Functions', () => {
     it("navigates to friend's page", () => {
       expect(props.navigation.navigate).toBeCalledWith('FriendDetailsPage', {
         friendId: 'f1',
-        friendName: 'Friend 1',
       });
     });
   });

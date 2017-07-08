@@ -10,27 +10,47 @@ import {
   Thumbnail,
   View,
 } from 'native-base';
-import { compose, pure, withHandlers } from 'recompose';
+import { Keyboard } from 'react-native';
+import { compose, pure, withHandlers, withProps } from 'recompose';
 import React from 'react';
 
 type Props = {
   /* parent */
+  navigation: Object,
   suggestionKey: number,
+  suggestionAllocine: number,
   onPress: Function,
   poster?: string,
   title: string,
   subtitle?: string,
-  alreadyAdded?: boolean,
   /* connect */
+  codes: { [id: string]: number },
   /* HOC */
+  alreadyAdded: boolean,
   handlePressSuggestion: Function,
 };
 
 const enhance = compose(
   pure,
+  withProps(({ codes, suggestionAllocine }) => ({
+    alreadyAdded: !!Object.values(codes).find(code => suggestionAllocine === code),
+  })),
   withHandlers({
-    handlePressSuggestion: ({ alreadyAdded, suggestionKey, onPress }: Props) => () => {
-      if (!alreadyAdded) onPress(suggestionKey);
+    handlePressSuggestion: ({
+      navigation,
+      codes,
+      alreadyAdded,
+      suggestionKey,
+      suggestionAllocine,
+      onPress,
+    }: Props) => () => {
+      if (alreadyAdded) {
+        const tvshowId = Object.keys(codes).find(id => codes[id] === suggestionAllocine);
+        Keyboard.dismiss();
+        navigation.navigate('TvshowDetailsPage', { tvshowId });
+      } else {
+        onPress(suggestionKey);
+      }
     },
   }),
 );
@@ -39,7 +59,7 @@ function SuggestionItem({
   poster,
   title,
   subtitle,
-  alreadyAdded = false,
+  alreadyAdded,
   handlePressSuggestion,
 }: Props) {
   return (
@@ -60,9 +80,7 @@ function SuggestionItem({
         </Body>
         {!alreadyAdded &&
           <Right>
-            {/* <Button transparent onPress={handlePressSuggestion}> */}
             <Icon name="add-circle" />
-            {/* </Button> */}
           </Right>}
       </ListItem>
     </View>

@@ -29,10 +29,7 @@ const enhance = compose(
   pure,
   withHandlers({
     handleViewerPress: ({ navigation }: Props) => (viewer: ViewerInfo) => {
-      navigation.navigate('FriendDetailsPage', {
-        friendId: viewer.friendId,
-        friendName: viewer.name,
-      });
+      navigation.navigate('FriendDetailsPage', { friendId: viewer.friendId });
     },
     handleViewerLongPress: ({ tvshowId, viewingUnview }: Props) => (
       viewer: ViewerInfo,

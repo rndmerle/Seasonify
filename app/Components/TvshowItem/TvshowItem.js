@@ -20,11 +20,8 @@ type Props = {
 const enhance = compose(
   pure,
   withHandlers({
-    handlePress: ({ tvshowId, tvshow, navigate }: Props) => () => {
-      navigate('TvshowDetailsPage', {
-        tvshowId,
-        tvshowName: tvshow.name,
-      });
+    handlePress: ({ tvshowId, navigate }: Props) => () => {
+      navigate('TvshowDetailsPage', { tvshowId });
     },
   }),
 );

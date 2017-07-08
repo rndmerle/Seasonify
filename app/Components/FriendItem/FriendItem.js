@@ -16,10 +16,7 @@ const enhance = compose(
   pure,
   withHandlers({
     handlePress: ({ navigate, friend }: Props) => () => {
-      navigate('FriendDetailsPage', {
-        friendId: friend.id,
-        friendName: friend.name,
-      });
+      navigate('FriendDetailsPage', { friendId: friend.id });
     },
   }),
 );

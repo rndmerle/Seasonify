@@ -171,7 +171,7 @@ describe('Selectors', () => {
           b: { name: 'B', allocine: 456 },
         },
       }),
-    ).toEqual([123, 456]);
+    ).toEqual({ a: 123, b: 456 });
   });
 
   it('makeGetSeasonsCount', () => {

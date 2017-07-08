@@ -96,8 +96,13 @@ const getTvshows = (state: FullState): Tvshows => state.tvshows;
 const getTvshow = (state: FullState, { tvshowId }: { tvshowId: string }): Tvshow =>
   state.tvshows[tvshowId];
 
-const getCodes = createSelector(getTvshows, (tvshows: Tvshows) =>
-  Object.keys(tvshows).map(key => tvshows[key].allocine),
+const getCodes = createSelector(getTvshows, (tvshows: Tvshows): {
+  [id: string]: number,
+} =>
+  Object.keys(tvshows).reduce(
+    (codes, id) => ({ ...codes, [id]: tvshows[id].allocine }),
+    {},
+  ),
 );
 
 /* istanbul ignore next */

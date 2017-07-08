@@ -1,14 +1,15 @@
 /* @flow */
 import { Container, Content, Form, Label, Input, Item, List } from 'native-base';
+import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 import debounce from 'throttle-debounce/debounce';
 
-import type { Tvshow } from 'Types';
 import SuggestionItem from 'Components/SuggestionItem';
 
 type Props = {
   /* parent */
+  navigation: Object,
   /* connect */
   suggestions: Tvshow[],
   codes: number[],
@@ -40,7 +41,7 @@ const enhance = compose(
           /* istanbul ignore next */
           if (input) {
             input.wrappedInstance.clear();
-            // input.wrappedInstance.focus();
+            Keyboard.dismiss();
           }
         },
       };
@@ -50,8 +51,8 @@ const enhance = compose(
 
 function TvshowAdd({
   suggestions,
-  codes,
   registerInput,
+  navigation,
   handleChangeName,
   handlePressSuggestion,
 }: Props) {
@@ -74,12 +75,13 @@ function TvshowAdd({
             {suggestions.map((suggestion, key) =>
               (<SuggestionItem
                 key={suggestion.allocine}
+                navigation={navigation}
                 suggestionKey={key}
+                suggestionAllocine={suggestion.allocine}
                 onPress={handlePressSuggestion}
                 poster={suggestion.poster}
                 title={suggestion.name}
                 subtitle={suggestion.year.toString()}
-                alreadyAdded={!!codes.find(code => suggestion.allocine === code)}
               />),
             )}
           </List>}

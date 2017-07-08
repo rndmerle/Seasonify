@@ -1,5 +1,5 @@
 import { expectSaga } from 'redux-saga-test-plan';
-import { put, select } from 'redux-saga/effects';
+import { select } from 'redux-saga/effects';
 
 import { undoActions, undoSelectors } from 'Store/undoStore';
 import rootSaga from 'Sagas/rootSaga';

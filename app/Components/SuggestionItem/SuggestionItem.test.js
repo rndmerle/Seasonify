@@ -5,11 +5,13 @@ import SuggestionItem from './SuggestionItem';
 
 function setup(specificProps = {}) {
   const props = {
+    navigation: NavigationMock,
     suggestionKey: 0,
+    suggestionAllocine: 555,
+    codes: {},
     poster: 'http://url//poster.jpg',
     title: 'Deadwood',
     subtitle: '2004',
-    // alreadyAdded: false,
     onPress: jest.fn(),
     ...specificProps,
   };
@@ -37,20 +39,20 @@ describe('Rendering', () => {
   });
 
   it('should render, when already added', () => {
-    const { component } = setup({ alreadyAdded: true });
+    const { component } = setup({ codes: { s1: 777, s2: 555 } });
     expect(component).toMatchSnapshot();
   });
 });
 
 describe('Events', () => {
   it('should call onPress, when pressing the list item (not already added)', () => {
-    const { component, props } = setup({ alreadyAdded: false });
+    const { component, props } = setup();
     component.find(ListItem).simulate('press');
     expect(props.onPress).toBeCalled();
   });
 
   it("should'nt call onPress, when pressing the list item (already added)", () => {
-    const { component, props } = setup({ alreadyAdded: true });
+    const { component, props } = setup({ codes: { s1: 777, s2: 555 } });
     component.find(ListItem).simulate('press');
     expect(props.onPress).not.toBeCalled();
   });

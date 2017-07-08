@@ -29,7 +29,6 @@ describe('Events', () => {
     component.find(ListItem).simulate('press');
     expect(props.navigate).toBeCalledWith('FriendDetailsPage', {
       friendId: props.friend.id,
-      friendName: props.friend.name,
     });
   });
 });
