@@ -3,10 +3,10 @@ import { createReducer, createActions } from 'reduxsauce';
 
 import type { FullState } from 'Store';
 
-type StateKey = 'friend' | 'tvshow';
+export type SortingStateKey = 'friend' | 'tvshow';
 type StateValue = SortingValue;
 type State = {
-  [key: StateKey]: StateValue,
+  [key: SortingStateKey]: StateValue,
 };
 export type SortingState = State;
 
@@ -33,10 +33,10 @@ export { types as sortingTypes };
 
 const setSorting = (
   state: State,
-  { key, value }: { key: StateKey, value: StateValue },
+  { key, value }: { key: SortingStateKey, value: StateValue },
 ): State => ({ ...state, [key]: value });
 
-const toggleSorting = (state: State, { key }: { key: StateKey }): State => ({
+const toggleSorting = (state: State, { key }: { key: SortingStateKey }): State => ({
   ...state,
   [key]: nextValue[state[key]],
 });
@@ -48,7 +48,8 @@ export default createReducer(INITIAL_STATE, {
 
 /* ========== SELECTORS ========== */
 
-const getSorting = (state: FullState, key: StateKey): StateValue => state.sorting[key];
+const getSorting = (state: FullState, key: SortingStateKey): StateValue =>
+  state.sorting[key];
 
 export const sortingSelectors = {
   getSorting,

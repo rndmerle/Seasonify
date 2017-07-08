@@ -7,11 +7,11 @@ function setup(specificProps = {}) {
   const props = {
     title: 'Some tvshow',
     navigation: NavigationMock,
-    toggleButton: (
-      <Button>
+    toggleButtons: [
+      <Button key="key">
         <Text>toggle</Text>
-      </Button>
-    ),
+      </Button>,
+    ],
     ...specificProps,
   };
   const component = shallowDive(<HeaderRoot {...props} />, Header);
@@ -28,7 +28,7 @@ describe('Rendering', () => {
   });
 
   it('should render, WITHOUT toggle button', () => {
-    const { component } = setup({ toggleButton: undefined });
+    const { component } = setup({ toggleButtons: undefined });
     expect(component).toMatchSnapshot();
   });
 });

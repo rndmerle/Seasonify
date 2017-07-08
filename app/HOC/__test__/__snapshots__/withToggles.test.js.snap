@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With a 2 toggles and passing some title should match the rendered children 1`] = `
+<Component
+  action0={[Function]}
+  action1={[Function]}
+  selector0="ASC"
+  selector1="DESC"
+  title="Some title"
+  toggleButtons={
+    Array [
+      <Styled(Button)
+        onPress={[Function]}
+        small={true}
+        transparent={true}
+    >
+        <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+        >
+            A-Z
+        </Text>
+    </Styled(Button)>,
+      <Styled(Button)
+        onPress={[Function]}
+        small={true}
+        transparent={true}
+    >
+        <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+        >
+            down
+        </Text>
+    </Styled(Button)>,
+    ]
+  }
+/>
+`;

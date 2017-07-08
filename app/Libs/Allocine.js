@@ -89,7 +89,8 @@ const axiosTest = (truthy: boolean = true) => {
     .get(url)
     .then(result =>
       // console.warn(result);
-       ({ error: null, data: result.data }))
+      ({ error: null, data: result.data }),
+    )
     .catch(error => ({ error: error.message, data: null }));
 };
 
@@ -109,7 +110,7 @@ export default {
         data:
           result.data.feed && result.data.feed.tvseries
             ? Allocine.removeDynamicData('statistics', result.data.feed.tvseries)
-            : [],
+            : /* istanbul ignore next */ [],
       }))
       .catch(error => ({ error: error.message, data: null }));
   },
