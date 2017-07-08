@@ -3,6 +3,7 @@ import { call, fork, put, select } from 'redux-saga/effects';
 
 import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
 import { uiActions } from 'Store/uiStore';
+import seasonsNormalizer from 'Normalizers/seasonsNormalizer';
 
 export function* seasonsRefresh(
   api: Object,
@@ -17,7 +18,7 @@ export function* seasonsRefresh(
       yield fork(
         _informIfNewSeason,
         Object.keys(tvshow.seasons).length,
-        response.data.length,
+        Object.keys(seasonsNormalizer(response.data)).length,
       );
     }
     yield put(tvshowActions.seasonsSuccess(tvshow.id, response.data));

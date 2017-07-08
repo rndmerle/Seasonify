@@ -1,4 +1,4 @@
-function normalizeSeasons(seasons) {
+function seasonsNormalizer(seasons) {
   return seasons.reduce((obj, season) => {
     if (season.seasonNumber === 0) {
       return obj;
@@ -15,4 +15,4 @@ function normalizeSeasons(seasons) {
   }, {});
 }
 
-export default normalizeSeasons;
+export default seasonsNormalizer;
