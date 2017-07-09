@@ -23,6 +23,7 @@ exports[`Rendering should match, with a tvshowName 1`] = `
         "flexDirection": "row",
         "flexWrap": "wrap",
         "justifyContent": "space-between",
+        "paddingRight": 5,
       }
     }
   >
@@ -35,12 +36,17 @@ exports[`Rendering should match, with a tvshowName 1`] = `
     >
       Deadwood
     </Styled(Text)>
-    <Styled(Text)
-      style={Object {}}
+    <Styled(Badge)
+      style={
+        Object {
+          "backgroundColor": "lightgray",
+        }
+      }
     >
-      / 
-      5
-    </Styled(Text)>
+      <Styled(Text)>
+        5
+      </Styled(Text)>
+    </Styled(Badge)>
     <Styled(ViewNB)
       style={
         Object {
@@ -82,6 +88,7 @@ exports[`Rendering should match, with empty values 1`] = `
 >
   <Styled(Left)>
     <Styled(Button)
+      disabled={true}
       style={
         Object {
           "width": 57,
@@ -97,6 +104,7 @@ exports[`Rendering should match, with empty values 1`] = `
         "flexDirection": "row",
         "flexWrap": "wrap",
         "justifyContent": "space-between",
+        "paddingRight": 5,
       }
     }
   >
@@ -107,12 +115,17 @@ exports[`Rendering should match, with empty values 1`] = `
         }
       }
     />
-    <Styled(Text)
-      style={Object {}}
+    <Styled(Badge)
+      style={
+        Object {
+          "backgroundColor": "lightgray",
+        }
+      }
     >
-      / 
-      5
-    </Styled(Text)>
+      <Styled(Text)>
+        5
+      </Styled(Text)>
+    </Styled(Badge)>
     <Styled(ViewNB)
       style={
         Object {

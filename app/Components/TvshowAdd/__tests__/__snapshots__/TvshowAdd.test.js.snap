@@ -21,7 +21,7 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
       </Styled(Item)>
     </Styled(Form)>
     <Styled(List)>
-      <Connect(pure(withProps(withHandlers(SuggestionItem))))
+      <pure(withHandlers(SuggestionItem))
         navigation={
           Object {
             "goBack": [Function],
@@ -35,11 +35,11 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
         onPress={[Function]}
         poster="http://poster1.png"
         subtitle="2011"
-        suggestionAllocine={111}
         suggestionKey={0}
         title="A tvshow"
       />
-      <Connect(pure(withProps(withHandlers(SuggestionItem))))
+      <pure(withHandlers(SuggestionItem))
+        alreadyAddedId="s2"
         navigation={
           Object {
             "goBack": [Function],
@@ -53,7 +53,6 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
         onPress={[Function]}
         poster="http://poster5.png"
         subtitle="2015"
-        suggestionAllocine={555}
         suggestionKey={1}
         title="An other tvshow"
       />

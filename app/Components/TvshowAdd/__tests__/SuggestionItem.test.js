@@ -1,14 +1,12 @@
 import { ListItem, View } from 'native-base';
 import React from 'react';
 
-import SuggestionItem from './SuggestionItem';
+import SuggestionItem from '../SuggestionItem';
 
 function setup(specificProps = {}) {
   const props = {
     navigation: NavigationMock,
     suggestionKey: 0,
-    suggestionAllocine: 555,
-    codes: {},
     poster: 'http://url//poster.jpg',
     title: 'Deadwood',
     subtitle: '2004',
@@ -39,7 +37,7 @@ describe('Rendering', () => {
   });
 
   it('should render, when already added', () => {
-    const { component } = setup({ codes: { s1: 777, s2: 555 } });
+    const { component } = setup({ alreadyAddedId: 's2' });
     expect(component).toMatchSnapshot();
   });
 });
@@ -52,7 +50,7 @@ describe('Events', () => {
   });
 
   it("should'nt call onPress, when pressing the list item (already added)", () => {
-    const { component, props } = setup({ codes: { s1: 777, s2: 555 } });
+    const { component, props } = setup({ alreadyAddedId: 's2' });
     component.find(ListItem).simulate('press');
     expect(props.onPress).not.toBeCalled();
   });

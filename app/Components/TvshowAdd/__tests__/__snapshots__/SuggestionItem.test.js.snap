@@ -73,6 +73,7 @@ exports[`Rendering should render, when no poster 1`] = `
   >
     <Styled(Left)>
       <Styled(Button)
+        disabled={true}
         style={
           Object {
             "width": 57,

@@ -8,6 +8,7 @@ declare type TvshowWithoutID = {
   localizedName?: string,
   poster?: string,
   seasons: Seasons | {},
+  alreadyAddedId?: string,
 };
 declare type Tvshow = TvshowWithoutID & Uuid;
 declare type Tvshows = {

@@ -4,12 +4,11 @@ import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 import { Metrics } from 'Themes';
-
 import Loading from 'Components/Loading';
 import Poster from 'Components/Poster';
 import SeasonList from 'Components/SeasonList';
 import SingleFAB from 'Components/SingleFAB';
-import TvshowSheet from 'Components/TvshowSheet';
+import TvshowSheet from './TvshowSheet';
 
 type Props = {
   /* parent */

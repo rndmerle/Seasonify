@@ -1,9 +1,8 @@
 import { Container, Input } from 'native-base';
 import React from 'react';
 
-import SuggestionItem from 'Components/SuggestionItem';
-
-import TvshowAdd from './TvshowAdd';
+import SuggestionItem from '../SuggestionItem';
+import TvshowAdd from '../TvshowAdd';
 
 function setup(specificProps = {}) {
   const props = {
@@ -22,7 +21,7 @@ function setup(specificProps = {}) {
         poster: 'http://poster5.png',
       },
     ],
-    codes: [111, 222],
+    codes: { s1: 777, s2: 555 },
     tvshowAddWithSeasons: jest.fn(),
     suggestionsRequest: jest.fn(),
     ...specificProps,
@@ -46,6 +45,7 @@ describe('Rendering, with 2 suggestions, one being already added', () => {
 
 describe('Rendering, with no suggestions', () => {
   const { component } = setup({ suggestions: [] });
+
   it('should match', () => {
     expect(component).toMatchSnapshot();
   });

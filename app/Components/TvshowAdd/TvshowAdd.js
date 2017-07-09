@@ -5,14 +5,14 @@ import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 import debounce from 'throttle-debounce/debounce';
 
-import SuggestionItem from 'Components/SuggestionItem';
+import SuggestionItem from './SuggestionItem';
 
 type Props = {
   /* parent */
   navigation: Object,
   /* connect */
   suggestions: Tvshow[],
-  codes: number[],
+  codes: { [id: string]: number },
   tvshowAddWithSeasons: Function,
   suggestionsRequest: Function,
   /* HOC */
@@ -52,10 +52,16 @@ const enhance = compose(
 function TvshowAdd({
   suggestions,
   registerInput,
+  codes,
   navigation,
   handleChangeName,
   handlePressSuggestion,
 }: Props) {
+  suggestions.forEach(suggestion => {
+    suggestion.alreadyAddedId =
+      Object.keys(codes).find(id => codes[id] === suggestion.allocine) || undefined;
+  });
+
   return (
     <Container>
       <Content keyboardShouldPersistTaps="handled" keyboardDismissMode="none">
@@ -77,7 +83,7 @@ function TvshowAdd({
                 key={suggestion.allocine}
                 navigation={navigation}
                 suggestionKey={key}
-                suggestionAllocine={suggestion.allocine}
+                alreadyAddedId={suggestion.alreadyAddedId}
                 onPress={handlePressSuggestion}
                 poster={suggestion.poster}
                 title={suggestion.name}

@@ -11,43 +11,35 @@ import {
   View,
 } from 'native-base';
 import { Keyboard } from 'react-native';
-import { compose, pure, withHandlers, withProps } from 'recompose';
+import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
 type Props = {
   /* parent */
   navigation: Object,
   suggestionKey: number,
-  suggestionAllocine: number,
+  alreadyAddedId?: string,
   onPress: Function,
   poster?: string,
   title: string,
   subtitle?: string,
   /* connect */
-  codes: { [id: string]: number },
   /* HOC */
-  alreadyAdded: boolean,
   handlePressSuggestion: Function,
 };
 
 const enhance = compose(
   pure,
-  withProps(({ codes, suggestionAllocine }) => ({
-    alreadyAdded: !!Object.values(codes).find(code => suggestionAllocine === code),
-  })),
   withHandlers({
     handlePressSuggestion: ({
       navigation,
-      codes,
-      alreadyAdded,
       suggestionKey,
-      suggestionAllocine,
+      alreadyAddedId,
       onPress,
     }: Props) => () => {
-      if (alreadyAdded) {
-        const tvshowId = Object.keys(codes).find(id => codes[id] === suggestionAllocine);
+      if (alreadyAddedId) {
         Keyboard.dismiss();
-        navigation.navigate('TvshowDetailsPage', { tvshowId });
+        navigation.navigate('TvshowDetailsPage', { tvshowId: alreadyAddedId });
       } else {
         onPress(suggestionKey);
       }
@@ -59,7 +51,7 @@ function SuggestionItem({
   poster,
   title,
   subtitle,
-  alreadyAdded,
+  alreadyAddedId,
   handlePressSuggestion,
 }: Props) {
   return (
@@ -68,7 +60,7 @@ function SuggestionItem({
         <Left>
           {poster && <Thumbnail square source={{ uri: poster }} />}
           {!poster &&
-            <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
+            <Button transparent disabled style={{ width: 57 }} /> /* FIXME: too tricky */}
         </Left>
         <Body>
           <Text>
@@ -78,7 +70,7 @@ function SuggestionItem({
             {subtitle}
           </Text>
         </Body>
-        {!alreadyAdded &&
+        {!alreadyAddedId &&
           <Right>
             <Icon name="add-circle" />
           </Right>}

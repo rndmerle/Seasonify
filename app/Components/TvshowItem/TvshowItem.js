@@ -1,5 +1,5 @@
 /* @flow */
-import { Body, Button, Left, ListItem, Text, Thumbnail, View } from 'native-base';
+import { Badge, Body, Button, Left, ListItem, Text, Thumbnail, View } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
@@ -33,15 +33,17 @@ function TvshowItem({ tvshow, seasonsCount, viewers, handlePress }: Props) {
         {tvshow.poster &&
           <Thumbnail square source={{ uri: tvshow.poster }} style={styles.poster} />}
         {!tvshow.poster &&
-          <Button transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
+          <Button disabled transparent style={{ width: 57 }} /> /* FIXME: too tricky */}
       </Left>
       <Body style={styles.infos}>
         <Text style={styles.name}>
           {tvshow.name}
         </Text>
-        <Text style={styles.seasonsCount}>
-          / {seasonsCount}
-        </Text>
+        <Badge style={styles.seasonsCount}>
+          <Text>
+            {seasonsCount}
+          </Text>
+        </Badge>
         <View style={styles.viewers}>
           {viewers.length
             ? viewers.map(viewer =>

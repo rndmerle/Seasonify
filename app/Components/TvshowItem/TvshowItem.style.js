@@ -5,12 +5,13 @@ export default {
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignItems: 'stretch',
+    paddingRight: 5,
   },
   name: {
     flexGrow: 1,
   },
   seasonsCount: {
-    // alignSelf: 'flex-end',
+    backgroundColor: 'lightgray',
   },
   viewers: {
     flexBasis: '100%',

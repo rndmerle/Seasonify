@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { tvshowActions } from 'Store/tvshowStore';
+import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
 import { uiActions, uiSelectors } from 'Store/uiStore';
 import HeaderModular from 'Components/HeaderModular';
 
@@ -20,6 +20,7 @@ TvshowAdd.navigationOptions = ({ navigation }) => ({
 export default connect(
   state => ({
     suggestions: uiSelectors.getSuggestions(state),
+    codes: tvshowSelectors.getCodes(state),
   }),
   {
     tvshowAddWithSeasons: tvshowActions.tvshowAddWithSeasons,
