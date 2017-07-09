@@ -3,7 +3,7 @@
 ```
 $ npm install
 $ react-native link native-base
-$ npm start
+$ npm start   (or npm run haul)
 $ npm run android (or launch the app if already installed)
 ```
 

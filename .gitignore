@@ -53,3 +53,8 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+# Haul
+#
+haul-debug.log
+.happypack

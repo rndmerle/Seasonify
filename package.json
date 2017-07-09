@@ -2,9 +2,7 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": [
-    "app/"
-  ],
+  "moduleRoots": ["app/"],
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
@@ -12,10 +10,12 @@
     "t": "SET NODE_ENV=development && jest -o",
     "watch": "SET NODE_ENV=development && jest --watch",
     "coverage": "SET NODE_ENV=development && jest --coverage",
-    "adb": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090",
-    "start": "npm run adb && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
+    "start": "npm run adb && npm run adb:reactotron && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
+    "haul": "npm run adb:reactotron && rndebugger-open && haul start --platform android",
     "android": "cd android && gradlew installDebug && adb shell am start -n com.seasonify/.MainActivity",
-    "date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
+    "adb": "adb reverse tcp:8081 tcp:8081",
+    "adb:reactotron": "adb reverse tcp:9090 tcp:9090",
+    "adb:date": "adb shell \"date `date +%m%d%H%M%Y.%S`\"",
     "build:ios": "bundle install --binstubs ./examples/ios && bundle exec pod install --project-directory=./example/ios/",
     "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache",
@@ -26,11 +26,7 @@
     "*.js": []
   },
   "lint-staged-BACKUP": {
-    "*.js": [
-      "prettier-eslint --write",
-      "git add",
-      "eslint --quiet --max-warnings 10"
-    ]
+    "*.js": ["prettier-eslint --write", "git add", "eslint --quiet --max-warnings 10"]
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -69,6 +65,7 @@
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-react-native": "^2.3.2",
     "flow-bin": "^0.49.1",
+    "haul": "^1.0.0-beta.2",
     "husky": "^0.14.1",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
@@ -86,12 +83,8 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": [
-      "./jest.setup.js"
-    ],
-    "modulePaths": [
-      "<rootDir>/app/"
-    ],
+    "setupFiles": ["./jest.setup.js"],
+    "modulePaths": ["<rootDir>/app/"],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
       "!app/**/index.js",
@@ -103,11 +96,7 @@
       "!app/Libs/until.js",
       "!app/HOC/withLog.js"
     ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/(?!native-base)/"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
   }
 }
