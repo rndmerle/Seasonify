@@ -17,6 +17,13 @@
       onlyFilesWithFlowAnnotation: true,
       },
     },
+  "parserOptions": {
+      "ecmaVersion": 2016,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
   "env": {
       "browser": true,
       "node": true,
