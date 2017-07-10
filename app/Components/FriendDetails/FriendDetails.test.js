@@ -1,4 +1,4 @@
-import { Container, Input } from 'native-base';
+import { Button, Container, Input } from 'native-base';
 import React from 'react';
 
 import FriendDetails from './FriendDetails';
@@ -51,11 +51,27 @@ describe('Rendering when editing', () => {
   });
 });
 
+// describe('Rendering when opening the color picker', () => {
+//   const { component } = setup();
+//   const colorButton = component.find(Button).first();
+//   colorButton.props().onPress();
+//   component.update();
+//
+//   it('should display color picker', () => {
+//     expect(component.find(ColorPicker)).toHaveLength(1);
+//   });
+//
+//   it('should match', () => {
+//     expect(component).toMatchSnapshot();
+//   });
+// });
+
 /* ========= Events & Functions ========= */
 
 describe('Events & Functions', () => {
   const { component, props } = setup();
   const inputs = component.find(Input);
+  const colorButton = component.find(Button).first();
 
   describe('when calling onChangeName', () => {
     inputs.first().props().onChangeText('New name');
@@ -67,6 +83,16 @@ describe('Events & Functions', () => {
       });
     });
   });
+
+  // describe('when pressing color colorButton', () => {
+  //   colorButton.props().onPress();
+  //   component.update();
+  //   const picker = component.find(ColorPicker);
+  //
+  //   it('calls editUpdate', () => {
+  //     expect(props.friendUpdate).toBeCalled();
+  //   });
+  // });
 
   // describe('when calling onChangeColor', () => {
   //   const picker = component.find(Picker);

@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import React from 'react';
 
-import { _withToggles, makeMapStateToProps, makeMapActionsToProps } from '../withToggles';
+import { withToggles, makeMapStateToProps, makeMapActionsToProps } from '../withToggles';
 
 const Component = ({ title, toggleButtons }) =>
   (<View>
@@ -26,7 +26,7 @@ describe('With a 2 toggles and passing some title', () => {
       buttonFacets: { ASC: <Text>up</Text>, DESC: <Text>down</Text> },
     },
   ];
-  const ComponentWithToggles = _withToggles(toggles)(Component);
+  const ComponentWithToggles = withToggles(toggles)(Component);
 
   const connectProps = {
     selector0: 'ASC',

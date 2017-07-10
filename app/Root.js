@@ -27,7 +27,7 @@ export class Root extends React.Component<void, Props, void> {
     if (!PersistConfig.active) {
       this.props.startup();
     }
-    /* istanbul ignore next */
+    /* istanbul ignore if */
     if (DebugConfig.PerfMonitor) {
       PerfMonitor.toggle();
       /* eslint-disable no-console */

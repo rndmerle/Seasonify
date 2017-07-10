@@ -21,7 +21,7 @@ type Props = {
   actionX: Function,
 };
 
-export const _withToggles = (toggles: Toggle[]) => (
+export const withToggles = (toggles: Toggle[]) => (
   BaseComponent: ReactClass<*>,
 ): ReactClass<*> =>
   class ComponentWithToggles extends React.Component<void, Props, void> {
@@ -77,4 +77,4 @@ export const makeMapActionsToProps = (toggles: Toggle[]) =>
 const redux = (toggles: Toggle[]) =>
   connect(state => makeMapStateToProps(state, toggles), makeMapActionsToProps(toggles));
 
-export default (toggles: Toggle[]) => compose(redux(toggles), _withToggles(toggles));
+export default (toggles: Toggle[]) => compose(redux(toggles), withToggles(toggles));

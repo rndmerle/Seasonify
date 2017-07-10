@@ -1,0 +1,31 @@
+module.exports = {
+  preset: 'react-native',
+  modulePaths: ['<rootDir>/app/'],
+  setupFiles: ['./jest.setup.js'],
+  testRegex: '(/__tests__/.*\\.test\\.js|(\\.|/)(test|spec))\\.js$',
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  transformIgnorePatterns: ['/node_modules/(?!native-base)/'],
+  collectCoverageFrom: [
+    'app/**/*.{js}',
+    '!app/**/__tests__/*.{js}',
+    '!app/**/*.style.js',
+    '!app/**/index.js',
+    '!app/Config/**',
+    '!app/Navigation/**',
+    '!app/Themes/**',
+    '!app/Libs/Logging.js',
+    '!app/Libs/Rehydration.js',
+    '!app/Libs/until.js',
+    '!app/HOC/withLog.js',
+  ],
+  collectCoverage: true,
+  coverageReporters: process.env.CI ? ['text', 'lcov'] : ['lcov'],
+  // coverageThreshold: {
+  //   global: {
+  //     statements: 1,
+  //     branches: 1,
+  //     functions: 1,
+  //     lines: 1,
+  //   },
+  // },
+};

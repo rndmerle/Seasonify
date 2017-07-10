@@ -14,7 +14,8 @@ module.exports = {
     }
     return ['node'];
   },
-  useRelativePaths: false,
+  useRelativePaths: true,
+  useAbsolutePaths: true,
   declarationKeyword: 'import',
   namedExports: {
     'redux-saga/effects': [
