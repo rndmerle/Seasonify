@@ -1,22 +1,21 @@
 /* @flow */
-import { autoRehydrate } from 'redux-persist';
+import { autoRehydrate, persistStore } from 'redux-persist';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { resettableReducer } from 'reduxsauce';
-import createSagaMiddleware from 'redux-saga';
 import Reactotron from 'reactotron-react-native';
+import createMigration from 'redux-persist-migrate';
+import createSagaMiddleware from 'redux-saga';
 
 import AppConfig from 'Config/AppConfig';
 import DebugConfig from 'Config/DebugConfig';
 import PersistConfig from 'Config/PersistConfig';
-import Rehydration from 'Libs/Rehydration';
-import rootSaga from 'Sagas/rootSaga';
-/* Stores */
 import editStore, { type EditState } from 'Store/editStore';
 import friendStore, { type FriendState } from 'Store/friendStore';
+import rootSaga from 'Sagas/rootSaga';
 import sortingStore, { type SortingState } from 'Store/sortingStore';
 import tvshowStore, { type TvshowState } from 'Store/tvshowStore';
-import uiStore, { type UiState } from 'Store/uiStore';
+import uiStore, { type UiState, uiActions } from 'Store/uiStore';
 import undoStore, { type UndoState } from 'Store/undoStore';
 import viewingStore, { type ViewingState } from 'Store/viewingStore';
 
@@ -57,11 +56,6 @@ export default () => {
   // Assemble Middleware
   enhancers.push(applyMiddleware(...middleware));
 
-  // AutoRehydrate
-  if (PersistConfig.active) {
-    enhancers.push(autoRehydrate());
-  }
-
   // jhen0409/react-native-debugger
   if (DebugConfig.useReduxNativeDevTools && global.reduxNativeDevTools) {
     enhancers.push(global.reduxNativeDevTools(/* options*/));
@@ -71,6 +65,15 @@ export default () => {
   const createAppropriateStore = DebugConfig.useReactotron
     ? Reactotron.createStore
     : createStore;
+
+  // autoRehydrate from redux-persist et handle migrations with redux-persist-migrate
+  if (PersistConfig.active) {
+    const manifest = PersistConfig.migrationManifest;
+    const reducerKeyforVersion = 'app';
+    const migration = createMigration(manifest, reducerKeyforVersion);
+    enhancers.push(migration);
+    enhancers.push(autoRehydrate());
+  }
 
   // redux-devtools-extension if enabled
   const appropriateCompose = DebugConfig.useReduxDevtoolsExtension
@@ -87,7 +90,9 @@ export default () => {
 
   // Configure persistStore and check reducer version number
   if (PersistConfig.active) {
-    Rehydration.updateReducers(store);
+    const start = () => store.dispatch(uiActions.startup());
+    const config = PersistConfig.storeConfig;
+    persistStore(store, config, start);
   }
 
   // Kick off root Saga

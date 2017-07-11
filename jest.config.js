@@ -17,7 +17,6 @@ module.exports = {
     '!app/Navigation/**',
     '!app/Themes/**',
     '!app/Libs/Logging.js',
-    '!app/Libs/Rehydration.js',
     '!app/Libs/until.js',
     '!app/HOC/withLog.js',
   ],

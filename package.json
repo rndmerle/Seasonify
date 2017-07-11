@@ -2,7 +2,9 @@
   "name": "Seasonify",
   "version": "0.0.1",
   "private": true,
-  "moduleRoots": ["app/"],
+  "moduleRoots": [
+    "app/"
+  ],
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
@@ -26,7 +28,11 @@
     "*.js": []
   },
   "lint-staged-BACKUP": {
-    "*.js": ["prettier-eslint --write", "git add", "eslint --quiet --max-warnings 10"]
+    "*.js": [
+      "prettier-eslint --write",
+      "git add",
+      "eslint --quiet --max-warnings 10"
+    ]
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -43,6 +49,7 @@
     "redux": "^3.7.1",
     "redux-devtools-extension": "^2.13.2",
     "redux-persist": "^4.8.2",
+    "redux-persist-migrate": "^4.1.0",
     "redux-saga": "^0.15.4",
     "reduxsauce": "^0.5.0",
     "throttle-debounce": "^1.0.1",
