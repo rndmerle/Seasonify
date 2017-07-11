@@ -36,6 +36,10 @@ module.exports = {
   logLevel: 'info', // debug
   importDevDependencies: true,
   globals: ['jest', 'shallow', 'console', 'expect', 'describe', 'it', 'test'],
+  // importStatementFormatter({ importStatement }) {
+  // return importStatement.replace(/;$/, '');
+  // },
+  //
   moduleNameFormatter({ moduleName, pathToCurrentFile }) {
     newModuleName = moduleName;
     // if (/-test/.test(pathToCurrentFile)) {

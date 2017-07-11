@@ -1,9 +1,10 @@
 /* @flow */
-import { Container, Content } from 'native-base';
+import { Container, Content, Spinner } from 'native-base';
 import { /* FlatList,*/ VirtualizedList } from 'react-native';
-import { compose, pure, withHandlers } from 'recompose';
+import { branch, compose, pure, renderComponent, withHandlers } from 'recompose';
 import React from 'react';
 
+import Loading from 'Components/Loading';
 import SingleFAB from 'Components/SingleFAB';
 import TvshowItem from 'Components/TvshowItem';
 
@@ -12,6 +13,7 @@ type Props = {
   navigation: Object,
   /* connect */
   tvshowsIds: string[],
+  isLoading: LoadingValue,
   /* HOC */
   handleFAB: Function,
 };
@@ -23,6 +25,7 @@ const enhance = compose(
       navigation.navigate('TvshowAddPage');
     },
   }),
+  branch(({ isLoading }: Props) => isLoading, renderComponent(Loading)),
 );
 
 function TvshowList({ navigation, tvshowsIds, handleFAB }: Props) {

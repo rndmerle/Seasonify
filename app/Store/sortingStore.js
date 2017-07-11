@@ -15,7 +15,7 @@ export const sortingKeys = {
   TVSHOW: 'tvshow',
 };
 
-const nextValue: { [value: StateValue]: StateValue } = { ASC: 'DESC', DESC: 'ASC' };
+const nextValue = (value: StateValue) => ({ ASC: 'DESC', DESC: 'ASC' }[value]);
 
 export const INITIAL_STATE: State = {
   [sortingKeys.FRIEND]: 'ASC',
@@ -38,7 +38,7 @@ const setSorting = (
 
 const toggleSorting = (state: State, { key }: { key: SortingStateKey }): State => ({
   ...state,
-  [key]: nextValue[state[key]],
+  [key]: nextValue(state[key]),
 });
 
 export default createReducer(INITIAL_STATE, {

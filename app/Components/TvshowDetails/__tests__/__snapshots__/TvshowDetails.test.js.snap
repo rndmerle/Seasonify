@@ -50,7 +50,7 @@ exports[`Rendering when default state should match 1`] = `
     icon="refresh"
     onPress={[Function]}
   />
-  <Connect(pure(Loading))
+  <pure(Loading)
     position="nextToFAB"
   />
 </Styled(Container)>

@@ -9,14 +9,18 @@ type Props = {
   /* parent */
   position?: string,
   color?: string,
+  isSpinning?: boolean,
   /* connect */
-  isSpinning: boolean,
   /* HOC */
 };
 
 const enhance = pure;
 
-function Loading({ position = 'centered', color = 'lightblue', isSpinning }: Props) {
+function Loading({
+  position = 'centered',
+  color = 'lightblue',
+  isSpinning = true,
+}: Props) {
   if (isSpinning) {
     return <Spinner style={styles[position]} color={color} />;
   }

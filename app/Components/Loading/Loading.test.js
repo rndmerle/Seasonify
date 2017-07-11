@@ -5,7 +5,6 @@ import Loading from './Loading';
 
 function setup(specificProps = {}) {
   const props = {
-    isSpinning: false,
     ...specificProps,
   };
   const component = shallow(<Loading {...props} />);
@@ -18,9 +17,7 @@ function setup(specificProps = {}) {
 
 describe('rendering', () => {
   it('spinning if isSpinning', () => {
-    const { component } = setup({
-      isSpinning: true,
-    });
+    const { component } = setup();
     expect(component.find(Spinner)).toHaveLength(1);
   });
 

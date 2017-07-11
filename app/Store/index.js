@@ -12,6 +12,7 @@ import DebugConfig from 'Config/DebugConfig';
 import PersistConfig from 'Config/PersistConfig';
 import editStore, { type EditState } from 'Store/editStore';
 import friendStore, { type FriendState } from 'Store/friendStore';
+import loadingStore, { type LoadingState } from 'Store/loadingStore';
 import rootSaga from 'Sagas/rootSaga';
 import sortingStore, { type SortingState } from 'Store/sortingStore';
 import tvshowStore, { type TvshowState } from 'Store/tvshowStore';
@@ -27,6 +28,7 @@ export type FullState = {
   tvshows: TvshowState,
   viewings: ViewingState,
   sorting: SortingState,
+  loading: LoadingState,
 };
 
 export default () => {
@@ -42,6 +44,7 @@ export default () => {
     tvshows: tvshowStore,
     viewings: viewingStore,
     sorting: resettable(sortingStore),
+    loading: loadingStore,
   });
 
   /* ------------- Redux Configuration ------------- */

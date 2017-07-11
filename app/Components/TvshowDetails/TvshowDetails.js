@@ -19,6 +19,7 @@ type Props = {
   editedObject: Object,
   editUpdate: Function,
   seasonsRefresh: Function,
+  isSpinning: boolean,
   /* HOC */
   handleChangeName: Function,
   handleFAB: Function,
@@ -41,6 +42,7 @@ function TvshowDetails({
   tvshow,
   isEditing,
   editedObject,
+  isSpinning,
   handleChangeName,
   handleFAB,
 }: Props) {
@@ -70,7 +72,7 @@ function TvshowDetails({
           />
         </Content>
         <SingleFAB icon="refresh" onPress={handleFAB} />
-        <Loading position="nextToFAB" />
+        <Loading position="nextToFAB" isSpinning={isSpinning} />
       </Container>
     );
   }

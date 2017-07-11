@@ -33,3 +33,21 @@ exports[`rendering should show 2 series 1`] = `
   />
 </Styled(Container)>
 `;
+
+exports[`rendering should show spinner when loading 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="lightblue"
+  hidesWhenStopped={true}
+  size="large"
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 80,
+      "justifyContent": "center",
+    }
+  }
+/>
+`;

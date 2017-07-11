@@ -3,6 +3,7 @@ import { Text } from 'native-base';
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { loadingKeys, loadingSelectors } from 'Store/loadingStore';
 import { sortingActions, sortingKeys, sortingSelectors } from 'Store/sortingStore';
 import { tvshowSelectors } from 'Store/tvshowStore';
 import HeaderRoot from 'Components/HeaderRoot';
@@ -26,6 +27,7 @@ TvshowList.navigationOptions = ({ navigation }) => ({
 export default connect(
   state => ({
     tvshowsIds: tvshowSelectors.getTvshowsIds(state),
+    isLoading: loadingSelectors.getLoading(state, loadingKeys.TVSHOW),
   }),
   {},
 )(TvshowList);

@@ -4,6 +4,7 @@ import React from 'react';
 
 import { editActions, editSelectors } from 'Store/editStore';
 import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
+import { uiSelectors } from 'Store/uiStore';
 import TvshowDetailsHeader from 'Components/TvshowDetailsHeader';
 
 import TvshowDetails from './TvshowDetails';
@@ -22,6 +23,7 @@ export default connect(
     tvshow: tvshowSelectors.getTvshow(state, { tvshowId }),
     isEditing: editSelectors.isEditing(state),
     editedObject: editSelectors.editedObject(state),
+    isSpinning: uiSelectors.isSpinning(state),
   }),
   {
     editUpdate: editActions.editUpdate,
