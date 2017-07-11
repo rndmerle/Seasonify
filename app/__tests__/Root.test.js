@@ -1,5 +1,4 @@
 import { Container } from 'native-base';
-import PerfMonitor from 'react-native/Libraries/Performance/RCTRenderingPerf';
 import React from 'react';
 
 import DebugConfig from 'Config/DebugConfig';
@@ -34,6 +33,5 @@ describe('PersistConfig and PerfMonitor disabled', () => {
 
   it('should call startup', () => {
     expect(props.startup).toBeCalled();
-    // jest.runAllTimers();
   });
 });

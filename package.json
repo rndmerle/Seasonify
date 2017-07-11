@@ -6,11 +6,10 @@
   "scripts": {
     "lint": "eslint ./app",
     "flow": "flow || exit 0",
-    "t": "SET NODE_ENV=development && jest -o --coverage",
-    "test": "SET NODE_ENV=development && jest --coverage",
-    "test:full": "SET NODE_ENV=development && SET FULL=true && jest --coverage",
-    "watch": "SET NODE_ENV=development && jest --watch",
-    "coverage": "SET NODE_ENV=development && SET CI=true && jest --coverage",
+    "t": "cross-env NODE_ENV=development jest -o --coverage",
+    "test": "cross-env NODE_ENV=development jest --coverage",
+    "watch": "cross-env NODE_ENV=development jest --watch",
+    "coverage": "cross-env NODE_ENV=development CI=true jest --coverage",
     "start": "npm run adb && npm run adb:reactotron && rndebugger-open && node node_modules/react-native/local-cli/cli.js start",
     "haul": "npm run adb:reactotron && rndebugger-open && haul start --platform android",
     "android": "cd android && gradlew installDebug && adb shell am start -n com.seasonify/.MainActivity",
@@ -21,7 +20,7 @@
     "build:android": "cd android && gradlew :react-native-maps:assembleDebug",
     "clean": "rm -rf $TMPDIR/react-* && npm cache clean && node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "precommit": "echo Flow... && flow --quiet && lint-staged",
-    "prepush": "SET NODE_ENV=development && jest --silent --coverage && echo Eslint... && eslint --quiet --max-warnings 10 ./app && echo Flow... && flow --quiet"
+    "prepush": "cross-env NODE_ENV=development jest --silent --coverage && echo Eslint... && eslint --quiet --max-warnings 10 ./app && echo Flow... && flow --quiet"
   },
   "lint-staged": {
     "*.js": []

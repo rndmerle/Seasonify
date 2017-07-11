@@ -74,7 +74,15 @@ export const makeMapActionsToProps = (toggles: Toggle[]) =>
     {},
   );
 
-const redux = (toggles: Toggle[]) =>
-  connect(state => makeMapStateToProps(state, toggles), makeMapActionsToProps(toggles));
+function redux(toggles: Toggle[]) {
+  /* istanbul ignore next */
+  return connect(
+    state => makeMapStateToProps(state, toggles),
+    makeMapActionsToProps(toggles),
+  );
+}
 
-export default (toggles: Toggle[]) => compose(redux(toggles), withToggles(toggles));
+export default function (toggles: Toggle[]) {
+  /* istanbul ignore next */
+  return compose(redux(toggles), withToggles(toggles));
+}

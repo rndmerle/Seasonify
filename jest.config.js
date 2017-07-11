@@ -1,15 +1,18 @@
+const HEAVY = 'App|Root|Allocine|apiFixtures';
+
 module.exports = {
   preset: 'react-native',
   modulePaths: ['<rootDir>/app/'],
   setupFiles: ['./jest.setup.js'],
-  testRegex: process.env.FULL ? '(\\.|/)(test|spec)\\.js$' : '(\\.|/)test\\.js$',
+  testMatch: process.env.CI ? ['**/?(*.)(spec|test).js'] : [`**/!(${HEAVY}).test.js`],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   transformIgnorePatterns: ['/node_modules/(?!native-base)/'],
   collectCoverageFrom: [
     'app/**/*.{js}',
-    '!app/**/__tests__/*.{js}',
+    '!app/**/*.test.js',
     '!app/**/*.style.js',
     '!app/**/index.js',
+    process.env.CI ? '' : `!**/(${HEAVY}).js`,
     '!app/Config/**',
     '!app/Navigation/**',
     '!app/Themes/**',
