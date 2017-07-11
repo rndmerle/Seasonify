@@ -5,7 +5,7 @@ export default {
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignItems: 'stretch',
-    paddingRight: 5,
+    paddingRight: 7,
   },
   name: {
     flexGrow: 1,

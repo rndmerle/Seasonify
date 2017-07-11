@@ -2,7 +2,7 @@ module.exports = {
   preset: 'react-native',
   modulePaths: ['<rootDir>/app/'],
   setupFiles: ['./jest.setup.js'],
-  testRegex: '(/__tests__/.*\\.test\\.js|(\\.|/)(test|spec))\\.js$',
+  testRegex: process.env.FULL ? '(\\.|/)(test|spec)\\.js$' : '(\\.|/)test\\.js$',
   snapshotSerializers: ['enzyme-to-json/serializer'],
   transformIgnorePatterns: ['/node_modules/(?!native-base)/'],
   collectCoverageFrom: [

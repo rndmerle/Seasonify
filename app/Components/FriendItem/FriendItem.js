@@ -1,5 +1,5 @@
 /* @flow */
-import { ListItem, Text } from 'native-base';
+import { Body, Button, Left, ListItem, Text } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
@@ -23,10 +23,15 @@ const enhance = compose(
 
 function FriendItem({ friend, handlePress }: Props) {
   return (
-    <ListItem onPress={handlePress}>
-      <Text>
-        {friend.name}
-      </Text>
+    <ListItem icon onPress={handlePress}>
+      <Left>
+        <Button small disabled style={{ backgroundColor: friend.color }} />
+      </Left>
+      <Body>
+        <Text>
+          {friend.name}
+        </Text>
+      </Body>
     </ListItem>
   );
 }

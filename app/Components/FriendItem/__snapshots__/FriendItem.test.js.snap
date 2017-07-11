@@ -2,10 +2,24 @@
 
 exports[`Rendering should render 1`] = `
 <Styled(ListItem)
+  icon={true}
   onPress={[Function]}
 >
-  <Styled(Text)>
-    Someone
-  </Styled(Text)>
+  <Styled(Left)>
+    <Styled(Button)
+      disabled={true}
+      small={true}
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    />
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(Text)>
+      Someone
+    </Styled(Text)>
+  </Styled(Body)>
 </Styled(ListItem)>
 `;

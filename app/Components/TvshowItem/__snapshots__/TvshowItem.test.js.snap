@@ -23,7 +23,7 @@ exports[`Rendering should match, with a tvshowName 1`] = `
         "flexDirection": "row",
         "flexWrap": "wrap",
         "justifyContent": "space-between",
-        "paddingRight": 5,
+        "paddingRight": 7,
       }
     }
   >
@@ -104,7 +104,7 @@ exports[`Rendering should match, with empty values 1`] = `
         "flexDirection": "row",
         "flexWrap": "wrap",
         "justifyContent": "space-between",
-        "paddingRight": 5,
+        "paddingRight": 7,
       }
     }
   >
