@@ -26,6 +26,18 @@ const enhance = compose(
   }),
 );
 
+const renderViewer = (viewer: ViewerInfo, seasonsCount: number) => {
+  const whenNotCompleted =
+    viewer.seasonsViewed < seasonsCount ? styles.viewerNotCompleted : {};
+  return (
+    <Text note numberOfLines={1} key={viewer.name} style={styles.viewer}>
+      {viewer.name}{' '}
+      <Text note style={whenNotCompleted}>
+        {viewer.seasonsViewed}
+      </Text>&nbsp;&nbsp;
+    </Text>
+  );
+};
 function TvshowItem({ tvshow, seasonsCount, viewers, handlePress }: Props) {
   return (
     <ListItem avatar onPress={handlePress}>
@@ -46,11 +58,7 @@ function TvshowItem({ tvshow, seasonsCount, viewers, handlePress }: Props) {
         </Badge>
         <View style={styles.viewers}>
           {viewers.length
-            ? viewers.map(viewer =>
-              (<Text note numberOfLines={1} key={viewer.name} style={styles.viewer}>
-                {viewer.name}:{viewer.seasonsViewed}&nbsp;
-              </Text>),
-              )
+            ? viewers.map(viewer => renderViewer(viewer, seasonsCount))
             : <Text>&nbsp;</Text>}
         </View>
       </Body>

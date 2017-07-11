@@ -62,9 +62,19 @@ exports[`Rendering should match, with a tvshowName 1`] = `
         style={Object {}}
       >
         Friend 1
-        :
-        4
-         
+         
+        <Styled(Text)
+          note={true}
+          style={
+            Object {
+              "color": "gray",
+              "fontWeight": "bold",
+            }
+          }
+        >
+          4
+        </Styled(Text)>
+          
       </Styled(Text)>
       <Styled(Text)
         note={true}
@@ -72,9 +82,14 @@ exports[`Rendering should match, with a tvshowName 1`] = `
         style={Object {}}
       >
         Friend 2
-        :
-        5
-         
+         
+        <Styled(Text)
+          note={true}
+          style={Object {}}
+        >
+          5
+        </Styled(Text)>
+          
       </Styled(Text)>
     </Styled(ViewNB)>
   </Styled(Body)>

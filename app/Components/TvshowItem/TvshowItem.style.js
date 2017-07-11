@@ -19,4 +19,8 @@ export default {
     flexWrap: 'wrap',
   },
   viewer: {},
+  viewerNotCompleted: {
+    color: 'gray',
+    fontWeight: 'bold',
+  },
 };
