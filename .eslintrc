@@ -50,6 +50,8 @@
     "airbnb"
   ],
   "rules": {
+        #### XXX Temporary workaround for eslint 4 upgrade  ####
+        "jsx-a11y/href-no-hash": "off",
         #### Basic rules ####
         "global-require": 0, # Used by webpack isomorphic tools and React Native.
         "arrow-parens": 0, # Does not work with Flow generic types.

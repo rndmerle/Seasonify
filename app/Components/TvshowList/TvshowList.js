@@ -1,5 +1,5 @@
 /* @flow */
-import { Container, Content, Spinner } from 'native-base';
+import { Container, Content } from 'native-base';
 import { /* FlatList,*/ VirtualizedList } from 'react-native';
 import { branch, compose, pure, renderComponent, withHandlers } from 'recompose';
 import React from 'react';
