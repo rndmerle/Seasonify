@@ -11,7 +11,7 @@ import {
   Text,
 } from 'native-base';
 import { ColorPicker } from 'react-native-color-picker';
-import { compose, pure, withHandlers, withState } from 'recompose';
+import { compose, pure, withHandlers, withStateHandlers } from 'recompose';
 import React from 'react';
 
 import { getContrastingTextColor } from 'Libs/Helpers';
@@ -29,21 +29,25 @@ type Props = {
   friendUpdate: Function,
   /* HOC */
   isPickerVisible: boolean,
-  setPickerVisibility: Function,
   handleChangeName: Function,
   handleColorPatchPress: Function,
   handleColorSelect: Function,
 };
 
+type State = {
+  isPickerVisible: boolean,
+};
+
 const enhance = compose(
   pure,
-  withState('isPickerVisible', 'setPickerVisibility', false),
+  withStateHandlers(() => ({ isPickerVisible: false }: State), {
+    handleColorPatchPress: ({ isPickerVisible }: State) => () => ({
+      isPickerVisible: !isPickerVisible,
+    }),
+  }),
   withHandlers({
     handleChangeName: ({ navigation, editUpdate }: Props) => (name: string) => {
       editUpdate({ id: navigation.state.params.friendId, name });
-    },
-    handleColorPatchPress: ({ setPickerVisibility }: Props) => () => {
-      setPickerVisibility(visibility => !visibility);
     },
     handleColorSelect: ({ friend, friendUpdate }: Props) => (color: string) => {
       friendUpdate({ id: friend.id, color });

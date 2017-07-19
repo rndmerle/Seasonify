@@ -13,7 +13,7 @@ import {
   Right,
 } from 'native-base';
 import { Keyboard } from 'react-native';
-import { compose, pure, withHandlers, withState } from 'recompose';
+import { compose, pure, withHandlers, withStateHandlers } from 'recompose';
 import React from 'react';
 
 import AppConfig from 'Config/AppConfig';
@@ -28,22 +28,26 @@ type Props = {
   friendAdd: Function,
   /* HOC */
   newFriendName: string,
-  setNewFriendName: Function,
   handleChangeName: Function,
   handleAddButton: Function,
 };
 
+type State = {
+  newFriendName: string,
+};
+
 const enhance = compose(
   pure,
-  withState('newFriendName', 'setNewFriendName', ''),
+  withStateHandlers(() => ({ newFriendName: '' }: State), {
+    handleChangeName: () => (name: string) => ({
+      newFriendName: name,
+    }),
+  }),
   withHandlers({
-    handleChangeName: ({ setNewFriendName }: Props) => (name: string) => {
-      setNewFriendName(name);
-    },
-    handleAddButton: ({ friendAdd, newFriendName, setNewFriendName }: Props) => () => {
+    handleAddButton: ({ friendAdd, newFriendName, handleChangeName }: Props) => () => {
       if (newFriendName.trim() !== '') {
         friendAdd(Identity.newid(), newFriendName.trim(), AppConfig.defaultFriendColor);
-        setNewFriendName('');
+        handleChangeName('');
         Keyboard.dismiss();
       }
     },
