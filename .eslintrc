@@ -39,6 +39,7 @@
       "it": true,
       "shallow": true,
       "shallowDive": true,
+      "diveUntil": true,
       "jasmine": true,
       "Generator": true,
       "objectValues": true,

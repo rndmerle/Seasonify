@@ -19,6 +19,15 @@ global.shallowDive = (Component, target, context = {}) => {
   return shallow(Component, context)::until(target);
 };
 
+global.diveUntil = (wrapper, target) => {
+  if (wrapper.isEmptyRender() || typeof wrapper.getNode().type === 'string') {
+    return wrapper;
+  }
+  return wrapper.is(target.displayName)
+    ? wrapper
+    : global.diveUntil(wrapper.shallow(), target);
+}
+
 global.objectValues = map => Object.values(map);
 
 // Polyfil axios for Jest, or else I get a "this.dispatchEvent is not a function" error

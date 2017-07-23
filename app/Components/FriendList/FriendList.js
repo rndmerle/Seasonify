@@ -37,7 +37,6 @@ type State = {
 };
 
 const enhance = compose(
-  pure,
   withStateHandlers(() => ({ newFriendName: '' }: State), {
     handleChangeName: () => (name: string) => ({
       newFriendName: name,
@@ -52,6 +51,7 @@ const enhance = compose(
       }
     },
   }),
+  pure,
 );
 
 function FriendList({

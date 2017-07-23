@@ -1,6 +1,7 @@
 import { Button, Container, Input } from 'native-base';
 import React from 'react';
 
+import AppConfig from 'Config/AppConfig';
 import Identity from 'Libs/Identity';
 
 import FriendList from './FriendList';
@@ -15,14 +16,17 @@ function setup(specificProps = {}) {
     friendAdd: jest.fn(),
     ...specificProps,
   };
-  // const c = shallow(<FriendList {...props} />);
-  // console.warn(c.getNode());
-  // XXX const component = shallow(<FriendList {...props} />);
-  const component = shallowDive(<FriendList {...props} />, Container);
+  const parent = shallow(<FriendList {...props} />);
+  const level = [];
+  level[0] = parent;
+  level[1] = parent.dive();
+  level[2] = level[1].dive();
+  const component = level[2];
   return {
     props,
+    parent,
+    level,
     component,
-    // innerComponent,
     input: component.find(Input),
     button: component.find(Button),
   };
@@ -44,42 +48,28 @@ describe('Rendering when no friends', () => {
 
 /* ========= Events & Functions ========= */
 
-describe('Events & Functions', () => {
-  const { component, input, button } = setup();
+describe('when entering a name in the input', () => {
+  const { parent, input } = setup();
+  input.props().onChangeText('Someone');
 
-  describe('when entering a name in the input and pressing add', () => {
-    beforeAll(() => {
-      Identity.forceId('abc123');
-      input.props().onChangeText('Someone');
-      component.update();
-      // FIXME : à priori le state n'est pas pres quand on appelle simulate plus bas. Ou alors c'est un autre sousi de HOC
-      button.props().onPress();
-      component.update();
-    });
-
-    // FIXME
-    // it('sets the newFriendName prop', () => {
-    //   expect(component.instance().props.newFriendName).toEqual('Someone')
-    // });
-
-    // it('calls friendAdd', () => {
-    //   expect(props.friendAdd).toBeCalledWith(
-    //     'abc123',
-    //     'Someone',
-    //     AppConfig.defaultFriendColor,
-    //   );
-    // });
+  it('sets the newFriendName prop', () => {
+    expect(parent.state().newFriendName).toEqual('Someone');
   });
+});
 
-  // describe('with an empty input, when pressing the add button', () => {
-  //   const input = component.find(Input);
-  //   const button = component.find(Button);
-  //
-  //   input.props().onChangeText(' ');
-  //   button.simulate('press');
-  //
-  //   it('does nothing', () => {
-  //     expect(props.friendAdd).not.toBeCalled();
-  //   });
-  // });
+describe('when pressing add with a newFriendName set', () => {
+  Identity.forceId('abc123');
+  const { level, props, button } = setup();
+  level[1].setProps({
+    newFriendName: 'Someone',
+  });
+  button.props().onPress();
+
+  it('calls friendAdd', () => {
+    expect(props.friendAdd).toBeCalledWith(
+      'abc123',
+      'Someone',
+      AppConfig.defaultFriendColor,
+    );
+  });
 });
