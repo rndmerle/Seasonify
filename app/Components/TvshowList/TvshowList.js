@@ -1,7 +1,14 @@
 /* @flow */
 import { Container, Content } from 'native-base';
 import { /* FlatList,*/ VirtualizedList } from 'react-native';
-import { branch, compose, pure, renderComponent, withHandlers } from 'recompose';
+import {
+  branch,
+  compose,
+  hoistStatics,
+  pure,
+  renderComponent,
+  withHandlers,
+} from 'recompose';
 import React from 'react';
 
 import Loading from 'Components/Loading';

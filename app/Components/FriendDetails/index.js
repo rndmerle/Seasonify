@@ -8,6 +8,7 @@ import FriendDetailsHeader from 'Components/FriendDetailsHeader';
 
 import FriendDetails from './FriendDetails';
 
+// $FlowFixMe
 FriendDetails.navigationOptions = ({ navigation }) => ({
   header: (
     <FriendDetailsHeader

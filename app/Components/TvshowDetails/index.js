@@ -9,6 +9,7 @@ import TvshowDetailsHeader from 'Components/TvshowDetailsHeader';
 
 import TvshowDetails from './TvshowDetails';
 
+// $FlowFixMe
 TvshowDetails.navigationOptions = ({ navigation }) => ({
   header: (
     <TvshowDetailsHeader

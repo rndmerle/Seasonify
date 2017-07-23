@@ -4,6 +4,7 @@ import React from 'react';
 
 import PickScreen from './PickScreen';
 
+// $FlowFixMe
 PickScreen.navigationOptions = ({ navigation }) => {
   const { title, isMultiSelection } = navigation.state.params;
 

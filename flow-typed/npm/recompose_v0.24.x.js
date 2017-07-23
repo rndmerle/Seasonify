@@ -1,6 +1,5 @@
-/* @flow */
-// flow-typed signature: eae0b628ec610e6c33d46d1913e5b7f3
-// flow-typed version: d824f828f2/recompose_v0.24.x/flow_>=v0.49.x
+// flow-typed signature: c23776257216b8a13bf48db17de8d07c
+// flow-typed version: b43dff3e0e/recompose_v0.24.x/flow_>=v0.47.x
 
 // TODO:
 // extend compose to 10
@@ -108,9 +107,9 @@ declare module 'recompose' {
   // Public declarations
   // -----------------------------------------------------------------
 
-  declare type HOC<Base, Enhanced> = UnaryFn<Component<Base>, Component<Enhanced>>;
+  declare export type HOC<Base, Enhanced> = UnaryFn<Component<Base>, Component<Enhanced>>;
 
-  declare var compose: Compose;
+  declare export var compose: Compose;
 
   // ---------------------------------------------------------------------------
   // ----------------===<<<HOCs with good flow support>>>===--------------------

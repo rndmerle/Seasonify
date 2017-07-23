@@ -19,6 +19,7 @@ const Header = withToggles([
   },
 ])(HeaderRoot);
 
+// $FlowFixMe
 FriendList.navigationOptions = ({ navigation }) => ({
   header: <Header title="Friends" navigation={navigation} />,
 });

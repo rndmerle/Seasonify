@@ -8,6 +8,7 @@ import HeaderModular from 'Components/HeaderModular';
 
 import TvshowAdd from './TvshowAdd';
 
+// $FlowFixMe
 TvshowAdd.navigationOptions = ({ navigation }) => ({
   header: (
     <HeaderModular

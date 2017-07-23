@@ -20,6 +20,7 @@ const Header = withToggles([
   },
 ])(HeaderRoot);
 
+// $FlowFixMe
 TvshowList.navigationOptions = ({ navigation }) => ({
   header: <Header title="TV Shows" navigation={navigation} />,
 });
