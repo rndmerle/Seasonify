@@ -26,12 +26,12 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleFAB: ({ navigation }: Props) => () => {
       navigation.navigate('TvshowAddPage');
     },
   }),
+  pure,
   branch(({ isLoading }: Props) => isLoading, renderComponent(Loading)),
 );
 

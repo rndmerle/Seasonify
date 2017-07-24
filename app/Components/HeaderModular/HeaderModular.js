@@ -29,13 +29,13 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleCancel: ({ cancelButton }: Props) => () => {
       cancelButton.action();
       Keyboard.dismiss();
     },
   }),
+  pure,
 );
 
 function HeaderModular({ title, cancelButton, actionButtons = [], handleCancel }: Props) {

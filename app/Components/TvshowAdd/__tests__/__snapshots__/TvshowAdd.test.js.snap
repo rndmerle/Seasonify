@@ -21,7 +21,7 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
       </Styled(Item)>
     </Styled(Form)>
     <Styled(List)>
-      <pure(withHandlers(SuggestionItem))
+      <withHandlers(pure(SuggestionItem))
         navigation={
           Object {
             "goBack": [Function],
@@ -38,7 +38,7 @@ exports[`Rendering, with 2 suggestions, one being already added should match 1`]
         suggestionKey={0}
         title="A tvshow"
       />
-      <pure(withHandlers(SuggestionItem))
+      <withHandlers(pure(SuggestionItem))
         alreadyAddedId="s2"
         navigation={
           Object {

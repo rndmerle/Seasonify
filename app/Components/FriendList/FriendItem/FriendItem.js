@@ -13,12 +13,12 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handlePress: ({ navigate, friend }: Props) => () => {
       navigate('FriendDetailsPage', { friendId: friend.id });
     },
   }),
+  pure,
 );
 
 function FriendItem({ friend, handlePress }: Props) {

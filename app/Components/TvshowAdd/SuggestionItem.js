@@ -29,7 +29,6 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handlePressSuggestion: ({
       navigation,
@@ -45,6 +44,7 @@ const enhance = compose(
       }
     },
   }),
+  pure,
 );
 
 function SuggestionItem({

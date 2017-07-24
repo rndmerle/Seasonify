@@ -4,7 +4,7 @@ exports[`Rendering when 2 friends should match 1`] = `
 <Styled(Container)>
   <Styled(Content)>
     <Styled(List)>
-      <pure(withHandlers(FriendItem))
+      <withHandlers(pure(FriendItem))
         friend={
           Object {
             "id": "abc123",
@@ -13,7 +13,7 @@ exports[`Rendering when 2 friends should match 1`] = `
         }
         navigate={[Function]}
       />
-      <pure(withHandlers(FriendItem))
+      <withHandlers(pure(FriendItem))
         friend={
           Object {
             "id": "xyz890",

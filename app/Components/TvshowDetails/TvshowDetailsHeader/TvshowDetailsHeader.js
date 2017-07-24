@@ -26,7 +26,6 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleExit: ({ navigation, editEnd, isEditing }: Props) => () => {
       navigation.goBack();
@@ -54,6 +53,7 @@ const enhance = compose(
       tvshowDelete(tvshow.id);
     },
   }),
+  pure,
 );
 
 function TvshowDetailsHeader({

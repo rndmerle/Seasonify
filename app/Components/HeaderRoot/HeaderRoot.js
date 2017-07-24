@@ -14,12 +14,12 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleDrawer: ({ navigation }: Props) => () => {
       navigation.navigate('DrawerOpen');
     },
   }),
+  pure,
 );
 
 function HeaderRoot({ title, handleDrawer, toggleButtons }: Props) {

@@ -23,7 +23,6 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleItemSelect: ({ navigation }: Props) => itemId => {
       const { isMultiSelection, onSelect } = navigation.state.params;
@@ -32,6 +31,7 @@ const enhance = compose(
       if (!isMultiSelection) navigation.goBack();
     },
   }),
+  pure,
 );
 
 function PickScreen({ navigation, handleItemSelect }: Props) {

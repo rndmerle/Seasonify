@@ -27,7 +27,6 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleChangeName: ({ navigation, editUpdate }: Props) => (name: string) => {
       editUpdate({ id: navigation.state.params.tvshowId, name });
@@ -36,6 +35,7 @@ const enhance = compose(
       seasonsRefresh(tvshow.id);
     },
   }),
+  pure,
 );
 
 function TvshowDetails({

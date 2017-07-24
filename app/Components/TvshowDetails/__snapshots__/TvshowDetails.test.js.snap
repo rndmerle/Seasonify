@@ -24,7 +24,7 @@ exports[`Rendering when default state should match 1`] = `
         />
       </ColumnNB>
     </GridNB>
-    <Connect(pure(withHandlers(SeasonList)))
+    <Connect(withHandlers(pure(SeasonList)))
       navigation={
         Object {
           "navigate": [Function],

@@ -18,12 +18,12 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handlePress: ({ tvshowId, navigate }: Props) => () => {
       navigate('TvshowDetailsPage', { tvshowId });
     },
   }),
+  pure,
 );
 
 const renderViewer = (viewer: ViewerInfo, seasonsCount: number) => {

@@ -39,7 +39,6 @@ type State = {
 };
 
 const enhance = compose(
-  pure,
   withStateHandlers(() => ({ isPickerVisible: false }: State), {
     handleColorPatchPress: ({ isPickerVisible }: State) => () => ({
       isPickerVisible: !isPickerVisible,
@@ -53,6 +52,7 @@ const enhance = compose(
       friendUpdate({ id: friend.id, color });
     },
   }),
+  pure,
 );
 
 function FriendDetails({

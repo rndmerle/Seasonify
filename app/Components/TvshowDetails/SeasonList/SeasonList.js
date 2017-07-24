@@ -26,7 +26,6 @@ type Props = {
 };
 
 const enhance = compose(
-  pure,
   withHandlers({
     handleViewerPress: ({ navigation }: Props) => (viewer: ViewerInfo) => {
       navigation.navigate('FriendDetailsPage', { friendId: viewer.friendId });
@@ -50,6 +49,7 @@ const enhance = compose(
       });
     },
   }),
+  pure,
 );
 
 const getBadgeBgColor = (color: string) => ({ backgroundColor: color });
