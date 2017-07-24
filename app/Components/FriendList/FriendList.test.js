@@ -1,4 +1,4 @@
-import { Button, Container, Input } from 'native-base';
+import { Button, Input } from 'native-base';
 import React from 'react';
 
 import AppConfig from 'Config/AppConfig';
@@ -71,5 +71,14 @@ describe('when pressing add with a newFriendName set', () => {
       'Someone',
       AppConfig.defaultFriendColor,
     );
+  });
+});
+
+describe('when pressing add with NO newFriendName set', () => {
+  const { props, button } = setup();
+  button.props().onPress();
+
+  it('does not call friendAdd', () => {
+    expect(props.friendAdd).not.toBeCalled();
   });
 });

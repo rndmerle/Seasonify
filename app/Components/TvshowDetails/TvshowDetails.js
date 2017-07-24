@@ -6,8 +6,9 @@ import React from 'react';
 import { Metrics } from 'Themes';
 import Loading from 'Components/Loading';
 import Poster from 'Components/Poster';
-import SeasonList from 'Components/SeasonList';
 import SingleFAB from 'Components/SingleFAB';
+
+import SeasonList from './SeasonList';
 import TvshowSheet from './TvshowSheet';
 
 type Props = {

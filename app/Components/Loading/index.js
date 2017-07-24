@@ -1,4 +1,2 @@
 /* @flow */
-import Loading from './Loading';
-
-export default Loading;
+export { default } from './Loading';

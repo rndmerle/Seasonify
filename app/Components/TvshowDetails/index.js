@@ -5,7 +5,7 @@ import React from 'react';
 import { editActions, editSelectors } from 'Store/editStore';
 import { tvshowActions, tvshowSelectors } from 'Store/tvshowStore';
 import { uiSelectors } from 'Store/uiStore';
-import TvshowDetailsHeader from 'Components/TvshowDetailsHeader';
+import TvshowDetailsHeader from './TvshowDetailsHeader';
 
 import TvshowDetails from './TvshowDetails';
 

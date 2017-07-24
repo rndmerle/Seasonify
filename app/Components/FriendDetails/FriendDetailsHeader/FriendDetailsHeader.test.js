@@ -25,9 +25,16 @@ function setup(specificProps = {}) {
     editEnd: jest.fn(),
     ...specificProps,
   };
-  const component = shallowDive(<FriendDetailsHeader {...props} />, HeaderModular);
+  const parent = shallow(<FriendDetailsHeader {...props} />);
+  const level = [];
+  level[0] = parent;
+  level[1] = parent.dive();
+  // level[2] = level[1].dive();
+  const component = level[1];
   return {
     component,
+    parent,
+    level,
     props,
   };
 }

@@ -4,7 +4,7 @@ import React from 'react';
 import DebugConfig from 'Config/DebugConfig';
 import PersistConfig from 'Config/PersistConfig';
 
-import { Root } from '../Root';
+import { Root } from './Root';
 
 function setup(specificProps = {}) {
   const props = {

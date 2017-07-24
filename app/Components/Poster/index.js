@@ -1,4 +1,2 @@
 /* @flow */
-import Poster from './Poster';
-
-export default Poster;
+export { default } from './Poster';

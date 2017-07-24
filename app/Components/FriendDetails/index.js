@@ -4,9 +4,9 @@ import React from 'react';
 
 import { editActions, editSelectors } from 'Store/editStore';
 import { friendActions, friendSelectors } from 'Store/friendStore';
-import FriendDetailsHeader from 'Components/FriendDetailsHeader';
 
 import FriendDetails from './FriendDetails';
+import FriendDetailsHeader from './FriendDetailsHeader';
 
 // $FlowFixMe
 FriendDetails.navigationOptions = ({ navigation }) => ({

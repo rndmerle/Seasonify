@@ -1,4 +1,2 @@
 /* @flow */
-import SingleFAB from './SingleFAB';
-
-export default SingleFAB;
+export { default } from './SingleFAB';

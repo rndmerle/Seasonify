@@ -1,7 +1,7 @@
 import { Content, Input } from 'native-base';
 import React from 'react';
 
-import TvshowSheet from '../TvshowSheet';
+import TvshowSheet from './TvshowSheet';
 
 function setup(specificProps = {}) {
   const props = {

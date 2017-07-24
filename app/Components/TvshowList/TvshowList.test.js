@@ -1,7 +1,6 @@
 import { Container } from 'native-base';
 import React from 'react';
 
-import Loading from 'Components/Loading';
 import SingleFAB from 'Components/SingleFAB';
 
 import TvshowList from './TvshowList';

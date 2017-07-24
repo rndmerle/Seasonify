@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { App } from '../App';
+import { App } from './index';
 
 function setup(specificProps = {}) {
   const props = {

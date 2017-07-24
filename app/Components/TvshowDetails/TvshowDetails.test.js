@@ -2,8 +2,8 @@ import { Container } from 'native-base';
 import React from 'react';
 
 import SingleFAB from 'Components/SingleFAB';
-import TvshowSheet from '../TvshowSheet';
-import TvshowDetails from '../TvshowDetails';
+import TvshowSheet from './TvshowSheet';
+import TvshowDetails from './TvshowDetails';
 
 function setup(specificProps = {}) {
   const props = {

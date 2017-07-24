@@ -1,4 +1,2 @@
 /* @flow */
-import HeaderModular from './HeaderModular';
-
-export default HeaderModular;
+export { default } from './HeaderModular';

@@ -17,8 +17,9 @@ import { compose, pure, withHandlers, withStateHandlers } from 'recompose';
 import React from 'react';
 
 import AppConfig from 'Config/AppConfig';
-import FriendItem from 'Components/FriendItem';
 import Identity from 'Libs/Identity';
+
+import FriendItem from './FriendItem';
 
 type Props = {
   /* parent */

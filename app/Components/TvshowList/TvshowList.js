@@ -13,7 +13,7 @@ import React from 'react';
 
 import Loading from 'Components/Loading';
 import SingleFAB from 'Components/SingleFAB';
-import TvshowItem from 'Components/TvshowItem';
+import TvshowItem from './TvshowItem';
 
 type Props = {
   /* parent */
