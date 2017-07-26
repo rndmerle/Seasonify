@@ -1,5 +1,5 @@
 import Colors from './Colors';
-import Fonts from './Fonts';
+import fonts from './fonts';
 import Metrics from './Metrics';
 
 const ApplicationStyles = {
@@ -25,7 +25,7 @@ const ApplicationStyles = {
       padding: Metrics.baseMargin,
     },
     sectionText: {
-      ...Fonts.style.normal,
+      ...fonts.style.normal,
       paddingVertical: Metrics.doubleBaseMargin,
       color: Colors.snow,
       marginVertical: Metrics.smallMargin,
@@ -38,7 +38,7 @@ const ApplicationStyles = {
       marginHorizontal: Metrics.smallMargin,
     },
     titleText: {
-      ...Fonts.style.h2,
+      ...fonts.style.h2,
       fontSize: 14,
       color: Colors.text,
     },

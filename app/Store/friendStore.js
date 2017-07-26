@@ -6,6 +6,8 @@ import type { FullState } from 'Store';
 import { sortAlpha } from 'Libs/Helpers';
 import { sortingKeys, sortingSelectors } from 'Store/sortingStore';
 
+import { uiTypes } from './uiStore';
+
 type State = Friends;
 export type FriendState = State;
 
@@ -42,11 +44,16 @@ export const friendUpdate = (state: State, { friend }: { friend: Friend }): Stat
   [friend.id]: { ...state[friend.id], ...friend },
 });
 
+export const friendPopulateIfEmpty = (state: State): State =>
+  state === INITIAL_STATE ? require('Fixtures/defaultFriends.json') : state;
+
 export default createReducer(INITIAL_STATE, {
   [types.FRIEND_ADD]: friendAdd,
   [types.FRIEND_DELETE_PROCEED]: friendDeleteProceed,
   [types.FRIEND_UNDO]: friendUndo,
   [types.FRIEND_UPDATE]: friendUpdate,
+  // Shared
+  [uiTypes.STARTUP]: friendPopulateIfEmpty,
 });
 
 /* ========== SELECTORS ========== */

@@ -5,6 +5,7 @@ import { branch, compose, pure, renderComponent, withHandlers } from 'recompose'
 import React from 'react';
 
 import { atomicStyles } from 'Themes';
+import Helptext from 'Components/Helptext';
 import Loading from 'Components/Loading';
 import SingleFAB from 'Components/SingleFAB';
 
@@ -40,16 +41,21 @@ function TvshowList({ navigation, tvshowsIds, handleFAB }: Props) {
 
   return (
     <Container style={atomicStyles.marginTop}>
-      <Content>
-        <VirtualizedList
-          initialNumberToRender={11}
-          data={tvshowsIds}
-          getItemCount={/* istanbul ignore next */ data => data.length}
-          getItem={getItem}
-          renderItem={renderItem}
-          keyExtractor={keyExtractor}
-        />
-      </Content>
+      {!tvshowsIds.length
+        ? <Helptext fullscreen>
+            You can add a TV show{'\n'}using the button below
+          </Helptext>
+        : <Content>
+          <VirtualizedList
+            initialNumberToRender={11}
+            data={tvshowsIds}
+            getItemCount={/* istanbul ignore next */ data => data.length}
+            getItem={getItem}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+            />
+        </Content>}
+
       <SingleFAB icon="add" onPress={handleFAB} />
     </Container>
   );
