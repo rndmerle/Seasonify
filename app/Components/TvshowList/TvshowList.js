@@ -1,18 +1,13 @@
 /* @flow */
 import { Container, Content } from 'native-base';
 import { /* FlatList,*/ VirtualizedList } from 'react-native';
-import {
-  branch,
-  compose,
-  hoistStatics,
-  pure,
-  renderComponent,
-  withHandlers,
-} from 'recompose';
+import { branch, compose, pure, renderComponent, withHandlers } from 'recompose';
 import React from 'react';
 
+import { atomicStyles } from 'Themes';
 import Loading from 'Components/Loading';
 import SingleFAB from 'Components/SingleFAB';
+
 import TvshowItem from './TvshowItem';
 
 type Props = {
@@ -44,7 +39,7 @@ function TvshowList({ navigation, tvshowsIds, handleFAB }: Props) {
   const keyExtractor = item => item;
 
   return (
-    <Container>
+    <Container style={atomicStyles.marginTop}>
       <Content>
         <VirtualizedList
           initialNumberToRender={11}

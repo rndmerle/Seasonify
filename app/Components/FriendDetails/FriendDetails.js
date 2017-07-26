@@ -14,6 +14,7 @@ import { ColorPicker } from 'react-native-color-picker';
 import { compose, pure, withHandlers, withStateHandlers } from 'recompose';
 import React from 'react';
 
+import { atomicStyles } from 'Themes';
 import { getContrastingTextColor } from 'Libs/Helpers';
 
 import styles from './FriendDetails.style';
@@ -66,7 +67,7 @@ function FriendDetails({
 }: Props) {
   if (friend) {
     return (
-      <Container>
+      <Container style={atomicStyles.marginTop}>
         <Content>
           <Form>
             <Item fixedLabel>

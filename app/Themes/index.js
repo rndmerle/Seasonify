@@ -1,8 +1,8 @@
 import ApplicationStyles from './ApplicationStyles';
-import AtomicStyles from './AtomicStyles';
+import atomicStyles from './atomicStyles';
 import Colors from './Colors';
 import Fonts from './Fonts';
 import Images from './Images';
 import Metrics from './Metrics';
 
-export { Colors, Fonts, Images, Metrics, ApplicationStyles, AtomicStyles };
+export { Colors, Fonts, Images, Metrics, ApplicationStyles, atomicStyles };

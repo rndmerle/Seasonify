@@ -16,6 +16,7 @@ import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers, withStateHandlers } from 'recompose';
 import React from 'react';
 
+import { atomicStyles } from 'Themes';
 import AppConfig from 'Config/AppConfig';
 import Identity from 'Libs/Identity';
 
@@ -63,7 +64,7 @@ function FriendList({
   handleAddButton,
 }: Props) {
   return (
-    <Container>
+    <Container style={atomicStyles.marginTop}>
       <Content>
         <List>
           {friendsArray.map(friend =>
