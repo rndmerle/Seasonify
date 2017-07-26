@@ -37,6 +37,7 @@ const enhance = compose(
 function PickScreen({ navigation, handleItemSelect }: Props) {
   const { collection } = navigation.state.params;
   let items = [];
+
   if (typeof items === 'object' && !Array.isArray(collection)) {
     items = Object.keys(collection).map(id => ({
       id: collection[id].id,
@@ -45,6 +46,7 @@ function PickScreen({ navigation, handleItemSelect }: Props) {
   } else {
     items = collection;
   }
+
   return (
     <Container>
       <Content>

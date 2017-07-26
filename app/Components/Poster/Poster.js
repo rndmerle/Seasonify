@@ -3,8 +3,8 @@ import { Image } from 'react-native';
 import { compose, pure } from 'recompose';
 import React from 'react';
 
-import withResponsive from 'HOC/withResponsive';
 import Metrics from 'Themes/Metrics';
+import withResponsive from 'HOC/withResponsive';
 
 type Props = {
   /* parent */

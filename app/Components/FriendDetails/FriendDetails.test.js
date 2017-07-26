@@ -1,4 +1,5 @@
 import { Button, Container, Input } from 'native-base';
+import { ColorPicker } from 'react-native-color-picker';
 import React from 'react';
 
 import FriendDetails from './FriendDetails';
@@ -20,10 +21,19 @@ function setup(specificProps = {}) {
     friendUpdate: jest.fn(),
     ...specificProps,
   };
-  const component = shallowDive(<FriendDetails {...props} />, Container);
+  const parent = shallow(<FriendDetails {...props} />);
+  const level = [];
+  level[0] = parent;
+  level[1] = parent.dive();
+  level[2] = level[1].dive();
+  const component = level[2];
   return {
     component,
+    parent,
+    level,
     props,
+    colorButton: component.find(Button).first(),
+    inputs: component.find(Input),
   };
 }
 
@@ -51,27 +61,27 @@ describe('Rendering when editing', () => {
   });
 });
 
-// describe('Rendering when opening the color picker', () => {
-//   const { component } = setup();
-//   const colorButton = component.find(Button).first();
-//   colorButton.props().onPress();
-//   component.update();
-//
-//   it('should display color picker', () => {
-//     expect(component.find(ColorPicker)).toHaveLength(1);
-//   });
-//
-//   it('should match', () => {
-//     expect(component).toMatchSnapshot();
-//   });
-// });
+describe('When picker visibility is true', () => {
+  const { component } = setup();
+  component.setProps({ isPickerVisible: true });
+
+  it('displays the color picker', () => {
+    expect(component.find(ColorPicker)).toHaveLength(1);
+  });
+});
 
 /* ========= Events & Functions ========= */
 
 describe('Events & Functions', () => {
-  const { component, props } = setup();
-  const inputs = component.find(Input);
-  const colorButton = component.find(Button).first();
+  const { parent, props, colorButton, inputs } = setup();
+
+  describe('When clicking the color picker', () => {
+    colorButton.props().onPress();
+
+    it('updates the picker visibility state', () => {
+      expect(parent.state().isPickerVisible).toEqual(true);
+    });
+  });
 
   describe('when calling onChangeName', () => {
     inputs.first().props().onChangeText('New name');
@@ -83,26 +93,4 @@ describe('Events & Functions', () => {
       });
     });
   });
-
-  // describe('when pressing color colorButton', () => {
-  //   colorButton.props().onPress();
-  //   component.update();
-  //   const picker = component.find(ColorPicker);
-  //
-  //   it('calls editUpdate', () => {
-  //     expect(props.friendUpdate).toBeCalled();
-  //   });
-  // });
-
-  // describe('when calling onChangeColor', () => {
-  //   const picker = component.find(Picker);
-  //   picker.props().onValueChange('blue');
-  //
-  //   it('calls friendUpdate', () => {
-  //     expect(props.friendUpdate).toBeCalledWith({
-  //       id: props.friend.id,
-  //       color: 'blue',
-  //     });
-  //   });
-  // });
 });
