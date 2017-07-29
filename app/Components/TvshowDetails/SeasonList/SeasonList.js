@@ -1,5 +1,5 @@
 /* @flow */
-import { Button, Col, Grid, Icon, Left, List, ListItem, Text } from 'native-base';
+import { Button, Col, Grid, Icon, Left, List, ListItem, Text, View } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
@@ -78,23 +78,19 @@ function SeasonList({
     <List>
       {seasons &&
         objectValues(seasons).reverse().map(season =>
-          (<ListItem key={season.id}>
+          (<ListItem key={season.id} onPress={() => handleSeasonPress(season.id)}>
             <Grid>
               <Col size={Metrics.columnLeft}>
-                <TouchableOpacity
-                  transparent
-                  style={styles.seasonHeader}
-                  onPress={() => handleSeasonPress(season.id)}
-                >
-                  <Left style={styles.seasonButton}>
-                    <Icon name="add-circle" />
-                  </Left>
+                <View style={styles.seasonHeader}>
+                  {/* <Left style={styles.seasonButton}> */}
+                  {/* <Icon name="add-circle" style={styles.icon} /> */}
+                  {/* </Left> */}
                   <Text style={styles.seasonTitle}>{`Season ${season.id}`}</Text>
                   <Text note style={styles.seasonInfos}>
                     {season.episodes && `${season.episodes} ep.`}
                     {season.year && ` in ${season.year}`}
                   </Text>
-                </TouchableOpacity>
+                </View>
               </Col>
               <Col size={Metrics.columnRight} style={styles.viewerList}>
                 {helpIfNeeded()}

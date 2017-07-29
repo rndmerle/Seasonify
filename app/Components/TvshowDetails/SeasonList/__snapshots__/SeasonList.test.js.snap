@@ -2,15 +2,14 @@
 
 exports[`Rendering with seasons & viewings should render the list and viewers 1`] = `
 <Styled(List)>
-  <Styled(ListItem)>
+  <Styled(ListItem)
+    onPress={[Function]}
+  >
     <GridNB>
       <ColumnNB
         size={38}
       >
-        <TouchableOpacity
-          activeOpacity={0.2}
-          focusedOpacity={0.7}
-          onPress={[Function]}
+        <Styled(ViewNB)
           style={
             Object {
               "alignItems": "flex-start",
@@ -19,15 +18,7 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
               "justifyContent": "space-between",
             }
           }
-          transparent={true}
         >
-          <Styled(Left)
-            style={Object {}}
-          >
-            <Styled(Icon)
-              name="add-circle"
-            />
-          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
@@ -47,7 +38,7 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
               }
             }
           />
-        </TouchableOpacity>
+        </Styled(ViewNB)>
       </ColumnNB>
       <ColumnNB
         size={62}
@@ -63,15 +54,14 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
       />
     </GridNB>
   </Styled(ListItem)>
-  <Styled(ListItem)>
+  <Styled(ListItem)
+    onPress={[Function]}
+  >
     <GridNB>
       <ColumnNB
         size={38}
       >
-        <TouchableOpacity
-          activeOpacity={0.2}
-          focusedOpacity={0.7}
-          onPress={[Function]}
+        <Styled(ViewNB)
           style={
             Object {
               "alignItems": "flex-start",
@@ -80,15 +70,7 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
               "justifyContent": "space-between",
             }
           }
-          transparent={true}
         >
-          <Styled(Left)
-            style={Object {}}
-          >
-            <Styled(Icon)
-              name="add-circle"
-            />
-          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
@@ -111,7 +93,7 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
             13 ep.
              in 2015
           </Styled(Text)>
-        </TouchableOpacity>
+        </Styled(ViewNB)>
       </ColumnNB>
       <ColumnNB
         size={62}
@@ -131,7 +113,6 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
           small={true}
           style={
             Object {
-              "alignSelf": "flex-start",
               "backgroundColor": "pink",
               "marginHorizontal": 2,
               "marginVertical": 2,
@@ -154,7 +135,6 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
           small={true}
           style={
             Object {
-              "alignSelf": "flex-start",
               "backgroundColor": "blue",
               "marginHorizontal": 2,
               "marginVertical": 2,
@@ -174,15 +154,14 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
       </ColumnNB>
     </GridNB>
   </Styled(ListItem)>
-  <Styled(ListItem)>
+  <Styled(ListItem)
+    onPress={[Function]}
+  >
     <GridNB>
       <ColumnNB
         size={38}
       >
-        <TouchableOpacity
-          activeOpacity={0.2}
-          focusedOpacity={0.7}
-          onPress={[Function]}
+        <Styled(ViewNB)
           style={
             Object {
               "alignItems": "flex-start",
@@ -191,15 +170,7 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
               "justifyContent": "space-between",
             }
           }
-          transparent={true}
         >
-          <Styled(Left)
-            style={Object {}}
-          >
-            <Styled(Icon)
-              name="add-circle"
-            />
-          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
@@ -222,7 +193,7 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
             13 ep.
              in 2014
           </Styled(Text)>
-        </TouchableOpacity>
+        </Styled(ViewNB)>
       </ColumnNB>
       <ColumnNB
         size={62}
@@ -243,15 +214,14 @@ exports[`Rendering with seasons & viewings should render the list and viewers 1`
 
 exports[`Rendering with seasons but no viewings should render the list with the help message to add viewers 1`] = `
 <Styled(List)>
-  <Styled(ListItem)>
+  <Styled(ListItem)
+    onPress={[Function]}
+  >
     <GridNB>
       <ColumnNB
         size={38}
       >
-        <TouchableOpacity
-          activeOpacity={0.2}
-          focusedOpacity={0.7}
-          onPress={[Function]}
+        <Styled(ViewNB)
           style={
             Object {
               "alignItems": "flex-start",
@@ -260,15 +230,7 @@ exports[`Rendering with seasons but no viewings should render the list with the 
               "justifyContent": "space-between",
             }
           }
-          transparent={true}
         >
-          <Styled(Left)
-            style={Object {}}
-          >
-            <Styled(Icon)
-              name="add-circle"
-            />
-          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
@@ -288,7 +250,7 @@ exports[`Rendering with seasons but no viewings should render the list with the 
               }
             }
           />
-        </TouchableOpacity>
+        </Styled(ViewNB)>
       </ColumnNB>
       <ColumnNB
         size={62}
@@ -308,15 +270,14 @@ exports[`Rendering with seasons but no viewings should render the list with the 
       </ColumnNB>
     </GridNB>
   </Styled(ListItem)>
-  <Styled(ListItem)>
+  <Styled(ListItem)
+    onPress={[Function]}
+  >
     <GridNB>
       <ColumnNB
         size={38}
       >
-        <TouchableOpacity
-          activeOpacity={0.2}
-          focusedOpacity={0.7}
-          onPress={[Function]}
+        <Styled(ViewNB)
           style={
             Object {
               "alignItems": "flex-start",
@@ -325,15 +286,7 @@ exports[`Rendering with seasons but no viewings should render the list with the 
               "justifyContent": "space-between",
             }
           }
-          transparent={true}
         >
-          <Styled(Left)
-            style={Object {}}
-          >
-            <Styled(Icon)
-              name="add-circle"
-            />
-          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
@@ -356,7 +309,7 @@ exports[`Rendering with seasons but no viewings should render the list with the 
             13 ep.
              in 2015
           </Styled(Text)>
-        </TouchableOpacity>
+        </Styled(ViewNB)>
       </ColumnNB>
       <ColumnNB
         size={62}
@@ -372,15 +325,14 @@ exports[`Rendering with seasons but no viewings should render the list with the 
       />
     </GridNB>
   </Styled(ListItem)>
-  <Styled(ListItem)>
+  <Styled(ListItem)
+    onPress={[Function]}
+  >
     <GridNB>
       <ColumnNB
         size={38}
       >
-        <TouchableOpacity
-          activeOpacity={0.2}
-          focusedOpacity={0.7}
-          onPress={[Function]}
+        <Styled(ViewNB)
           style={
             Object {
               "alignItems": "flex-start",
@@ -389,15 +341,7 @@ exports[`Rendering with seasons but no viewings should render the list with the 
               "justifyContent": "space-between",
             }
           }
-          transparent={true}
         >
-          <Styled(Left)
-            style={Object {}}
-          >
-            <Styled(Icon)
-              name="add-circle"
-            />
-          </Styled(Left)>
           <Styled(Text)
             style={
               Object {
@@ -420,7 +364,7 @@ exports[`Rendering with seasons but no viewings should render the list with the 
             13 ep.
              in 2014
           </Styled(Text)>
-        </TouchableOpacity>
+        </Styled(ViewNB)>
       </ColumnNB>
       <ColumnNB
         size={62}
