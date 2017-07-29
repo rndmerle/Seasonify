@@ -1,4 +1,4 @@
-import Colors from './Colors';
+import colors from './colors';
 import fonts from './fonts';
 import Metrics from './Metrics';
 
@@ -6,7 +6,7 @@ const ApplicationStyles = {
   screen: {
     mainContainer: {
       flex: 1,
-      backgroundColor: Colors.transparent,
+      backgroundColor: colors.transparent,
     },
     backgroundImage: {
       position: 'absolute',
@@ -18,7 +18,7 @@ const ApplicationStyles = {
     container: {
       flex: 1,
       paddingTop: Metrics.baseMargin,
-      backgroundColor: Colors.transparent,
+      backgroundColor: colors.transparent,
     },
     section: {
       margin: Metrics.section,
@@ -27,12 +27,12 @@ const ApplicationStyles = {
     sectionText: {
       ...fonts.style.normal,
       paddingVertical: Metrics.doubleBaseMargin,
-      color: Colors.snow,
+      color: colors.snow,
       marginVertical: Metrics.smallMargin,
       textAlign: 'center',
     },
     subtitle: {
-      color: Colors.snow,
+      color: colors.snow,
       padding: Metrics.smallMargin,
       marginBottom: Metrics.smallMargin,
       marginHorizontal: Metrics.smallMargin,
@@ -40,7 +40,7 @@ const ApplicationStyles = {
     titleText: {
       ...fonts.style.h2,
       fontSize: 14,
-      color: Colors.text,
+      color: colors.text,
     },
   },
 };

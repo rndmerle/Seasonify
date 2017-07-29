@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Rendering when default state should match 1`] = `
-<Styled(Container)>
+<Styled(Container)
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
   <Styled(Content)>
     <Styled(Form)>
       <Styled(Item)
@@ -44,7 +50,13 @@ exports[`Rendering when default state should match 1`] = `
 `;
 
 exports[`Rendering when editing should match 1`] = `
-<Styled(Container)>
+<Styled(Container)
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
   <Styled(Content)>
     <Styled(Form)>
       <Styled(Item)

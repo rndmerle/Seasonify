@@ -14,6 +14,8 @@ import { Keyboard } from 'react-native';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 
+import { colors } from 'Themes';
+
 type Props = {
   /* parent */
   navigation: Object,
@@ -70,10 +72,11 @@ function SuggestionItem({
             {subtitle}
           </Text>
         </Body>
-        {!alreadyAddedId &&
-          <Right>
-            <Icon name="add-circle" />
-          </Right>}
+        <Right>
+          {alreadyAddedId
+            ? <Icon name="play" />
+            : <Icon name="add-circle" style={{ color: colors.icon }} />}
+        </Right>
       </ListItem>
     </View>
   );

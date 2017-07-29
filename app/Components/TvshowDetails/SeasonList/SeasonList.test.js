@@ -1,5 +1,4 @@
-import { List } from 'native-base';
-import { TouchableOpacity } from 'react-native';
+import { List, ListItem } from 'native-base';
 import React from 'react';
 
 import SeasonList from './SeasonList';
@@ -67,7 +66,7 @@ describe('Rendering with seasons but no viewings', () => {
 
 describe('Events & Functions', () => {
   const { component, props } = setup();
-  const seasonHeader = component.find(TouchableOpacity).first();
+  const seasonHeader = component.find(ListItem).first();
   const buttonFriend1 = component.findWhere(node => node.key() === 'f1');
 
   describe('when calling onPress on Button', () => {
@@ -88,7 +87,7 @@ describe('Events & Functions', () => {
     });
   });
 
-  describe('when calling onPress on TouchableOpacity', () => {
+  describe('when calling onPress on ListItem', () => {
     seasonHeader.props().onPress(1);
 
     it('navigates', () => {

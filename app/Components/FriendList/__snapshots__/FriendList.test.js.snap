@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Rendering when 2 friends should match 1`] = `
-<Styled(Container)>
+<Styled(Container)
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
   <Styled(Content)>
     <Styled(List)>
       <withHandlers(pure(FriendItem))
@@ -53,7 +59,13 @@ exports[`Rendering when 2 friends should match 1`] = `
 `;
 
 exports[`Rendering when no friends should match 1`] = `
-<Styled(Container)>
+<Styled(Container)
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
   <Styled(Content)>
     <Styled(List) />
   </Styled(Content)>

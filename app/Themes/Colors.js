@@ -4,6 +4,7 @@ const colors = {
   transparent: 'rgba(0,0,0,0)',
   error: 'rgba(200, 0, 0, 0.8)',
   text: '#1F0808',
+  icon: '#5067FF',
 };
 
 export default colors;

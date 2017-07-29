@@ -1,6 +1,5 @@
 /* @flow */
-import { Button, Col, Grid, Icon, Left, List, ListItem, Text, View } from 'native-base';
-import { TouchableOpacity } from 'react-native';
+import { Button, Col, Grid, List, ListItem, Text, View } from 'native-base';
 import { compose, pure, withHandlers } from 'recompose';
 import React from 'react';
 

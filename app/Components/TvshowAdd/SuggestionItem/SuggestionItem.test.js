@@ -1,7 +1,7 @@
 import { ListItem, View } from 'native-base';
 import React from 'react';
 
-import SuggestionItem from '../SuggestionItem';
+import SuggestionItem from './SuggestionItem';
 
 function setup(specificProps = {}) {
   const props = {

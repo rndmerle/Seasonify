@@ -29,6 +29,11 @@ exports[`Rendering should render 1`] = `
     <Styled(Right)>
       <Styled(Icon)
         name="add-circle"
+        style={
+          Object {
+            "color": "#5067FF",
+          }
+        }
       />
     </Styled(Right)>
   </Styled(ListItem)>
@@ -61,6 +66,11 @@ exports[`Rendering should render, when already added 1`] = `
         2004
       </Styled(Text)>
     </Styled(Body)>
+    <Styled(Right)>
+      <Styled(Icon)
+        name="play"
+      />
+    </Styled(Right)>
   </Styled(ListItem)>
 </Styled(ViewNB)>
 `;
@@ -95,6 +105,11 @@ exports[`Rendering should render, when no poster 1`] = `
     <Styled(Right)>
       <Styled(Icon)
         name="add-circle"
+        style={
+          Object {
+            "color": "#5067FF",
+          }
+        }
       />
     </Styled(Right)>
   </Styled(ListItem)>
@@ -128,6 +143,11 @@ exports[`Rendering should render, when no subtitle 1`] = `
     <Styled(Right)>
       <Styled(Icon)
         name="add-circle"
+        style={
+          Object {
+            "color": "#5067FF",
+          }
+        }
       />
     </Styled(Right)>
   </Styled(ListItem)>

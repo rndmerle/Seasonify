@@ -1,8 +1,8 @@
 import { Container, Input } from 'native-base';
 import React from 'react';
 
-import SuggestionItem from '../SuggestionItem';
-import TvshowAdd from '../TvshowAdd';
+import SuggestionItem from './SuggestionItem';
+import TvshowAdd from './TvshowAdd';
 
 function setup(specificProps = {}) {
   const props = {
