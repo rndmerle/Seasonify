@@ -1,3 +1,4 @@
+import { uiActions } from 'Store/uiStore';
 import testReducer from 'Libs/testReducer';
 
 import reducer, { friendActions, friendSelectors, INITIAL_STATE } from '../friendStore';
@@ -53,6 +54,39 @@ it('handles friendUndo action', () => {
     {
       xxx123: { id: 'xxx123', name: 'Friend 1' },
       xxx456: { id: 'xxx456', name: 'Friend 2' },
+    },
+  );
+});
+
+it('handles friendUpdate action', () => {
+  testReducer(
+    reducer,
+    {
+      xxx123: { id: 'xxx123', name: 'Friend 1' },
+      xxx456: { id: 'xxx456', name: 'Friend 2' },
+    },
+    [friendActions.friendUpdate({ id: 'xxx123', name: 'Friend 1 mod' })],
+    {
+      xxx123: { id: 'xxx123', name: 'Friend 1 mod' },
+      xxx456: { id: 'xxx456', name: 'Friend 2' },
+    },
+  );
+});
+
+it('handles friendPopulateIfEmpty action (when STARTUP) with empty state', async () => {
+  const defaultData = await require('Fixtures/defaultFriends.json');
+  testReducer(reducer, INITIAL_STATE, [uiActions.startup()], defaultData);
+});
+
+it('handles friendPopulateIfEmpty action (when STARTUP) with non-empty state', () => {
+  testReducer(
+    reducer,
+    {
+      xxx123: { id: 'xxx123', name: 'Friend 1 mod' },
+    },
+    [uiActions.startup()],
+    {
+      xxx123: { id: 'xxx123', name: 'Friend 1 mod' },
     },
   );
 });

@@ -5,6 +5,7 @@ import { createSelector } from 'reselect';
 import type { FullState } from 'Store';
 import { sortAlpha } from 'Libs/Helpers';
 import { sortingKeys, sortingSelectors } from 'Store/sortingStore';
+import isEmpty from 'Libs/isEmpty';
 
 import { uiTypes } from './uiStore';
 
@@ -44,8 +45,7 @@ export const friendUpdate = (state: State, { friend }: { friend: Friend }): Stat
   [friend.id]: { ...state[friend.id], ...friend },
 });
 
-export const friendPopulateIfEmpty = (state: State): State =>
-  state === INITIAL_STATE ? require('Fixtures/defaultFriends.json') : state;
+export const friendPopulateIfEmpty = (state: State): State => isEmpty(state) ? require('Fixtures/defaultFriends.json') : state;
 
 export default createReducer(INITIAL_STATE, {
   [types.FRIEND_ADD]: friendAdd,

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering when default state should match 1`] = `
+<Styled(Content)
+  contentContainerStyle={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <Styled(Text)
+    note={true}
+    style={
+      Object {
+        "fontSize": 16,
+        "fontStyle": "italic",
+        "paddingHorizontal": 40,
+        "textAlign": "center",
+      }
+    }
+  />
+</Styled(Content)>
+`;
+
+exports[`Rendering without note style and with fullscreen on should match 1`] = `
+<Styled(Content)
+  contentContainerStyle={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Styled(Text)
+    note={false}
+    style={
+      Object {
+        "fontSize": 16,
+        "fontStyle": "italic",
+        "paddingHorizontal": 40,
+        "textAlign": "center",
+      }
+    }
+  />
+</Styled(Content)>
+`;

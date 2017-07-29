@@ -20,18 +20,30 @@ function setup(specificProps = {}) {
   };
 }
 
-describe('rendering', () => {
-  it('should show 2 series', () => {
-    const { component } = setup({
-      tvshowsIds: ['abc', 'qsd'],
-    });
+describe('rendering with no series', () => {
+  const { component } = setup();
+
+  it('should show the help text', () => {
     expect(component).toMatchSnapshot();
+  });
+});
+
+describe('rendering with 2 series', () => {
+  const { component } = setup({
+    tvshowsIds: ['abc', 'qsd'],
+  });
+
+  it('should show the list', () => {
+    expect(component).toMatchSnapshot();
+  });
+});
+
+describe('rendering with isLoading', () => {
+  const { component } = setup({
+    isLoading: true,
   });
 
   it('should show spinner when loading', () => {
-    const { component } = setup({
-      isLoading: true,
-    });
     expect(component).toMatchSnapshot();
   });
 });

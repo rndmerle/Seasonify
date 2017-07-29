@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering should show 2 series 1`] = `
-<Styled(Container)>
+exports[`rendering with 2 series should show the list 1`] = `
+<Styled(Container)
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
   <Styled(Content)>
     <VirtualizedList
       data={
@@ -34,7 +40,7 @@ exports[`rendering should show 2 series 1`] = `
 </Styled(Container)>
 `;
 
-exports[`rendering should show spinner when loading 1`] = `
+exports[`rendering with isLoading should show spinner when loading 1`] = `
 <ActivityIndicator
   animating={true}
   color="lightblue"
@@ -50,4 +56,27 @@ exports[`rendering should show spinner when loading 1`] = `
     }
   }
 />
+`;
+
+exports[`rendering with no series should show the help text 1`] = `
+<Styled(Container)
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
+  <pure(Helptext)
+    fullscreen={true}
+  >
+    You can add a TV show
+    
+    
+    using the button below
+  </pure(Helptext)>
+  <pure(SingleFAB)
+    icon="add"
+    onPress={[Function]}
+  />
+</Styled(Container)>
 `;

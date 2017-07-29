@@ -1,4 +1,4 @@
-import { Button, Container, Input } from 'native-base';
+import { Button, Input } from 'native-base';
 import { ColorPicker } from 'react-native-color-picker';
 import React from 'react';
 
