@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rendering should render 1`] = `
+exports[`Rendering with seasons & viewings should render the list and viewers 1`] = `
 <Styled(List)>
   <Styled(ListItem)>
     <GridNB>
@@ -172,6 +172,204 @@ exports[`Rendering should render 1`] = `
           </Styled(Text)>
         </Styled(Button)>
       </ColumnNB>
+    </GridNB>
+  </Styled(ListItem)>
+  <Styled(ListItem)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          focusedOpacity={0.7}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+            }
+          }
+          transparent={true}
+        >
+          <Styled(Left)
+            style={Object {}}
+          >
+            <Styled(Icon)
+              name="add-circle"
+            />
+          </Styled(Left)>
+          <Styled(Text)
+            style={
+              Object {
+                "flexGrow": 1,
+                "textAlign": "right",
+              }
+            }
+          >
+            Season 1
+          </Styled(Text)>
+          <Styled(Text)
+            note={true}
+            style={
+              Object {
+                "flexBasis": "100%",
+                "textAlign": "right",
+              }
+            }
+          >
+            13 ep.
+             in 2014
+          </Styled(Text)>
+        </TouchableOpacity>
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "paddingHorizontal": 20,
+          }
+        }
+      />
+    </GridNB>
+  </Styled(ListItem)>
+</Styled(List)>
+`;
+
+exports[`Rendering with seasons but no viewings should render the list with the help message to add viewers 1`] = `
+<Styled(List)>
+  <Styled(ListItem)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          focusedOpacity={0.7}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+            }
+          }
+          transparent={true}
+        >
+          <Styled(Left)
+            style={Object {}}
+          >
+            <Styled(Icon)
+              name="add-circle"
+            />
+          </Styled(Left)>
+          <Styled(Text)
+            style={
+              Object {
+                "flexGrow": 1,
+                "textAlign": "right",
+              }
+            }
+          >
+            Season 3
+          </Styled(Text)>
+          <Styled(Text)
+            note={true}
+            style={
+              Object {
+                "flexBasis": "100%",
+                "textAlign": "right",
+              }
+            }
+          />
+        </TouchableOpacity>
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        <pure(Helptext)>
+          Click on a season when someone viewed it
+        </pure(Helptext)>
+      </ColumnNB>
+    </GridNB>
+  </Styled(ListItem)>
+  <Styled(ListItem)>
+    <GridNB>
+      <ColumnNB
+        size={38}
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          focusedOpacity={0.7}
+          onPress={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+            }
+          }
+          transparent={true}
+        >
+          <Styled(Left)
+            style={Object {}}
+          >
+            <Styled(Icon)
+              name="add-circle"
+            />
+          </Styled(Left)>
+          <Styled(Text)
+            style={
+              Object {
+                "flexGrow": 1,
+                "textAlign": "right",
+              }
+            }
+          >
+            Season 2
+          </Styled(Text)>
+          <Styled(Text)
+            note={true}
+            style={
+              Object {
+                "flexBasis": "100%",
+                "textAlign": "right",
+              }
+            }
+          >
+            13 ep.
+             in 2015
+          </Styled(Text)>
+        </TouchableOpacity>
+      </ColumnNB>
+      <ColumnNB
+        size={62}
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "paddingHorizontal": 20,
+          }
+        }
+      />
     </GridNB>
   </Styled(ListItem)>
   <Styled(ListItem)>

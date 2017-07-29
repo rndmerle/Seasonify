@@ -21,7 +21,7 @@ function Helptext({ note = true, fullscreen = false, children }: Props) {
     <Content
       contentContainerStyle={fullscreen ? styles.fullscreenContainer : styles.container}
     >
-      <Text note={note} style={styles.text}>
+      <Text note={note} style={fullscreen ? styles.fullscreenText : styles.text}>
         {children}
       </Text>
     </Content>

@@ -15,6 +15,11 @@ export default {
   },
   text: {
     fontStyle: 'italic',
+    textAlign: 'left',
+    fontSize: fonts.size.infos,
+  },
+  fullscreenText: {
+    fontStyle: 'italic',
     paddingHorizontal: 40,
     textAlign: 'center',
     fontSize: fonts.size.infos,

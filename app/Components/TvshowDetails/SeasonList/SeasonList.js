@@ -6,6 +6,8 @@ import React from 'react';
 
 import { Metrics } from 'Themes';
 import { getContrastingTextColor } from 'Libs/Helpers';
+import Helptext from 'Components/Helptext';
+import isEmpty from 'Libs/isEmpty';
 
 import styles from './SeasonList.style';
 
@@ -63,6 +65,15 @@ function SeasonList({
   handleViewerLongPress,
   handleSeasonPress,
 }: Props) {
+  let helpAlreadyDisplayed: boolean = false;
+  const helpIfNeeded = () => {
+    if (!helpAlreadyDisplayed && isEmpty(seasonViewings)) {
+      helpAlreadyDisplayed = true;
+      return <Helptext>Click on a season when someone viewed it</Helptext>;
+    }
+    return null;
+  };
+
   return (
     <List>
       {seasons &&
@@ -86,6 +97,7 @@ function SeasonList({
                 </TouchableOpacity>
               </Col>
               <Col size={Metrics.columnRight} style={styles.viewerList}>
+                {helpIfNeeded()}
                 {seasonViewings[season.id] &&
                   seasonViewings[season.id].map(viewer =>
                     (<Button

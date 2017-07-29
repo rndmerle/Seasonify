@@ -47,9 +47,18 @@ function setup(specificProps = {}) {
   };
 }
 
-describe('Rendering', () => {
-  it('should render', () => {
-    const { component } = setup();
+describe('Rendering with seasons & viewings', () => {
+  const { component } = setup();
+
+  it('should render the list and viewers', () => {
+    expect(component).toMatchSnapshot();
+  });
+});
+
+describe('Rendering with seasons but no viewings', () => {
+  const { component } = setup({ seasonViewings: {} });
+
+  it('should render the list with the help message to add viewers', () => {
     expect(component).toMatchSnapshot();
   });
 });

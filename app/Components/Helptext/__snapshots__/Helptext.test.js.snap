@@ -17,8 +17,7 @@ exports[`Rendering when default state should match 1`] = `
       Object {
         "fontSize": 16,
         "fontStyle": "italic",
-        "paddingHorizontal": 40,
-        "textAlign": "center",
+        "textAlign": "left",
       }
     }
   />
