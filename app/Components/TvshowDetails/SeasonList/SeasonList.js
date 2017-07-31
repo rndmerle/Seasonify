@@ -28,13 +28,11 @@ type Props = {
 
 const enhance = compose(
   withHandlers({
-    handleViewerPress: ({ navigation }: Props) => (viewer: ViewerInfo) => {
-      navigation.navigate('FriendDetailsPage', { friendId: viewer.friendId });
-    },
-    handleViewerLongPress: ({ tvshowId, viewingUnview }: Props) => (
-      viewer: ViewerInfo,
-    ) => {
+    handleViewerPress: ({ tvshowId, viewingUnview }: Props) => (viewer: ViewerInfo) => {
       viewingUnview(tvshowId, viewer.friendId);
+    },
+    handleViewerLongPress: ({ navigation }: Props) => (viewer: ViewerInfo) => {
+      navigation.navigate('FriendDetailsPage', { friendId: viewer.friendId });
     },
     handleSeasonPress: ({ navigation, tvshowId, friends, viewingUpdate }: Props) => (
       seasonId: string,

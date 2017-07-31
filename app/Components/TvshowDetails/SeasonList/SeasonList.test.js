@@ -82,16 +82,16 @@ describe('Events & Functions', () => {
   describe('when calling onLongPress on Button', () => {
     buttonFriend1.props().onLongPress();
 
-    it('unview', () => {
-      expect(props.viewingUnview).toBeCalledWith(props.tvshowId, 'f1');
+    it('navigates', () => {
+      expect(props.navigation.navigate).toBeCalled();
     });
   });
 
   describe('when calling onPress on ListItem', () => {
     seasonHeader.props().onPress(1);
 
-    it('navigates', () => {
-      expect(props.navigation.navigate).toBeCalled();
+    it('unview', () => {
+      expect(props.viewingUnview).toBeCalledWith(props.tvshowId, 'f1');
     });
   });
 });
