@@ -1,8 +1,33 @@
 // Note : reload Atom after editing something
 //
 const testFilePattern = /\/test/;
-const appPrefixPattern = /^app\//;
 const antiSlashesPattern = /\\/g;
+
+function removeAppPrefix(module) {
+  return module.replace(/^(app|src)\//, '');
+}
+
+function getBaseDir(path) {
+  let basePath = path.replace(/\\/g, '/');
+  basePath = basePath.replace(/^\.?\/?/, '');
+  return basePath.replace(/\/[^\/]*$/, '');
+}
+
+function inSameFolder(path, baseDir) {
+  path = path.replace(/^\.\//, '');
+  console.log('inSameFolder');
+  console.log('path', path);
+  console.log('baseDir', baseDir);
+  return path.startsWith(baseDir);
+}
+
+function removeAbsolutePath(path, baseDir) {
+  path = path.replace(/^\.\//, '');
+  console.log('removeAbsolutePath');
+  console.log('path', path);
+  console.log('baseDir', baseDir);
+  return path.replace(`${baseDir}/`, './');
+}
 
 module.exports = {
   aliases: {
@@ -14,8 +39,7 @@ module.exports = {
     }
     return ['node'];
   },
-  useRelativePaths: true,
-  useAbsolutePaths: true,
+  useRelativePaths: false,
   declarationKeyword: 'import',
   namedExports: {
     'redux-saga/effects': [
@@ -40,13 +64,23 @@ module.exports = {
   // return importStatement.replace(/;$/, '');
   // },
   //
-  moduleNameFormatter({ moduleName, pathToCurrentFile }) {
-    newModuleName = moduleName;
+  moduleNameFormatter({ pathToCurrentFile, pathToImportedModule, moduleName }) {
+    let newModuleName = moduleName;
+
+    // Base beavior is to import with absolute pathes. But if the module is in the same directory or in a child folder, transform to a relative import
+    const baseDir = getBaseDir(pathToCurrentFile);
+    console.log('baseDir', baseDir);
+    if (inSameFolder(pathToImportedModule, baseDir)) {
+      newModuleName = removeAbsolutePath(newModuleName, baseDir);
+    }
+
+    // /* remove 'app/' or 'src/' when absolute importing */
+    newModuleName = removeAppPrefix(newModuleName);
+
     // if (/-test/.test(pathToCurrentFile)) {
     //   moduleName `mocks/${moduleName}`;
     // }
-    /* remove app when absolute importing */
-    newModuleName = newModuleName.replace(appPrefixPattern, '');
+
     return newModuleName;
   },
 };
